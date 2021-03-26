@@ -3,17 +3,18 @@ Four Layer Project structure
 
 This kind of project structure is thought for Business-Logic, especially when the application logic is 
 determined by a relational database. In this scenario, one of the layers is devoted to mirror the database entities
-in the application. Such layer is called "Entity". In general the model involves a class for each db-table. Such class represents a single record, i.e. a sigle row. For the vector representation of an array of them, there's another class, with the prefix "insertionManager", who loops on the rows and instantiates the homologous Entity at each loop-step.
+in the application. Such layer is called "Entity". In general the model involves a class for each db-table. Such class represents a single record, i.e. a sigle row. For the vector representation of an array of them, there's another class, with the prefix "insertionManager", which loops on the rows and instantiates the homologous Entity at each loop-step.
 The four layers are:
-Common
-Entity
-Process
-Interface
+
+	-	Common
+	-	Entity
+	-	Process
+	-	Interface
 
 The first one, Common, is a low-level utility layer; it contains services such as sockets for db-connections, logging in varous forms, cryptography, singleton-template, international calendars, etc. In general this layer is
-totally reusable across projects, since none of its code depends on the project logic; it rather depends on machine level characteristics, as db-connections, etc. The existence of this code enables the developer to start directly from the business logic, having the "Common" part for granted.
+totally reusable across projects, since none of its code depends on the business logic; it rather depends on machine level characteristics, as db-connections, etc. The existence of this code enables the developer to start directly from the business logic, having the "Common" part for granted.
 
-The second one is the Entity, which is a db-Entity. All of the table-mirror-classes and storedProcedure Proxies are developed here. For its nature, it can reach any necessary level of complexity. But the usage of its classes will be  simplified by another layer, where the complexity is boxed and presented via self explanatory static functions. Let's think that a particular Enity-usage requires the instantiation of nestede templates. The Entity can surely host such complexity, but the interface will not need to understand all of it.
+The second one is the Entity, which is a db-Entity. All of the table-mirror-classes and storedProcedure Proxies are developed here. For its nature, it can reach any necessary level of complexity. But the usage of its classes will be  simplified by another layer, where the complexity is boxed and presented via self explanatory static functions. Let's think that a particular Enity-usage requires the instantiation of nested templates. The Entity can surely host such complexity, but the interface-user will not need to understand all of it. The boxing is the purpose of next level, called Process.
 
 The support-layer is called Process and is as simple as static functions, with self-explanatory names like do_this_thing(). The interface programmer will be able to link a complicated action to a graphic-button or to a command-line instruction, via a call to Process::do_this_thing(). The body of the Process::do_this_thing() function
 will contain the complexity of the required actions, to access the Entity::classes and let them work.
