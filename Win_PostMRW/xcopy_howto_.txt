@@ -1,0 +1,3 @@
+ xcopy   C:\root\projects\GitHubSandBox\PostMRW\*  C:\root\projects\NO_Git_local_\PostMRW\  /EXCLUDE:xcP.txt    /S/W
+
+in questo caso la dir di destinazione non esisteva e il file EXCLUDE si trovava nella dir corrente, dalla quale viene fired il comando.
