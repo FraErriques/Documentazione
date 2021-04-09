@@ -114,19 +114,59 @@ void LoggerSinkFS_example( unsigned long inf, unsigned long sup)
 int main()
 {
     //RWtxtfile_demo_();
-    //LoggerSinkFS_example( +2, +10);
-    std::fstream testPrimeTokenStream;
-    std::string fullPath("./log/testPrimeTokenStream_.txt");
-    bool isOpened = Common::Stream::outstreamOpener( fullPath, testPrimeTokenStream);
-    if( isOpened)
+    //LoggerSinkFS_example( +2, +100);
+
+    fstream bidirStream( "./log/cpp_LogStream_Fri Apr 09 2021_.log", ios::in | ios::out);
+    if(bidirStream)
     {
-        Common::Stream::putline(
-            "ordinalExample_PrimeExample"
-            ,testPrimeTokenStream
-                                );
-    }// else skip.
-    //anyway close:
-    bool isAppropriatelyClosed = Common::Stream::outstreamCloser( testPrimeTokenStream);
+
+        int length = bidirStream.tellp();
+          // allocate memory for file content
+        bidirStream.seekp( length/2, bidirStream.end);
+        std::string buf( "some text, IN THE MIDDLE__________________");
+        bidirStream.write( buf.c_str(), buf.length() );
+        //
+        bidirStream.seekp( 0, bidirStream.end);
+        buf = "some text, at the end.";
+        bidirStream.write( buf.c_str(), buf.length() );
+        //
+        bidirStream.close();
+    }
+
+  std::ifstream inputStream ("./log/cpp_LogStream_Fri Apr 09 2021_.log", std::ifstream::binary);
+  if (inputStream)
+  {
+    // get length of file:
+    inputStream.seekg( 0, inputStream.end);
+    int length = inputStream.tellg();
+    inputStream.seekg (0, inputStream.beg);
+    // allocate memory:
+    char * buffer = new char [length];
+    // read data as a block:
+    inputStream.read (buffer,length);
+    inputStream.close();
+    //
+    // print content:
+    std::cout.write (buffer,length);
+    delete[] buffer;
+    //
+    //
+  }// test seek.
+
+
+//    std::fstream testPrimeTokenStream;
+//    std::string fullPath("./log/testPrimeTokenStream_.txt");
+//    bool isOpened = Common::Stream::outstreamOpener( fullPath, testPrimeTokenStream);
+//    if( isOpened)
+//    {
+//        testPrimeTokenStream.seekg( off64_t, ios_base);
+//        Common::Stream::putline(
+//            "ordinalExample_PrimeExample"
+//            ,testPrimeTokenStream
+//                                );
+//    }// else skip.
+//    //anyway close:
+//    bool isAppropriatelyClosed = Common::Stream::outstreamCloser( testPrimeTokenStream);
 
 
 
