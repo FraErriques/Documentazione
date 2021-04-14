@@ -1,11 +1,335 @@
-﻿# include "Primes.h"
+﻿#include <math.h>
+#include "Primes.h"
+#include "../../Common/Config_wrap/Config_wrap.h"
+#include "../../Common/StringBuilder/StringBuilder.h"
+#include "../../Common/LogFs_wrap/LogFs_wrap.h"
 
+
+    /*
+    this Construction path is devoted to log the results on the default IntegralFile; the one that starts from origin(i.e. +2).
+    Another Ctor will be provided, to log on a partial-File, which consists in a custom analysis, in [min, max]. For such
+    Ctor the params will be Ctor( min, max, desiredConfigSectionName)
+    */
+    PrimesFinder::Primes::Primes(
+        unsigned long upper_threshold
+    )
+    {
+    Common::ConfigurationService * PrimeConfig = Process::getNamedConfiguration("./PrimeConfig.txt");// name for Prime-configuration.
+    std::vector<std::string> * healtStatus = nullptr;
+    std::vector<std::string> * theKeys = nullptr;
+    std::string * theVal = nullptr;
+    const char * theDumpPath = nullptr;
+    if(nullptr==PrimeConfig)
+    {
+        this->isHealthlyConstructed = false;
+    }
+    else
+    {
+        std::vector<std::string> * healtStatus = PrimeConfig->showInstanceHealtCondition();
+        std::vector<std::string> * theKeys = PrimeConfig->getAllKeys();
+        std::string * theVal = PrimeConfig->getValue("PrimeIntegral_fromOrigin_");// compulsory name for the primary-File(i.e. +2, +Inf).
+        // names for secondary files will be deduced form the ConfigSectionName.
+        theDumpPath = theVal->c_str();
+    }
+    //----NB. create on first session, else append.
+    ofstream bidirStream( theDumpPath, std::ios::out | std::ios::app);//----NB. create on first session, else append.
+    bidirStream.close();
+    ifstream lastRecordReader( theDumpPath, std::ios::in );// read-only; to get the last record.
+    // get last record
+    lastRecordReader.close();
+    appendStream = new ofstream( theDumpPath,  std::ios::app);//----NB. now we're sure it exists, just append.
+    // do your job in instance::methoda, which will have this append_handle available, until Dtor closes it.
+    // in Dtor    appendStream.close();
+    }// Ctor
+
+
+    PrimesFinder::Primes::Primes(
+        unsigned long lower_threshold,
+        unsigned long upper_threshold,
+        string & desiredConfigSectionName // SectionName in "./PrimeConfig.txt" for the desiderd file
+    )
+    {
+    Common::ConfigurationService * PrimeConfig = Process::getNamedConfiguration("./PrimeConfig.txt");// name for Prime-configuration.
+    std::vector<std::string> * healtStatus = nullptr;
+    std::vector<std::string> * theKeys = nullptr;
+    std::string * theVal = nullptr;
+    const char * theDumpPath = nullptr;
+    if(nullptr==PrimeConfig)
+    {
+        this->isHealthlyConstructed = false;
+    }
+    else
+    {
+        std::vector<std::string> * healtStatus = PrimeConfig->showInstanceHealtCondition();
+        std::vector<std::string> * theKeys = PrimeConfig->getAllKeys();
+        std::string * theVal = PrimeConfig->getValue( desiredConfigSectionName.c_str() );// custom-file, named in desiredConfigSectionName
+        // names for secondary files are deduced form the ConfigSectionName.
+        theDumpPath = theVal->c_str();
+    }
+    //----NB. create on first session, else append.
+    ofstream bidirStream( theDumpPath, std::ios::out | std::ios::app);//----NB. create on first session, else append.
+    bidirStream.close();
+    ifstream lastRecordReader( theDumpPath, std::ios::in );// read-only; to get the last record.
+    // get last record
+    lastRecordReader.close();
+    appendStream = new ofstream( theDumpPath,  std::ios::app);//----NB. now we're sure it exists, just append.
+    // do your job in instance::methoda, which will have this append_handle available, until Dtor closes it.
+    // in Dtor    appendStream.close();
+    }// Ctor for non-standard dump-file(i.e. min, max).
+
+    /// Dtor()
+    PrimesFinder::Primes::~Primes()
+    {/// Dtor() : closes the append_handle.
+        if( nullptr != this->appendStream)
+        {
+            this->appendStream->close();
+            this->appendStream = nullptr;
+        }// else already closed.
+    }// Dtor(
+
+
+    void PrimesFinder::Primes::dumper()
+    {
+        if( nullptr != this->appendStream)
+        {
+            for( unsigned long ul=+99; ul<+199; ul++)
+            {
+                std::string * buf = Common::StrManipul::uLongToString(ul);
+                Common::StringBuilder strBuild(6000);
+                strBuild.append(buf->c_str());
+                strBuild.append("_");
+                strBuild.append(buf->c_str());
+                strBuild.append("\r");
+
+                const std::string & tmp = tokenEncoder(ul,ul).c_str();
+                int len = tmp.length();
+                appendStream->write( tmp.c_str(), len );
+                delete buf;
+                buf = nullptr;
+            }
+        }// else unable to write.
+    }// dumper(
+
+
+    /// caller DOES NOT have to delete.
+    const std::string & PrimesFinder::Primes::tokenEncoder( unsigned long ordinal, unsigned long prime ) const
+    {
+        std::string * ordinalStr = Common::StrManipul::uLongToString(ordinal);
+        std::string * primeStr = Common::StrManipul::uLongToString(prime);
+        int forecastedTokenSize = ordinalStr->length()+primeStr->length()+3;//3 stands for '_'+'\n'+'\r'
+        Common::StringBuilder * strBuild = new Common::StringBuilder( forecastedTokenSize);
+        strBuild->append(ordinalStr->c_str());
+        strBuild->append("_");
+        strBuild->append(primeStr->c_str());
+        strBuild->append("\r");// choose one btw '\r' or '\n'
+        delete ordinalStr;
+        delete primeStr;
+        return strBuild->str();
+    }
 
 
         unsigned PrimesFinder::Primes::getActualLength()
         {
             return this->actualLength;
         }
+
+   // it's a read-only utility; syntax: Prime[ordinal]==...
+   unsigned long   PrimesFinder::Primes::operator[] ( const unsigned long & requiredOrdinal ) const
+   {// TODO linear bisection on IntegralFile.
+       return 2UL;// TODO
+   }
+
+
+void PrimesFinder::Primes::LoggerSinkFS_example( unsigned long inf, unsigned long sup) const
+{
+    Common::LogWrappers::SectionOpen("TestConsole::LoggerSinkFS_example()", 0);
+    bool isStillPrime = true;
+    double realQuotient;
+    unsigned long intQuotient;
+    std::string * realQuotientStr = nullptr;
+    std::string * intQuotientStr = nullptr;
+    for( unsigned long cursor=inf; cursor<=sup; cursor++)
+    {
+        double soglia = sqrt( cursor);// division is a two-operand operator: the bisection of dividend is Sqrt[dividend]
+        // when dividend/Sqrt[dividend]==Sqrt[dividend] and when dividend/(Sqrt[dividend]+eps)<Sqrt[dividend]
+        // so the stepping into divisor>Sqrt[dividend] leads to divisors<Sqrt[dividend] which have already been explored.
+        unsigned long divisor=+2;
+        for( ; divisor<=soglia; divisor++)
+        {
+            realQuotient = (double)cursor/(double)divisor;
+            intQuotient = cursor/divisor;
+            realQuotientStr = Common::StrManipul::doubleToString(realQuotient);
+            intQuotientStr = Common::StrManipul::uLongToString(intQuotient);
+            if( realQuotient-intQuotient <+1.0E-80 )
+            {// divisione diofantea
+                Common::StringBuilder strBuild( 200);// on the stack
+                strBuild.append("divisione diofantea:");
+                strBuild.append( *Common::StrManipul::uLongToString( cursor) );
+                strBuild.append("/");
+                strBuild.append( *Common::StrManipul::uLongToString( divisor) );
+                std::string logBuf = strBuild.str();
+                const char* buf = logBuf.c_str();
+                Common::LogWrappers::SectionContent( buf, 0);
+                isStillPrime = false;// NB. #################
+                break;// NB. #################
+            }
+            else
+            {// continue searching for primality
+
+                Common::StringBuilder strBuild( 200);// on the stack
+                strBuild.append("searching-primality:");
+                strBuild.append( *Common::StrManipul::uLongToString( cursor) );
+                strBuild.append("/");
+                strBuild.append( *Common::StrManipul::uLongToString( divisor) );
+                strBuild.append("=");
+                strBuild.append( *realQuotientStr );
+                std::string logBuf = strBuild.str();
+                const char* buf = logBuf.c_str();
+                Common::LogWrappers::SectionContent( buf, 0);
+            }// else : // continue searching for primality
+            Common::StringBuilder strBuild( 200);// on the stack
+            strBuild.append("fine interno-divisori:");
+            strBuild.append( *Common::StrManipul::uLongToString( cursor) );
+            strBuild.append("/");
+            strBuild.append( *Common::StrManipul::uLongToString( divisor) );
+            std::string logBuf = strBuild.str();
+            const char* buf = logBuf.c_str();
+            Common::LogWrappers::SectionContent( buf, 0);
+            delete realQuotientStr;// a new step allocates new memory, for each of those pointers.
+            delete intQuotientStr;// a new step allocates new memory, for each of those pointers.
+        }// the internal for : the one from [+2, cursor]
+        Common::StringBuilder strBuild( 200);// on the stack
+        strBuild.append("fine esterno-dividendi:");
+        strBuild.append( *Common::StrManipul::uLongToString( cursor) );
+        strBuild.append("/");
+        strBuild.append( *Common::StrManipul::uLongToString( divisor) );
+        if(isStillPrime)
+        {
+            strBuild.append("  ## Primo individuato ## : ");
+            strBuild.append( *Common::StrManipul::uLongToString( cursor) );
+            strBuild.append("  ###");
+        }// else ripristino.
+        else
+        {// ripristino della primalita', dopo un composto(i.e. non primo).
+            isStillPrime = true;
+        }// ripristino della primalita', dopo un composto(i.e. non primo).
+        std::string logBuf = strBuild.str();
+        const char* buf = logBuf.c_str();
+        Common::LogWrappers::SectionContent( buf, 0);
+    }// external for : the one where cursor cicles from inf to sup, on dividends.
+    // ready.
+    Common::LogWrappers::SectionClose();
+}// LoggerSinkFS_example()
+
+
+
+// state of the art.
+void PrimesFinder::Primes::IntegralFileFromStartFSproducer( unsigned long sup) const
+{
+    unsigned long ordinal = 0UL;
+    bool isStillPrime = true;
+    double realQuotient;
+    unsigned long intQuotient;
+    unsigned long cursor=+2UL;
+    //
+    for( ; cursor<=sup; cursor++)//NB. cursor==dividend.
+    {
+        Common::StringBuilder * strBuild = nullptr;
+        double soglia = sqrt( cursor);// division is a two-operand operator: the bisection of dividend is Sqrt[dividend]
+        // when dividend/Sqrt[dividend]==Sqrt[dividend] and when dividend/(Sqrt[dividend]+eps)<Sqrt[dividend]
+        // so the stepping into divisor>Sqrt[dividend] leads to divisors<Sqrt[dividend] which have already been explored.
+        unsigned long divisor=+2;
+        for( ; divisor<=soglia; divisor++)
+        {
+            realQuotient = (double)cursor/(double)divisor;
+            intQuotient = cursor/divisor;
+            if( realQuotient-intQuotient <+1.0E-80 )
+            {// divisione diofantea
+                isStillPrime = false;// NB. #################
+                break;// NB. #################
+            }// else  continue searching for primality.
+        }// the internal for : the one from [+2, cursor]
+        // if after all idoneous divisors..
+        if( isStillPrime)
+        {
+            ++ordinal;//another one foud, starting from zero, so that Prime[1]=2
+            std::string * ordinalStr = Common::StrManipul::uLongToString(ordinal);
+            std::string * primeStr = Common::StrManipul::uLongToString( cursor );
+            int forecastedTokenSize = ordinalStr->length()+primeStr->length()+3;//3 stands for '_'+'\n'+'\r'
+            Common::StringBuilder * strBuild = new Common::StringBuilder( forecastedTokenSize);
+            strBuild->append(ordinalStr->c_str());
+            strBuild->append("_");
+            strBuild->append(primeStr->c_str());
+            strBuild->append("\r");// choose one btw '\r' or '\n'
+            delete ordinalStr;
+            delete primeStr;
+            // instead of returning it, dump it on the file.
+            appendStream->write( strBuild->str().c_str(), strBuild->str().length() );
+            delete strBuild;// clean up the token-buffer.
+            strBuild = nullptr;
+        }// else ripristino del flag-primalita' per il candidato divisore successivo.
+        else
+        {// ripristino della primalita', dopo un composto(i.e. non primo).
+            isStillPrime = true;
+        }// ripristino della primalita', dopo un composto(i.e. non primo).
+    }// external for : the one where cursor cicles from inf to sup, on dividends.
+    // ready.
+}// IntegralFileFromStartFSproducer
+
+
+
+
+
+void PrimesFinder::Primes::IntegralFileFromAnywhereFSproducer( unsigned long inf, unsigned long sup) const
+{
+    Common::LogWrappers::SectionOpen("TestConsole::LoggerSinkFS_example()", 0);
+    bool isStillPrime = true;
+    double realQuotient;
+    unsigned long intQuotient;
+    std::string * realQuotientStr = nullptr;
+    std::string * intQuotientStr = nullptr;
+    for( unsigned long cursor=inf; cursor<=sup; cursor++)//NB. cursor==dividend.
+    {
+        double soglia = sqrt( cursor);// division is a two-operand operator: the bisection of dividend is Sqrt[dividend]
+        // when dividend/Sqrt[dividend]==Sqrt[dividend] and when dividend/(Sqrt[dividend]+eps)<Sqrt[dividend]
+        // so the stepping into divisor>Sqrt[dividend] leads to divisors<Sqrt[dividend] which have already been explored.
+        unsigned long divisor=+2;
+        for( ; divisor<=soglia; divisor++)
+        {
+            realQuotient = (double)cursor/(double)divisor;
+            intQuotient = cursor/divisor;
+            realQuotientStr = Common::StrManipul::doubleToString(realQuotient);
+            intQuotientStr = Common::StrManipul::uLongToString(intQuotient);
+            if( realQuotient-intQuotient <+1.0E-80 )
+            {// divisione diofantea
+                isStillPrime = false;// NB. #################
+                break;// NB. #################
+            }
+            else
+            {// continue searching for primality
+            }// else : // continue searching for primality
+            delete realQuotientStr;// a new step allocates new memory, for each of those pointers.
+            delete intQuotientStr;// a new step allocates new memory, for each of those pointers.
+        }// the internal for : the one from [+2, cursor]
+        Common::StringBuilder strBuild( 200);// on the stack
+        if(isStillPrime)
+        {
+            strBuild.append("  ## Primo individuato ## : ");
+            strBuild.append( *Common::StrManipul::uLongToString( cursor) );
+            strBuild.append("  ###");
+        }// else ripristino.
+        else
+        {// ripristino della primalita', dopo un composto(i.e. non primo).
+            isStillPrime = true;
+        }// ripristino della primalita', dopo un composto(i.e. non primo).
+        std::string logBuf = strBuild.str();
+        const char* buf = logBuf.c_str();
+        Common::LogWrappers::SectionContent( buf, 0);
+    }// external for : the one where cursor cicles from inf to sup, on dividends.
+    // ready.
+    Common::LogWrappers::SectionClose();
+}// IntegralFileFromAnywhereFSproducer
+
 
 /*
         public unsigned getActualOrdinal()
