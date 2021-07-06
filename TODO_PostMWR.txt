@@ -1,2 +1,3 @@
 fare func che produce dall'ordinale {1} con token {ordinal_prime\n}
 quindi fare esercizi di seekg() sul file prodotto.
+documentare le capacità di convergenza dei due metodi di bisezione.
