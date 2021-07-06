@@ -33,6 +33,7 @@ In projects of Numerical Analisys there's in general no db layer. There are many
    -	    Interface
 
 in this scenario the layers {Common, Process, Interface} are the same as in the case of a business logic. The db-Entity instead is substituted by
-a set of algorithms, specific to the pursued purposes.
+a set of algorithms, specific to the pursued purposes. There can though be an Entity layer, in case some of the numerical data are stored there; an example
+may be the dump of RungeKutta, or similar scatters.
 
 ...to be continued
