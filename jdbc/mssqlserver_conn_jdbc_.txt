@@ -1,3 +1,27 @@
+
+package testconsole;
+
+import Common.EncryptStore.*;
+import Common.DBservice.*;
+import Entity.*;
+import ProcessOperatingInterface.*;
+import Common.FileSys.TokenReader;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.lang.System;
+import Common.ConfigurationService.*;
+import Common.MonteCarlo.*;
+import com.mysql.jdbc.DatabaseMetaData;
+import java.util.Set;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+
+
+
     public static void msSqlconn()
     {
 		// for named-instances the syntax seems to be "jdbc:sqlserver://vvv;instanceName=iii"
