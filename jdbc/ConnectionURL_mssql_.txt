@@ -1,0 +1,412 @@
+Skip to main content
+<https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#main>
+
+We use cookies to improve your experience on our websites and for
+advertising. Privacy Statement
+<https://go.microsoft.com/fwlink/?LinkId=521839>
+Accept all Manage cookies
+
+This browser is no longer supported.
+
+Upgrade to Microsoft Edge to take advantage of the latest features,
+security updates, and technical support.
+
+Download Microsoft Edge
+<https://go.microsoft.com/fwlink/p/?LinkID=2092881> More info
+<https://docs.microsoft.com/en-US/lifecycle/faq/internet-explorer-microsoft-edge>
+<https://www.microsoft.com/>
+Documentation Global navigation
+
+  * Docs <https://docs.microsoft.com/en-us/>
+  * Documentation <https://docs.microsoft.com/en-us/documentation>
+  * Learn <https://docs.microsoft.com/en-us/learn/>
+  * Q&A <https://docs.microsoft.com/en-us/answers/products/>
+  * Code Samples <https://docs.microsoft.com/en-us/samples/browse/>
+  * Shows <https://docs.microsoft.com/en-us/shows/>
+  * Events <https://docs.microsoft.com/en-us/events/>
+  *
+    More
+
+      o Documentation <https://docs.microsoft.com/en-us/documentation>
+      o Learn <https://docs.microsoft.com/en-us/learn/>
+      o Q&A <https://docs.microsoft.com/en-us/answers/products/>
+      o Code Samples <https://docs.microsoft.com/en-us/samples/browse/>
+      o Shows <https://docs.microsoft.com/en-us/shows/>
+      o Events <https://docs.microsoft.com/en-us/events/>
+
+Search
+
+Sign in
+<https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#>
+
+
+  * Profile <https://docs.microsoft.com/en-us/users/me/activity/>
+  * Settings <https://docs.microsoft.com/en-us/users/me/settings/>
+
+Sign out
+<https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#>
+
+  * Docs <https://docs.microsoft.com/en-us/>
+  * Previous Versions <https://docs.microsoft.com/en-us/previous-versions/>
+  * SQL <https://docs.microsoft.com/en-us/previous-versions/sql>
+  * Legacy Content
+  * Drivers - Previous Versions
+  * SQL Server JDBC Driver 2.0 Documentation
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378749(v=sql.100)>
+  * Connecting to SQL Server with the JDBC Driver
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378672(v=sql.100)>
+  * Building the Connection URL
+
+Contents Exit focus mode
+
+  * Read in English
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)>
+  * Save
+  *
+    Share
+
+      o Twitter
+        <https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fsql%2Flegacy%2Fms378428(v%3Dsql.100)%3FWT.mc_id%3Dtwitter&text=Building%20the%20Connection%20URL%20%7C%20Microsoft%20Docs&tw_p=tweetbutton&url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fsql%2Flegacy%2Fms378428(v%3Dsql.100)%3FWT.mc_id%3Dtwitter>
+      o LinkedIn
+        <https://www.linkedin.com/cws/share?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fsql%2Flegacy%2Fms378428(v%3Dsql.100)%3FWT.mc_id%3Dlinkedin>
+      o Facebook
+        <https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fsql%2Flegacy%2Fms378428(v%3Dsql.100)%3FWT.mc_id%3Dfacebook>
+      o Email
+        <mailto:?subject=%5BShared%20Article%5D%20Building%20the%20Connection%20URL%20%7C%20Microsoft%20Docs&body=Building%20the%20Connection%20URL%20%7C%20Microsoft%20Docs%0A%0Ahttps%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fsql%2Flegacy%2Fms378428(v%3Dsql.100)%3FWT.mc_id%3Demail>
+
+Table of contents
+Dismiss alert
+
+We're no longer updating this content regularly. Check the Microsoft
+Product Lifecycle <https://docs.microsoft.com/en-us/lifecycle/products>
+for information about how this product, service, technology, or API is
+supported.
+
+Recommended Version <https://docs.microsoft.com/sql>
+
+Search
+
+  * Drivers - Previous Versions
+      o SQL Server 2005 JDBC Driver Documentation
+      o SQL Server JDBC Driver 2.0 Documentation
+          + Overview of the JDBC Driver
+          + Connecting to SQL Server with the JDBC Driver
+              # Connecting to SQL Server with the JDBC Driver
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378672(v=sql.100)>
+              # Building the Connection URL
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)>
+              # Setting the Connection Properties
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378988(v=sql.100)>
+              # Setting the Data Source Properties
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms379052(v=sql.100)>
+              # Working with a Connection
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378956(v=sql.100)>
+              # Using Connection Pooling
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378484(v=sql.100)>
+              # Using Database Mirroring (JDBC)
+                <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/aa342332(v=sql.100)>
+          + Understanding the JDBC Driver Data Types
+          + Using Statements with the JDBC Driver
+          + Managing Result Sets with the JDBC Driver
+          + Performing Transactions with the JDBC Driver
+          + Handling Metadata with the JDBC Driver
+          + Securing JDBC Driver Applications
+          + Improving Performance and Reliability with the JDBC Driver
+          + Diagnosing Problems with the JDBC Driver
+          + International Features of the JDBC Driver
+            <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378857(v=sql.100)>
+          + Sample JDBC Driver Applications
+          + JDBC Driver API Reference
+          + JDBC Driver Copyright and Legal Information
+            <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378700(v=sql.100)>
+      o Microsoft ODBC Driver for SQL Server
+  * Columns
+  * Periodicals
+  * SQL Server 7.0
+
+
+  Building the Connection URL
+
+  * Article
+  *
+    03/16/2009
+
+  * 4 minutes to read
+
+
+      In this article
+
+ 1. Connection Examples
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connection-examples>
+ 2. Named and Multiple SQL Server Instances
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#named-and-multiple-sql-server-instances>
+ 3. Escaping Values in the Connection URL
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#escaping-values-in-the-connection-url>
+ 4. Connecting with Integrated Authentication
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connecting-with-integrated-authentication>
+ 5. Connecting with IPv6 Addresses
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connecting-with-ipv6-addresses>
+ 6. See Also
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#see-also>
+
+The general form of the connection URL is
+
+|jdbc:sqlserver://[serverName[\instanceName][:portNumber]][;property=value[;property=value]]|
+
+where:
+
+  *
+
+    *jdbc:sqlserver://* (Required) is known as the sub-protocol and is
+    constant.
+
+  *
+
+    *serverName* (Optional) is the address of the server to connect to.
+    This could be a DNS or IP address, or it could be localhost or
+    127.0.0.1 for the local computer. If not specified in the connection
+    URL, the server name must be specified in the properties collection.
+
+  *
+
+    *instanceName* (Optional) is the instance to connect to on
+    serverName. If not specified, a connection to the default instance
+    is made.
+
+  *
+
+    *portNumber* (Optional) is the port to connect to on serverName. The
+    default is 1433. If you are using the default, you do not have to
+    specify the port, nor its preceding ':', in the URL.
+
+    Note
+
+    For optimal connection performance, you should set the portNumber
+    when you connect to a named instance. This will avoid a round trip
+    to the server to determine the port number. If both a portNumber and
+    instanceName are used, the portNumber will take precedence and the
+    instanceName will be ignored.
+
+  *
+
+    *property* (Optional) is one or more option connection properties.
+    For more information, see Setting the Connection Properties
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378988(v=sql.100)>. Any property from the list can be specified. Properties can only be delimited by using the semicolon (';'), and they cannot be duplicated.
+
+Warning
+
+For security purposes, you should avoid building the connection URLs
+based on user input. You should only specify the server name and driver
+in the URL. For user name and password values, use the connection
+property collections. For more information about security in your JDBC
+applications, see Securing JDBC Driver Applications
+<https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378751(v=sql.100)>.
+
+
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connection-examples>Connection Examples
+
+Connect to the default database on the local computer by using a user
+name and password:
+
+|jdbc:sqlserver://localhost;user=MyUserName;password=*****;|
+
+Note
+
+Although the previous example uses a username and password in the
+connection string, if you are running your application on a Windows
+operating system, you should use integrated security as it is more
+secure. For more information, see the Connecting with Integrated
+Authentication section later in this topic.
+
+Connect to the default database on the local computer by using
+integrated authentication:
+
+|jdbc:sqlserver://localhost;integratedSecurity=true;|
+
+Connect to a named database on a remote server:
+
+|jdbc:sqlserver://localhost;databaseName=AdventureWorks;integratedSecurity=true;|
+
+Connect on the default port to the remote server:
+
+|jdbc:sqlserver://localhost:1433;databaseName=AdventureWorks;integratedSecurity=true;|
+
+Connect by specifying a customized application name:
+
+|jdbc:sqlserver://localhost;databaseName=AdventureWorks;integratedSecurity=true;applicationName=MyApp;|
+
+
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#named-and-multiple-sql-server-instances>Named and Multiple SQL Server Instances
+
+SQL Server allows for the installation of multiple database instances
+per server. Each instance is identified by a specific name. To connect
+to a named instance of SQL Server, you can either specify the port
+number of the named instance (preferred), or you can specify the
+instance name as a JDBC URL property or a *datasource* property. If no
+instance name or port number property is specified, a connection to the
+default instance is created. See the following examples:
+
+To use a port number, do the following:
+
+|jdbc:sqlserver://localhost:1433;integratedSecurity=true;<more
+properties as required>;|
+
+To use a JDBC URL property, do the following:
+
+|jdbc:sqlserver://localhost;instanceName=instance1;integratedSecurity=true;<more properties as required>;|
+
+
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#escaping-values-in-the-connection-url>Escaping Values in the Connection URL
+
+You might have to escape certain parts of the connection URL values
+because of the inclusion of special characters such as spaces,
+semicolons, and quotation marks. The JDBC driver supports escaping these
+characters if they are enclosed in braces. For example, {;} escapes a
+semicolon.
+
+Escaped values can contain special characters (especially '=', ';',
+'[]', and space) but cannot contain braces. Values that must be escaped
+and contain braces should be added to a properties collection.
+
+Note
+
+White space inside the braces is literal and not trimmed.
+
+
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connecting-with-integrated-authentication>Connecting with Integrated Authentication
+
+The JDBC driver supports the use of Type 2 integrated authentication on
+Windows operating systems through the integratedSecurity connection
+string property. To use integrated authentication, copy the
+sqljdbc_auth.dll file to a directory on the Windows system path on the
+computer where the JDBC driver is installed.
+
+The sqljdbc_auth.dll files are installed in the following location:
+
+</installation directory/>\sqljdbc_</version/>\</language/>\auth\
+
+Note
+
+If you are running a 32-bit Java Virtual Machine (JVM), use the
+sqljdbc_auth.dll file in the x86 folder, even if the operating system is
+the x64 version. If you are running a 64-bit JVM on a x64 processor, use
+the sqljdbc_auth.dll file in the x64 folder. If you are running a 64-bit
+JVM on a Itanium processor, use the sqljdbc_auth.dll file in the IA64
+folder.
+
+Alternatively you can set the java.libary.path system property to
+specify the directory of the sqljdbc_auth.dll. For example, if the JDBC
+driver is installed in the default directory, you can specify the
+location of the DLL by using the following virtual machine (VM) argument
+when the Java application is started:
+
+|-Djava.library.path=C:\Microsoft SQL Server JDBC
+Driver\sqljdbc_<version>\enu\auth\x86|
+
+Note
+
+The JDBC driver does not support the integrated authentication when the
+driver runs on non-Windows operating systems. The driver also does not
+provide any functionality to supply Windows authentication credentials,
+such as user name and password, when connecting to SQL Server from
+non-Windows operating systems. In such cases, the applications must use
+SQL Server authentication instead.
+
+
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connecting-with-ipv6-addresses>Connecting with IPv6 Addresses
+
+The JDBC driver supports the use of IPv6 addresses with the connection
+properties collection, and with the serverName connection string
+property. The initial serverName value, such as
+jdbc:/sqlserver/:///serverName/, is not supported for IPv6 addresses in
+connection strings. Using a name for /serverName/ instead of a raw IPv6
+address will work in every case in the connection. The following
+examples provide more information.
+
+*To use the serverName property*
+
+|jdbc:sqlserver://;serverName=3ffe:8311:eeee:f70f:0:5eae:10.203.31.9\\instance1;integratedSecurity=true;|
+
+*To use the properties collection*
+
+|Properties pro = new Properties();|
+
+|pro.setProperty("serverName",
+"serverName=3ffe:8311:eeee:f70f:0:5eae:10.203.31.9\\instance1");|
+
+|Connection con =
+DriverManager.getConnection("jdbc:sqlserver://;integratedSecurity=true;", pro);|
+
+
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#see-also>See Also
+
+
+        <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#other-resources>Other Resources
+
+Connecting to SQL Server with the JDBC Driver
+<https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378672(v=sql.100)>
+
+English (United States)
+<https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)>
+Theme
+
+  *
+    Light
+
+  *
+    Dark
+
+  *
+    High contrast
+
+  * Manage cookies
+  * Previous Version Docs
+    <https://docs.microsoft.com/en-us/previous-versions/>
+  * Blog <https://docs.microsoft.com/en-us/teamblog>
+  * Contribute <https://docs.microsoft.com/en-us/contribute>
+  * Privacy & Cookies <https://go.microsoft.com/fwlink/?LinkId=521839>
+  * Terms of Use <https://docs.microsoft.com/en-us/legal/termsofuse>
+  * Trademarks
+    <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx>
+  * © Microsoft 2021
+
+
+      In this article
+
+ 1. Connection Examples
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connection-examples>
+ 2. Named and Multiple SQL Server Instances
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#named-and-multiple-sql-server-instances>
+ 3. Escaping Values in the Connection URL
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#escaping-values-in-the-connection-url>
+ 4. Connecting with Integrated Authentication
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connecting-with-integrated-authentication>
+ 5. Connecting with IPv6 Addresses
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#connecting-with-ipv6-addresses>
+ 6. See Also
+    <https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)#see-also>
+
+English (United States)
+<https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/previous-versions/sql/legacy/ms378428(v=sql.100)>
+Theme
+
+  *
+    Light
+
+  *
+    Dark
+
+  *
+    High contrast
+
+  * Manage cookies
+  * Previous Version Docs
+    <https://docs.microsoft.com/en-us/previous-versions/>
+  * Blog <https://docs.microsoft.com/en-us/teamblog>
+  * Contribute <https://docs.microsoft.com/en-us/contribute>
+  * Privacy & Cookies <https://go.microsoft.com/fwlink/?LinkId=521839>
+  * Terms of Use <https://docs.microsoft.com/en-us/legal/termsofuse>
+  * Trademarks
+    <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx>
+  * © Microsoft 2021
+
