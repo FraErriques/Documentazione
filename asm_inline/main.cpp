@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int i;
+    i = 16;
+    asm(
+    "movl $1, %eax\n\t"
+    "movl $2, %ebx\n\t"
+    "addl %eax, %ebx\n\t"
+    )       ;
+    cout << "Hello world!" << endl;
+    return 0;
+}
