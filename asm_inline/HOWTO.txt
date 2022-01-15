@@ -1,0 +1,3 @@
+If you are just interested in assembly you can use gcc -S 
+and it'll generate an assembly file on the lines of *.s, *.asm
+
