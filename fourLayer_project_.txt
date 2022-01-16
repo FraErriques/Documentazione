@@ -21,9 +21,10 @@ will contain the complexity of the required actions, to access the Entity::class
 
 Last layer is the user-interface, which is just any kind of interface suitable for the purpose. Its typical purpose is to translate user actions, such as buttons or command lines, to calls to Process::do_this_thing().
 
-In projects of Numerical Analisys there's in general no db layer. There are many specific algorithms, like Runge-kutta, Simpson, etc. In that scenario the project stack can become something like this:
+In projects of Numerical Analisys there's also in general a db layer. There are many specific algorithms, like Runge-kutta, Simpson, etc. In that scenario the project stack can become something like this:
 
    -	    Common
+   -        Entity
    -	    RealAnalysis
    -	    ComplexAnalisys
    -	    DifferentialEquations
