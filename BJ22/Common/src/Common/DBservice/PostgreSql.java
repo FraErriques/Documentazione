@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Common.Dbservice;
+package Common.DBservice;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +17,7 @@ public class PostgreSql
     // Data
     Connection connection=null;    
     //String connectionUrl_Eulero = "jdbc:postgresql://Eulero:5432/numerics", "postgres", "Riemann0"
-    //("jdbc:postgresql://ITBZOW1422:5432/mendola", "postgres", "Riemann0");
+    //("jdbc:postgresql://ITBZOW1422:5432/Numerics", "postgres", "Riemann0");
     
     
     // Ctor
@@ -26,7 +26,7 @@ public class PostgreSql
         try
         {
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://Eulero:5432/numerics", "postgres", "Riemann0");
+            connection = DriverManager.getConnection("jdbc:postgresql://ITBZOW1422:5432/Numerics", "postgres", "Riemann0");
         }
         catch( Exception e)
         {

@@ -1,7 +1,7 @@
 
 package testconsole;
 
-import Common.Dbservice.PostgreSql;
+import Common.DBservice.PostgreSql;
 
 //
 import java.util.Enumeration;
@@ -36,7 +36,7 @@ public class TestConsole
 //        msSql.insertionLoop_template();
 //        msSql.closeConnection();
         //
-        Common.Dbservice.PostgreSql postgSql = new Common.Dbservice.PostgreSql();
+        Common.DBservice.PostgreSql postgSql = new Common.DBservice.PostgreSql();
         postgSql.insertionLoop_template();
         postgSql.closeConnection();        
         //
