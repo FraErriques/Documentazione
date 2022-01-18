@@ -1,0 +1,8 @@
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\x64\Debug\PrimesFinder.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\x64\Debug\PrimesFinder.pdb
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\x64\Debug\Common.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\x64\Debug\Entity.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\x64\Debug\Common.pdb
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\x64\Debug\Entity.pdb
+C:\root\projects\Calculus_2015_\PrimesFinder\obj\x64\Debug\PrimesFinder.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\obj\x64\Debug\PrimesFinder.pdb

@@ -1,0 +1,9 @@
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\Debug\PrimesFinder.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\Debug\PrimesFinder.pdb
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\Debug\Common.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\Debug\Entity.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\Debug\Common.pdb
+C:\root\projects\Calculus_2015_\PrimesFinder\bin\Debug\Entity.pdb
+C:\root\projects\Calculus_2015_\PrimesFinder\obj\Debug\PrimesFinder.csprojResolveAssemblyReference.cache
+C:\root\projects\Calculus_2015_\PrimesFinder\obj\Debug\PrimesFinder.dll
+C:\root\projects\Calculus_2015_\PrimesFinder\obj\Debug\PrimesFinder.pdb
