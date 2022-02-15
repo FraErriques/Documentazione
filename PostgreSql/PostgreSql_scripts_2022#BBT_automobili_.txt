@@ -34,6 +34,277 @@ TABLESPACE pg_default;
 ALTER TABLE public.ge135zj
     OWNER to postgres;
 -----------------------------------------------------------------------##############
+-- PROCEDURE: public.usp_ge135zj_insert(date, real, character varying, real, real, real, character varying, real, character varying, real, character varying, date, date, real, character varying, real, character varying, character varying, character varying, real, real)
+
+-- DROP PROCEDURE public.usp_ge135zj_insert(date, real, character varying, real, real, real, character varying, real, character varying, real, character varying, date, date, real, character varying, real, character varying, character varying, character varying, real, real);
+
+CREATE OR REPLACE PROCEDURE public.usp_ge135zj_insert(
+	IN par_data date,
+	IN par_km real,
+	IN par_rifornimento_luogo character varying,
+	IN par_litri real,
+	IN par_gasolio_euro_litro real,
+	IN par_gasolio_euro real,
+	IN par_accessori_descr character varying,
+	IN par_accessori_euro real,
+	IN par_lavaggio_descr character varying,
+	IN par_lavaggio_euro real,
+	IN par_manutenzione_descr character varying,
+	IN par_data_ingresso_officina date,
+	IN par_data_uscita_officina date,
+	IN par_manutenzione_euro real,
+	IN par_altro_descriz character varying,
+	IN par_altro_euro real,
+	IN par_sinistro_descriz character varying,
+	IN par_conducente character varying,
+	IN par_descrizione_riga character varying,
+	IN par_costo_totale_riga real,
+	IN par_franchigia_assicurazione real)
+LANGUAGE 'plpgsql'
+AS $BODY$
+begin
+insert into ge135zj(
+	-- ge135zj_id IDENTITY
+	data,
+	km,
+	rifornimento_luogo,
+	litri,
+	gasolio_euro_litro,
+	gasolio_euro,
+	accessori_descr,
+	accessori_euro,
+	lavaggio_descr,
+	lavaggio_euro,
+	manutenzione_descr,
+	data_ingresso_officina,
+	data_uscita_officina,
+	manutenzione_euro,	
+	altro_descriz,
+	altro_euro,
+	sinistro_descriz,
+	conducente,
+	descrizione_riga,
+	costo_totale_riga,
+	franchigia_assicurazione
+									) values(
+-- ge135zj_id IDENTITY									
+par_data,
+par_km,
+par_rifornimento_luogo,
+par_litri,
+par_gasolio_euro_litro,
+par_gasolio_euro,
+par_accessori_descr,
+par_accessori_euro,
+par_lavaggio_descr,
+par_lavaggio_euro,
+par_manutenzione_descr,
+par_data_ingresso_officina,
+par_data_uscita_officina,
+par_manutenzione_euro,
+par_altro_descriz,
+par_altro_euro,
+par_sinistro_descriz,
+par_conducente,
+par_descrizione_riga,
+par_costo_totale_riga,
+par_franchigia_assicurazione
+ );
+commit;
+end;
+$BODY$;
+----------------------------------------------------------------#####################################
+
+
+
+
+
+CREATE OR REPLACE PROCEDURE public.usp_zetadump_insert(
+	IN par_re_s double precision,
+	IN par_im_s double precision,
+	IN par_re_z double precision,
+	IN par_im_z double precision,
+	IN par_re_image double precision,
+	IN par_im_image double precision     )
+LANGUAGE 'plpgsql'
+AS $BODY$
+begin
+insert into zetadump(
+    re_s,
+    im_s,
+    re_z,
+    im_z,
+    re_image,
+    im_image
+  ) values(
+par_re_s,
+par_im_s,
+par_re_z,
+par_im_z,
+par_re_image,
+par_im_image   );
+commit;
+end;
+$BODY$;
+-----------------------------------------------------------------------##############
+
+CREATE OR REPLACE PROCEDURE public.usp_ge135zj_insert(
+	-- ge135zj_id IDENTITY
+	IN par_data 					date,
+	IN par_km 						real,
+	IN par_rifornimento_luogo 		character varying(255),
+	IN par_litri 					real,
+	IN par_gasolio_euro_litro 		real,
+	IN par_gasolio_euro 			real,
+	IN par_accessori_descr 			character varying(255),
+	IN par_accessori_euro 			real,
+	IN par_lavaggio_descr 			character varying(255),
+	IN par_lavaggio_euro 			real,
+	IN par_manutenzione_descr 		character varying(255),
+	IN par_data_ingresso_officina 	date,
+	IN par_data_uscita_officina   	date,
+	IN par_manutenzione_euro 		real,
+	IN par_altro_descriz 			character varying(255),
+	IN par_altro_euro 				real,
+	IN par_sinistro_descriz 		character varying(255),
+	IN par_conducente 				character varying(255),
+	IN par_descrizione_riga 		character varying(255),
+	IN par_costo_totale_riga 		real,
+	IN par_franchigia_assicurazione real
+)
+LANGUAGE 'plpgsql'
+AS $BODY$
+begin
+insert into ge135zj(
+	-- ge135zj_id IDENTITY
+	data,
+	km,
+	rifornimento_luogo,
+	litri,
+	gasolio_euro_litro,
+	gasolio_euro,
+	accessori_descr,
+	accessori_euro,
+	lavaggio_descr,
+	lavaggio_euro,
+	manutenzione_descr,
+	data_ingresso_officina,
+	data_uscita_officina,
+	manutenzione_euro,	
+	altro_descriz,
+	altro_euro,
+	sinistro_descriz,
+	conducente,
+	descrizione_riga,
+	costo_totale_riga,
+	franchigia_assicurazione
+									) values(
+-- ge135zj_id IDENTITY									
+par_data,
+par_km,
+par_rifornimento_luogo,
+par_litri,
+par_gasolio_euro_litro,
+par_gasolio_euro,
+par_accessori_descr,
+par_accessori_euro,
+par_lavaggio_descr,
+par_lavaggio_euro,
+par_manutenzione_descr,
+par_data_ingresso_officina,
+par_data_uscita_officina,
+par_manutenzione_euro,
+par_altro_descriz,
+par_altro_euro,
+par_sinistro_descriz,
+par_conducente,
+par_descrizione_riga,
+par_costo_totale_riga,
+par_franchigia_assicurazione
+ );
+commit;
+end;
+$BODY$;
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+par_re_s,
+par_im_s,
+par_re_z,
+par_im_z,
+
+
+
+
+
+
+
+
+    re_s,
+    im_s,
+    re_z,
+    im_z,
+    re_image,
+    im_image
+  ) values(
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	)
+LANGUAGE 'plpgsql'
+AS $BODY$
+begin
+insert into zetadump(
+    re_s,
+    im_s,
+    re_z,
+    im_z,
+    re_image,
+    im_image
+					) values(
+par_
+par_
+par_
+par_
+par_
+par_
+);
+commit;
+end;
+$BODY$;
+----------------------------------------------------------####################
 
 
 CREATE TABLE IF NOT EXISTS public.targa#placeholder#_
