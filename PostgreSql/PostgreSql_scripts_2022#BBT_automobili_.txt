@@ -115,8 +115,49 @@ end;
 $BODY$;
 ----------------------------------------------------------------#####################################
 
+Numerics=# CALL public.usp_ge135zj_insert( -- ge135zj_id IDENTITY
+Numerics(#  '2001-01-02',
+Numerics(#  123.456,
+Numerics(#  'par_rifornimento_luogo',
+Numerics(#  123.456,
+Numerics(#  123.456,
+Numerics(#  123.456,
+Numerics(#  'par_accessori_descr',
+Numerics(#  123.456,
+Numerics(#  'par_lavaggio_descr',
+Numerics(#  123.456,
+Numerics(#  'par_manutenzione_descr',
+Numerics(#  '2001-01-02',
+Numerics(#  '2001-01-02',
+Numerics(#  123.456,
+Numerics(#  'par_altro_descriz',
+Numerics(#  123.456,
+Numerics(#  'par_sinistro_descriz',
+Numerics(#  'par_conducente',
+Numerics(#  'par_descrizione_riga',
+Numerics(#  123.456,
+Numerics(#  123.456
+Numerics(#   );
+CALL
+------------------------########
+
+Numerics=# CREATE TABLE IF NOT EXISTS public.justAdate
+Numerics-# (
+Numerics(#     data date
+Numerics(# )
+Numerics-# TABLESPACE pg_default;
+CREATE TABLE
+Numerics=# insert into  public.justAdate(data) values('2001-01-02');
+INSERT 0 1
+Numerics=# select * from justadate;
+    data
+------------
+ 2001-01-02
+(1 riga)
 
 
+Numerics=#
+---
 
 
 CREATE OR REPLACE PROCEDURE public.usp_zetadump_insert(
@@ -549,4 +590,12 @@ end;
 $BODY$;
 ------------------------------
 	
-	
+
+CREATE TABLE IF NOT EXISTS public.justAdate
+(
+    data date
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.justAdate
+    OWNER to postgres;

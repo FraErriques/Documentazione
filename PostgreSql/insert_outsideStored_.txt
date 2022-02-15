@@ -1,0 +1,48 @@
+insert into ge135zj(
+      -- ge135zj_id IDENTITY
+      data,
+      km,
+      rifornimento_luogo,
+      litri,
+      gasolio_euro_litro,
+      gasolio_euro,
+      accessori_descr,
+      accessori_euro,
+      lavaggio_descr,
+      lavaggio_euro,
+      manutenzione_descr,
+      data_ingresso_officina,
+      data_uscita_officina,
+      manutenzione_euro,
+      altro_descriz,
+      altro_euro,
+      sinistro_descriz,
+      conducente,
+      descrizione_riga,
+      costo_totale_riga,
+      franchigia_assicurazione
+                                                                      ) values(
+ -- ge135zj_id IDENTITY
+ '2001-01-02',
+ 123.456,
+ 'par_rifornimento_luogo',
+ 123.456,
+ 123.456,
+ 123.456,
+ 'par_accessori_descr',
+ 123.456,
+ 'par_lavaggio_descr',
+ 123.456,
+ 'par_manutenzione_descr',
+ '2001-01-02',
+ '2001-01-02',
+ 123.456,
+ 'par_altro_descriz',
+ 123.456,
+ 'par_sinistro_descriz',
+ 'par_conducente',
+ 'par_descrizione_riga',
+ 123.456,
+ 123.456
+  );
+  
