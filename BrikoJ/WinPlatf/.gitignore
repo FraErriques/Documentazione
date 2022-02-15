@@ -1,0 +1,16 @@
+
+#let's start with directories
+bin/
+obj/
+Debug/
+Release/
+build/
+dist/
+
+#let's continue with file cathegories
+*.o
+*.a
+*.exe
+*.dll
+*.class
+/NumericalAnalysis/nbproject/private/
