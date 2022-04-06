@@ -20,8 +20,11 @@ int main()
     f( 13);// should default to int32.
     f( 'a');// should default to an 8 bit signed type, i.e. byte==signed char.
     f( 13u);// meant to be unsigned. TODO: not working.
+    f( 13L);// meant to be long. TODO: not working.
+    long unsigned int ul = 13;
+    f( ul );
     //
-    cout << "Strike Enter to leave \t";
+    cout << "\n\n\t Strike Enter to leave \t";
     getchar();
     return 0;
 }
