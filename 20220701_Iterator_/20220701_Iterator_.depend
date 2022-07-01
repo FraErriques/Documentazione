@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1656673482 source:c:\root\projects\training\20220701_iterator_\main.cpp
+	<iostream>
+	<vector>
+
