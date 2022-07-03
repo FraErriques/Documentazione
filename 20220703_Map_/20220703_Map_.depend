@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1656871315 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/main.cpp
+	<iostream>
+	<map>
+
