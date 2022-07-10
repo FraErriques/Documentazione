@@ -1,9 +1,37 @@
 # depslib dependency file v1.0
-1656871315 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/main.cpp
+1657475594 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/main.cpp
 	<iostream>
 	<map>
+	"StreamOperation/RWtxtfile.h"
+	"StreamOperation/stream_io_.h"
 
 1656921561 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
 	<iostream>
 	<map>
+
+1657473145 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.cpp
+	"RWtxtfile.h"
+
+1657456770 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.h
+	<list>
+	<string>
+	<fstream>
+	<iostream>
+
+1647805730 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/stream_io_.cpp
+	<vector>
+	"stream_io_.h"
+	"../StringBuilder/StringBuilder.h"
+
+1647805730 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/stream_io_.h
+	<iostream>
+	<fstream>
+
+1647805730 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StringBuilder/StringBuilder.h
+	<string>
+	<vector>
+
+1647805730 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StringBuilder/StringBuilder.cpp
+	"StringBuilder.h"
+	<sstream>
 
