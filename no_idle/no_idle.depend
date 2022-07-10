@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1649256269 source:c:\root\projects\githubsandbox\documentazione\no_idle\main.cpp
+	<iostream>
+	<cmath>
+
