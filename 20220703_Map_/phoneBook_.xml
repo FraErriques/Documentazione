@@ -1,0 +1,22 @@
+<phoneBook>
+    <entry>
+        <name="tizio">
+            <generalData="blabla"></generalData>
+            <fixPhone numeber="123"></fixPhone>
+            <cellPhone numeber="987"></cellPhone>
+            <additionalData>addData</additionalData>
+        </name>
+        <name="caio">
+            <generalData="blabla"></generalData>
+            <fixPhone numeber="456"></fixPhone>
+            <cellPhone numeber="654"></cellPhone>
+            <additionalData>addData</additionalData>
+        </name>
+        <name="sempronio">
+            <generalData="blabla"></generalData>
+            <fixPhone numeber="789"></fixPhone>
+            <cellPhone numeber="321"></cellPhone>
+            <additionalData>addData</additionalData>
+        </name>
+    </entry>
+</phoneBook>

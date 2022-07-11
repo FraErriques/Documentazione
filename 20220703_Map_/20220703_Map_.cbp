@@ -32,6 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="StreamOperation/RWtxtfile.cpp" />
+		<Unit filename="StreamOperation/RWtxtfile.h" />
+		<Unit filename="StreamOperation/stream_io_.cpp" />
+		<Unit filename="StreamOperation/stream_io_.h" />
+		<Unit filename="StringBuilder/StringBuilder.cpp" />
+		<Unit filename="StringBuilder/StringBuilder.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

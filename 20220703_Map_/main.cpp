@@ -1,7 +1,11 @@
 #include <iostream>
 #include <map>
+#include "StreamOperation/RWtxtfile.h"
+#include "StreamOperation/stream_io_.h"
 
 using namespace std;
+
+
 
 
 void mapShow( std::map<std::string, std::string> * dictionary)
@@ -13,7 +17,7 @@ void mapShow( std::map<std::string, std::string> * dictionary)
     {
         std::cout<<"\t"<< bkwd->first << "\t" << bkwd->second << "\n";
     }
-}// 
+}//
 
 int mapFillUp( std::map<std::string, std::string> * dictionary)
 {
@@ -24,6 +28,12 @@ int mapFillUp( std::map<std::string, std::string> * dictionary)
 
 int main()
 {
+    system("ls");
+    system("pwd");
+    std::string phoneBookStreamPath("./phoneBook_.xml");
+	std::fstream theStream;
+    //Common::Stream::stream_io_exercise();
+    bool dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
     //....do something
     std::map<std::string, std::string> * dictionary = new std::map<std::string, std::string>();
     int dictionary_cardinality = mapFillUp( dictionary);
