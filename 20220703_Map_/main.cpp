@@ -28,9 +28,9 @@ int mapFillUp( std::map<std::string, std::string> * dictionary)
 
 int main()
 {
-    system("ls");
-    system("pwd");
-    std::string phoneBookStreamPath("./phoneBook_.xml");
+//    system("ls");
+//    system("pwd");
+    std::string phoneBookStreamPath("./interni_IT_.txt");
 	std::fstream theStream;
     //Common::Stream::stream_io_exercise();
     bool dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
