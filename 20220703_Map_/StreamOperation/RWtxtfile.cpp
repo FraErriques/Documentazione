@@ -1,4 +1,8 @@
+
+#include <vector>
+#include <string>
 #include "RWtxtfile.h"
+#include "../StringBuilder/StringBuilder.h"
 
 int RWtxtfile_demo_()
 {
@@ -177,6 +181,13 @@ bool readFileByLines(std::string &where)
         while (!testFile.eof())
         {
             std::getline ( testFile, curr_data);// legge con separatore EOL : TODO test if '\n' or '\r\n'
+            const std::string tokenToSplitOn("\t");
+            std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
+            std::cout <<"\n\t"<< (*tokenizedLine)[1].c_str()
+                      <<  "\t"<< (*tokenizedLine)[2].c_str()
+                      <<  "\t"<< (*tokenizedLine)[4].c_str()
+                      <<  "\t"<< (*tokenizedLine)[5].c_str()
+                      <<std::endl;
             data.push_back(curr_data);// push the read line in a list.
         }
         testFile.close();

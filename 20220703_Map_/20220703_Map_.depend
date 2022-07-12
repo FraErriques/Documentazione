@@ -47,8 +47,11 @@
 	<iostream>
 	<fstream>
 
-1657525270 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
+1657639562 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
+	<vector>
+	<string>
 	"RWtxtfile.h"
+	"../StringBuilder/StringBuilder.h"
 
 1657525270 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\stream_io_.cpp
 	<vector>
