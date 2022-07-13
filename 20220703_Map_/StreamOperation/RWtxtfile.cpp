@@ -161,13 +161,36 @@ bool readFileByWords()
     return result;
 }// readFileByWords
 
-typedef struct PhoneBookRecord
+struct PhoneBookRecord
 {
     std::string name;
+    std::string email;
     std::string internal;
     std::string cellPhone;
-    std::string email;
-}; // typedef struct PhoneBookRecord
+    // methods
+public:
+    PhoneBookRecord(
+        std::string &name,
+        std::string &email,
+        std::string &internal,
+        std::string &cellPhone
+                    )
+                    {
+                        this->name = name;
+                        this->email = email;
+                        this->internal = internal;
+                        this->cellPhone = cellPhone;
+                    }// Ctor
+    void internalPrint()
+    {
+       std::cout<<"\n\tRecapiti:"
+            <<"\n\t"<< this->name
+            <<"\n\t"<< this->email
+            <<"\n\t"<< this->internal
+            <<"\n\t"<< this->cellPhone
+            <<std::endl;
+    }// internalPrint()
+}; // struct PhoneBookRecord
 
 bool readFileByLines(std::string &where)
 {
@@ -192,18 +215,12 @@ bool readFileByLines(std::string &where)
             if(testFile.eof()){break;}
             const std::string tokenToSplitOn("\t");
             std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
-            /*
-            std::cout <<"\n\t"<< (*tokenizedLine)[1].c_str()
-                      <<  "\t"<< (*tokenizedLine)[2].c_str()
-                      <<  "\t"<< (*tokenizedLine)[4].c_str()
-                      <<  "\t"<< (*tokenizedLine)[5].c_str()
-                      <<std::endl;
-            */
-            PhoneBookRecord curRecord;
-            curRecord.name = (*tokenizedLine)[1];
-            curRecord.email = (*tokenizedLine)[2];
-            curRecord.internal = (*tokenizedLine)[4];
-            curRecord.cellPhone = (*tokenizedLine)[5];
+            PhoneBookRecord curRecord(
+                        (*tokenizedLine)[1],
+                        (*tokenizedLine)[2],
+                        (*tokenizedLine)[4],
+                        (*tokenizedLine)[5]
+                                      );
             data.push_back( curRecord);// push the read line in a struct and then in the list.
         }
         testFile.close();
@@ -215,12 +232,8 @@ bool readFileByLines(std::string &where)
     //
     for (iter = data.begin(); iter != data.end(); iter++)
     {
-       cout<<"Elemento di posizione "<<i<<" nella lista == "
-            <<"\t"<< (*iter).name
-            <<"\t"<< (*iter).email
-            <<"\t"<< (*iter).internal
-            <<"\t"<< (*iter).cellPhone
-            <<std::endl;
+       cout<<"Elemento di posizione "<<i<<" nella lista:";
+       (*iter).internalPrint();
        i++;
     }
     // ready.
