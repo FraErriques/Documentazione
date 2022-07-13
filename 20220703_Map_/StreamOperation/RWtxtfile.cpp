@@ -161,17 +161,25 @@ bool readFileByWords()
     return result;
 }// readFileByWords
 
+typedef struct PhoneBookRecord
+{
+    std::string name;
+    std::string internal;
+    std::string cellPhone;
+    std::string email;
+}; // typedef struct PhoneBookRecord
+
 bool readFileByLines(std::string &where)
 {
     fstream testFile;
     bool result = false;// init to invalid.
-    list <std::string> data;
-    list<std::string>::iterator iter;
+    list <PhoneBookRecord> data;
+    list<PhoneBookRecord>::iterator iter;
     std::string curr_data;
     int i = 1;
 
     // Open for read : Input
-    system("pwd");
+    //system("pwd");
     std::cout<<"\n\t Stream to be opened: "<<where.c_str()<<std::endl;
 	testFile.open( where.c_str(), std::ios::in );
     if (testFile.is_open())
@@ -180,15 +188,23 @@ bool readFileByLines(std::string &where)
         result = true;
         while (!testFile.eof())
         {
-            std::getline ( testFile, curr_data);// legge con separatore EOL : TODO test if '\n' or '\r\n'
+            std::getline ( testFile, curr_data);// legge con separatore EOL
+            if(testFile.eof()){break;}
             const std::string tokenToSplitOn("\t");
             std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
+            /*
             std::cout <<"\n\t"<< (*tokenizedLine)[1].c_str()
                       <<  "\t"<< (*tokenizedLine)[2].c_str()
                       <<  "\t"<< (*tokenizedLine)[4].c_str()
                       <<  "\t"<< (*tokenizedLine)[5].c_str()
                       <<std::endl;
-            data.push_back(curr_data);// push the read line in a list.
+            */
+            PhoneBookRecord curRecord;
+            curRecord.name = (*tokenizedLine)[1];
+            curRecord.internal = (*tokenizedLine)[2];
+            curRecord.cellPhone = (*tokenizedLine)[4];
+            curRecord.email = (*tokenizedLine)[5];
+            data.push_back( curRecord);// push the read line in a struct and then in the list.
         }
         testFile.close();
     }// else result remains false; end File-read loop.
@@ -199,7 +215,12 @@ bool readFileByLines(std::string &where)
     //
     for (iter = data.begin(); iter != data.end(); iter++)
     {
-       cout<<"Elemento di posizione "<<i<<" nella lista == "<<*iter<<"\n";
+       cout<<"Elemento di posizione "<<i<<" nella lista == "
+            <<"\t"<< (*iter).name
+//                      <<  "\t"<< (*tokenizedLine)[2].c_str()
+//                      <<  "\t"<< (*tokenizedLine)[4].c_str()
+//                      <<  "\t"<< (*tokenizedLine)[5].c_str()
+                      <<std::endl;
        i++;
     }
     // ready.
