@@ -201,9 +201,9 @@ bool readFileByLines(std::string &where)
             */
             PhoneBookRecord curRecord;
             curRecord.name = (*tokenizedLine)[1];
-            curRecord.internal = (*tokenizedLine)[2];
-            curRecord.cellPhone = (*tokenizedLine)[4];
-            curRecord.email = (*tokenizedLine)[5];
+            curRecord.email = (*tokenizedLine)[2];
+            curRecord.internal = (*tokenizedLine)[4];
+            curRecord.cellPhone = (*tokenizedLine)[5];
             data.push_back( curRecord);// push the read line in a struct and then in the list.
         }
         testFile.close();
@@ -217,10 +217,10 @@ bool readFileByLines(std::string &where)
     {
        cout<<"Elemento di posizione "<<i<<" nella lista == "
             <<"\t"<< (*iter).name
-//                      <<  "\t"<< (*tokenizedLine)[2].c_str()
-//                      <<  "\t"<< (*tokenizedLine)[4].c_str()
-//                      <<  "\t"<< (*tokenizedLine)[5].c_str()
-                      <<std::endl;
+            <<"\t"<< (*iter).email
+            <<"\t"<< (*iter).internal
+            <<"\t"<< (*iter).cellPhone
+            <<std::endl;
        i++;
     }
     // ready.
