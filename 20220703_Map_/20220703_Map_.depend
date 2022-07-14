@@ -5,7 +5,7 @@
 	"StreamOperation/RWtxtfile.h"
 	"StreamOperation/stream_io_.h"
 
-1657617793 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
+1657790413 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
 	<iostream>
 	<map>
 	"StreamOperation/RWtxtfile.h"
@@ -50,7 +50,7 @@
 	<iostream>
 	<fstream>
 
-1657711046 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
+1657787116 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
 	<vector>
 	<string>
 	"RWtxtfile.h"

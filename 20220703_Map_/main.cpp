@@ -26,6 +26,12 @@ int mapFillUp( std::map<std::string, std::string> * dictionary)
     return dictionary->size();// cardinality
 }// mapFillUp
 
+/*   TODO
+    - listener  : while( getline()!="Exit") mapShow("key")
+    - mapFiller : signature( std::map<std::string, structRecordLayout> * dictionary, string key, structRecordLayout &second)
+    - mapTraverser : reverse_iterator show all {first,second}
+*/
+
 int main()
 {
 //    system("ls");
