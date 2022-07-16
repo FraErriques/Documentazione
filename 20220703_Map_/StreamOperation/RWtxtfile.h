@@ -2,18 +2,88 @@
 #define RWTXTFILE_H_INCLUDED
 
 
-#include <list>
+#include <map>
 #include <string>
 #include <fstream>
 #include <iostream>
 
-using namespace std;
 
+class PhoneBookRecord
+{
+  private:
+    std::string * name;
+    std::string * email;
+    std::string * internal;
+    std::string * cellPhone;
+    //
+    // methods
+    public:
+    PhoneBookRecord(){}
+    PhoneBookRecord(
+        std::string &name,
+        std::string &email,
+        std::string &internal,
+        std::string &cellPhone
+                    )
+                    {
+                        this->name = new std::string( name);
+                        this->email = new std::string( email);
+                        this->internal = new std::string( internal);
+                        this->cellPhone = new std::string( cellPhone);
+                    }// Ctor
+    ~PhoneBookRecord()// Dtor
+    {
+        delete this->name;
+        delete this->email;
+        delete this->internal;
+        delete this->cellPhone;
+        this->name = nullptr;
+        this->email = nullptr;
+        this->internal = nullptr;
+        this->cellPhone = nullptr;
+    }// Dtor
+    void internalPrint()
+    {
+       if(nullptr!=this)
+       {
+            if( nullptr!=this->name
+            && nullptr!=this->email
+            && nullptr!=this->internal
+            && nullptr!=this->cellPhone
+            )
+            {
+                std::cout<<"\n\tRecapiti:"
+                <<"\n\t"<< *(this->name)
+                <<"\n\t"<< *(this->email)
+                <<"\n\t"<< *(this->internal)
+                <<"\n\t"<< *(this->cellPhone)
+                <<std::endl;
+            }
+            else
+            {
+                std::cout<<"\n\t The node fields are empty \n";
+            }
+       }
+       else
+       {
+           std::cout<<"\n\t The node is empty \n";
+       }
+    }// internalPrint()
+}; // struct PhoneBookRecord
+
+
+std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where);
+void mapTraverse( std::map<std::string, PhoneBookRecord * > * dictionary);
+void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey);
+
+
+#endif // RWTXTFILE_H_INCLUDED
+
+/*   cantina
 int RWtxtfile_demo_();
 bool writeFileByWords( double *data, int hm);
 bool writeVectorFieldR2Affine( double *ApplicationPoint, double *FreeBound, int hm);
 bool readFileByWords();
-bool readFileByLines(std::string &where);
 int readFileByChars();
+*/
 
-#endif // RWTXTFILE_H_INCLUDED

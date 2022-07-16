@@ -1,8 +1,124 @@
-
-#include <vector>
-#include <string>
+#include <map>
 #include "RWtxtfile.h"
 #include "../StringBuilder/StringBuilder.h"
+
+
+
+std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where)
+{
+    std::fstream testFile;
+    std::map<std::string, PhoneBookRecord * > * dictionary = nullptr;// init to invalid.
+    std::string curr_data;
+
+
+    std::cout<<"\n\t Stream to be opened: "<<where.c_str()<<std::endl;
+    // Open for read : Input
+	testFile.open( where.c_str(), std::ios::in );
+    if (testFile.is_open())
+    {
+        std::cout<<"\n\t the Stream is open: "<<where.c_str()<<std::endl;
+        dictionary = new std::map<std::string, PhoneBookRecord * >();
+        while (!testFile.eof())
+        {
+            std::getline ( testFile, curr_data);// legge con separatore EOL
+            if(testFile.eof()){break;}
+            const std::string tokenToSplitOn("\t");
+            std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
+            PhoneBookRecord * curRecord = new PhoneBookRecord(
+                        (*tokenizedLine)[1],
+                        (*tokenizedLine)[2],
+                        (*tokenizedLine)[4],
+                        (*tokenizedLine)[5]
+                                      );
+            // push the read line in a struct and then in the map
+            (*dictionary).operator[]((*tokenizedLine)[1])=curRecord;
+            (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
+        }
+        testFile.close();
+    }// else result remains false; end File-read loop.
+    else
+    {
+        std::cout<<"\n\t the Stream is NOT open: "<<where.c_str()<<std::endl;
+    }
+    //ready
+    return dictionary;
+}// readFileByLines
+
+
+void mapTraverse( std::map<std::string, PhoneBookRecord * > * dictionary)
+{
+    if( nullptr!=dictionary)
+    {
+        for( std::map<std::string, PhoneBookRecord * >::reverse_iterator bkwd=dictionary->rbegin();
+             bkwd != dictionary->rend();
+             bkwd++
+        )
+        {
+            std::cout<<"\t"<< bkwd->first << "\t";
+            bkwd->second->internalPrint();
+        }
+    }
+    else
+    {
+        std::cout<<"\n\n\t The map is empty \n\n";
+    }
+}//mapTraverse
+
+void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey)
+{
+    if( nullptr!=dictionary)
+    {
+        if(nullptr!=(*dictionary).operator[]( requiredkey))
+        {
+            (*dictionary).operator[]( requiredkey)->internalPrint();
+        }// else skip, since the required key is absent in the map.
+        else
+        {
+            std::cout<<"\n\n\t Key not found \n\n";
+        }
+    }// else skip, since file has not been opened and map has not been allocated.
+    else
+    {
+        std::cout<<"\n\n\t The map is empty \n\n";
+    }
+    // ready.
+}//mapListener
+
+
+
+/*  cantina
+
+int readFileByChars()
+{
+  FILE * pFile;
+  //int c;
+  int i = 1;
+//bool result = false;// init to invalid.
+    list <int> data;
+    list<int>::iterator iter;
+    int curr_data;
+
+  pFile=fopen ("test_readFileByChars_.txt","r");
+  if (pFile==NULL) perror ("Error opening file");
+  else
+  {
+    do
+    {
+        curr_data = getc (pFile);
+        data.push_back(curr_data);// push the read char in a list.
+    } while (curr_data != EOF);
+    fclose (pFile);
+    //
+    for (iter = data.begin(); iter != data.end(); iter++)
+    {
+       cout<<"Elemento di posizione "<<i<<" nella lista (codice ASCII)== "<<*iter<<" ovvero simbolo "<< (char)(*iter)<<"\n";
+       i++;
+    }
+    // ready.
+  }
+  return 0;
+}// end readFileByChars
+
 
 int RWtxtfile_demo_()
 {
@@ -93,7 +209,7 @@ bool writeFileByWords( double *data, int hm)
 
 
 
-/** \brief
+  \brief
  *
  * \param   ApplicationPoint is an array of two double, which represent the coordinates of the application point.
  * \param   FreeBound is an array of two double, which represent the coordinates of the free bound point, which is calculated adding the image of f(ApplicationPoint) to the ApplicationPoint itself, to obtain the affine image vector.
@@ -109,7 +225,7 @@ bool writeFileByWords( double *data, int hm)
   Arrow[{{1.5, 1.2}, {1.2, 1}} ]
     } , Axes -> True]
  *
- */
+
 bool writeVectorFieldR2Affine( double *ApplicationPoint, double *FreeBound, int hm)
 {
     bool result = false;// init to invalid.
@@ -161,114 +277,4 @@ bool readFileByWords()
     return result;
 }// readFileByWords
 
-struct PhoneBookRecord
-{
-    std::string name;
-    std::string email;
-    std::string internal;
-    std::string cellPhone;
-    // methods
-public:
-    PhoneBookRecord(
-        std::string &name,
-        std::string &email,
-        std::string &internal,
-        std::string &cellPhone
-                    )
-                    {
-                        this->name = name;
-                        this->email = email;
-                        this->internal = internal;
-                        this->cellPhone = cellPhone;
-                    }// Ctor
-    void internalPrint()
-    {
-       std::cout<<"\n\tRecapiti:"
-            <<"\n\t"<< this->name
-            <<"\n\t"<< this->email
-            <<"\n\t"<< this->internal
-            <<"\n\t"<< this->cellPhone
-            <<std::endl;
-    }// internalPrint()
-}; // struct PhoneBookRecord
-
-bool readFileByLines(std::string &where)
-{
-    fstream testFile;
-    bool result = false;// init to invalid.
-    list <PhoneBookRecord> data;
-    list<PhoneBookRecord>::iterator iter;
-    std::string curr_data;
-    int i = 1;
-
-    // Open for read : Input
-    //system("pwd");
-    std::cout<<"\n\t Stream to be opened: "<<where.c_str()<<std::endl;
-	testFile.open( where.c_str(), std::ios::in );
-    if (testFile.is_open())
-    {
-        std::cout<<"\n\t the Stream is open: "<<where.c_str()<<std::endl;
-        result = true;
-        while (!testFile.eof())
-        {
-            std::getline ( testFile, curr_data);// legge con separatore EOL
-            if(testFile.eof()){break;}
-            const std::string tokenToSplitOn("\t");
-            std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
-            PhoneBookRecord curRecord(
-                        (*tokenizedLine)[1],
-                        (*tokenizedLine)[2],
-                        (*tokenizedLine)[4],
-                        (*tokenizedLine)[5]
-                                      );
-            data.push_back( curRecord);// push the read line in a struct and then in the list.
-        }
-        testFile.close();
-    }// else result remains false; end File-read loop.
-    else
-    {
-        std::cout<<"\n\t the Stream is NOT open: "<<where.c_str()<<std::endl;
-    }
-    //
-    for (iter = data.begin(); iter != data.end(); iter++)
-    {
-       cout<<"Elemento di posizione "<<i<<" nella lista:";
-       (*iter).internalPrint();
-       i++;
-    }
-    // ready.
-    return result;
-}// readFileByLines
-
-
-
-int readFileByChars()
-{
-  FILE * pFile;
-  //int c;
-  int i = 1;
-//bool result = false;// init to invalid.
-    list <int> data;
-    list<int>::iterator iter;
-    int curr_data;
-
-  pFile=fopen ("test_readFileByChars_.txt","r");
-  if (pFile==NULL) perror ("Error opening file");
-  else
-  {
-    do
-    {
-        curr_data = getc (pFile);
-        data.push_back(curr_data);// push the read char in a list.
-    } while (curr_data != EOF);
-    fclose (pFile);
-    //
-    for (iter = data.begin(); iter != data.end(); iter++)
-    {
-       cout<<"Elemento di posizione "<<i<<" nella lista (codice ASCII)== "<<*iter<<" ovvero simbolo "<< (char)(*iter)<<"\n";
-       i++;
-    }
-    // ready.
-  }
-  return 0;
-}// end readFileByChars
+*/
