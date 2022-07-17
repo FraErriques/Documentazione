@@ -3,13 +3,13 @@
 #include "../StringBuilder/StringBuilder.h"
 
 
-
+// the input parameter "where" is the path of the data file.
+// the return value is a pointer to the filled map; the caller has to delete it.
 std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where)
 {
     std::fstream testFile;
     std::map<std::string, PhoneBookRecord * > * dictionary = nullptr;// init to invalid.
     std::string curr_data;
-
 
     std::cout<<"\n\t Stream to be opened: "<<where.c_str()<<std::endl;
     // Open for read : Input
@@ -33,6 +33,8 @@ std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where)
             // push the read line in a struct and then in the map
             (*dictionary).operator[]((*tokenizedLine)[1])=curRecord;
             // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
+            // cleanup
+            delete tokenizedLine;
         }
         testFile.close();
     }// else result remains false; end File-read loop.
@@ -99,6 +101,31 @@ void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary)
     }// map empty
 }//mapTraverseReverse
 
+void mapNodeDestructorCaller( std::map<std::string, PhoneBookRecord * > * dictionary)
+{
+    if( nullptr!=dictionary)
+    {
+        for( std::map<std::string, PhoneBookRecord * >::reverse_iterator bkwd=dictionary->rbegin();
+             bkwd != dictionary->rend();
+             bkwd++
+        )
+        {
+            std::cout<<"\tcallig Dtor of node : "<< bkwd->first << "\t";
+            if(nullptr!= bkwd->second)
+            {// second has its content
+                delete bkwd->second;// pair' second Dtor
+            }// second has its content
+            else
+            {// orphaned key
+                std::cout<<"\t Orphaned key; it has no value to call the Destructor for..";
+            }// orphaned key
+        }// Traverse loop
+    }// if( nullptr!=dictionary)
+    else
+    {// map empty
+        std::cout<<"\n\n\t The map is empty \n\n";
+    }// map empty
+}//mapNodeDestructorCaller
 
 void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey)
 {

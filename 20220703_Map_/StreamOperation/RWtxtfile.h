@@ -76,6 +76,7 @@ class PhoneBookRecord
 std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where);
 void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary);
+void mapNodeDestructorCaller( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey);
 
 

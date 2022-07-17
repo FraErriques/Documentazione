@@ -26,6 +26,7 @@ int main()
     mapListener( dataAcquisitionResult, "fake");
     mapTraverseForward( dataAcquisitionResult);
     mapTraverseReverse( dataAcquisitionResult);
+    mapNodeDestructorCaller( dataAcquisitionResult);
     delete dataAcquisitionResult;
     //
     cout << "\n\tStrike Enter to leave\t";
