@@ -32,7 +32,7 @@ std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where)
                                       );
             // push the read line in a struct and then in the map
             (*dictionary).operator[]((*tokenizedLine)[1])=curRecord;
-            (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
+            // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
         }
         testFile.close();
     }// else result remains false; end File-read loop.
@@ -45,7 +45,35 @@ std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where)
 }// readFileByLines
 
 
-void mapTraverse( std::map<std::string, PhoneBookRecord * > * dictionary)
+
+void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary)
+{
+    if( nullptr!=dictionary)
+    {
+        for( std::map<std::string, PhoneBookRecord * >::iterator fwd=dictionary->begin();
+             fwd != dictionary->end();
+             fwd++
+        )
+        {
+            std::cout<<"\t"<< fwd->first << "\t";
+            if(nullptr!= fwd->second)
+            {// second has its content
+                fwd->second->internalPrint();
+            }// second has its content
+            else
+            {// orphaned key
+                std::cout<<"\t Orphaned key; it has no value.";
+            }// orphaned key
+        }// Traverse loop
+    }// if( nullptr!=dictionary)
+    else
+    {// map empty
+        std::cout<<"\n\n\t The map is empty \n\n";
+    }// map empty
+}//mapTraverseForward
+
+
+void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary)
 {
     if( nullptr!=dictionary)
     {
@@ -55,20 +83,29 @@ void mapTraverse( std::map<std::string, PhoneBookRecord * > * dictionary)
         )
         {
             std::cout<<"\t"<< bkwd->first << "\t";
-            bkwd->second->internalPrint();
-        }
-    }
+            if(nullptr!= bkwd->second)
+            {// second has its content
+                bkwd->second->internalPrint();
+            }// second has its content
+            else
+            {// orphaned key
+                std::cout<<"\t Orphaned key; it has no value.";
+            }// orphaned key
+        }// Traverse loop
+    }// if( nullptr!=dictionary)
     else
-    {
+    {// map empty
         std::cout<<"\n\n\t The map is empty \n\n";
-    }
-}//mapTraverse
+    }// map empty
+}//mapTraverseReverse
+
 
 void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey)
 {
     if( nullptr!=dictionary)
     {
-        if(nullptr!=(*dictionary).operator[]( requiredkey))
+        if(+1==(*dictionary).count( requiredkey))
+        //if(nullptr!=(*dictionary).operator[]( requiredkey)) DON'T :this inserts a new pair.
         {
             (*dictionary).operator[]( requiredkey)->internalPrint();
         }// else skip, since the required key is absent in the map.

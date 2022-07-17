@@ -24,7 +24,8 @@ int main()
     std::map<std::string, PhoneBookRecord * > * dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
     mapListener( dataAcquisitionResult, "Erriques");
     mapListener( dataAcquisitionResult, "fake");
-    mapTraverse( dataAcquisitionResult);
+    mapTraverseForward( dataAcquisitionResult);
+    mapTraverseReverse( dataAcquisitionResult);
     delete dataAcquisitionResult;
     //
     cout << "\n\tStrike Enter to leave\t";

@@ -33,6 +33,7 @@ class PhoneBookRecord
                     }// Ctor
     ~PhoneBookRecord()// Dtor
     {
+        std::cout<<"\n\t Entering the Destructor \n";
         delete this->name;
         delete this->email;
         delete this->internal;
@@ -52,12 +53,12 @@ class PhoneBookRecord
             && nullptr!=this->cellPhone
             )
             {
-                std::cout<<"\n\tRecapiti:"
+                std::cout<<"\n\n\tRecapiti:"
                 <<"\n\t"<< *(this->name)
                 <<"\n\t"<< *(this->email)
                 <<"\n\t"<< *(this->internal)
                 <<"\n\t"<< *(this->cellPhone)
-                <<std::endl;
+                <<"\n\n";
             }
             else
             {
@@ -73,7 +74,8 @@ class PhoneBookRecord
 
 
 std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where);
-void mapTraverse( std::map<std::string, PhoneBookRecord * > * dictionary);
+void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary);
+void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey);
 
 
