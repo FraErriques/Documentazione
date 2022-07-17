@@ -3,9 +3,22 @@
 #include "StreamOperation/RWtxtfile.h"
 #include "StreamOperation/stream_io_.h"
 
+#include <sstream>
+#include <string>
+
 using namespace std;
 
 
+void pippoListener()
+{
+    std::string str;
+    for(;;)
+    {
+        std::getline(std::cin, str);
+        if(str=="Exit loop"){break;}
+        std::cout<<" received line "<< str;
+    }
+}
 
 
 
@@ -19,6 +32,8 @@ using namespace std;
 
 int main()
 {
+    pippoListener();
+    //
     std::string phoneBookStreamPath("./interni_IT_.txt");
 	std::fstream theStream;
     std::map<std::string, PhoneBookRecord * > * dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
