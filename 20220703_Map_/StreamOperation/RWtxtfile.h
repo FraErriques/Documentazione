@@ -45,30 +45,23 @@ class PhoneBookRecord
     }// Dtor
     void internalPrint()
     {
-       if(nullptr!=this)
-       {
-            if( nullptr!=this->name
-            && nullptr!=this->email
-            && nullptr!=this->internal
-            && nullptr!=this->cellPhone
-            )
-            {
-                std::cout<<"\n\n\tRecapiti:"
-                <<"\n\t"<< *(this->name)
-                <<"\n\t"<< *(this->email)
-                <<"\n\t"<< *(this->internal)
-                <<"\n\t"<< *(this->cellPhone)
-                <<"\n\n";
-            }
-            else
-            {
-                std::cout<<"\n\t The node fields are empty \n";
-            }
-       }
-       else
-       {
-           std::cout<<"\n\t The node is empty \n";
-       }
+        if( nullptr!=this->name
+        && nullptr!=this->email
+        && nullptr!=this->internal
+        && nullptr!=this->cellPhone
+        )
+        {
+            std::cout<<"\n\n\tRecapiti:"
+            <<"\n\t"<< *(this->name)
+            <<"\n\t"<< *(this->email)
+            <<"\n\t"<< *(this->internal)
+            <<"\n\t"<< *(this->cellPhone)
+            <<"\n\n";
+        }
+        else
+        {
+            std::cout<<"\n\t The node fields are empty \n";
+        }
     }// internalPrint()
 }; // struct PhoneBookRecord
 
@@ -77,8 +70,8 @@ std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where);
 void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapNodeDestructorCaller( std::map<std::string, PhoneBookRecord * > * dictionary);
-void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey);
-
+void nodeFinder( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey);
+void mapListener(  std::map<std::string, PhoneBookRecord * > * dictionary );
 
 #endif // RWTXTFILE_H_INCLUDED
 

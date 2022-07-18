@@ -127,7 +127,24 @@ void mapNodeDestructorCaller( std::map<std::string, PhoneBookRecord * > * dictio
     }// map empty
 }//mapNodeDestructorCaller
 
-void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey)
+void mapListener(  std::map<std::string, PhoneBookRecord * > * dictionary )
+{
+    std::string requiredRecord;
+    for(;;)
+    {
+        std::getline(std::cin, requiredRecord);
+        if(requiredRecord=="Exit loop")
+        {
+            std::cout<< "Good bye !";
+            break;
+        }
+        std::cout<<" required record  "<< requiredRecord;
+        nodeFinder( dictionary, requiredRecord);
+    }
+}
+
+
+void nodeFinder( std::map<std::string, PhoneBookRecord * > * dictionary , std::string requiredkey)
 {
     if( nullptr!=dictionary)
     {
@@ -146,7 +163,7 @@ void mapListener( std::map<std::string, PhoneBookRecord * > * dictionary , std::
         std::cout<<"\n\n\t The map is empty \n\n";
     }
     // ready.
-}//mapListener
+}//nodeFinder
 
 
 
