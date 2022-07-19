@@ -1,7 +1,7 @@
 #ifndef RWTXTFILE_H_INCLUDED
 #define RWTXTFILE_H_INCLUDED
 
-
+#include <vector>
 #include <map>
 #include <string>
 #include <fstream>
@@ -67,6 +67,7 @@ class PhoneBookRecord
 
 
 std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where);
+bool prune_RecordLayout( std::map<std::string, PhoneBookRecord * > * dictionary , std::vector<std::string> * tokenizedLine);
 void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary);
 void mapNodeDestructorCaller( std::map<std::string, PhoneBookRecord * > * dictionary);
