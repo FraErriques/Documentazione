@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1658692908 source:/home/fra/src/GitHubSandBox/Documentazione/20220724_regex_/main.cpp
+	<iostream>
+	<iterator>
+	<string>
+	<regex>
+
