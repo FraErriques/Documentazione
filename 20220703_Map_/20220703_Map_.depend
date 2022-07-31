@@ -1,42 +1,42 @@
 # depslib dependency file v1.0
-1657732694 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/main.cpp
+1658168954 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/main.cpp
 	<iostream>
 	<map>
-	"StreamOperation/RWtxtfile.h"
-	"StreamOperation/stream_io_.h"
-
-1657617793 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
-	<iostream>
-	<map>
-	"StreamOperation/RWtxtfile.h"
-	"StreamOperation/stream_io_.h"
-
-1657734100 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.cpp
-	<vector>
 	<string>
+	"StreamOperation/RWtxtfile.h"
+
+1657790413 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
+	<iostream>
+	<map>
+	"StreamOperation/RWtxtfile.h"
+	"StreamOperation/stream_io_.h"
+
+1658241322 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.cpp
+	<map>
 	"RWtxtfile.h"
 	"../StringBuilder/StringBuilder.h"
 
-1657456770 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.h
-	<list>
+1658241115 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.h
+	<vector>
+	<map>
 	<string>
 	<fstream>
 	<iostream>
 
-1647805730 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/stream_io_.cpp
+1657910273 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/stream_io_.cpp
 	<vector>
 	"stream_io_.h"
 	"../StringBuilder/StringBuilder.h"
 
-1647805730 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/stream_io_.h
+1657910273 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/stream_io_.h
 	<iostream>
 	<fstream>
 
-1647805730 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StringBuilder/StringBuilder.h
+1657910273 /home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StringBuilder/StringBuilder.h
 	<string>
 	<vector>
 
-1647805730 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StringBuilder/StringBuilder.cpp
+1657910273 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StringBuilder/StringBuilder.cpp
 	"StringBuilder.h"
 	<sstream>
 
@@ -50,7 +50,7 @@
 	<iostream>
 	<fstream>
 
-1657711046 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
+1657787116 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
 	<vector>
 	<string>
 	"RWtxtfile.h"

@@ -1,5 +1,7 @@
 *.layout
 /20220703_Map_/bin/
 /20220703_Map_/obj/
+/20220703_Map_/*.layout
 /BJ22/NumericalAnalysis/build/
 /BJ22/NumericalAnalysis/dist/
+
