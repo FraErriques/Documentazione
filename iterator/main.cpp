@@ -22,6 +22,14 @@ public:
             return this->currentNode;
         }// operator++
 
+        int *operator++( int par)
+        {
+            int stepSize = sizeof(int);
+            // TODO manage the case of incorrectness of current position.
+            this->currentNode += 1;// which means 1*stepSize;
+            return this->currentNode;
+        }// operator++
+
         int operator*()
         {
             return *(this->currentNode);
@@ -67,7 +75,7 @@ int main()
     int val_0 = *it;
     int * addr_1 = ++it;
     int val_1 = *it;
-    int * addr_2 = ++it;
+    int * addr_2 = it++;
     int val_2 = *it;
     int * addr_3 = ++it;
     int val_3 = *it;
