@@ -4,17 +4,30 @@ using namespace std;
 
 class Bulk_Entity
 {
-private:
-    int *vec;
 
 public:
     class myIterator
     {
     public:
-        int* thePointer;
-        int *operator++(){return (this->thePointer)+1;}
-        int operator*(){return *(this->thePointer);}
-    };
+        int *currentNode;
+        int *first;
+        int *after_last;
+
+
+        int *operator++()
+        {
+            int stepSize = sizeof(int);
+            // TODO manage the case of incorrectness of current position.
+            this->currentNode += 1;// which means 1*stepSize;
+            return this->currentNode;
+        }// operator++
+
+        int operator*()
+        {
+            return *(this->currentNode);
+        }// operator deference (*)
+
+    };// class Iterator
 
 
     Bulk_Entity()
@@ -24,31 +37,45 @@ public:
         {
             this->vec[c] = c;
         }
+        this->theIterator.first = (&vec[0])+0;
+        this->theIterator.after_last = (&(vec[5]))+1;// one after last
+        this->theIterator.currentNode = this->theIterator.first;// init to begin
     }
 
-    Bulk_Entity::myIterator * myBegin()
+    Bulk_Entity::myIterator myBegin()
     {
-        Bulk_Entity::myIterator * theIterator = new Bulk_Entity::myIterator();
-        theIterator->thePointer = &(this->vec[0])+0;
-        return theIterator;
+        return this->theIterator;
     }
 
-    Bulk_Entity::myIterator * myEnd()
+    Bulk_Entity::myIterator myEnd()
     {
-        Bulk_Entity::myIterator * theIterator = new Bulk_Entity::myIterator();
-        theIterator->thePointer = &(this->vec[5])+1;
-        return theIterator;
+        return this->theIterator;
     }
-};
+
+private:
+    int *vec;
+    Bulk_Entity::myIterator theIterator;
+};// class Bulk_Entity
 
 
 
 int main()
 {
     Bulk_Entity be;// automatic instance
-    Bulk_Entity::myIterator * it = be.myBegin();
-    (*it).operator++();
-    int res = (*it).operator*();
+    Bulk_Entity::myIterator it = be.myBegin();
+    int * addr_0 = it.first;
+    int val_0 = *it;
+    int * addr_1 = ++it;
+    int val_1 = *it;
+    int * addr_2 = ++it;
+    int val_2 = *it;
+    int * addr_3 = ++it;
+    int val_3 = *it;
+    int * addr_4 = ++it;
+    int val_4 = *it;
+    //
+    // it++; //. .operator++();
+    int res = *it;
     std::cout<<"\n\t the pointed integer has value: "<< res <<"\n\n";
 
     //
