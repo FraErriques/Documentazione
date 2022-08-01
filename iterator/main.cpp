@@ -45,24 +45,29 @@ public:
         {
             this->vec[c] = c;
         }
-        this->theIterator.first = (&vec[0])+0;
-        this->theIterator.after_last = (&(vec[5]))+1;// one after last
-        this->theIterator.currentNode = this->theIterator.first;// init to begin
-    }
+    }// Ctor
+
 
     Bulk_Entity::myIterator myBegin()
     {
-        return this->theIterator;
+        Bulk_Entity::myIterator theIterator;
+        theIterator.first = (&vec[0])+0;
+        theIterator.after_last = (&(vec[5]))+1;// one after last
+        theIterator.currentNode = theIterator.first;// init to first
+        return theIterator;
     }
 
     Bulk_Entity::myIterator myEnd()
     {
-        return this->theIterator;
-    }
+        Bulk_Entity::myIterator theIterator;
+        theIterator.first = (&vec[0])+0;
+        theIterator.after_last = (&(vec[5]))+1;// one after last
+        theIterator.currentNode = theIterator.after_last;// init to one_after_last
+        return theIterator;
+    }// end
 
 private:
     int *vec;
-    Bulk_Entity::myIterator theIterator;
 };// class Bulk_Entity
 
 
@@ -75,14 +80,13 @@ int main()
     int val_0 = *it;
     int * addr_1 = ++it;
     int val_1 = *it;
-    int * addr_2 = it++;
+    int * addr_2 = it++;// prefix or postfix operator++ have different signatures
     int val_2 = *it;
     int * addr_3 = ++it;
     int val_3 = *it;
     int * addr_4 = ++it;
     int val_4 = *it;
     //
-    // it++; //. .operator++();
     int res = *it;
     std::cout<<"\n\t the pointed integer has value: "<< res <<"\n\n";
 

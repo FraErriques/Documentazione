@@ -5,4 +5,6 @@
 BJ22/NumericalAnalysis/build/
 BJ22/NumericalAnalysis/dist/
 iterator/*.o
+iterator/bin
+iterator/obj
 
