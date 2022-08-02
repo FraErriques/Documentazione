@@ -57,12 +57,12 @@ namespace EntityBulk_Csharp_Win_
             {
                 bool res = false;// init
                 if (this.curIndex < 0
-                     || this.curIndex > this.containerCapacity)// where containerCapacity-1 is the last component
+                     || this.curIndex >= this.containerCapacity)// where containerCapacity-1 is the last component
                 {
                     throw new System.Exception("current index is out of range! DBG needed.");
                 }
                 if (this.curIndex == other.curIndex
-                    && Object.ReferenceEquals( this.current, other.current)
+                    // && Object.ReferenceEquals( this.current, other.current)  only with reference-types
                     )
                 { res = false; }// they are equal.
                 else
@@ -74,12 +74,12 @@ namespace EntityBulk_Csharp_Win_
             {
                 bool res = false;// init
                 if (this.curIndex < 0
-                     || this.curIndex > this.containerCapacity)// where containerCapacity-1 is the last component
+                     || this.curIndex >= this.containerCapacity)// where containerCapacity-1 is the last component
                 {
                     throw new System.Exception("current index is out of range! DBG needed.");
                 }
                 if (this.curIndex == other.curIndex
-                    && Object.ReferenceEquals(this.current, other.current)
+                    // && Object.ReferenceEquals(this.current, other.current)  only with reference-types
                     )
                 { res = true; }// they are equal.
                 else
@@ -131,7 +131,7 @@ namespace EntityBulk_Csharp_Win_
     {
         static void Main( string[] args )
         {
-            EntityBulk_Csharp_Win_.EntityBulk<int> eBint = new EntityBulk<int>();
+            EntityBulk_Csharp_Win_.EntityBulk<int> eBint = new EntityBulk<int>(3);
             int step = +1;
             for (EntityBulk<int>.iterator it = eBint.begin();
                  it.isDifferent( eBint.end() );
@@ -139,7 +139,12 @@ namespace EntityBulk_Csharp_Win_
                )
             {
                 System.Console.Write("\t" + step++);
+                System.Console.Write("\t iterator curIndex=" + it.curIndex);
+                System.Console.WriteLine("\t end() curIndex=" + eBint.end().curIndex);
             }// for
+            // ready
+            System.Console.Write("\t Strike \"Enter\" to leave\t");
+            System.Console.ReadLine();
         }
     }//class Program::Main
 
