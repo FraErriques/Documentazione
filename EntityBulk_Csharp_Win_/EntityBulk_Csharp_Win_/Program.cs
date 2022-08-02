@@ -11,9 +11,11 @@ namespace EntityBulk_Csharp_Win_
     {
         public class iterator
         {
-            private RecordLayout first;
-            private RecordLayout one_after_last;
-            private RecordLayout current;
+            public RecordLayout first;
+            public RecordLayout one_after_last;
+            public RecordLayout current;
+            public int curIndex;
+            public int containerCapacity;
             //
             public iterator()// Ctor
             {
@@ -32,13 +34,61 @@ namespace EntityBulk_Csharp_Win_
               */
                 return this.current;
             }// iteratorDeference(
+            //public void operator ++( int fake )//Error: User-defined operator must be declared static and public
+            public void FFWD()
+            {
+                if (this.curIndex < 0
+                     || this.curIndex > this.containerCapacity)// where containerCapacity-1 is the last component
+                {
+                    throw new System.Exception("current index is out of range! DBG needed.");
+                }
+                this.curIndex++;
+            }
+            public void BKWD()
+            {
+                if (this.curIndex < 0
+                     || this.curIndex > this.containerCapacity)// where containerCapacity-1 is the last component
+                {
+                    throw new System.Exception("current index is out of range! DBG needed.");
+                }
+                this.curIndex--;
+            }
         }//  class iterator
 
+        //---start class EntityBulk<RecordLayout>
         private RecordLayout[] vec;
+        private int capacity;
+        //
         public EntityBulk( int capacity=100)  // 
         {
-            this.vec = new RecordLayout[capacity];
+            this.capacity = capacity;
+            this.vec = new RecordLayout[this.capacity];
         }// Ctor
+
+        public iterator begin()
+        {
+            EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator curIterator = new EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator();
+            curIterator.containerCapacity = this.capacity;
+            curIterator.first = this.vec[0];
+            curIterator.one_after_last = this.vec[this.capacity];// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
+            curIterator.current = curIterator.first;
+            curIterator.curIndex = 0;//first
+            //ready
+            return curIterator;
+        }// begin
+
+        public iterator end()
+        {
+            EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator curIterator = new EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator();
+            curIterator.containerCapacity = this.capacity;
+            curIterator.first = this.vec[0];
+            curIterator.one_after_last = this.vec[this.capacity];// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
+            curIterator.current = curIterator.one_after_last;// here is the difference between begin() and end().
+            curIterator.curIndex = this.capacity;// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
+            //ready
+            return curIterator;
+        }// end
+
     }//  class EntityBulk<RecordLayout>
 
 
