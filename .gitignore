@@ -9,5 +9,5 @@ iterator/bin/
 iterator/obj/
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/obj/
-EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/*
-EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/obj/*
+EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/**
+EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/obj/**
