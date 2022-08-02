@@ -53,6 +53,40 @@ namespace EntityBulk_Csharp_Win_
                 }
                 this.curIndex--;
             }
+            public bool isDifferent( iterator other)
+            {
+                bool res = false;// init
+                if (this.curIndex < 0
+                     || this.curIndex > this.containerCapacity)// where containerCapacity-1 is the last component
+                {
+                    throw new System.Exception("current index is out of range! DBG needed.");
+                }
+                if (this.curIndex == other.curIndex
+                    && Object.ReferenceEquals( this.current, other.current)
+                    )
+                { res = false; }// they are equal.
+                else
+                { res = true; }// they differ
+                //
+                return res;
+            }// isDifferent
+            public bool isEqual( iterator other )
+            {
+                bool res = false;// init
+                if (this.curIndex < 0
+                     || this.curIndex > this.containerCapacity)// where containerCapacity-1 is the last component
+                {
+                    throw new System.Exception("current index is out of range! DBG needed.");
+                }
+                if (this.curIndex == other.curIndex
+                    && Object.ReferenceEquals(this.current, other.current)
+                    )
+                { res = true; }// they are equal.
+                else
+                { res = false; }// they differ
+                //
+                return res;
+            }// isEqual
         }//  class iterator
 
         //---start class EntityBulk<RecordLayout>
@@ -70,7 +104,7 @@ namespace EntityBulk_Csharp_Win_
             EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator curIterator = new EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator();
             curIterator.containerCapacity = this.capacity;
             curIterator.first = this.vec[0];
-            curIterator.one_after_last = this.vec[this.capacity];// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
+            curIterator.one_after_last = this.vec[this.capacity-1];// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
             curIterator.current = curIterator.first;
             curIterator.curIndex = 0;//first
             //ready
@@ -82,9 +116,9 @@ namespace EntityBulk_Csharp_Win_
             EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator curIterator = new EntityBulk_Csharp_Win_.EntityBulk<RecordLayout>.iterator();
             curIterator.containerCapacity = this.capacity;
             curIterator.first = this.vec[0];
-            curIterator.one_after_last = this.vec[this.capacity];// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
+            curIterator.one_after_last = this.vec[this.capacity-1];// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
             curIterator.current = curIterator.one_after_last;// here is the difference between begin() and end().
-            curIterator.curIndex = this.capacity;// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
+            curIterator.curIndex = this.capacity-1;// vec[] range is [0,capacity-1] so vec[capacity] is one_after_last.
             //ready
             return curIterator;
         }// end
@@ -97,6 +131,15 @@ namespace EntityBulk_Csharp_Win_
     {
         static void Main( string[] args )
         {
+            EntityBulk_Csharp_Win_.EntityBulk<int> eBint = new EntityBulk<int>();
+            int step = +1;
+            for (EntityBulk<int>.iterator it = eBint.begin();
+                 it.isDifferent( eBint.end() );
+                 it.FFWD()
+               )
+            {
+                System.Console.Write("\t" + step++);
+            }// for
         }
     }//class Program::Main
 
