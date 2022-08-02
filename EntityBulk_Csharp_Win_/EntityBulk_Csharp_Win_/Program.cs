@@ -62,7 +62,7 @@ namespace EntityBulk_Csharp_Win_
                     throw new System.Exception("current index is out of range! DBG needed.");
                 }
                 if (this.curIndex == other.curIndex
-                    // && Object.ReferenceEquals( this.current, other.current)  only with reference-types
+                     && Object.ReferenceEquals( this.current, other.current) // only with reference-types NB!
                     )
                 { res = false; }// they are equal.
                 else
@@ -79,7 +79,7 @@ namespace EntityBulk_Csharp_Win_
                     throw new System.Exception("current index is out of range! DBG needed.");
                 }
                 if (this.curIndex == other.curIndex
-                    // && Object.ReferenceEquals(this.current, other.current)  only with reference-types
+                     && Object.ReferenceEquals(this.current, other.current) //  only with reference-types  NB!
                     )
                 { res = true; }// they are equal.
                 else
@@ -126,26 +126,36 @@ namespace EntityBulk_Csharp_Win_
     }//  class EntityBulk<RecordLayout>
 
 
+}// nmsp   EntityBulk_Csharp_Win_
 
-    class Program
+class someRecordLayout
+{
+    int id;
+    string surname;
+    int age;
+    string email;
+    string cellPhone;
+}// class someRecordLayout
+
+class Program
+{
+    static void Main( string[] args )
     {
-        static void Main( string[] args )
-        {
-            EntityBulk_Csharp_Win_.EntityBulk<int> eBint = new EntityBulk<int>(3);
-            int step = +1;
-            for (EntityBulk<int>.iterator it = eBint.begin();
-                 it.isDifferent( eBint.end() );
-                 it.FFWD()
-               )
-            {
-                System.Console.Write("\t" + step++);
-                System.Console.Write("\t iterator curIndex=" + it.curIndex);
-                System.Console.WriteLine("\t end() curIndex=" + eBint.end().curIndex);
-            }// for
-            // ready
-            System.Console.Write("\t Strike \"Enter\" to leave\t");
-            System.Console.ReadLine();
-        }
-    }//class Program::Main
+        //EntityBulk_Csharp_Win_.EntityBulk<int> eBint = new EntityBulk_Csharp_Win_.EntityBulk<int>(3);
 
-}// nmsp
+        EntityBulk_Csharp_Win_.EntityBulk<someRecordLayout> eBint = new EntityBulk_Csharp_Win_.EntityBulk<someRecordLayout>(3);
+        int step = +1;
+        for (EntityBulk_Csharp_Win_.EntityBulk<someRecordLayout>.iterator it = eBint.begin();
+             it.isDifferent(eBint.end());
+             it.FFWD()
+           )
+        {
+            System.Console.Write("\t" + step++);
+            System.Console.Write("\t iterator curIndex=" + it.curIndex);
+            System.Console.WriteLine("\t end() curIndex=" + eBint.end().curIndex);
+        }// for
+        // ready
+        System.Console.Write("\t Strike \"Enter\" to leave\t");
+        System.Console.ReadLine();
+    }
+}//class Program::Main
