@@ -14,3 +14,9 @@ EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/obj/
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/**
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/obj/**
+/EntityBulk_Java/nbproject/private/
+/EntityBulk_Java/build/
+/EntityBulk_Java/dist/
+#
+EntityBulk_Java/build/**
+EntityBulk_Java/dist/**
