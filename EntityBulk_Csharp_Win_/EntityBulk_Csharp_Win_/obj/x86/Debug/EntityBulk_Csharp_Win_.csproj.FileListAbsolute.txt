@@ -1,5 +1,0 @@
-C:\root\projects\GitHubSandBox\Documentazione\EntityBulk_Csharp_Win_\EntityBulk_Csharp_Win_\bin\Debug\EntityBulk_Csharp_Win_.exe
-C:\root\projects\GitHubSandBox\Documentazione\EntityBulk_Csharp_Win_\EntityBulk_Csharp_Win_\bin\Debug\EntityBulk_Csharp_Win_.pdb
-C:\root\projects\GitHubSandBox\Documentazione\EntityBulk_Csharp_Win_\EntityBulk_Csharp_Win_\obj\x86\Debug\EntityBulk_Csharp_Win_.exe
-C:\root\projects\GitHubSandBox\Documentazione\EntityBulk_Csharp_Win_\EntityBulk_Csharp_Win_\obj\x86\Debug\EntityBulk_Csharp_Win_.pdb
-C:\root\projects\GitHubSandBox\Documentazione\EntityBulk_Csharp_Win_\EntityBulk_Csharp_Win_\obj\x86\Debug\EntityBulk_Csharp_Win_.csprojResolveAssemblyReference.cache
