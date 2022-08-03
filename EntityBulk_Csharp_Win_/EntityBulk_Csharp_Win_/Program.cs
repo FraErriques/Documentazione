@@ -61,7 +61,7 @@ namespace EntityBulk_Csharp_Win_
                 {
                     throw new System.Exception("current index is out of range! DBG needed.");
                 }
-                if (this.curIndex == other.curIndex
+                if (this.curIndex == other.curIndex // this is the only possible check for value-types( i.e. when the template is concretized with a value-type.
                      && Object.ReferenceEquals( this.current, other.current) // only with reference-types NB!
                     )
                 { res = false; }// they are equal.
@@ -78,7 +78,7 @@ namespace EntityBulk_Csharp_Win_
                 {
                     throw new System.Exception("current index is out of range! DBG needed.");
                 }
-                if (this.curIndex == other.curIndex
+                if (this.curIndex == other.curIndex // this is the only possible check for value-types( i.e. when the template is concretized with a value-type. 
                      && Object.ReferenceEquals(this.current, other.current) //  only with reference-types  NB!
                     )
                 { res = true; }// they are equal.
