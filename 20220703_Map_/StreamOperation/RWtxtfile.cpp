@@ -47,14 +47,14 @@ bool prune_RecordLayout( std::map<std::string, PhoneBookRecord * > * dictionary 
 {// NB. put here REcordLayout knowledge about field position and content;
     bool res = false;// init to invalid
     PhoneBookRecord * curRecord = new PhoneBookRecord(
-            (*tokenizedLine)[1],
-            (*tokenizedLine)[2],
-            (*tokenizedLine)[4],
-            (*tokenizedLine)[5]
+            (*tokenizedLine)[2],// NB. ### has to be the same!###########################################
+            (*tokenizedLine)[3],
+            (*tokenizedLine)[5],
+            (*tokenizedLine)[6]
                           );
     // NB. add here pruning concept, like notNULLABLE fields check.
     // push the read line in a node-class and then in the map
-    (*dictionary).operator[]((*tokenizedLine)[1])=curRecord;
+    (*dictionary).operator[]((*tokenizedLine)[2])=curRecord;// NB. ### has to be the same!################
     // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
     res = true;
     // ready

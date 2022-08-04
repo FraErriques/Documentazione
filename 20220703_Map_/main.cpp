@@ -12,7 +12,11 @@
 
 int main()
 {
-    std::string phoneBookStreamPath("./interni_IT_.txt");
+//    class MyTypedef NB a class as local typedef: se po' fa!
+//    {
+//        int field;
+//    };
+    std::string phoneBookStreamPath("./telExport_Excel_TAB_.txt");// was  interni_IT_.txt TODO adjust RecordLayout
 	std::fstream theStream;
     std::map<std::string, PhoneBookRecord * > * dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
 //    mapListener( dataAcquisitionResult, "Erriques");

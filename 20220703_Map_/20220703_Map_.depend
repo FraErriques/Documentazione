@@ -5,11 +5,11 @@
 	<string>
 	"StreamOperation/RWtxtfile.h"
 
-1657790413 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
+1659616898 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\main.cpp
 	<iostream>
 	<map>
+	<string>
 	"StreamOperation/RWtxtfile.h"
-	"StreamOperation/stream_io_.h"
 
 1658241322 source:/home/fra/src/GitHubSandBox/Documentazione/20220703_Map_/StreamOperation/RWtxtfile.cpp
 	<map>
@@ -40,8 +40,9 @@
 	"StringBuilder.h"
 	<sstream>
 
-1657525270 c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.h
-	<list>
+1659432488 c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.h
+	<vector>
+	<map>
 	<string>
 	<fstream>
 	<iostream>
@@ -50,9 +51,8 @@
 	<iostream>
 	<fstream>
 
-1657787116 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
-	<vector>
-	<string>
+1659616790 source:c:\root\projects\githubsandbox\documentazione\20220703_map_\streamoperation\rwtxtfile.cpp
+	<map>
 	"RWtxtfile.h"
 	"../StringBuilder/StringBuilder.h"
 
