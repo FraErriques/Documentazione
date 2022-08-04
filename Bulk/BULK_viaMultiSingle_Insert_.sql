@@ -32,3 +32,22 @@ insert into [Telecom].[dbo].[multiop](
 ,('matr_3',GETDATE(),'beneficiario_3', 1.0, 'riga_3')
 ,('matr_4',GETDATE(),'beneficiario_4', 1.0, 'riga_4')
 GO
+
+insert into [Telecom].[dbo].[multiop](
+	[matricola]       -- [varchar](30) NOT NULL,
+	,[attivazione]    -- [datetime] NOT NULL,
+	,[Beneficiario]   -- [varchar](150) NOT NULL,
+	,[someQuantity]   -- [float] NULL,
+	,[note]			  -- [text] NULL
+ ) values
+('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+,('matr_volutamenteRipetuta',GETDATE(),'beneficiario_volutamenteRipetuta', 1.0, 'riga_volutamenteRipetuta')
+GO
