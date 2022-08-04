@@ -25,17 +25,8 @@ public class EntityBulk_Java<RecordLayout>
         return it;// will be garbage collected when its reference counter remains enough on zero.
     }// begin()
     private RecordLayout[] theVec;
-}// nmsp
 
 
 
-class TestConsole
-{
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) 
-    {
-        // TODO code application logic here
-    }// main
-}
+    
+}// class container
