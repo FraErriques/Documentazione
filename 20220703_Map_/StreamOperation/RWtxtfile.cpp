@@ -46,17 +46,20 @@ std::map<std::string, PhoneBookRecord * > * readFileByLines(std::string &where)
 bool prune_RecordLayout( std::map<std::string, PhoneBookRecord * > * dictionary , std::vector<std::string> * tokenizedLine)
 {// NB. put here REcordLayout knowledge about field position and content;
     bool res = false;// init to invalid
-    PhoneBookRecord * curRecord = new PhoneBookRecord(
-            (*tokenizedLine)[2],// NB. ### has to be the same!###########################################
-            (*tokenizedLine)[3],
-            (*tokenizedLine)[5],
-            (*tokenizedLine)[6]
-                          );
-    // NB. add here pruning concept, like notNULLABLE fields check.
-    // push the read line in a node-class and then in the map
-    (*dictionary).operator[]((*tokenizedLine)[2])=curRecord;// NB. ### has to be the same!################
-    // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
-    res = true;
+    if(+1)// NB. put here REcordLayout knowledge about field position and content;
+    {
+        PhoneBookRecord * curRecord = new PhoneBookRecord(
+                (*tokenizedLine)[2],// NB. ### has to be the same!###########################################
+                (*tokenizedLine)[3],
+                (*tokenizedLine)[5],
+                (*tokenizedLine)[6]
+                              );
+        // NB. add here pruning concept, like notNULLABLE fields check.
+        // push the read line in a node-class and then in the map
+        (*dictionary).operator[]((*tokenizedLine)[2])=curRecord;// NB. ### has to be the same!################
+        // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
+        res = true;
+    }// if pruning evaluation passed; else prune record and return false.
     // ready
     return res;
 }// prune_RecordLayout
@@ -65,6 +68,7 @@ void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary)
 {
     if( nullptr!=dictionary)
     {
+        std::cout<<"\n\n\t The map size is \t"<< dictionary->size()<<"\n";
         for( std::map<std::string, PhoneBookRecord * >::iterator fwd=dictionary->begin();
              fwd != dictionary->end();
              fwd++
@@ -80,6 +84,7 @@ void mapTraverseForward( std::map<std::string, PhoneBookRecord * > * dictionary)
                 std::cout<<"\t Orphaned key; it has no value.";
             }// orphaned key
         }// Traverse loop
+        std::cout<<"\n\n\t The map size is \t"<< dictionary->size()<<"\n";
     }// if( nullptr!=dictionary)
     else
     {// map empty
@@ -92,6 +97,7 @@ void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary)
 {
     if( nullptr!=dictionary)
     {
+        std::cout<<"\n\n\t The map size is \t"<< dictionary->size()<<"\n";
         for( std::map<std::string, PhoneBookRecord * >::reverse_iterator bkwd=dictionary->rbegin();
              bkwd != dictionary->rend();
              bkwd++
@@ -107,6 +113,7 @@ void mapTraverseReverse( std::map<std::string, PhoneBookRecord * > * dictionary)
                 std::cout<<"\t Orphaned key; it has no value.";
             }// orphaned key
         }// Traverse loop
+        std::cout<<"\n\n\t The map size is \t"<< dictionary->size()<<"\n";
     }// if( nullptr!=dictionary)
     else
     {// map empty
@@ -145,15 +152,30 @@ void mapListener(  std::map<std::string, PhoneBookRecord * > * dictionary )
     std::string requiredRecord;
     for(;;)
     {
-        std::getline(std::cin, requiredRecord);
+        std::cout<<"\n\t Enter FFWD to Traverse Forward the Map";
+        std::cout<<"\n\t Enter BKWD to Traverse Backward the Map";
+        std::cout<<"\n\t Enter Required Map-key: ";
+        std::cout<<"\n\t Enter \"Exit loop\" to abandon the application\n\n\t";
+        std::getline(std::cin, requiredRecord);// means(getline(fromKeyboard, into__)
         if(requiredRecord=="Exit loop")
         {
-            std::cout<< "Good bye !";
+            std::cout<< "\n\n\t Good bye !";
             break;
+        }// else continue.
+        else if("FFWD"==requiredRecord)
+        {
+            mapTraverseForward( dictionary );
         }
-        std::cout<<" required record  "<< requiredRecord;
-        nodeFinder( dictionary, requiredRecord);
-    }
+        else if("BKWD"==requiredRecord)
+        {
+            mapTraverseReverse( dictionary );
+        }
+        else
+        {
+            // DBG std::cout<<"\n\t required record:  "<< requiredRecord;
+            nodeFinder( dictionary, requiredRecord);
+        }
+    }//for
 }
 
 
@@ -161,10 +183,10 @@ void nodeFinder( std::map<std::string, PhoneBookRecord * > * dictionary , std::s
 {
     if( nullptr!=dictionary)
     {
-        if(+1==(*dictionary).count( requiredkey))
-        //if(nullptr!=(*dictionary).operator[]( requiredkey)) DON'T :this inserts a new pair.
-        {
-            (*dictionary).operator[]( requiredkey)->internalPrint();
+        if(+1==(*dictionary).count( requiredkey))// which means te key is present
+        {//if(nullptr!=(*dictionary).operator[]( requiredkey)) DON'T :this inserts a new pair.
+            (*dictionary).at( requiredkey)->internalPrint();//NB. right way to search the value of a key.
+            //(*dictionary).operator[]( requiredkey)->internalPrint(); do NOT use operator[] ,which is a writer.
         }// else skip, since the required key is absent in the map.
         else
         {
