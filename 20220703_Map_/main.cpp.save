@@ -1,36 +1,34 @@
 #include <iostream>
 #include <map>
+#include <string>
+#include "StreamOperation/RWtxtfile.h"
 
-using namespace std;
 
-
-void mapShow( std::map<std::string, std::string> * dictionary)
-{
-    for( std::map<std::string, std::string>::reverse_iterator() bkwd=dictionary->rbegin();
-         bkwd != dictionary->rend();
-         fwd++
-    )
-    {
-        std::cout<<"\t"<< fwd->first << "\t" << fwd->second << "\n";
-    }
-}// 
-
-int mapFillUp( std::map<std::string, std::string> * dictionary)
-{
-    (*dictionary)["uno"] = "il numero uno";
-    (*dictionary)["due"] = "la seconda posizione";
-    return dictionary->size();// cardinality
-}// mapFillUp
+/*   operation:
+    - listener  : while( getline()!="Exit") mapShow("key")
+    - mapFiller : readFileByLines
+    - mapTraverser : reverse_iterator, used to call map::second::Dtor on all nodes.
+*/
 
 int main()
 {
-    //....do something
-    std::map<std::string, std::string> * dictionary = new std::map<std::string, std::string>();
-    int dictionary_cardinality = mapFillUp( dictionary);
-    mapShow( dictionary);
-    delete dictionary;
 
-    cout << "\n\tStrike Enter to leave\t";
+    std::string phoneBookStreamPath("./telExport_Excel_TAB_.txt");// was  interni_IT_.txt TODO adjust RecordLayout
+    std::map<std::string, PhoneBookRecord * > * dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
+//    mapListener( dataAcquisitionResult, "Erriques");
+//    mapListener( dataAcquisitionResult, "fake");
+//    mapTraverseForward( dataAcquisitionResult);
+//    mapTraverseReverse( dataAcquisitionResult);
+    mapListener( dataAcquisitionResult);
+    // garbage collect
+    // NB. no more: it's called exiting the Loop. mapNodeDestructorCaller( dataAcquisitionResult);
+    delete dataAcquisitionResult;
+    //
+    std::cout << "\n\tStrike Enter to leave\t";
     getchar();
     return 0;
 }// main
+
+/*   cantina
+
+*/

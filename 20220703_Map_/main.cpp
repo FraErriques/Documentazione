@@ -12,23 +12,26 @@
 
 int main()
 {
-//    class MyTypedef NB a class as local typedef: se po' fa!
-//    {
-//        int field;
-//    };
     std::string phoneBookStreamPath("./telExport_Excel_TAB_.txt");// was  interni_IT_.txt TODO adjust RecordLayout
-	std::fstream theStream;
     std::map<std::string, PhoneBookRecord * > * dataAcquisitionResult = readFileByLines( phoneBookStreamPath);
-//    mapListener( dataAcquisitionResult, "Erriques");
-//    mapListener( dataAcquisitionResult, "fake");
-//    mapTraverseForward( dataAcquisitionResult);
-//    mapTraverseReverse( dataAcquisitionResult);
     mapListener( dataAcquisitionResult);
     // garbage collect
-    mapNodeDestructorCaller( dataAcquisitionResult);
+    // NB. no more: it's called exiting the Loop. mapNodeDestructorCaller( dataAcquisitionResult);
     delete dataAcquisitionResult;
     //
     std::cout << "\n\tStrike Enter to leave\t";
     getchar();
     return 0;
 }// main
+
+/*   cantina
+//    class MyTypedef NB a class as local typedef: se po' fa!
+//    {
+//        int field;
+//    };
+
+//    mapListener( dataAcquisitionResult, "Erriques");
+//    mapListener( dataAcquisitionResult, "fake");
+//    mapTraverseForward( dataAcquisitionResult);
+//    mapTraverseReverse( dataAcquisitionResult);
+*/

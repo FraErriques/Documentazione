@@ -68,7 +68,7 @@ class PhoneBookRecord
         }
         //
         if( nullptr!=this->internal
-            && ""!=this->internal->c_str()  )
+            && ""!= *(this->internal)  )
         {
             std::cout<<"\n\t"<< *(this->internal);
         }
@@ -78,7 +78,7 @@ class PhoneBookRecord
         }
         //
         if( nullptr!=this->cellPhone
-            && ""!=this->cellPhone->c_str()  )
+            && ""!= *(this->cellPhone)  )
         {
             std::cout<<"\n\t"<< *(this->cellPhone);
         }
