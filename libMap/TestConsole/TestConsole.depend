@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1659825233 source:/home/fra/src/GitHubSandBox/Documentazione/libMap/TestConsole/main.cpp
+	<iostream>
+	"../libraryMap/MapOperation.h"
+
+1659824527 /home/fra/src/GitHubSandBox/Documentazione/libMap/libraryMap/MapOperation.h
+	<map>
+	"StringBuilder/StringBuilder.h"
+	"TheNode.h"
+
+1659824265 /home/fra/src/GitHubSandBox/Documentazione/libMap/libraryMap/StringBuilder/StringBuilder.h
+	<string>
+	<vector>
+
+1659824604 /home/fra/src/GitHubSandBox/Documentazione/libMap/libraryMap/TheNode.h
+	<string>
+	<iostream>
+
+1659825233 source:/home/fra/src/GitHubSandBox/Documentazione/libMap/TestConsole/Farlocco.cpp
+	<iostream>
+	"../libraryMap/MapOperation.h"
+
