@@ -17,3 +17,21 @@
 	<string>
 	<iostream>
 
+1660068233 source:/home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/TestConsole/main.cpp
+	"../OOPMap/Dictionary/MapOperation.h"
+
+1660067313 /home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/Dictionary/MapOperation.h
+	<map>
+	<string>
+	<iostream>
+	"../StringBuilder/StringBuilder.h"
+	"TheNode.h"
+
+1660067313 /home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/StringBuilder/StringBuilder.h
+	<string>
+	<vector>
+
+1660068126 /home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/Dictionary/TheNode.h
+	<string>
+	<iostream>
+
