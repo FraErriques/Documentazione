@@ -58,6 +58,25 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
     if(+1)// NB. put here RecordLayout knowledge about field position and content;
     {
         TheNode * curRecord = new TheNode(
+                (*tokenizedLine)[0]   //----------joined fields-----------------#####
+//                (*tokenizedLine)[3],
+//                (*tokenizedLine)[5],
+//                (*tokenizedLine)[6]
+                              );
+        // NB. add here pruning concept, like notNULLABLE fields check.
+        // push the read line in a node-class and then in the map
+        (*dictionary).operator[]((*tokenizedLine)[0])=curRecord;//----------joined fields------------######
+        // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
+        res = true;
+    }// if pruning evaluation passed; else prune record and return false.
+    // ready
+    return res;
+}// prune_RecordLayout
+
+/* cantina for RecordLayout change
+    if(+1)// NB. put here RecordLayout knowledge about field position and content;
+    {
+        TheNode * curRecord = new TheNode(
                 (*tokenizedLine)[2],//----------joined fields-----------------#####
                 (*tokenizedLine)[3],
                 (*tokenizedLine)[5],
@@ -69,10 +88,7 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
         res = true;
     }// if pruning evaluation passed; else prune record and return false.
-    // ready
-    return res;
-}// prune_RecordLayout
-
+*/
 
 
 void Common::Dictionary::MapOperation::mapTraverseForward()

@@ -24,3 +24,5 @@ EntityBulk_Java/dist/**
 OOPMap_wkp/bin/**
 OOPMap_wkp/obj/**
 OOPMap_wkp/obj/*.layout
+OOPMap_wkp/bin/Debug/
+OOPMap_wkp/obj/Debug/

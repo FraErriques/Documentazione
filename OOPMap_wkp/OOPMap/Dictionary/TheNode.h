@@ -10,6 +10,28 @@ namespace Common{
 class TheNode
 {
   private:
+    int * name;
+    //
+    // methods
+  public:
+    TheNode(){}
+    TheNode(
+        std::string &name
+         );//---------------------Ctor
+    ~TheNode();//-----------Dtor
+    void internalPrint();
+}; //  TheNode
+
+    }// nmsp
+}// nmsp
+
+#endif // mapNode_H_INCLUDED
+
+/*  cantina
+
+class TheNode
+{
+  private:
     std::string * name;
     std::string * email;
     std::string * internal;
@@ -31,4 +53,5 @@ class TheNode
     }// nmsp
 }// nmsp
 
-#endif // mapNode_H_INCLUDED
+
+*/

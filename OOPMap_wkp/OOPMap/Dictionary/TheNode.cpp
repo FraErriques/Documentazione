@@ -2,6 +2,46 @@
 #include "../StringBuilder/StringBuilder.h"
 
     Common::Dictionary::TheNode::TheNode(//---- Ctor
+        std::string &name
+                    )
+        {//---- Ctor
+            this->name = new int;
+            int content = Common::StrManipul::stringToInt( name);
+            *(this->name) = content;
+        }// Ctor
+
+
+    Common::Dictionary::TheNode::~TheNode()//----Dtor
+    {//----Dtor
+        std::cout<<"\n\t Entering the Node-Destructor \n";// DBG
+        delete this->name;
+//        this->name = nullptr;  Don't do that on a NON-managed language: you just risk to loose the pointer
+//        this->email = nullptr;// and there's no GarbageCollector to intervene.
+//        this->internal = nullptr;
+//        this->cellPhone = nullptr;
+    }//----Dtor
+
+
+    void Common::Dictionary::TheNode::internalPrint()
+    {
+        std::string emptyField("");
+        std::cout<<"\n--------------Recapiti:";
+        //--------------------------
+        if( nullptr!=this->name
+            // not appliable && emptyField.compare( Common::StrManipul::trimBoth( *(this->name) ))
+            )
+        {
+            std::cout<<"\n\t Name: "<< *(this->name);
+        }
+        else
+        {
+            std::cout<<"\n\t Field Name is missing";
+        }
+        std::cout<<"\n----------------------------------------------\n";
+    }// internalPrint()
+
+/* cantina
+    Common::Dictionary::TheNode::TheNode(//---- Ctor
         std::string &name,
         std::string &email,
         std::string &internal,
@@ -79,3 +119,5 @@
         }
         std::cout<<"\n----------------------------------------------\n";
     }// internalPrint()
+
+*/

@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1660056277 source:c:\root\projects\githubsandbox\documentazione\oopmap_wkp\oopmap\dictionary\thenode.cpp
+	"TheNode.h"
+	"../StringBuilder/StringBuilder.h"
+
+1660056217 c:\root\projects\githubsandbox\documentazione\oopmap_wkp\oopmap\dictionary\thenode.h
+	<string>
+	<iostream>
+
+1624874819 c:\root\projects\githubsandbox\documentazione\oopmap_wkp\oopmap\stringbuilder\stringbuilder.h
+	<string>
+	<vector>
+
+1624874819 source:c:\root\projects\githubsandbox\documentazione\oopmap_wkp\oopmap\stringbuilder\stringbuilder.cpp
+	"StringBuilder.h"
+	<sstream>
+
+1660056120 source:c:\root\projects\githubsandbox\documentazione\oopmap_wkp\oopmap\dictionary\mapoperation.cpp
+	<fstream>
+	"MapOperation.h"
+
+1660050169 c:\root\projects\githubsandbox\documentazione\oopmap_wkp\oopmap\dictionary\mapoperation.h
+	<map>
+	<string>
+	<iostream>
+	"../StringBuilder/StringBuilder.h"
+	"TheNode.h"
+
