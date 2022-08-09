@@ -20,3 +20,7 @@ EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/obj/**
 #
 EntityBulk_Java/build/**
 EntityBulk_Java/dist/**
+#
+OOPMap_wkp/bin/**
+OOPMap_wkp/obj/**
+OOPMap_wkp/obj/*.layout
