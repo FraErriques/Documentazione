@@ -51,26 +51,63 @@ void Common::Dictionary::MapOperation::readFileByLines( std::string &where)
 }// readFileByLines
 
 
+bool Common::Dictionary::MapOperation::isFieldNonEmpty( std::string &theField)
+{
+    std::string emptyField("");
+    bool res = false;// init
+    if( emptyField.compare( Common::StrManipul::trimBoth( theField)) )
+        {res=true;}// else stay false.
+    return res;
+}//isFieldNonEmpty(
 
 bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::string> * tokenizedLine)
 {// NB. put here REcordLayout knowledge about field position and content;
     bool res = false;// init to invalid
-    if(+1)// NB. put here RecordLayout knowledge about field position and content;
+    int currentLineTokenCardinality = tokenizedLine->size();
+    if( 7<= currentLineTokenCardinality)// NB. put here RecordLayout knowledge about field position and content; cout non interesting fields too.
     {
-//        TheNode * curRecord = new TheNode(
-//                (*tokenizedLine)[2],//----------joined fields-----------------#####
-//                (*tokenizedLine)[3],
-//                (*tokenizedLine)[5],
-//                (*tokenizedLine)[6]
-//                              );
         // NB. add here pruning concept, like notNULLABLE fields check.
-        // push the read line in a node-class and then in the map
-        (*dictionary).operator[]((*tokenizedLine)[2]) = new TheNode(//----------joined fields------------######
+        if( ! this->isFieldNonEmpty((*tokenizedLine)[2]))// if the Key(i.e. first) is empty-> exit.
+        {return res;}
+        //
+        std::string fieldThree;
+        if( this->isFieldNonEmpty((*tokenizedLine)[3]))
+        {
+            fieldThree = "inadequate field three";
+        }
+        else
+        {
+            fieldThree = (*tokenizedLine)[3];
+        }
+        //
+        std::string fieldFive;
+        if( this->isFieldNonEmpty((*tokenizedLine)[5]))
+        {
+            fieldThree = "inadequate field five";
+        }
+        else
+        {
+            fieldThree = (*tokenizedLine)[5];
+        }
+        //
+        std::string fieldSix;
+        if( this->isFieldNonEmpty((*tokenizedLine)[6]))
+        {
+            fieldThree = "inadequate field six";
+        }
+        else
+        {
+            fieldThree = (*tokenizedLine)[6];
+        }                
+        // push the read line in a node-class and then in the map    
+        TheNode * curRecord = new TheNode(
                 (*tokenizedLine)[2],//----------joined fields-----------------#####
                 (*tokenizedLine)[3],
                 (*tokenizedLine)[5],
                 (*tokenizedLine)[6]
                               );
+        // map insertion
+        (*dictionary).operator[]((*tokenizedLine)[2]) = curRecord;//----------joined fields-----------------#####
         // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
         res = true;
     }// if pruning evaluation passed; else prune record and return false.

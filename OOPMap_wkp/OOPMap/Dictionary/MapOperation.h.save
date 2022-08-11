@@ -24,7 +24,7 @@ class MapOperation
     void mapNodeDestructorCaller();
     void nodeFinder( std::string requiredkey);
     void mapListener();
-    bool isFieldNonEmpty( std::string &theField);
+    bool isFieldNonEmpty( const std::string &theField) const;
 };//class
 
     }}//2 nmsp
