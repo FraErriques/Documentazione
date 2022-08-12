@@ -68,10 +68,10 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
     {
         // NB. add here pruning concept, like notNULLABLE fields check.
         if( ! this->isFieldNonEmpty((*tokenizedLine)[2]))// if the Key(i.e. first) is empty-> exit.
-        {return res;}
+        {return res;}// else continue.
         //
         std::string fieldThree;
-        if( this->isFieldNonEmpty((*tokenizedLine)[3]))
+        if( ! this->isFieldNonEmpty((*tokenizedLine)[3]))
         {
             fieldThree = "inadequate field three";
         }
@@ -81,33 +81,32 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         }
         //
         std::string fieldFive;
-        if( this->isFieldNonEmpty((*tokenizedLine)[5]))
+        if( ! this->isFieldNonEmpty((*tokenizedLine)[5]))
         {
-            fieldThree = "inadequate field five";
+            fieldFive = "inadequate field five";
         }
         else
         {
-            fieldThree = (*tokenizedLine)[5];
+            fieldFive = (*tokenizedLine)[5];
         }
         //
         std::string fieldSix;
-        if( this->isFieldNonEmpty((*tokenizedLine)[6]))
+        if( ! this->isFieldNonEmpty((*tokenizedLine)[6]))
         {
-            fieldThree = "inadequate field six";
+            fieldSix = "inadequate field six";
         }
         else
         {
-            fieldThree = (*tokenizedLine)[6];
-        }                
-        // push the read line in a node-class and then in the map    
+            fieldSix = (*tokenizedLine)[6];
+        }
+        // push the read line in a node-class and then in the map
         TheNode * curRecord = new TheNode(
                 (*tokenizedLine)[2],//----------joined fields-----------------#####
-                (*tokenizedLine)[3],
-                (*tokenizedLine)[5],
-                (*tokenizedLine)[6]
-                              );
+                fieldThree,
+                fieldFive,
+                fieldSix    );
         // map insertion
-        (*dictionary).operator[]((*tokenizedLine)[2]) = curRecord;//----------joined fields-----------------#####
+        (*dictionary).operator[]((*tokenizedLine)[2]) = curRecord;//----joined fields----#####
         // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
         res = true;
     }// if pruning evaluation passed; else prune record and return false.
@@ -130,9 +129,9 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
         res = true;
     }// if pruning evaluation passed; else prune record and return false.
-    
+
     ---------------------------################################
-    
+
     if(+1)// NB. put here RecordLayout knowledge about field position and content;
     {
         TheNode * curRecord = new TheNode(
@@ -146,8 +145,8 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         (*dictionary).operator[]((*tokenizedLine)[0])=curRecord;//----------joined fields------------######
         // DBG  (*dictionary).operator[]((*tokenizedLine)[1])->internalPrint();
         res = true;
-    }// if pruning evaluation passed; else prune record and return false.    
-    
+    }// if pruning evaluation passed; else prune record and return false.
+
 */
 
 
