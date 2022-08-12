@@ -73,31 +73,33 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         std::string fieldThree;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[3]))
         {
-            fieldThree = "inadequate_field_three";
+            fieldThree.assign( "inadequate_field_three");
+            //fieldThree = "inadequate_field_three";
         }
         else
         {
-            fieldThree = (*tokenizedLine)[3];
+            fieldThree.assign( (*tokenizedLine)[3] );
+            //fieldThree = (*tokenizedLine)[3];
         }
         //
         std::string fieldFive;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[5]))
         {
-            fieldFive = "inadequate_field_five";
+            fieldFive.assign( "inadequate_field_five");
         }
         else
         {
-            fieldFive = (*tokenizedLine)[5];
+            fieldFive.assign( (*tokenizedLine)[5] );
         }
         //
         std::string fieldSix;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[6]))
         {
-            fieldSix = "inadequate_field_six";
+            fieldSix.assign( "inadequate_field_six" );
         }
         else
         {
-            fieldSix = (*tokenizedLine)[6];
+            fieldSix.assign( (*tokenizedLine)[6] );
         }
         // push the read line in a node-class and then in the map
         TheNode * curRecord = new TheNode(
