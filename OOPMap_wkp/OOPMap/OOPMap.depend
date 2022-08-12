@@ -1,1 +1,28 @@
 # depslib dependency file v1.0
+1660327466 source:/home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/Dictionary/MapOperation.cpp
+	<fstream>
+	"MapOperation.h"
+
+1660241767 /home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/Dictionary/MapOperation.h
+	<map>
+	<string>
+	<iostream>
+	"../StringBuilder/StringBuilder.h"
+	"TheNode.h"
+
+1660067313 /home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/StringBuilder/StringBuilder.h
+	<string>
+	<vector>
+
+1660068126 /home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/Dictionary/TheNode.h
+	<string>
+	<iostream>
+
+1660327466 source:/home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/Dictionary/TheNode.cpp
+	"TheNode.h"
+	"../StringBuilder/StringBuilder.h"
+
+1660067313 source:/home/fra/src/GitHubSandBox/Documentazione/OOPMap_wkp/OOPMap/StringBuilder/StringBuilder.cpp
+	"StringBuilder.h"
+	<sstream>
+
