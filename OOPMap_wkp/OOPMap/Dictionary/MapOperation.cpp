@@ -73,7 +73,7 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         std::string fieldThree;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[3]))
         {
-            fieldThree = "inadequate field three";
+            fieldThree = "inadequate_field_three";
         }
         else
         {
@@ -83,7 +83,7 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         std::string fieldFive;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[5]))
         {
-            fieldFive = "inadequate field five";
+            fieldFive = "inadequate_field_five";
         }
         else
         {
@@ -93,7 +93,7 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         std::string fieldSix;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[6]))
         {
-            fieldSix = "inadequate field six";
+            fieldSix = "inadequate_field_six";
         }
         else
         {

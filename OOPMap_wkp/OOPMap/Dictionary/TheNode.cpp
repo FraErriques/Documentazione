@@ -31,55 +31,15 @@
 
     void Common::Dictionary::TheNode::internalPrint()
     {
-        std::string emptyField("");
         std::cout<<"\n--------------Recapiti:";
-        //--------------------------
-        if( nullptr!=this->name
-             && emptyField.compare( Common::StrManipul::trimBoth( *(this->name) ))
-            )
-        {
-            std::cout<<"\n\t Name: "<< *(this->name);
-        }
-        else
-        {
-            std::cout<<"\n\t Field Name is missing";
-        }
-        //--------------------------
-        if( nullptr!=this->email
-             && emptyField.compare( Common::StrManipul::trimBoth( *(this->email) ) )
-            )
-        {
-            std::cout<<"\n\t Email: "<< *(this->email);
-        }
-        else
-        {
-            std::cout<<"\n\t Field Email is missing";
-        }
-        //--------------------------
-        if( nullptr!=this->internal
-             && emptyField.compare( Common::StrManipul::trimBoth( *(this->internal) ) )
-            )
-        {
-            std::cout<<"\n\t Internal-Phone: "<< *(this->internal);
-        }
-        else
-        {
-            std::cout<<"\n\t Field Internal-Phone is missing";
-        }
-        //--------------------------
-        if( nullptr!=this->cellPhone
-             && emptyField.compare( Common::StrManipul::trimBoth( *(this->cellPhone) ) )
-           )
-        {
-            std::cout<<"\n\t Cellular-Phone: "<< *(this->cellPhone);
-        }
-        else
-        {
-            std::cout<<"\n\t Field Cellular-Phone is missing";
-        }
+        //----NB. field cannot be empty, after appropriate prune.
+        std::cout<<"\n\t Name: "<< *(this->name);
+        std::cout<<"\n\t Email: "<< *(this->email);
+        std::cout<<"\n\t Internal-Phone: "<< *(this->internal);
+        std::cout<<"\n\t Cellular-Phone: "<< *(this->cellPhone);
         std::cout<<"\n----------------------------------------------\n";
     }// internalPrint()
-   
+
 
 /* cantina
     Common::Dictionary::TheNode::TheNode(//---- Ctor
@@ -160,7 +120,7 @@
         }
         std::cout<<"\n----------------------------------------------\n";
     }// internalPrint()
-    
+
     ----------------#####
     Common::Dictionary::TheNode::TheNode(//---- Ctor
         std::string &name
@@ -200,6 +160,56 @@
         }
         std::cout<<"\n----------------------------------------------\n";
     }// internalPrint()
-    
+
+    --- ex internalPrint
+
+        std::string emptyField("");
+        std::cout<<"\n--------------Recapiti:";
+        //--------------------------
+        if( nullptr!=this->name
+             && emptyField.compare( Common::StrManipul::trimBoth( *(this->name) ))
+            )
+        {
+            std::cout<<"\n\t Name: "<< *(this->name);
+        }
+        else
+        {
+            std::cout<<"\n\t Field Name is missing";
+        }
+        //--------------------------
+        if( nullptr!=this->email
+             && emptyField.compare( Common::StrManipul::trimBoth( *(this->email) ) )
+            )
+        {
+            std::cout<<"\n\t Email: "<< *(this->email);
+        }
+        else
+        {
+            std::cout<<"\n\t Field Email is missing";
+        }
+        //--------------------------
+        if( nullptr!=this->internal
+             && emptyField.compare( Common::StrManipul::trimBoth( *(this->internal) ) )
+            )
+        {
+            std::cout<<"\n\t Internal-Phone: "<< *(this->internal);
+        }
+        else
+        {
+            std::cout<<"\n\t Field Internal-Phone is missing";
+        }
+        //--------------------------
+        if( nullptr!=this->cellPhone
+             && emptyField.compare( Common::StrManipul::trimBoth( *(this->cellPhone) ) )
+           )
+        {
+            std::cout<<"\n\t Cellular-Phone: "<< *(this->cellPhone);
+        }
+        else
+        {
+            std::cout<<"\n\t Field Cellular-Phone is missing";
+        }
+        std::cout<<"\n----------------------------------------------\n";
+    ----------------
 
 */
