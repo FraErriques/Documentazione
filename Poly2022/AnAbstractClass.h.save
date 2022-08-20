@@ -1,0 +1,10 @@
+#ifndef ANABSTRACTCLASS_H_INCLUDED
+#define ANABSTRACTCLASS_H_INCLUDED
+
+class AnAbstractClass
+{
+    virtual void 
+};
+
+
+#endif // ANABSTRACTCLASS_H_INCLUDED

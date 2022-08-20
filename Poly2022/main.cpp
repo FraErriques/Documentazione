@@ -1,6 +1,7 @@
 #include <iostream>
 #include "One.h"
 #include "NestingOfClasses.h"
+#include "AnAbstractClass.h"
 
 
    class OneSon : public One 
@@ -34,7 +35,19 @@ int main()
     p = &oneSon_inst;
     p->internalPrint();
     
-    
+    // AnAbstractClass ac_inst; cannot declare variable ‘ac_inst’ to be of abstract type ‘AnAbstractClass’
+    AnAbstractClass *ac_ptr;// while instead I can poit to it, to let the machanism of AncestorPointer to realize Polymorphism.
+    class ConcretizerOfAnAbstractClass : public AnAbstractClass
+    {
+       public:
+        virtual void toBeImplementedFromDescendants()
+        {
+            std::cout << "\n\t ConcretizerOfAnAbstractClass::toBeImplementedFromDescendants \n";
+        }
+    };
+    ConcretizerOfAnAbstractClass concretizerOfAnAbstractClass_inst;
+    ac_ptr = &concretizerOfAnAbstractClass_inst;
+    ac_ptr->toBeImplementedFromDescendants();    
     
     std::cout << "\n\n\t Strike ""Enter"" to leave \t";
     getchar();

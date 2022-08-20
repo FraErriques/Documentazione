@@ -20,10 +20,11 @@
 	<iostream>
 	"One.h"
 
-1660990168 source:/home/fra/src/GitHubSandBox/Documentazione/Poly2022/main.cpp
+1660992781 source:/home/fra/src/GitHubSandBox/Documentazione/Poly2022/main.cpp
 	<iostream>
 	"One.h"
 	"NestingOfClasses.h"
+	"AnAbstractClass.h"
 
 1660946216 /home/fra/src/GitHubSandBox/Documentazione/Poly2022/One.h
 
@@ -40,4 +41,6 @@
 1660946216 source:/home/fra/src/GitHubSandBox/Documentazione/Poly2022/One.cpp
 	<iostream>
 	"One.h"
+
+1660992781 /home/fra/src/GitHubSandBox/Documentazione/Poly2022/AnAbstractClass.h
 
