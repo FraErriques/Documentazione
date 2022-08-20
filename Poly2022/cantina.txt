@@ -1,0 +1,57 @@
+/*  cantina
+
+
+class Two
+{
+public:
+    int field = 2;
+    //
+public:    
+    Two(){}
+public:    
+    virtual void internalPrint()
+    {
+        std::cout << "\n\t the field has value: " <<   this->field;
+    }    
+};
+
+class InMusic
+{
+public:
+    //typename  InMusic::X : One; NO : compile-time errors
+    // typename OneSonFwd : One;
+    class OneSon : One 
+    {
+    public:
+        OneSon(){}
+        virtual void internalPrint()
+        {
+            std::cout << "\n\t OneSon::internalPrint \n";
+        }
+    }; // this way it's correct.
+    
+    class TwoSon : Two 
+    {
+    public:
+        TwoSon(){}
+        virtual void internalPrint()
+        {
+            std::cout << "\n\t TwoSon::internalPrint \n";
+        }        
+    };
+    //
+    InMusic(){}
+    void manage()
+    {
+        OneSon one;
+        one.internalPrint();
+        TwoSon two;
+        two.internalPrint();
+        //
+        One father;
+        father.internalPrint();
+    }// manage
+};
+
+*/
+

@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1660990168 source:/home/fra/src/Poly2022/main.cpp
+	<iostream>
+	"One.h"
+	"NestingOfClasses.h"
+
+1660946216 /home/fra/src/Poly2022/One.h
+
+1660990168 /home/fra/src/Poly2022/NestingOfClasses.h
+	"One.h"
+	"Two.h"
+
+1660989977 /home/fra/src/Poly2022/Two.h
+	<iostream>
+
+1660990168 source:/home/fra/src/Poly2022/NestingOfClasses.cpp
+	"NestingOfClasses.h"
+
+1660946216 source:/home/fra/src/Poly2022/One.cpp
+	<iostream>
+	"One.h"
+
+1660990168 source:/home/fra/src/GitHubSandBox/Documentazione/Poly2022/main.cpp
+	<iostream>
+	"One.h"
+	"NestingOfClasses.h"
+
+1660946216 /home/fra/src/GitHubSandBox/Documentazione/Poly2022/One.h
+
+1660990168 /home/fra/src/GitHubSandBox/Documentazione/Poly2022/NestingOfClasses.h
+	"One.h"
+	"Two.h"
+
+1660989977 /home/fra/src/GitHubSandBox/Documentazione/Poly2022/Two.h
+	<iostream>
+
+1660990168 source:/home/fra/src/GitHubSandBox/Documentazione/Poly2022/NestingOfClasses.cpp
+	"NestingOfClasses.h"
+
+1660946216 source:/home/fra/src/GitHubSandBox/Documentazione/Poly2022/One.cpp
+	<iostream>
+	"One.h"
+
