@@ -1,0 +1,2 @@
+
+valgrind -v --leak-check=full  --show-leak-kinds=all   bin/Debug/PseudoVector
