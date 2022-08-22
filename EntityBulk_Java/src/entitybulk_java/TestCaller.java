@@ -15,10 +15,18 @@ public class TestCaller
     {
         class MyTypedef
         {
-            int i;
-        }        
+            public int i;
+            public MyTypedef()// Ctor
+            {}// Ctor
+        }// class
         
-        EntityBulk_Java<MyTypedef> eb = new EntityBulk_Java<MyTypedef>();
+        MyTypedef[] vec = new MyTypedef[2];
+        vec[0] = new MyTypedef();
+        vec[0].i = 1;
+        vec[1] = new MyTypedef();
+        vec[1].i = 2;
+        
+        EntityBulk_Java<MyTypedef> eb = new EntityBulk_Java<MyTypedef>( vec);
         EntityBulk_Java<MyTypedef>.iterator it = eb.begin();
     }// main    
 }

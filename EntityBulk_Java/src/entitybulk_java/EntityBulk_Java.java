@@ -10,6 +10,31 @@ package entitybulk_java;
  */
 public class EntityBulk_Java<RecordLayout>
 {
+    // data
+    private Object[] theVec;
+    int capacity;
+    int lastUsedIndex;
+    
+    
+    public EntityBulk_Java()
+    {
+        this.capacity = 0;
+        this.lastUsedIndex = -1;// init to one before first cell, which is [0]
+    }// Ctor
+    
+    public EntityBulk_Java( RecordLayout par)// single element
+    {
+        this.capacity = +1;
+        this.lastUsedIndex = 0;// init to first cell.
+        this.theVec = new Object[]{par};
+    }// Ctor    
+    
+    public EntityBulk_Java( RecordLayout parS[])// multiple elementS
+    {
+        this.capacity = parS.length;
+        this.lastUsedIndex = parS.length-1;// init to one before last cell.
+        this.theVec = new Object[]{parS};
+    }// Ctor        
     
     public class iterator
     {
@@ -24,9 +49,6 @@ public class EntityBulk_Java<RecordLayout>
         EntityBulk_Java<RecordLayout>.iterator it = new EntityBulk_Java<RecordLayout>.iterator();
         return it;// will be garbage collected when its reference counter remains enough on zero.
     }// begin()
-    private RecordLayout[] theVec;
-
-
 
     
 }// class container
