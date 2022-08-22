@@ -11,7 +11,7 @@ package entitybulk_java;
 public class EntityBulk_Java<RecordLayout>
 {
     // data
-    private Object[] theVec;
+    private RecordLayout[] theVec;
     int capacity;
     int lastUsedIndex;
     
@@ -26,14 +26,14 @@ public class EntityBulk_Java<RecordLayout>
     {
         this.capacity = +1;
         this.lastUsedIndex = 0;// init to first cell.
-        this.theVec = new Object[]{par};
+        // this.theVec = new RecordLayout[]{par};  NO  error: generic array creation
     }// Ctor    
     
     public EntityBulk_Java( RecordLayout parS[])// multiple elementS
     {
         this.capacity = parS.length;
         this.lastUsedIndex = parS.length-1;// init to one before last cell.
-        this.theVec = new Object[]{parS};
+        //this.theVec = new RecordLayout[]{parS};  NO  error: generic array creation
     }// Ctor        
     
     public class iterator

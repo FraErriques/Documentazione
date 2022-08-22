@@ -13,20 +13,24 @@ public class TestCaller
 
     public static void main(String[] args) 
     {
-        class MyTypedef
+        EntityBulk_SpecificRecordLayout sr = new EntityBulk_SpecificRecordLayout();
+        EntityBulk_SpecificRecordLayout.SpecificRecordLayout sr_1 = sr.new SpecificRecordLayout();// NB. inner class
+        EntityBulk_SpecificRecordLayout.SpecificRecordLayout sr_2 = // NB. inner class
+                sr.new SpecificRecordLayout(1,"mario","123");
+        EntityBulk_SpecificRecordLayout.SpecificRecordLayout sr_3 = // NB. inner class
+                sr.new SpecificRecordLayout(2,"gino","345");        
+        try
         {
-            public int i;
-            public MyTypedef()// Ctor
-            {}// Ctor
-        }// class
+            sr.push_back( sr_1);
+            sr.push_back( sr_2);
+            sr.push_back( sr_3);
+        }
+        catch( Exception ex)
+        {// something wrong while pushing-back
+            System.out.println( ex.getMessage() );
+        }
         
-        MyTypedef[] vec = new MyTypedef[2];
-        vec[0] = new MyTypedef();
-        vec[0].i = 1;
-        vec[1] = new MyTypedef();
-        vec[1].i = 2;
-        
-        EntityBulk_Java<MyTypedef> eb = new EntityBulk_Java<MyTypedef>( vec);
-        EntityBulk_Java<MyTypedef>.iterator it = eb.begin();
+//        EntityBulk_Java<MyTypedef> eb = new EntityBulk_Java<MyTypedef>( vec);
+//        EntityBulk_Java<MyTypedef>.iterator it = eb.begin();
     }// main    
 }
