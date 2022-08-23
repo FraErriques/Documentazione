@@ -33,4 +33,6 @@ Poly2022/obj/**
 #
 Pseudovector/bin/**
 Pseudovector/obj/**
-
+#
+iterator_Vcc/Iterator_Vcpp_/Debug/**
+iterator_Vcc/Iterator_Vcpp_/Release/**
