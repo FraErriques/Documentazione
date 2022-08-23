@@ -40,12 +40,12 @@ namespace EntityBulk_Csharp_Win_
         public void internalPrint()
         {
             System.Console.Write(
-                     this.id.ToString()
+                 " { " + this.id.ToString()
                 + ", " + this.surname.ToString()
                 + ", " + this.age.ToString()
                 + ", " + this.email.ToString()
                 + ", " + this.cellPhone.ToString()
-                + "\n");
+                + " }\n");
         }// internalPrint
     }// class someRecordLayout
 

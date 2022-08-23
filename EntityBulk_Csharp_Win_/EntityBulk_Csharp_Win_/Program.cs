@@ -17,17 +17,22 @@ class Program//-----------test------------
     static void Main( string[] args )
     {
         EntityBulk_Csharp_Win_.EntityBulk_SpecificRecord_ eBspecif =
-            new EntityBulk_Csharp_Win_.EntityBulk_SpecificRecord_( 3);
+            new EntityBulk_Csharp_Win_.EntityBulk_SpecificRecord_();// with no parameter, it defaults to capacity==100
         int step = +1;
         for (EntityBulk_Csharp_Win_.EntityBulk_SpecificRecord_.iterator it = eBspecif.begin();
-             it.isDifferent(eBspecif.end());
+             ; //it.isDifferent(eBspecif.end()); better the exit condition in the for::body.
              it.FFWD(eBspecif.vec)
            )
         {
             System.Console.Write("\t" + step++);
             System.Console.Write("\t iterator curIndex=" + it.curIndex);
-            System.Console.WriteLine("\t end() curIndex=" + eBspecif.end().curIndex);
+            //System.Console.WriteLine("\t end() curIndex=" + eBspecif.end().curIndex);
             it.current.internalPrint();
+            //
+            if( it.isEqual( eBspecif.end() ) )
+            {// better this way; the other way around it skips last record.
+                break;
+            }// else continue.
         }// for
         // ready
         System.Console.Write("\t Strike \"Enter\" to leave\t");
