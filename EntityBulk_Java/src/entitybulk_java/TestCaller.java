@@ -24,6 +24,12 @@ public class TestCaller
             sr.push_back( sr_1);
             sr.push_back( sr_2);
             sr.push_back( sr_3);
+            for( int c=4; c<=100; c++)
+            {
+                EntityBulk_SpecificRecordLayout.SpecificRecordLayout tmpToBePushedBack =
+                        sr.new SpecificRecordLayout();// NB. inner class
+                sr.push_back( tmpToBePushedBack);
+            }// fill up to #100.            
         }
         catch( Exception ex)
         {// something wrong while pushing-back

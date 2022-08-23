@@ -44,7 +44,7 @@ public class EntityBulk_SpecificRecordLayout
         }// Ctor        
         public void internalPrint()
         {
-            System.out.println(" - "+this.id+" - "+this.name+" - "+this.cellPhone);
+            System.out.println("{ "+this.id+" , "+this.name+" , "+this.cellPhone+" }");
         }        
     }// class SpecificRecordLayout
     
@@ -63,7 +63,7 @@ public class EntityBulk_SpecificRecordLayout
         System.out.println("\n\t--------- this.lastUsedIndex=="+this.lastUsedIndex);
         for( int c=0; c<=this.lastUsedIndex; c++)
         {
-            System.out.println(" - this.theVec[c]=={..");
+            System.out.print(" this.theVec["+c+"]== ");
             this.theVec[c].internalPrint();
         }
         System.out.println("\n\t---------INTERNAL PRINT------END----");
