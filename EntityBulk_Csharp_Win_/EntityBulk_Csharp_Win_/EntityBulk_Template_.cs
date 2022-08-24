@@ -46,7 +46,7 @@ namespace EntityBulk_Csharp_Win_
             {
                 if (this.curIndex >= this.containerCapacity - 1)// where containerCapacity-1 is the last component
                 {
-                    //throw new System.Exception("current index is out of range! DBG needed.");
+                    // DBG throw new System.Exception("current index is out of range! DBG needed.");
                     return;// no more FFWD
                 }
                 this.curIndex++;
@@ -57,7 +57,7 @@ namespace EntityBulk_Csharp_Win_
             {
                 if (this.curIndex <= 0)// where 0 is the sallest available index 
                 {
-                    //throw new System.Exception("current index is out of range! DBG needed.");
+                    // DBG throw new System.Exception("current index is out of range! DBG needed.");
                     return;
                 }
                 this.curIndex--;
@@ -67,32 +67,22 @@ namespace EntityBulk_Csharp_Win_
             public bool isDifferent( iterator other )
             {
                 bool res = false;// init
-                //if (this.curIndex < 0
-                //     || this.curIndex >= this.containerCapacity)// where containerCapacity-1 is the last component
-                //{
-                //    throw new System.Exception("current index is out of range! DBG needed.");
-                //}
                 if (Object.ReferenceEquals(this.current, other.current))// only with reference-types NB!
                 { res = false; }// isDifferent==false, since they are equal.
                 else
                 { res = true; }// they differ -> isDifferent==true
-                //
+                // ready
                 return res;
             }// isDifferent
 
             public bool isEqual( iterator other )
             {
                 bool res = false;// init
-                //if (this.curIndex < 0
-                //     || this.curIndex >= this.containerCapacity)// where containerCapacity-1 is the last component
-                //{
-                //    throw new System.Exception("current index is out of range! DBG needed.");
-                //}
                 if (Object.ReferenceEquals(this.current, other.current))// only with reference-types NB!
                 { res = true; }// they are equal.
                 else
                 { res = false; }// they differ
-                //
+                // ready
                 return res;
             }// isEqual
 
@@ -101,17 +91,11 @@ namespace EntityBulk_Csharp_Win_
 
 
         // Ctor of envelope class
-        public EntityBulk_Template_( int capacity = 100 )  // 
+        public EntityBulk_Template_( int capacity = 100 )  // parameter with default
         {
             this.capacity = capacity;
             this.lastUsedIndex = -1;// init one before start.
             this.vec = new RecordLayout[this.capacity];
-            //// let the array entries not null, by calling their Ctor:
-            //for (int c = 0; c < this.capacity; c++)
-            //{
-            //    this.vec[c] = new RecordLayout();
-            //    // (this.vec[c]).init  cannot call it 
-            //}
         }// Ctor
 
         public void push_back( RecordLayout par )// par is reference-type
