@@ -62,6 +62,7 @@ public:
 
     Bulk_Entity()
     {
+        this->containerCapacity = 55;// TODO parametrize
         this->vec = new int[containerCapacity];
         for(int c=0; c<containerCapacity; c++)
         {
@@ -94,7 +95,7 @@ public:
     }// end
 
 private:
-    const int containerCapacity = 5;
+    int containerCapacity;
     int *vec;
 };// class Bulk_Entity
 
@@ -105,7 +106,7 @@ int main()
     Bulk_Entity be;// automatic instance
     for( Bulk_Entity::myIterator it=be.myBegin(); it!=be.myEnd(); it++)
     {
-        std::cout<<"\t pointee=="<< *it;
+        std::cout<<"\n\t pointee=="<< *it;
     }// stl style
 
 //    Bulk_Entity::myIterator it = be.myBegin();

@@ -6,8 +6,11 @@ BJ22/NumericalAnalysis/build/
 BJ22/NumericalAnalysis/dist/
 #
 iterator/*.o
+iterator/*.depend
+iterator/bin/
 iterator/bin/**
-iterator/obj/**
+iterator/obj/
+iterator/obj/Debug/**
 #
 EntityBulk_Csharp_Win_/*.suo
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/
