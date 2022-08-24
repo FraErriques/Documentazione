@@ -6,8 +6,8 @@ BJ22/NumericalAnalysis/build/
 BJ22/NumericalAnalysis/dist/
 #
 iterator/*.o
-iterator/bin/
-iterator/obj/
+iterator/bin/**
+iterator/obj/**
 #
 EntityBulk_Csharp_Win_/*.suo
 EntityBulk_Csharp_Win_/EntityBulk_Csharp_Win_/bin/
@@ -34,5 +34,7 @@ Poly2022/obj/**
 Pseudovector/bin/**
 Pseudovector/obj/**
 #
+iterator_Vcc/*.suo
+iterator_Vcc/Debug/
 iterator_Vcc/Iterator_Vcpp_/Debug/**
 iterator_Vcc/Iterator_Vcpp_/Release/**

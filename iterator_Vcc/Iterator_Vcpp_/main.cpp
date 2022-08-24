@@ -107,7 +107,7 @@ int main( int argc, char** argv )
     Bulk_Entity be;// automatic instance
     for( Bulk_Entity::myIterator it=be.myBegin(); it!=be.myEnd(); it++)
     {
-        std::cout<<"\t pointee=="<< *it;
+        std::cout<<"\t pointee=="<< *it <<"\n";
     }// stl style
 
     //
