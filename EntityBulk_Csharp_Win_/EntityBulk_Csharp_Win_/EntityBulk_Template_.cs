@@ -11,6 +11,7 @@ namespace EntityBulk_Csharp_Win_
         //---envelope class EntityBulk_Template_<RecordLayout>
         public RecordLayout[] vec;
         private int capacity;
+        private int lastUsedIndex;
 
 
         public class iterator //----internal class -------------------------------------------------
@@ -103,14 +104,44 @@ namespace EntityBulk_Csharp_Win_
         public EntityBulk_Template_( int capacity = 100 )  // 
         {
             this.capacity = capacity;
+            this.lastUsedIndex = -1;// init one before start.
             this.vec = new RecordLayout[this.capacity];
-            // let the array entries not null, by calling their Ctor:
-            for (int c = 0; c < this.capacity; c++)
-            {
-                this.vec[c] = new RecordLayout();
-                // (this.vec[c]).init  cannot call it 
-            }
+            //// let the array entries not null, by calling their Ctor:
+            //for (int c = 0; c < this.capacity; c++)
+            //{
+            //    this.vec[c] = new RecordLayout();
+            //    // (this.vec[c]).init  cannot call it 
+            //}
         }// Ctor
+
+        public void push_back( RecordLayout par )// par is reference-type
+        {// TODO check lastUsedIndex
+            if (this.lastUsedIndex < this.capacity - 1)
+            {// ordinary love
+                if ( ++this.lastUsedIndex < 0)
+                {
+                    throw new System.Exception(" DBG : index underflow");
+                }// else continue.
+                this.vec[this.lastUsedIndex] = par;
+            }
+            else if (this.lastUsedIndex == this.capacity - 1)
+            {// NO ordinary love
+                RecordLayout[] tmp = new RecordLayout[this.capacity + 1];// TODO parmetrize the resize.
+                for (int c = 0; c < this.capacity; c++)
+                {
+                    tmp[c] = this.vec[c];// previous elements.
+                }
+                tmp[this.capacity] = par; // additional element;
+                this.capacity++;// update capacity.
+                this.lastUsedIndex = this.capacity - 1;
+                this.vec = tmp;// std::move.
+                tmp = null;// after the completion of its role, let it be garbage-collected.
+            }
+            else if (this.lastUsedIndex > this.capacity - 1)
+            {
+                throw new System.Exception(" DBG : index overflow");
+            }
+        }// push_back
 
         public iterator begin()
         {
