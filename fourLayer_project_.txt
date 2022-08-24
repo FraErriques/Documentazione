@@ -34,7 +34,49 @@ In projects of Numerical Analisys there's also in general a db layer. There are 
    -	    Interface
 
 in this scenario the layers {Common, Process, Interface} are the same as in the case of a business logic. The db-Entity instead is substituted by a set of algorithms, specific to the pursued purposes. There can though be an Entity layer, in case some of the numerical data are stored there; an example may be the dump of RungeKutta, or similar scatters. But it's important a separation between the database-layer and the Numerical-Analysis modules. The ideal sets could be like: {RealAnalysis,ComplexAnalysis,LinearAlgebra,..} for the Algorithmic portion and a classical {Entity} for the database access of any kind; probably some of the computational modules will have to log data( such as point scatters, or other) on the db. The algorithms will be in the computational modulus which might compute a matrix, multiplying or inverting some other matrices, and the resulting matrix will be written in the db by means of a proxy in the Entity-layer, which calls a stored procedure of the db.
+A classical Entity represents one row of a Database Table. The class data-fields represent the columns of the db-record-layout.
+Such a classical Entity is intended to perform single-row operations, such as insert,select,update.
+In case of need of bulk operation, a different architecture is preferrable; it's a container class of a template row-recordLayout, which implements an internal class iterator and a dynamical vector of the recordLayout instances. There are then two diffent ways for implementing operations such as insert. The first one is to use a scalar insertion proxy (i.e. a usp_xx_INSERT_SINGLE) but in a transaction. That means to don't open and close the connection at each scalar insertion, but rather provide the connection for a transaction and call each scalar-insert in a loop, providing at each step the same transaction to the procedure-proxy; only at end of loop decide wether to commit or rollback the whole transaction.
+The second way is to serialize the whole vector<RecordLayout> on the filesystem, via a dump-method, and then use the BULK command provided from the database. An example follows, based on Microsoft-SqlServer:
 
+BULK INSERT [Numerics].[dbo].[bulk_NumDump]
+FROM 'C:\root\projects\DB\NumDump2021.txt'
+WITH (
+  FIELDTERMINATOR = '\t',
+  ROWTERMINATOR = '\n',
+  FIRSTROW = 2
+);
+GO
+
+The command above means:
+BULK INSERT [db_name_within_the_connected_instance].[owner].[table_name_within_db]
+FROM 'string_of_the_fullpath_of_dataFile_within_filesystem' (an SQL string in single apex)
+WITH (
+	FIELDTERMINATOR = '\t', // here the TAB has been chosen as field separator, as usual from Excel; commas are good too.
+	ROWTERMINATOR = '\n', // customize row-terminator following the Operating System
+	FIRSTROW = 2 // rows are counted starting from one. This command skips the headers( which should be column names)
+); // end of with_command_parameter_list 
+GO // commit
+
+Follows the PostgreSQL equivalent, which is the 'copy' command:
+
+COPY country FROM '/usr1/proj/bray/sql/country_data';
+
+syntax:
+COPY table_name [ ( column_name [, ...] ) ]
+    FROM { 'filename' | STDIN }
+    [ [ WITH ]
+          [ BINARY ]
+          [ DELIMITER [ AS ] 'delimiter_character' ]
+          [ NULL [ AS ] 'null_string' ]
+          [ CSV [ HEADER ]
+                [ QUOTE [ AS ] 'quote_character' ]
+                [ ESCAPE [ AS ] 'escape_character' ]
+                [ FORCE NOT NULL column_name [, ...] ] ] ]
+
+
+
+.....
 ...to be continued
 TODO use BrikoJ solution (i.e. Project-group) to realize this architecture and develop frmCalendar in Java.
 
