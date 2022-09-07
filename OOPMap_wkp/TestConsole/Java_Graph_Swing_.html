@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0076)https://web.mit.edu/6.005/www/sp14/psets/ps4/java-6-tutorial/components.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <title>A Visual Guide to Swing Components (from: The Java™ Tutorials &gt;        
+            Graphical User Interfaces &gt; Swing Features)
+</title>
+
+     <meta name="description" content="This Java Tutorial describes the Swing toolkit at a high level">
+     <meta name="keywords" content="java programming, learn java, java sample code, java swing, java ui, java user interface">
+        
+<style>
+body {
+    font-family: sans-serif;
+}
+table[border="1"] {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table[border="1"] td {
+    padding: 5px;
+}
+</style>
+
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #F90000;
+    }    
+    #PageContent{
+        margin: 0 5px 0 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+        margin-right: 10px;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .footertext {
+        font-size: 10px;
+        font-family: sans-serif; 
+        margin-top: 1px;
+    }
+    
+    #Footer2 {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;        
+    }
+    
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #F90000;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h1, h2, h3, h4, h5 {
+        color: #F90000;
+        font-family: sans-serif;
+    }
+
+    h1 {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    h2 {
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    h5 {
+        font-size: 12px;
+    }
+
+
+    #ToggleLeft {
+        display: none;
+    }
+    
+    .note {
+        margin: 0 30px 0px 30px;
+    }
+    
+    .codeblock {
+        margin: 0 30px 0px 30px;
+    }
+
+</style>
+
+    </head>
+<body>
+
+            <div id="PageContent">
+
+<div id="PageTitle"><h1>A Visual Guide to Swing Components</h1></div>
+
+<p>
+</p><p><table border="1" cellspacing="2" cellpadding="0" align="center">
+  <tbody><tr>
+    <td width="100%" bgcolor="#dedeef">
+    <font size="+1"><a name="basic"></a>Basic Controls</font>
+<br>Simple components that are used primarily to get input from the user;
+they may also show simple state.
+</td>
+  </tr>
+  <tr>
+    <td width="100%">
+    &nbsp;<table border="0" cellspacing="2" cellpadding="5">
+       
+      <tbody><tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ButtonM.png" width="107" height="52" align="BOTTOM" alt="Button image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/button.html">JButton</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-CheckBoxM.png" width="159" height="92" align="BOTTOM" alt="CheckBox image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/button.html#checkbox">JCheckBox</a></td> 
+        <td valign="BASELINE" width="33%">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ComboBoxM.png" width="177" height="117" align="BOTTOM" alt="Combo box image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/combobox.html">JComboBox</a></td> 
+        <td valign="BASELINE" width="34%">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ListM.png" width="159" height="108" align="BOTTOM" alt="List image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/list.html">JList</a></td> 
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE"></td>
+        <td valign="BASELINE"></td>
+        <td valign="BASELINE"></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-MenuM.png" width="223" height="219" align="BOTTOM" alt="Menu image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">JMenu</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-RadioButtonM.png" width="211" height="121" align="BOTTOM" alt="Radio Button image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/button.html#radiobutton">JRadioButton</a></td> 
+        <td colspan="2" valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-SliderM.png" width="242" height="59" align="BOTTOM" alt="Slider image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/slider.html">JSlider</a></td>
+         
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+         </td>
+        <td valign="BASELINE"></td>
+        <td valign="BASELINE"></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-SpinnerM.png" width="148" height="20" align="BOTTOM" alt="Spinner image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/spinner.html">JSpinner</a></td> 
+        <td colspan="2" valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-TextFieldM.png" width="158" height="19" align="BOTTOM" alt="Text field image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/textfield.html">JTextField</a></td>
+        <td colspan="2" valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-PasswordFieldM.png" width="234" height="19" align="BOTTOM" alt="Password field image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/passwordfield.html">JPasswordField</a></td>
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table></p>
+
+<p><table border="1" cellspacing="2" cellpadding="0" align="center">
+  <tbody><tr>
+    <td width="100%" bgcolor="#dedeef">
+    <font size="+1"><a name="complex"></a>Interactive Displays of Highly
+    Formatted Information</font>
+<br>These components display highly formatted information that
+(if you choose) can be modified by the user.
+</td>
+  </tr>
+  <tr>
+    <td width="100%">
+    &nbsp;<table border="0" cellspacing="2" cellpadding="5">
+       
+      <tbody><tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ColorChooserM.png" width="429" height="348" align="BOTTOM" alt="Color Chooser Image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/colorchooser.html">JColorChooser</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-TextPaneM.png" width="268" height="288" align="BOTTOM" alt="Text pane Image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html">JEditorPane</a> and
+<a href="http://docs.oracle.com/javase/tutorial/uiswing/components/editorpane.html">JTextPane</a></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td>
+         </td>
+        <td colspan="2"></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td colspan="2" valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-FileChooserM.png" width="382" height="253" align="BOTTOM" alt="File Chooser Image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html">JFileChooser</a></td>
+         
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td>
+         </td>
+        <td colspan="2"></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-TableM.png" width="401" height="97" align="BOTTOM" alt="Table Image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/table.html">JTable</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-TextAreaM.png" width="230" height="134" align="BOTTOM" alt="Text Image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/text.html">JTextArea</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-TreeM.png" width="159" height="136" align="BOTTOM" alt="Tree Image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/tree.html">JTree</a></td> 
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+
+</p><p><table border="1" cellspacing="2" cellpadding="0" align="center">
+  <tbody><tr>
+    <td width="100%" bgcolor="#dedeef">
+    <font size="+1"><a name="display"></a>Uneditable Information Displays</font>
+<br>These components exist solely to give the user information.
+</td>
+  </tr>
+  <tr>
+    <td width="100%">
+    <table border="0" cellspacing="2" cellpadding="5">
+      <tbody><tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-LabelM.png" width="159" height="135" align="BOTTOM" alt="Label image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/label.html">JLabel</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ProgressBarM.png" width="148" height="21" align="BOTTOM" alt="Progress bar image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/progress.html">JProgressBar</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-SeparatorM.png" width="221" height="23" align="BOTTOM" alt="Separator image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/separator.html">JSeparator</a></td> 
+        <td align="CENTER" valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ToolTipM.png" width="150" height="128" align="BOTTOM" alt="Tool tip image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/tooltip.html">JToolTip</a></td> 
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table></p>
+
+<p><table border="1" cellspacing="2" cellpadding="0" align="center">
+  <tbody><tr>
+    <td width="100%" bgcolor="#dedeef">
+    <font size="+1"><a name="window"></a>Top-Level Containers</font>
+<br>At least one of these components must be present in any Swing
+application.
+</td>
+  </tr>
+  <tr>
+    <td width="100%">
+    <table border="0" cellspacing="2" cellpadding="5">
+      <tbody><tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-Applet.png" width="85" height="77" align="BOTTOM" alt="Applet image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/applet.html">JApplet</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-DialogM.png" width="277" height="122" align="BOTTOM" alt="Dialog image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html">JDialog</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-FrameM.png" width="187" height="92" align="BOTTOM" alt="Frame image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/frame.html">JFrame</a></td> 
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table>
+
+
+</p><p><table border="1" cellspacing="2" cellpadding="0" height="59" align="center">
+  <tbody><tr>
+    <td width="100%" height="28" bgcolor="#dedeef">
+<font size="+1"><a name="generalcontainer"></a>General-Purpose Containers</font>
+<br>These general-purpose containers are used in most Swing applications.
+</td>
+  </tr>
+  <tr>
+    <td width="100%" height="22">
+    <table border="0" cellspacing="2" cellpadding="5">
+      <tbody><tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-PanelM.png" width="268" height="68" align="BOTTOM" alt="Panel image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/panel.html">JPanel</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ScrollPaneM.png" width="263" height="213" align="BOTTOM" alt="Scroll pane image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/scrollpane.html">JScrollPane</a></td> 
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td height="5"></td>
+        <td></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-SplitPaneM.png" width="292" height="133" align="BOTTOM" alt="Split pane image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/splitpane.html">JSplitPane</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-TabbedPaneM.png" width="232" height="86" align="BOTTOM" alt="Tabbed pane image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/tabbedpane.html">JTabbedPane</a></td> 
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td></td>
+        <td></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-ToolBarM.png" width="120" height="35" align="BOTTOM" alt="ToolBar image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/toolbar.html">JToolBar</a></td> 
+        <td width="50%">
+        &nbsp;</td> 
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table></p>
+
+<p><table border="1" cellspacing="2" cellpadding="0" align="center">
+  <tbody><tr>
+    <td width="100%" bgcolor="#dedeef">
+<font size="+1"><a name="specialcontainer"></a>Special-Purpose Containers</font>
+<br>These special-purpose containers play specific roles in the UI.
+</td>
+  </tr>
+  <tr>
+    <td width="100%">
+    <table border="0" cellspacing="2" cellpadding="5">
+      <tbody><tr align="CENTER" valign="BOTTOM">
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-InternalFrameM.png" width="261" height="181" align="BOTTOM" alt="Internal frame image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/internalframe.html">JInternalFrame</a></td> 
+        <td valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-LayeredPaneM.png" width="308" height="200" align="BOTTOM" alt="Layered pane image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/layeredpane.html">JLayeredPane</a></td> 
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+
+        <td valign="BASELINE"></td>
+        <td valign="BASELINE"></td>
+      </tr>
+      <tr align="CENTER" valign="BOTTOM">
+        <td colspan="2" valign="BASELINE">
+<p></p><center><img src="./Java_Graph_Swing__files/ui-rootPane.gif" width="367" height="166" align="BOTTOM" alt="Root pane image"></center><p></p>
+        <a href="http://docs.oracle.com/javase/tutorial/uiswing/components/rootpane.html">Root pane</a></td>
+         
+      </tr>
+    </tbody></table></td>
+  </tr>
+</tbody></table></p>
+
+
+<p>
+
+    </p><div id="Footer2">
+<hr>
+
+<div id="Footer">
+<p class="footertext"><a name="license_info">Your use of this</a> page and all the material on pages under "The Java Tutorials" banner,
+and all the material on pages under "The Java Tutorials" banner is subject to the Java SE Tutorial Copyright
+and License.
+Additionally, any example code contained in any of these Java
+Tutorials pages is licensed under the
+Code
+Sample License.
+</p>
+
+</div>
+    </div>
+
+
+
+ 
+</div></body></html>

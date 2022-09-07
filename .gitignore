@@ -41,3 +41,6 @@ iterator_Vcc/*.suo
 iterator_Vcc/Debug/
 iterator_Vcc/Iterator_Vcpp_/Debug/**
 iterator_Vcc/Iterator_Vcpp_/Release/**
+/JavaAnt_GuiLocalhost/nbproject/private/
+/JavaAnt_GuiLocalhost/build/
+/JavaAnt_GuiLocalhost/dist/
