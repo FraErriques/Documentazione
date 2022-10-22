@@ -1,0 +1,136 @@
+# depslib dependency file v1.0
+1649268749 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/Complex/Complex.cpp
+	"Complex.h"
+	"../RealAnalysis/Real.h"
+	<cmath>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/Complex/Complex.h
+	"../common_data/common_data.h"
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/common_data/common_data.h
+	<cstddef>
+	<cmath>
+	<iostream>
+	"vector.h"
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/RealAnalysis/Real.h
+	"../common_data/common_data.h"
+
+1649268749 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/ComplexMatrix/ComplexMatrix.cpp
+	"ComplexMatrix.h"
+	<cmath>
+	<ctime>
+	<fstream>
+	<cstdlib>
+	<string>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/ComplexMatrix/ComplexMatrix.h
+	"../Complex/Complex.h"
+
+1649268749 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/Integration/Integrate.cpp
+	"Integrate.h"
+	<ctime>
+	<cmath>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/Integration/Integrate.h
+	<cmath>
+
+1664820194 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/Integration/Integration.cpp
+	<cmath>
+	"Integration.h"
+	"../../Common/StringBuilder/StringBuilder.h"
+	"../../Common/DbConnectionService/dbCall.h"
+
+1664819959 /home/patty/src/GitHubSandBox/PostMRW/Entity/Integration/Integration.h
+	"../../Common/LogFs_wrap/LogFs_wrap.h"
+
+1664820068 /home/patty/src/GitHubSandBox/PostMRW/Common/LogFs_wrap/LogFs_wrap.h
+	<vector>
+	<string>
+
+1665340327 /home/patty/src/GitHubSandBox/PostMRW/Common/StringBuilder/StringBuilder.h
+	<string>
+	<vector>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/DbConnectionService/dbCall.h
+
+1666289356 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/Cantiere_Primes_2022September01_.cpp
+	"Cantiere_Primes_2022September01_.h"
+	"InternalAlgos.h"
+	"../../Common/Config_wrap/Config_wrap.h"
+	"../../Common/StringBuilder/StringBuilder.h"
+	"../../Common/LogFs_wrap/LogFs_wrap.h"
+	"../../Entity/Integration/Integration.h"
+	<iostream>
+	<string>
+	<math.h>
+	<ctime>
+
+1666289356 /home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/Cantiere_Primes_2022September01_.h
+	<string>
+	<fstream>
+	<math.h>
+	<iostream>
+	<map>
+	<vector>
+
+1666435265 /home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/Primes.h
+	<string>
+	<fstream>
+	<math.h>
+	<iostream>
+	<map>
+	<vector>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/Config_wrap/Config_wrap.h
+	"../../Common/ConfigurationService/ConfigurationService.h"
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/ConfigurationService/ConfigurationService.h
+	<map>
+	<vector>
+	<string>
+	<fstream>
+
+1664820273 /home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/InternalAlgos.h
+
+1664820287 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/InternalAlgos.cpp
+	<cmath>
+	<string>
+	"../../Common/StringBuilder/StringBuilder.h"
+
+1666438315 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/Primes.cpp
+	"Primes.h"
+	"InternalAlgos.h"
+	"../../Common/Config_wrap/Config_wrap.h"
+	"../../Common/StringBuilder/StringBuilder.h"
+	"../../Common/LogFs_wrap/LogFs_wrap.h"
+	"../../Entity/Integration/Integration.h"
+	<iostream>
+	<string>
+	<math.h>
+	<ctime>
+
+1649268749 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/RealAnalysis/Real.cpp
+	"Real.h"
+
+1649268749 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/RealMatrix/RealMatrix.cpp
+	"RealMatrix.h"
+	"../common_data/common_data.h"
+	<cmath>
+	<ctime>
+	<fstream>
+	<cstdlib>
+	<string>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/RealMatrix/RealMatrix.h
+	<cstddef>
+
+1649268749 source:/home/patty/src/GitHubSandBox/PostMRW/Entity/StringMatrix/StringMatrix.cpp
+	"StringMatrix.h"
+	"../common_data/common_data.h"
+	<ctime>
+	<fstream>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/StringMatrix/StringMatrix.h
+	<string>
+

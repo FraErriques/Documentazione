@@ -34,18 +34,32 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="doc/HOWTO.txt">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="doc/Integers_Z_documentation_.jpg" />
+		<Unit filename="doc/Runge_Kutta_4_.bmp" />
+		<Unit filename="doc/Runge–Kutta methods - Wikipedia, the free encyclopedia.mht" />
 		<Unit filename="src/ComplexField/Complex.cs" />
 		<Unit filename="src/ComplexField/Complex.java">
 			<Option compile="0" />
 			<Option link="0" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="src/ComplexField/ContourIntegral.cs" />
-		<Unit filename="src/ComplexField/Functions.cs" />
+		<Unit filename="src/ComplexField/ContourIntegral.cs">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="src/ComplexField/Functions.cs">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="src/ComplexField/Functions.java">
 			<Option compile="0" />
 			<Option link="0" />
+			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="src/ComplexField/GammaViaIntegral.cs" />
+		<Unit filename="src/ComplexField/GammaViaIntegral.cs">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="src/LinearAlgebra/AssonometryTechniques.cs" />
 		<Unit filename="src/LinearAlgebra/CentralProjection.cs" />
 		<Unit filename="src/LinearAlgebra/CentralProjection_MixedTechnique.cs" />
@@ -71,6 +85,8 @@
 		<Unit filename="src/RealField/SpezzateEulero.cs" />
 		<Unit filename="src/RealField/TestsOnRationals.cs" />
 		<Unit filename="src/RealField/WeierstrassContinuity.cs" />
-		<Extensions />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

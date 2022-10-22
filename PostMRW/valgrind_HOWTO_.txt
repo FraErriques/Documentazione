@@ -1,0 +1,2 @@
+cd  TestConsole
+valgrind  --leak-check=full  --show-leak-kinds=all  -v ./bin/Debug/TestConsole 

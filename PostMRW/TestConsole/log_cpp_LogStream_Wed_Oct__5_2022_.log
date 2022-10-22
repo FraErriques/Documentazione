@@ -1,0 +1,139 @@
+
+-
+S         Cantiere::Bisection_______start
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------------------------------------------------PARAMETER requiredOrdinal ==  1013
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------------------PARAMETER sogliaDistanza ==  0
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ___________________________dumpSize == 21842
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   1
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  10921
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  10921
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1224
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  9929
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain left
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  0
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  10921
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  10921
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  1
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   2
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  5460
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  5460
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  642
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  4783
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain right
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  5468
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  10921
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  5453
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  2
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   3
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8194
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8194
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  946
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  7477
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain right
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8202
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  10921
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  2719
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  3
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   4
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  9561
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  9561
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1088
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8731
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain left
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8202
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  9561
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  1359
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  4
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   5
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8881
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8881
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1020
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8111
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain left
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8202
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8881
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  679
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  5
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   6
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8541
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8541
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  984
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  7757
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain right
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8549
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8881
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  332
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  6
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   7
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8715
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8715
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1003
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  7937
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain right
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8724
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8881
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  157
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  7
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   8
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8802
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8802
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1012
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8053
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain right
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8811
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8881
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  70
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  8
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   9
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8846
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8846
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1017
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8089
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain left
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8811
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8846
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  35
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  9
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   10
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8828
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8828
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1015
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8081
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain left
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8811
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8828
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  17
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  10
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   11
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8819
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8819
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1014
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8069
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 retain left
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 left ==  8811
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 right ==  8819
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 dumpSize ==  8
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---------END of Bisection_step #  11
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ----------------------------------Bisection_step #   12
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8815
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 discriminatingElement_position AFTER CORRECTIONS ==  8815
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Ordinal ==  1013
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 nextRecord->Prime ==  8059
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 ---Under Threshold---: linear acquisition & move&& to map<>
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 distance_from_Target_bytes ==  0
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 extimated_target_position_bytes ==  8815
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 beg_RecArray ==  8815
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 end_RecArray ==  8815
+-
+S               MoveToMap_______start
+C                    inside MoveToMap: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8815
+-
+S                     acquireSequenceOfRecord_______start
+C                          inside acquireSequenceOfRecord: Wed Oct  5 2022 22:12:09 discriminatingElement_position ==  8815
+C                          inside acquireSequenceOfRecord: Wed Oct  5 2022 22:12:09 howMany_RecordInSequence ==  1
+K                     closing____acquireSequenceOfRecord_______end
+K               closing____MoveToMap_______end
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 moveResult ==  1
+C              inside Cantiere::Bisection: Wed Oct  5 2022 22:12:09 howManyRecordInSequence ==  1
+K         closing____Cantiere::Bisection_______end
+-

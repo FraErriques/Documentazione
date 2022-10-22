@@ -1,0 +1,166 @@
+# depslib dependency file v1.0
+1664215548 source:/home/patty/src/GitHubSandBox/PostMRW/TestConsole/Fantoccio.cpp
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Process/MonteCarlo_wrap/MonteCarlo_wrap.h
+	"../../Common/MonteCarlo/modernRand.h"
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/MonteCarlo/modernRand.h
+	<random>
+	<chrono>
+	<thread>
+
+1664819959 /home/patty/src/GitHubSandBox/PostMRW/Entity/Integration/Integration.h
+	"../../Common/LogFs_wrap/LogFs_wrap.h"
+
+1664820068 /home/patty/src/GitHubSandBox/PostMRW/Common/LogFs_wrap/LogFs_wrap.h
+	<vector>
+	<string>
+
+1665340327 /home/patty/src/GitHubSandBox/PostMRW/Common/StringBuilder/StringBuilder.h
+	<string>
+	<vector>
+
+1666437390 source:/home/patty/src/GitHubSandBox/PostMRW/TestConsole/main.cpp
+	<iostream>
+	<vector>
+	"../Common/StringBuilder/StringBuilder.h"
+	"../Common/Stream/stream_io_.h"
+	"../Process/MonteCarlo_wrap/MonteCarlo_wrap.h"
+	"../Common/MonteCarlo/BaseConverter.h"
+	"../Common/MonteCarlo/ClassicalDiscreteGenerator.h"
+	"../Common/MonteCarlo/ClassicalContinuousGenerator.h"
+	"../Common/Config_wrap/Config_wrap.h"
+	"../Common/Stream/stream_io_.h"
+	"../Entity/Integration/Integration.h"
+	"../Entity/Integration/Integrate.h"
+	"../Entity/PrimesFinder/Primes.h"
+	"../Entity/PrimesFinder/Cantiere_Primes_2022September01_.h"
+	"../Entity/PrimesFinder/InternalAlgos.h"
+	"../Entity/Complex/Complex.h"
+	"../Common/Dictionary/MapOperation.h"
+	"Test_Unit_CantierePrimes.h"
+	"Test_Unit_PrimesFinder.h"
+	"Test_Unit_Logger.h"
+	"Test_Unit_selectInterval.h"
+	<stdarg.h>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/Stream/stream_io_.h
+	<iostream>
+	<fstream>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/MonteCarlo/BaseConverter.h
+	<map>
+	<string>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/MonteCarlo/ClassicalDiscreteGenerator.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"../StringBuilder/StringBuilder.h"
+	"./DeltaOmega.h"
+	<cmath>
+	<iostream>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/MonteCarlo/DeltaOmega.h
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/MonteCarlo/ClassicalContinuousGenerator.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"../StringBuilder/StringBuilder.h"
+	"./DeltaOmega.h"
+	<cmath>
+	<iostream>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/Config_wrap/Config_wrap.h
+	"../../Common/ConfigurationService/ConfigurationService.h"
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/ConfigurationService/ConfigurationService.h
+	<map>
+	<vector>
+	<string>
+	<fstream>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/Integration/Integrate.h
+	<cmath>
+
+1666435265 /home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/Primes.h
+	<string>
+	<fstream>
+	<math.h>
+	<iostream>
+	<map>
+	<vector>
+
+1666289356 /home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/Cantiere_Primes_2022September01_.h
+	<string>
+	<fstream>
+	<math.h>
+	<iostream>
+	<map>
+	<vector>
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/Complex/Complex.h
+	"../common_data/common_data.h"
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Entity/common_data/common_data.h
+	<cstddef>
+	<cmath>
+	<iostream>
+	"vector.h"
+
+1661957794 /home/patty/src/GitHubSandBox/PostMRW/Common/Dictionary/MapOperation.h
+	<map>
+	<string>
+	<iostream>
+	"../StringBuilder/StringBuilder.h"
+	"TheNode.h"
+
+1661957794 /home/patty/src/GitHubSandBox/PostMRW/Common/Dictionary/TheNode.h
+	<string>
+	<iostream>
+
+1664664259 /home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_CantierePrimes.h
+	"../Entity/PrimesFinder/Cantiere_Primes_2022September01_.h"
+
+1664664259 source:/home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_CantierePrimes.cpp
+	"Test_Unit_CantierePrimes.h"
+	"../Common/Config_wrap/Config_wrap.h"
+
+1664215304 /home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_PrimesFinder.h
+	"../Entity/PrimesFinder/Primes.h"
+
+1664215304 source:/home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_PrimesFinder.cpp
+	"Test_Unit_PrimesFinder.h"
+
+1664820273 /home/patty/src/GitHubSandBox/PostMRW/Entity/PrimesFinder/InternalAlgos.h
+
+1649268749 /home/patty/src/GitHubSandBox/PostMRW/Common/LogSinkFs/SinkFs.h
+	<fstream>
+	<string>
+	<stack>
+	<mutex>
+	<sys/stat.h>
+	<sstream>
+	<ctime>
+
+1666116978 /home/patty/src/GitHubSandBox/PostMRW/Common/ThreadForker/ThreadForker.h
+	<thread>
+	<mutex>
+
+1666204335 /home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_Logger.h
+	"../Common/StringBuilder/StringBuilder.h"
+	"../Common/LogSinkFs/SinkFs.h"
+	"../Common/ThreadForker/ThreadForker.h"
+	"../Common/LogFs_wrap/LogFs_wrap.h"
+
+1666202579 /home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_selectInterval.h
+
+1666289657 source:/home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_selectInterval.cpp
+	<vector>
+	"Test_Unit_selectInterval.h"
+
+1666204462 source:/home/patty/src/GitHubSandBox/PostMRW/TestConsole/Test_Unit_Logger.cpp
+	<stdarg.h>
+	"Test_Unit_Logger.h"
+

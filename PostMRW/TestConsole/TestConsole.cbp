@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TestConsole" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TestConsole" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-pthread" />
+					<Add library="../Process/bin/Debug/libProcess.a" />
+					<Add library="../Common/bin/Debug/libCommon.a" />
+					<Add library="../Entity/bin/Debug/libEntity.a" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TestConsole" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++11" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-pthread" />
+					<Add library="../Process/bin/Release/libProcess.a" />
+					<Add library="../Common/bin/Release/libCommon.a" />
+					<Add library="../Entity/bin/Release/libEntity.a" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++11" />
+			<Add option="-m64" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Linker>
+			<Add option="-m64" />
+			<Add directory="/usr/local/mysql/connector-c++-8.0/lib" />
+		</Linker>
+		<Unit filename="Cantina.txt" />
+		<Unit filename="Ei_parametrization_.txt" />
+		<Unit filename="Fantoccio.cpp" />
+		<Unit filename="Test_Unit_CantierePrimes.cpp" />
+		<Unit filename="Test_Unit_CantierePrimes.h" />
+		<Unit filename="Test_Unit_Logger.cpp" />
+		<Unit filename="Test_Unit_Logger.h" />
+		<Unit filename="Test_Unit_PrimesFinder.cpp" />
+		<Unit filename="Test_Unit_PrimesFinder.h" />
+		<Unit filename="Test_Unit_selectInterval.cpp" />
+		<Unit filename="Test_Unit_selectInterval.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="sqlScript.txt" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

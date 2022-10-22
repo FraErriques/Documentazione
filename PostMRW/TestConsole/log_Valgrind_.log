@@ -1,0 +1,524 @@
+
+	 Strike Enter to leave	
+==7293== 
+==7293== HEAP SUMMARY:
+==7293==     in use at exit: 195,430 bytes in 4,889 blocks
+==7293==   total heap usage: 3,000,119 allocs, 2,995,230 frees, 1,831,939,060 bytes allocated
+==7293== 
+==7293== Searching for pointers to 4,889 not-freed blocks
+==7293== Checked 112,064 bytes
+==7293== 
+==7293== 16 bytes in 1 blocks are definitely lost in loss record 1 of 51
+==7293==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11E8BF: Cantiere_Primes_2022September01_::Primes::newDeal_recoverDumpTail(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int*) (Cantiere_Primes_2022September01_.cpp:554)
+==7293==    by 0x11F7C2: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:784)
+==7293==    by 0x11F93D: Cantiere_Primes_2022September01_::Primes::MoveToMap(long long, long long, int*) (Cantiere_Primes_2022September01_.cpp:819)
+==7293==    by 0x11FF35: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:945)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D07E: main (main.cpp:44)
+==7293== 
+==7293== 22 bytes in 1 blocks are indirectly lost in loss record 2 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x114815: Common::SinkFs::SinkFs() (SinkFs.cpp:99)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 31 bytes in 1 blocks are still reachable in loss record 3 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49B935D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x49BA285: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1145F3: Common::SinkFs::SinkFs() (SinkFs.cpp:69)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 31 bytes in 1 blocks are still reachable in loss record 4 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49B935D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x49BA285: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x11460F: Common::SinkFs::SinkFs() (SinkFs.cpp:70)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 32 bytes in 1 blocks are indirectly lost in loss record 5 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10F289: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1189)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D390: Cantiere_Primes_2022September01_::Primes::feedDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:250)
+==7293==    by 0x11CA18: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:43)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 32 bytes in 1 blocks are indirectly lost in loss record 6 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10F289: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1189)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D48C: Cantiere_Primes_2022September01_::Primes::feed_CustomDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:261)
+==7293==    by 0x11CA3B: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:54)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 32 bytes in 1 blocks are indirectly lost in loss record 7 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10F289: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1189)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D5BE: Test_Unit_CantierePrimes::dumpTailReaderByChar() (Test_Unit_CantierePrimes.cpp:84)
+==7293==    by 0x10CFFF: main (main.cpp:35)
+==7293== 
+==7293== 32 bytes in 1 blocks are indirectly lost in loss record 8 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10F289: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1189)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D79C: Test_Unit_CantierePrimes::lastRecordReaderByChar() (Test_Unit_CantierePrimes.cpp:99)
+==7293==    by 0x10D00E: main (main.cpp:36)
+==7293== 
+==7293== 32 bytes in 1 blocks are indirectly lost in loss record 9 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10F289: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1189)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D97A: Test_Unit_CantierePrimes::newDeal_recoverLastRecord() (Test_Unit_CantierePrimes.cpp:114)
+==7293==    by 0x10D01D: main (main.cpp:37)
+==7293== 
+==7293== 32 bytes in 1 blocks are indirectly lost in loss record 10 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10F289: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1189)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10DB84: Test_Unit_CantierePrimes::newDeal_recoverDumpTail() (Test_Unit_CantierePrimes.cpp:133)
+==7293==    by 0x10D02C: main (main.cpp:38)
+==7293== 
+==7293== 32 bytes in 1 blocks are definitely lost in loss record 11 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10EDC8: Common::ConfigurationService::getValue(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:248)
+==7293==    by 0x114877: Common::SinkFs::SinkFs() (SinkFs.cpp:101)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 32 bytes in 1 blocks are definitely lost in loss record 12 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10EDC8: Common::ConfigurationService::getValue(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:248)
+==7293==    by 0x1148E1: Common::SinkFs::SinkFs() (SinkFs.cpp:102)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 32 bytes in 1 blocks are definitely lost in loss record 13 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10EDC8: Common::ConfigurationService::getValue(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:248)
+==7293==    by 0x11494B: Common::SinkFs::SinkFs() (SinkFs.cpp:103)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 32 bytes in 1 blocks are definitely lost in loss record 14 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x119C5C: Common::StrManipul::uLongLongToString[abi:cxx11](unsigned long long const&) (StringBuilder.cpp:256)
+==7293==    by 0x11FBD1: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:882)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D07E: main (main.cpp:44)
+==7293== 
+==7293== 32 bytes in 1 blocks are definitely lost in loss record 15 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F315: Cantiere_Primes_2022September01_::Primes::acquireNextRecord(unsigned long long) (Cantiere_Primes_2022September01_.cpp:696)
+==7293==    by 0x11FD54: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:909)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D07E: main (main.cpp:44)
+==7293== 
+==7293== 32 bytes in 1 blocks are definitely lost in loss record 16 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F78D: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x11F93D: Cantiere_Primes_2022September01_::Primes::MoveToMap(long long, long long, int*) (Cantiere_Primes_2022September01_.cpp:819)
+==7293==    by 0x11FF35: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:945)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D07E: main (main.cpp:44)
+==7293== 
+==7293== 41 bytes in 1 blocks are still reachable in loss record 17 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49B929E: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x49B95FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x115379: Common::SinkFs::SinkFs() (SinkFs.cpp:176)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 55 bytes in 2 blocks are indirectly lost in loss record 18 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D390: Cantiere_Primes_2022September01_::Primes::feedDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:250)
+==7293==    by 0x11CA18: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:43)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 55 bytes in 2 blocks are indirectly lost in loss record 19 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D48C: Cantiere_Primes_2022September01_::Primes::feed_CustomDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:261)
+==7293==    by 0x11CA3B: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:54)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 55 bytes in 2 blocks are indirectly lost in loss record 20 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D5BE: Test_Unit_CantierePrimes::dumpTailReaderByChar() (Test_Unit_CantierePrimes.cpp:84)
+==7293==    by 0x10CFFF: main (main.cpp:35)
+==7293== 
+==7293== 55 bytes in 2 blocks are indirectly lost in loss record 21 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D79C: Test_Unit_CantierePrimes::lastRecordReaderByChar() (Test_Unit_CantierePrimes.cpp:99)
+==7293==    by 0x10D00E: main (main.cpp:36)
+==7293== 
+==7293== 55 bytes in 2 blocks are indirectly lost in loss record 22 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D97A: Test_Unit_CantierePrimes::newDeal_recoverLastRecord() (Test_Unit_CantierePrimes.cpp:114)
+==7293==    by 0x10D01D: main (main.cpp:37)
+==7293== 
+==7293== 55 bytes in 2 blocks are indirectly lost in loss record 23 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x1105A4: void __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (new_allocator.h:146)
+==7293==    by 0x10F923: void std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::construct<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (alloc_traits.h:483)
+==7293==    by 0x10FA8E: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:449)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10DB84: Test_Unit_CantierePrimes::newDeal_recoverDumpTail() (Test_Unit_CantierePrimes.cpp:133)
+==7293==    by 0x10D02C: main (main.cpp:38)
+==7293== 
+==7293== 64 bytes in 1 blocks are still reachable in loss record 24 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x1184D7: __gnu_cxx::new_allocator<Common::SinkFs::CurrentTag*>::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x11830E: std::allocator_traits<std::allocator<Common::SinkFs::CurrentTag*> >::allocate(std::allocator<Common::SinkFs::CurrentTag*>&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x117E73: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_M_allocate_map(unsigned long) (stl_deque.h:634)
+==7293==    by 0x117989: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_M_initialize_map(unsigned long) (stl_deque.h:707)
+==7293==    by 0x117367: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_Deque_base() (stl_deque.h:510)
+==7293==    by 0x116FFD: std::deque<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::deque() (stl_deque.h:915)
+==7293==    by 0x116D8B: std::stack<Common::SinkFs::CurrentTag, std::deque<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> > >::stack<std::deque<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >, void>() (stl_stack.h:157)
+==7293==    by 0x114BE1: Common::SinkFs::SinkFs() (SinkFs.cpp:146)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 80 bytes in 1 blocks are still reachable in loss record 25 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x114BD6: Common::SinkFs::SinkFs() (SinkFs.cpp:146)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 182 bytes in 1 blocks are indirectly lost in loss record 26 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x11F79B: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x10DDBB: Test_Unit_CantierePrimes::acquireSequenceOfRecord() (Test_Unit_CantierePrimes.cpp:165)
+==7293==    by 0x10D062: main (main.cpp:42)
+==7293== 
+==7293== 214 (32 direct, 182 indirect) bytes in 1 blocks are definitely lost in loss record 27 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F78D: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x10DDBB: Test_Unit_CantierePrimes::acquireSequenceOfRecord() (Test_Unit_CantierePrimes.cpp:165)
+==7293==    by 0x10D062: main (main.cpp:42)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 28 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x114815: Common::SinkFs::SinkFs() (SinkFs.cpp:99)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 29 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D390: Cantiere_Primes_2022September01_::Primes::feedDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:250)
+==7293==    by 0x11CA18: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:43)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 30 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D48C: Cantiere_Primes_2022September01_::Primes::feed_CustomDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:261)
+==7293==    by 0x11CA3B: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:54)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 31 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D5BE: Test_Unit_CantierePrimes::dumpTailReaderByChar() (Test_Unit_CantierePrimes.cpp:84)
+==7293==    by 0x10CFFF: main (main.cpp:35)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 32 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D79C: Test_Unit_CantierePrimes::lastRecordReaderByChar() (Test_Unit_CantierePrimes.cpp:99)
+==7293==    by 0x10D00E: main (main.cpp:36)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 33 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10D97A: Test_Unit_CantierePrimes::newDeal_recoverLastRecord() (Test_Unit_CantierePrimes.cpp:114)
+==7293==    by 0x10D01D: main (main.cpp:37)
+==7293== 
+==7293== 256 bytes in 1 blocks are indirectly lost in loss record 34 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x111839: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x111130: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x110731: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==7293==    by 0x10FA52: void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (vector.tcc:440)
+==7293==    by 0x10F2C1: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (stl_vector.h:1195)
+==7293==    by 0x10E538: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:126)
+==7293==    by 0x10DB84: Test_Unit_CantierePrimes::newDeal_recoverDumpTail() (Test_Unit_CantierePrimes.cpp:133)
+==7293==    by 0x10D02C: main (main.cpp:38)
+==7293== 
+==7293== 302 (24 direct, 278 indirect) bytes in 1 blocks are definitely lost in loss record 35 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x114815: Common::SinkFs::SinkFs() (SinkFs.cpp:99)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 367 (24 direct, 343 indirect) bytes in 1 blocks are definitely lost in loss record 36 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D390: Cantiere_Primes_2022September01_::Primes::feedDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:250)
+==7293==    by 0x11CA18: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:43)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 367 (24 direct, 343 indirect) bytes in 1 blocks are definitely lost in loss record 37 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x11D56C: Cantiere_Primes_2022September01_::Primes::getPrimeDumpFullPath(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*) const (Cantiere_Primes_2022September01_.cpp:270)
+==7293==    by 0x11D48C: Cantiere_Primes_2022September01_::Primes::feed_CustomDumpPath[abi:cxx11]() (Cantiere_Primes_2022September01_.cpp:261)
+==7293==    by 0x11CA3B: Cantiere_Primes_2022September01_::Primes::Primes(unsigned int) (Cantiere_Primes_2022September01_.cpp:54)
+==7293==    by 0x10D305: Test_Unit_CantierePrimes::Test_Unit_CantierePrimes(unsigned int) (Test_Unit_CantierePrimes.cpp:6)
+==7293==    by 0x10CFC2: main (main.cpp:32)
+==7293== 
+==7293== 367 (24 direct, 343 indirect) bytes in 1 blocks are definitely lost in loss record 38 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x10D5BE: Test_Unit_CantierePrimes::dumpTailReaderByChar() (Test_Unit_CantierePrimes.cpp:84)
+==7293==    by 0x10CFFF: main (main.cpp:35)
+==7293== 
+==7293== 367 (24 direct, 343 indirect) bytes in 1 blocks are definitely lost in loss record 39 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x10D79C: Test_Unit_CantierePrimes::lastRecordReaderByChar() (Test_Unit_CantierePrimes.cpp:99)
+==7293==    by 0x10D00E: main (main.cpp:36)
+==7293== 
+==7293== 367 (24 direct, 343 indirect) bytes in 1 blocks are definitely lost in loss record 40 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x10D97A: Test_Unit_CantierePrimes::newDeal_recoverLastRecord() (Test_Unit_CantierePrimes.cpp:114)
+==7293==    by 0x10D01D: main (main.cpp:37)
+==7293== 
+==7293== 367 (24 direct, 343 indirect) bytes in 1 blocks are definitely lost in loss record 41 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10E4C4: Common::ConfigurationService::ConfigurationService(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (ConfigurationService.cpp:119)
+==7293==    by 0x10DB84: Test_Unit_CantierePrimes::newDeal_recoverDumpTail() (Test_Unit_CantierePrimes.cpp:133)
+==7293==    by 0x10D02C: main (main.cpp:38)
+==7293== 
+==7293== 480 bytes in 1 blocks are still reachable in loss record 42 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11841D: __gnu_cxx::new_allocator<Common::SinkFs::CurrentTag>::allocate(unsigned long, void const*) (new_allocator.h:114)
+==7293==    by 0x118219: std::allocator_traits<std::allocator<Common::SinkFs::CurrentTag> >::allocate(std::allocator<Common::SinkFs::CurrentTag>&, unsigned long) (alloc_traits.h:443)
+==7293==    by 0x117C1B: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_M_allocate_node() (stl_deque.h:620)
+==7293==    by 0x117EF8: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_M_create_nodes(Common::SinkFs::CurrentTag**, Common::SinkFs::CurrentTag**) (stl_deque.h:745)
+==7293==    by 0x1179DF: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_M_initialize_map(unsigned long) (stl_deque.h:719)
+==7293==    by 0x117367: std::_Deque_base<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::_Deque_base() (stl_deque.h:510)
+==7293==    by 0x116FFD: std::deque<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >::deque() (stl_deque.h:915)
+==7293==    by 0x116D8B: std::stack<Common::SinkFs::CurrentTag, std::deque<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> > >::stack<std::deque<Common::SinkFs::CurrentTag, std::allocator<Common::SinkFs::CurrentTag> >, void>() (stl_stack.h:157)
+==7293==    by 0x114BE1: Common::SinkFs::SinkFs() (SinkFs.cpp:146)
+==7293==    by 0x11443F: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293== 
+==7293== 648 bytes in 1 blocks are still reachable in loss record 43 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x114434: Common::TSingleton<Common::SinkFs>::instance() (Singleton.h:75)
+==7293==    by 0x112153: Common::LogWrappers::SectionOpen(char const*, int) (LogFs_wrap.cpp:30)
+==7293==    by 0x10CFA8: main (main.cpp:29)
+==7293== 
+==7293== 920 bytes in 1 blocks are indirectly lost in loss record 44 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x11F79B: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x11CFA3: Cantiere_Primes_2022September01_::Primes::ReadSequentialDumpInterface_arrayOfRec_anywhere(long long, long long) (Cantiere_Primes_2022September01_.cpp:188)
+==7293==    by 0x10D4E0: Test_Unit_CantierePrimes::readSequentialDump_arrayOfRec_anywhere(unsigned long long, unsigned long long) (Test_Unit_CantierePrimes.cpp:60)
+==7293==    by 0x10D12D: main (main.cpp:53)
+==7293== 
+==7293== 952 (32 direct, 920 indirect) bytes in 1 blocks are definitely lost in loss record 45 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F78D: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x11CFA3: Cantiere_Primes_2022September01_::Primes::ReadSequentialDumpInterface_arrayOfRec_anywhere(long long, long long) (Cantiere_Primes_2022September01_.cpp:188)
+==7293==    by 0x10D4E0: Test_Unit_CantierePrimes::readSequentialDump_arrayOfRec_anywhere(unsigned long long, unsigned long long) (Test_Unit_CantierePrimes.cpp:60)
+==7293==    by 0x10D12D: main (main.cpp:53)
+==7293== 
+==7293== 18,864 bytes in 1,179 blocks are definitely lost in loss record 46 of 51
+==7293==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11E8BF: Cantiere_Primes_2022September01_::Primes::newDeal_recoverDumpTail(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int*) (Cantiere_Primes_2022September01_.cpp:554)
+==7293==    by 0x11F7C2: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:784)
+==7293==    by 0x11F93D: Cantiere_Primes_2022September01_::Primes::MoveToMap(long long, long long, int*) (Cantiere_Primes_2022September01_.cpp:819)
+==7293==    by 0x11FF35: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:945)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D0B4: main (main.cpp:47)
+==7293== 
+==7293== 37,728 bytes in 1,179 blocks are definitely lost in loss record 47 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x119C5C: Common::StrManipul::uLongLongToString[abi:cxx11](unsigned long long const&) (StringBuilder.cpp:256)
+==7293==    by 0x11FBD1: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:882)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D0B4: main (main.cpp:47)
+==7293== 
+==7293== 37,728 bytes in 1,179 blocks are definitely lost in loss record 48 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F315: Cantiere_Primes_2022September01_::Primes::acquireNextRecord(unsigned long long) (Cantiere_Primes_2022September01_.cpp:696)
+==7293==    by 0x11FD54: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:909)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D0B4: main (main.cpp:47)
+==7293== 
+==7293== 37,728 bytes in 1,179 blocks are definitely lost in loss record 49 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F78D: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x11F93D: Cantiere_Primes_2022September01_::Primes::MoveToMap(long long, long long, int*) (Cantiere_Primes_2022September01_.cpp:819)
+==7293==    by 0x11FF35: Cantiere_Primes_2022September01_::Primes::Bisection(unsigned long long) (Cantiere_Primes_2022September01_.cpp:945)
+==7293==    by 0x120349: Cantiere_Primes_2022September01_::Primes::operator[](unsigned long long) (Cantiere_Primes_2022September01_.cpp:1036)
+==7293==    by 0x10D54A: Test_Unit_CantierePrimes::readBy_OperatorSquares(unsigned long long) (Test_Unit_CantierePrimes.cpp:75)
+==7293==    by 0x10D0B4: main (main.cpp:47)
+==7293== 
+==7293== 56,177 bytes in 61 blocks are indirectly lost in loss record 50 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x49BBBCC: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==7293==    by 0x11F79B: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x11CFA3: Cantiere_Primes_2022September01_::Primes::ReadSequentialDumpInterface_arrayOfRec_anywhere(long long, long long) (Cantiere_Primes_2022September01_.cpp:188)
+==7293==    by 0x10D4E0: Test_Unit_CantierePrimes::readSequentialDump_arrayOfRec_anywhere(unsigned long long, unsigned long long) (Test_Unit_CantierePrimes.cpp:60)
+==7293==    by 0x10D1A4: main (main.cpp:63)
+==7293== 
+==7293== 58,129 (1,952 direct, 56,177 indirect) bytes in 61 blocks are definitely lost in loss record 51 of 51
+==7293==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11F78D: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:780)
+==7293==    by 0x11CFA3: Cantiere_Primes_2022September01_::Primes::ReadSequentialDumpInterface_arrayOfRec_anywhere(long long, long long) (Cantiere_Primes_2022September01_.cpp:188)
+==7293==    by 0x10D4E0: Test_Unit_CantierePrimes::readSequentialDump_arrayOfRec_anywhere(unsigned long long, unsigned long long) (Test_Unit_CantierePrimes.cpp:60)
+==7293==    by 0x10D1A4: main (main.cpp:63)
+==7293== 
+==7293== LEAK SUMMARY:
+==7293==    definitely lost: 134,440 bytes in 4,793 blocks
+==7293==    indirectly lost: 59,615 bytes in 89 blocks
+==7293==      possibly lost: 0 bytes in 0 blocks
+==7293==    still reachable: 1,375 bytes in 7 blocks
+==7293==         suppressed: 0 bytes in 0 blocks
+==7293== 
+==7293== ERROR SUMMARY: 22 errors from 22 contexts (suppressed: 0 from 0)
+==7293== 
+==7293== 1 errors in context 1 of 22:
+==7293== Mismatched free() / delete / delete []
+==7293==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x10DDD0: Test_Unit_CantierePrimes::acquireSequenceOfRecord() (Test_Unit_CantierePrimes.cpp:166)
+==7293==    by 0x10D062: main (main.cpp:42)
+==7293==  Address 0x4e22bd0 is 0 bytes inside a block of size 416 alloc'd
+==7293==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7293==    by 0x11E8BF: Cantiere_Primes_2022September01_::Primes::newDeal_recoverDumpTail(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int*) (Cantiere_Primes_2022September01_.cpp:554)
+==7293==    by 0x11F7C2: Cantiere_Primes_2022September01_::Primes::acquireSequenceOfRecord(unsigned long long, unsigned long long, int*) (Cantiere_Primes_2022September01_.cpp:784)
+==7293==    by 0x10DDBB: Test_Unit_CantierePrimes::acquireSequenceOfRecord() (Test_Unit_CantierePrimes.cpp:165)
+==7293==    by 0x10D062: main (main.cpp:42)
+==7293== 
+==7293== ERROR SUMMARY: 22 errors from 22 contexts (suppressed: 0 from 0)
+

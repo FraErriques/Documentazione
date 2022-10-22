@@ -1,0 +1,10 @@
+	 Strike Enter to leave	
+==15528== 
+==15528== HEAP SUMMARY:
+==15528==     in use at exit: 0 bytes in 0 blocks
+==15528==   total heap usage: 3,000,119 allocs, 3,000,119 frees, 1,831,939,060 bytes allocated
+==15528== 
+==15528== All heap blocks were freed -- no leaks are possible
+==15528== 
+==15528== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
