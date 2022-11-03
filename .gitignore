@@ -44,3 +44,6 @@ iterator_Vcc/Iterator_Vcpp_/Release/**
 /JavaAnt_GuiLocalhost/nbproject/private/
 /JavaAnt_GuiLocalhost/build/
 /JavaAnt_GuiLocalhost/dist/
+#
+Rand/obj/
+Rand/bin/

@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1667485956 source:c:\root\projects\githubsandbox\documentazione\rand\main.cpp
+	<iostream>
+	"ClassicalContinuousGenerator.h"
+
+1667484470 source:c:\root\projects\githubsandbox\documentazione\rand\classicalcontinuousgenerator.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<cmath>
+	<iostream>
+	"ClassicalContinuousGenerator.h"
+
+1667484252 c:\root\projects\githubsandbox\documentazione\rand\classicalcontinuousgenerator.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"./DeltaOmega.h"
+	<cmath>
+	<iostream>
+	<vector>
+
+1666853795 c:\root\projects\githubsandbox\documentazione\rand\deltaomega.h
+	<cmath>
+
