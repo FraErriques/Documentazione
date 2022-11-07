@@ -79,16 +79,7 @@ void ClassicalContinuousGenerator::resetExtractionInterval( double left, double 
     //
     if( nullptr != this->frequencyDistribution)
     {
-        for( std::vector<DeltaOmega*>::const_iterator it=this->frequencyDistribution->begin();
-             it!=this->frequencyDistribution->end();
-             it++
-            )
-        {// first delete node pointees : the scalars are DeltaOmega.
-            delete (*it);
-        }
-        this->frequencyDistribution->clear();//then delete the pointers.
         delete this->frequencyDistribution;
-        this->frequencyDistribution = nullptr;
     }// else the frequencyDistribution vector is already null.
     this->frequencyDistribution = new std::vector<DeltaOmega*>();// get a new frequencyDistribution.
 }// ex_Ctor
@@ -107,10 +98,10 @@ ClassicalContinuousGenerator::~ClassicalContinuousGenerator()
              it!=this->frequencyDistribution->end();
              it++
             )
-        {// first delete node pointees : the scalars are DeltaOmega.
+        {// first
             delete (*it);
         }
-        this->frequencyDistribution->clear();//then delete the pointers.
+        this->frequencyDistribution->clear();//the scalars are DeltaOmega
         delete this->frequencyDistribution;
         this->frequencyDistribution = nullptr;
     }// else the frequencyDistribution vector is already null.

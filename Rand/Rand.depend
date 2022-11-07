@@ -23,3 +23,27 @@
 1667831295 c:\root\projects\githubsandbox\documentazione\rand\deltaomega.h
 	<cmath>
 
+1667848756 source:/home/patty/src/GitHubSandBox/Documentazione/Rand/ClassicalContinuousGenerator.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<cmath>
+	<iostream>
+	"ClassicalContinuousGenerator.h"
+
+1667848841 /home/patty/src/GitHubSandBox/Documentazione/Rand/ClassicalContinuousGenerator.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"./DeltaOmega.h"
+	<cmath>
+	<iostream>
+	<vector>
+
+1667847882 /home/patty/src/GitHubSandBox/Documentazione/Rand/DeltaOmega.h
+	<cmath>
+
+1667847882 source:/home/patty/src/GitHubSandBox/Documentazione/Rand/main.cpp
+	<iostream>
+	"ClassicalContinuousGenerator.h"
+

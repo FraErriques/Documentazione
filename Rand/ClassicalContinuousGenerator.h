@@ -46,7 +46,7 @@ private:
     double omothetia;// it's rational since it contains a ratio, for proportion with default interval.
     double translation;
     std::vector<double> * continuousPopulation;
-    std::vector<DeltaOmega> * frequencyDistribution;
+    std::vector<DeltaOmega*> * frequencyDistribution;
 
 public:
     ClassicalContinuousGenerator( unsigned int seed, double left, double right);// : currentSeed(seed), generatorSUP(RAND_MAX);
