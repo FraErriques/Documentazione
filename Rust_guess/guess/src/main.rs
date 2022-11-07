@@ -3,6 +3,22 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
+
+fn vec_iter() {
+    let names = vec!["Bob", "Frank", "Ferris"];
+
+    for name in names.into_iter() {
+        match name {
+            "Ferris" => println!("There is a rustacean among us!"),
+            _ => println!("Hello {}", name),
+        }
+    }
+    
+    //println!("names: {:?}", names);
+    // FIXME ^ Comment out this line
+}//vec_iter
+
+
 // the EntryPoit "main" has to be contained in an omonimous file.
 fn main() {
     println!("Guess the number!");
@@ -43,5 +59,7 @@ fn main() {
 			println!("Sum=={}", sum);
 		}
 		assert_eq!(sum, 55);
+	//
+	vec_iter();
     }// loop
 }// main
