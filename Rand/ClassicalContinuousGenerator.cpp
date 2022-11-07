@@ -23,48 +23,90 @@ namespace MonteCarlo
 
 
 
-ClassicalContinuousGenerator::ClassicalContinuousGenerator( unsigned int seed) : currentSeed(seed), generatorSUP(RAND_MAX)
-{
+ClassicalContinuousGenerator::ClassicalContinuousGenerator( unsigned int seed, double left, double right) : currentSeed(seed), generatorSUP(RAND_MAX)
+{// Ctor with seed
     srand( seed);
     this->continuousPopulation = nullptr;// necessary on Win.
     this->frequencyDistribution = nullptr;
+    if(right-left <=0)
+    {
+        this->ReasonForAbortingConstructor = new std::string("wrong boundaries: should be left<right.");
+        this->ConstructorCanContinue = false;
+    }
+    else
+    {
+        this->ReasonForAbortingConstructor = nullptr;
+        resetExtractionInterval( left, right );
+    }
 }// END Ctor( unsigned int seed)
 
 
 // You can pass in a pointer to a time_t object that time will fill up with the current time (and the return value is the same
 // one that you pointed to). If you pass in NULL, it just ignores it and merely returns a new time_t object that represents the current time.
-ClassicalContinuousGenerator::ClassicalContinuousGenerator() : currentSeed( time(NULL)), generatorSUP(RAND_MAX)
-{
+ClassicalContinuousGenerator::ClassicalContinuousGenerator(double left, double right) : currentSeed( time(NULL)), generatorSUP(RAND_MAX)
+{// Ctor without seed
     srand( this->currentSeed);// i.e. time(NULL)
     this->continuousPopulation = nullptr;// necessary on Win.
     this->frequencyDistribution = nullptr;
+    if(right-left <=0)
+    {
+        this->ReasonForAbortingConstructor = new std::string("wrong boundaries: should be left<right.");
+        this->ConstructorCanContinue = false;
+    }
+    else
+    {
+        this->ReasonForAbortingConstructor = nullptr;
+        resetExtractionInterval( left, right );
+    }
 }// END Ctor()
 
 
 
-    void ClassicalContinuousGenerator::resetExtractionInterval( double left, double right )
+void ClassicalContinuousGenerator::resetExtractionInterval( double left, double right )
+{// if the call comes from a Ctor the pointers are null and there's no deletion.
+ // if the call comes along the lifetime of an instance, the pointers are not null; so there is deletion and new construction.
+    this->Min = left;// reset.
+    this->Sup = right;// reset.
+    this->theIntervalMeasure = right-left;// init for both models; correct only for Continuous ones.
+    // default model is [min,sup) on [0,RAND_MAX)==[0,32767)
+    this->omothetia = this->theIntervalMeasure/((double)RAND_MAX);
+    this->translation = left;// NB. valid within a single population.
+    if( nullptr != this->continuousPopulation)
     {
-        this->Min = left;// reset.
-        this->Sup = right;// reset.
-        this->theIntervalMeasure = right-left;// init for both models; correct only for Continuous ones.
-        // default model is [min,sup) on [0,RAND_MAX)==[0,32767)
-        this->omothetia = this->theIntervalMeasure/((double)RAND_MAX);
-        this->translation = left;// NB. valid within a single population.
-        if( nullptr != this->continuousPopulation)
-        {
         delete this->continuousPopulation;
-        }// else the population vector is already null.
-        this->continuousPopulation = new std::vector<double>();// get a new population.
-        //
-        if( nullptr != this->frequencyDistribution)
-        {
+    }// else the population vector is already null.
+    this->continuousPopulation = new std::vector<double>();// get a new population.
+    //
+    if( nullptr != this->frequencyDistribution)
+    {
         delete this->frequencyDistribution;
-        }// else the frequencyDistribution vector is already null.
-        this->frequencyDistribution = new std::vector<DeltaOmega>();// get a new frequencyDistribution.
-    }// ex_Ctor
+    }// else the frequencyDistribution vector is already null.
+    this->frequencyDistribution = new std::vector<DeltaOmega>();// get a new frequencyDistribution.
+}// ex_Ctor
+
+ClassicalContinuousGenerator::~ClassicalContinuousGenerator()
+{// Dtor
+    if( nullptr != this->continuousPopulation)
+    {
+        delete this->continuousPopulation;
+        this->continuousPopulation = nullptr;
+    }// else the population vector is already null.
+    //
+    if( nullptr != this->frequencyDistribution)
+    {
+        delete this->frequencyDistribution;
+        this->frequencyDistribution = nullptr;
+    }// else the frequencyDistribution vector is already null.
+    //
+    if( nullptr != this->ReasonForAbortingConstructor)
+    {
+        delete this->ReasonForAbortingConstructor;
+        this->ReasonForAbortingConstructor = nullptr;
+    }// else the ReasonForAbortingConstructor is already null.
+}// Dtor
 
 
-    void ClassicalContinuousGenerator::nextDoubleInInterval() const
+    double ClassicalContinuousGenerator::nextDoubleInInterval() const
     {
         //Process::LogWrappers::SectionOpen("ClassicalContinuousGenerator::nextDoubleInInterval()", 0);
         double originalExtracted = rand();
@@ -88,6 +130,8 @@ ClassicalContinuousGenerator::ClassicalContinuousGenerator() : currentSeed( time
 //            delete strAfterAffinity;
         }
         //Process::LogWrappers::SectionClose();
+        // ready.
+        return temp;
     }// END nextDoubleInInterval
 
 
@@ -187,7 +231,7 @@ void ClassicalContinuousGenerator::buildOmega(
     )
 {//this->frequencyDistribution has been built by Ctor.
     double eta = (partizioneRight-partizioneLeft)/20.0;//each DeltaOmega is 1/10*Omega. Eta is 1/2*DeltaOmega.
-    double mediana = 0;// init
+    double mediana = partizioneLeft;// init
     for( double position=partizioneLeft-+1.0E-80; mediana<partizioneRight; position+=2.0*eta)
     {
         mediana = position+eta;

@@ -6,12 +6,27 @@ void monolite()
 {// MonteCarlo on continuous:
     double left  = 0;//-92.809;
     double right = +1;//+12.209;
-    int populationCardinality = 10;//9000;
+    int populationCardinality = 1000;
     //
     std::cout<<"\n\t -------- START continuous model \n"<<std::endl;
     Common::MonteCarlo::ClassicalContinuousGenerator * monteCGen_D =
-        new Common::MonteCarlo::ClassicalContinuousGenerator();// Ctor
+        new Common::MonteCarlo::ClassicalContinuousGenerator(  left, right);// Ctor
+
+    for( int c=0; c<populationCardinality;c++)
+    {
+        monteCGen_D->nextDoubleInInterval();
+    }
+    monteCGen_D->showContinuousPopulation();
+    monteCGen_D->buildOmega( left, right );
+    monteCGen_D->buildContinuousFrequencyDistribution();
+    monteCGen_D->showFrequencyDistribution();
+    monteCGen_D->showCumulatedFrequency();
+    //--change distro
+
+    left  = -90;
+    right = -80;
     monteCGen_D->resetExtractionInterval( left, right);// NB. compulsory
+    populationCardinality = 700;
     for( int c=0; c<populationCardinality;c++)
     {
         monteCGen_D->nextDoubleInInterval();
