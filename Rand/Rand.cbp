@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="ClassicalContinuousGenerator.cpp" />
 		<Unit filename="ClassicalContinuousGenerator.h" />
+		<Unit filename="ClassicalDiscreteGenerator.cpp" />
+		<Unit filename="ClassicalDiscreteGenerator.h" />
 		<Unit filename="DeltaOmega.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

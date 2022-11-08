@@ -1,8 +1,9 @@
 #include <iostream>
 #include "ClassicalContinuousGenerator.h"
+#include "ClassicalDiscreteGenerator.h"
 
 
-void monolite()
+void monolite_continuous()
 {// MonteCarlo on continuous:
     double left  = 0;//-92.809;
     double right = +1;//+12.209;
@@ -43,9 +44,34 @@ void monolite()
 }// monolite
 
 
+void monolite_discrete()
+{// MonteCarlo on discrete:
+    int left  = -4;
+    int right = +7;
+    int populationCardinality = 10000;
+    //
+    Common::MonteCarlo::ClassicalDiscreteGenerator * monteCGen =
+    new Common::MonteCarlo::ClassicalDiscreteGenerator();// Ctor
+    monteCGen->resetExtractionInterval( left, right);// NB. compulsory
+    for( int c=0; c<populationCardinality;c++)
+    {
+        monteCGen->nextIntegerInInterval();
+    }
+    //monteCGen->showDiscretePopulation();
+    monteCGen->buildOmega( left, right );
+    monteCGen->buildDiscreteFrequencyDistribution();
+    std::cout<<"\n\n\t -------- START discrete model;"<<std::endl;
+    monteCGen->showFrequencyDistribution();
+    monteCGen->showCumulatedFrequency();
+    delete monteCGen;
+    std::cout<<"\n\t -------- END discrete model;\n"<<std::endl;
+}// MonteCarlo on discrete:
+
+
 int main()
 {
-    monolite();
+    // monolite();
+    monolite_discrete();
 
     //
     std::cout << "\n\n\t Strike Enter to leave " << std::endl;

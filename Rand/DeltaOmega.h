@@ -19,7 +19,7 @@ class DeltaOmega
     // DeltaOmega, which constitutes the whole Omega event space.
 
 private:
-//    friend class ClassicalDiscreteGenerator;
+    friend class ClassicalDiscreteGenerator;
     friend class ClassicalContinuousGenerator;
     double mediana;
     double eta;

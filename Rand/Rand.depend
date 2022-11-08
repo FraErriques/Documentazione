@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1667841549 source:c:\root\projects\githubsandbox\documentazione\rand\main.cpp
+1667908566 source:c:\root\projects\githubsandbox\documentazione\rand\main.cpp
 	<iostream>
 	"ClassicalContinuousGenerator.h"
+	"ClassicalDiscreteGenerator.h"
 
-1667841711 source:c:\root\projects\githubsandbox\documentazione\rand\classicalcontinuousgenerator.cpp
+1667901142 source:c:\root\projects\githubsandbox\documentazione\rand\classicalcontinuousgenerator.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -11,7 +12,7 @@
 	<iostream>
 	"ClassicalContinuousGenerator.h"
 
-1667840496 c:\root\projects\githubsandbox\documentazione\rand\classicalcontinuousgenerator.h
+1667901142 c:\root\projects\githubsandbox\documentazione\rand\classicalcontinuousgenerator.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -20,7 +21,7 @@
 	<iostream>
 	<vector>
 
-1667831295 c:\root\projects\githubsandbox\documentazione\rand\deltaomega.h
+1667907508 c:\root\projects\githubsandbox\documentazione\rand\deltaomega.h
 	<cmath>
 
 1667848756 source:/home/patty/src/GitHubSandBox/Documentazione/Rand/ClassicalContinuousGenerator.cpp
@@ -46,4 +47,21 @@
 1667847882 source:/home/patty/src/GitHubSandBox/Documentazione/Rand/main.cpp
 	<iostream>
 	"ClassicalContinuousGenerator.h"
+
+1667907435 source:c:\root\projects\githubsandbox\documentazione\rand\classicaldiscretegenerator.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<cmath>
+	<iostream>
+	"ClassicalDiscreteGenerator.h"
+
+1667908387 c:\root\projects\githubsandbox\documentazione\rand\classicaldiscretegenerator.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"./DeltaOmega.h"
+	<cmath>
+	<iostream>
+	<vector>
 
