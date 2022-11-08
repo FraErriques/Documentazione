@@ -7,7 +7,7 @@ namespace Common{
 namespace MonteCarlo{
 
 
-//   class ClassicalDiscreteGenerator; // FFWD
+//   class ClassicalDiscreteGenerator; // FFWD not necessary
 //   class ClassicalContinuousGenerator;
 
 
@@ -19,8 +19,8 @@ class DeltaOmega
     // DeltaOmega, which constitutes the whole Omega event space.
 
 private:
-    friend class ClassicalDiscreteGenerator;
-    friend class ClassicalContinuousGenerator;
+    friend class ClassicalDiscreteGenerator;//these two friendship are necessary for friends to access DeltaOmega's members.
+    friend class ClassicalContinuousGenerator;// each friend class has a vector<DeltaOmega> and needs to access its fields.
     double mediana;
     double eta;
     double categoryFrequency;

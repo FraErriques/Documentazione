@@ -57,7 +57,7 @@ public:
     void showCumulatedFrequency() const;
     void buildDiscreteFrequencyDistribution();
     void buildOmega( int partizioneLeft ,int partizioneRight);// TODO verify
-void buildOmega( double partizioneLeft, double partizioneRight);// TODO verify
+//void buildOmega( double partizioneLeft, double partizioneRight);// TODO verify : unused here
     unsigned int showCurrentSeed() const;
     int showSup() const;
 }; // class ClassicalGenerator
