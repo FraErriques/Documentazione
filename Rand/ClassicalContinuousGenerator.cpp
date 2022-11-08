@@ -67,7 +67,7 @@ void ClassicalContinuousGenerator::resetExtractionInterval( double left, double 
  // if the call comes along the lifetime of an instance, the pointers are not null; so there is deletion and new construction.
     this->Min = left;// reset.
     this->Sup = right;// reset.
-    this->theIntervalMeasure = right-left;// init for both models; correct only for Continuous ones.
+    this->theIntervalMeasure = right-left;// init for Continuous model: measure(+1,+3)==+2==right-left
     // default model is [min,sup) on [0,RAND_MAX)==[0,32767)
     this->omothetia = this->theIntervalMeasure/((double)RAND_MAX);
     this->translation = left;// NB. valid within a single population.

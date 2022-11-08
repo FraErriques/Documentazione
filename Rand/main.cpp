@@ -17,7 +17,7 @@ void monolite_continuous()
     {
         monteCGen_D->nextDoubleInInterval();
     }
-    monteCGen_D->showContinuousPopulation();
+//    monteCGen_D->showContinuousPopulation();
     monteCGen_D->buildOmega( left, right );
     monteCGen_D->buildContinuousFrequencyDistribution();
     monteCGen_D->showFrequencyDistribution();
@@ -32,7 +32,7 @@ void monolite_continuous()
     {
         monteCGen_D->nextDoubleInInterval();
     }
-    monteCGen_D->showContinuousPopulation();
+    //monteCGen_D->showContinuousPopulation();
     monteCGen_D->buildOmega( left, right );
     monteCGen_D->buildContinuousFrequencyDistribution();
     monteCGen_D->showFrequencyDistribution();
@@ -41,14 +41,14 @@ void monolite_continuous()
     delete monteCGen_D;// Dtor
     //---ready
     // end MonteCarlo
-}// monolite
+}// monolite_continuous
 
 
 void monolite_discrete()
 {// MonteCarlo on discrete:
-    int left  = -4;
-    int right = +7;
-    int populationCardinality = 10000;
+    int left  = +5;
+    int right = +6;
+    int populationCardinality = 100000;
     //
     Common::MonteCarlo::ClassicalDiscreteGenerator * monteCGen =
     new Common::MonteCarlo::ClassicalDiscreteGenerator();// Ctor
@@ -57,7 +57,7 @@ void monolite_discrete()
     {
         monteCGen->nextIntegerInInterval();
     }
-    //monteCGen->showDiscretePopulation();
+//    monteCGen->showDiscretePopulation();
     monteCGen->buildOmega( left, right );
     monteCGen->buildDiscreteFrequencyDistribution();
     std::cout<<"\n\n\t -------- START discrete model;"<<std::endl;
@@ -70,7 +70,7 @@ void monolite_discrete()
 
 int main()
 {
-    // monolite();
+    monolite_continuous();
     monolite_discrete();
 
     //
