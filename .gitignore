@@ -27,9 +27,10 @@ EntityBulk_Java/dist/**
 #
 OOPMap_wkp/bin/**
 OOPMap_wkp/obj/**
-OOPMap_wkp/obj/*.layout
-OOPMap_wkp/bin/Debug/
-OOPMap_wkp/obj/Debug/
+OOPMap_wkp/OOPMap/bin/Debug/
+OOPMap_wkp/OOPMap/bin/Debug/**
+OOPMap_wkp/TestConsole/obj/Debug/
+OOPMap_wkp/TestConsole/obj/Debug/**
 #
 Poly2022/bin/**
 Poly2022/obj/**
