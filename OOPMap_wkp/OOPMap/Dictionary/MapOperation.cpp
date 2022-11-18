@@ -22,31 +22,50 @@ void Common::Dictionary::MapOperation::readFileByLines( std::string &where)
     // DBG std::cout<<"\n\t Stream to be opened: "<<where.c_str()<<std::endl;
     // Open for read : Input
 	testFile.open( where.c_str(), std::ios::in );
-    if (testFile.is_open())
-    {
-        // DBG std::cout<<"\n\t the Stream is open: "<<where.c_str()<<std::endl;
-        this->dictionary = new std::map<std::string, TheNode * >();// init,since file is open.
-        while (!testFile.eof())
+	try
+	{
+        if (testFile.is_open())
         {
-            std::getline ( testFile, curr_data);// legge con separatore EOL
-            if(testFile.eof()){break;}
-            const std::string tokenToSplitOn("\t");
-            std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
-            // call insertion prune-filter
-            bool hasBeenAcceptedForInsertion = prune_RecordLayout( tokenizedLine);
-            if( ! hasBeenAcceptedForInsertion)
+            int curLine=0;
+            std::cout<<"\n\t the Stream is open: "<<where.c_str()<<std::endl; // DBG
+            this->dictionary = new std::map<std::string, TheNode * >();// init,since file is open.
+            while (!testFile.eof())
             {
-                std::cout<<"\n\t Record pruned due to inadequacy : "<<curr_data<<"\n\n";
-            }// else was correctly inserted.
-            // cleanup
-            delete tokenizedLine;
+                std::getline ( testFile, curr_data);// legge con separatore EOL
+                if(testFile.eof()){break;}
+                const std::string tokenToSplitOn("\t");
+                std::vector<std::string> * tokenizedLine = Common::StrManipul::stringSplit( tokenToSplitOn, curr_data, false );
+                std::cout << "\n\t start DBG print : \n";
+                for( std::vector<std::string>::iterator it=tokenizedLine->begin(); it!=tokenizedLine->end(); it++)
+                {
+                    std::cout << "\t " << *it;
+                }
+                std::cout << "\n\t end DBG print : \n";
+                // call insertion prune-filter
+                bool hasBeenAcceptedForInsertion = prune_RecordLayout( tokenizedLine);
+                if( ! hasBeenAcceptedForInsertion)
+                {
+                    std::cout<<"\n\t Record pruned due to inadequacy : "<<curr_data<<"\n\n";
+                }// else was correctly inserted.
+                // cleanup
+                delete tokenizedLine;
+                std::cout<<"\n\t processed input file row # " << ++curLine <<std::endl; // DBG
+            }
+            testFile.close();
+        }// else result remains false; end File-read loop.
+        else
+        {
+            std::cout<<"\n\t the Stream is NOT open: "<<where.c_str()<<std::endl;
         }
-        testFile.close();
-    }// else result remains false; end File-read loop.
-    else
+    }// try
+    catch(...)
     {
-        std::cout<<"\n\t the Stream is NOT open: "<<where.c_str()<<std::endl;
-    }
+        std::string reasonForCrashing;
+        int c=0;
+        c++;//dbg
+        c++;
+        // TODO
+    }//catch
     //ready
 }// readFileByLines
 
@@ -66,9 +85,26 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
     int currentLineTokenCardinality = tokenizedLine->size();
     if( 7<= currentLineTokenCardinality)// NB. put here RecordLayout knowledge about field position and content; cout non interesting fields too.
     {
+        std::string filteredName;
         // NB. add here pruning concept, like notNULLABLE fields check.
         if( ! this->isFieldNonEmpty((*tokenizedLine)[2]))// if the Key(i.e. first) is empty-> exit.
-        {return res;}// else continue.
+        {
+            return res;// else continue.
+        }
+        else
+        {
+//            std::string tmp((*tokenizedLine)[2]);
+//            std::vector<std::string> *splittedName = Common::StrManipul::stringSplit(" ",tmp,true);
+//            if( splittedName->size() >= 2)
+//            {
+//                filteredName.assign( (*splittedName)[1]);
+//            }
+//            else
+//            {
+//                filteredName.assign( "inadequate name");
+//            }
+//            delete splittedName;//cleanup
+        }
         //
         std::string fieldThree;
         if( ! this->isFieldNonEmpty((*tokenizedLine)[3]))
@@ -103,7 +139,7 @@ bool Common::Dictionary::MapOperation::prune_RecordLayout( std::vector<std::stri
         }
         // push the read line in a node-class and then in the map
         TheNode * curRecord = new TheNode(
-                (*tokenizedLine)[2],//----------joined fields-----------------#####
+                (*tokenizedLine)[2], // (*tokenizedLine)[2],//----------joined fields-----------------#####
                 fieldThree,
                 fieldFive,
                 fieldSix    );
