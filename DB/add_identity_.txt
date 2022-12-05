@@ -1,0 +1,261 @@
+﻿
+Modifies a table definition by modifying, adding, or dropping columns
+and constraints.
+
+ Syntax
+
+ALTER TABLE table_name
+    ALTER COLUMN column_name 
+   {
+    type_name[({precision[.scale]})][NULL|NOT NULL]
+   {DROP DEFAULT 
+   | SET DEFAULT constant_expression 
+   | IDENTITY [ ( seed , increment ) ]
+   } 
+| ADD 
+   { < column_definition > | < table_constraint > } [ ,...n ] 
+| DROP 
+   { [ CONSTRAINT ] constraint_name 
+   | COLUMN column }
+] }
+< column_definition > ::= 
+   { column_name data_type } 
+   [ [ DEFAULT constant_expression ] 
+      | IDENTITY [ ( seed , increment ) ] 
+   ] 
+   [ROWGUIDCOL]
+   [ < column_constraint > ] [ ...n ] ]
+< column_constraint > ::= 
+   [ NULL | NOT NULL ] 
+   [ CONSTRAINT constraint_name ] 
+   { 
+      | { PRIMARY KEY | UNIQUE } 
+      | REFERENCES ref_table [ (ref_column) ] 
+      [ ON DELETE { CASCADE | NO ACTION | SET DEFAULT |SET NULL } ] 
+      [ ON UPDATE { CASCADE | NO ACTION | SET DEFAULT |SET NULL } ]
+   }
+< table_constraint > ::= 
+   [ CONSTRAINT constraint_name ] 
+   { [ { PRIMARY KEY | UNIQUE } 
+      { ( column [ ,...n ] ) } 
+      | FOREIGN KEY 
+        ( column [ ,...n ] )
+        REFERENCES ref_table [ (ref_column [ ,...n ] ) ] 
+      [ ON DELETE { CASCADE | NO ACTION | SET DEFAULT |SET NULL } ] 
+      [ ON UPDATE { CASCADE | NO ACTION | SET DEFAULT |SET NULL } ] 
+   }
+
+ Arguments
+
+/table_name /
+
+    The name of the table to be modified.
+
+    ms174123.note(en-us,SQL.100).gifNote:
+    Table names must comply with the rules for identifiers. The
+    /table_name/ must be unique within the database. The /table_name/
+    can contain a maximum of 128 characters.
+
+ALTER COLUMN
+
+    Specifies that the particular column is to be changed or modified.
+
+/column_name /
+
+    The name of a column in the table. Column names must comply with the
+    rules for identifiers and must be unique in the table.
+
+/data_type /
+
+    Specifies the column data type. For more information about data
+    types, see Data Types
+    <http://msdn.microsoft.com/en-us/library/ms172424.aspx>.
+
+DEFAULT
+
+    Specifies the value provided for the column when a value is not
+    explicitly supplied during an insert action. DEFAULT definitions can
+    be applied to any column except those defined by the *IDENTITY*
+    property. DEFAULT definitions are removed when the table is dropped.
+    Only a constant value, such as a character string or a date
+    function, can be used as a default.
+
+IDENTITY
+
+    Indicates that the new column is an identity column. When a new row
+    is added to the table, Microsoft SQL Server Compact 3.5 (SQL Server
+    Compact 3.5) provides an incremental value for the column. Identity
+    columns are typically used in conjunction with PRIMARY KEY
+    constraints to serve as the unique row identifier for the table. The
+    IDENTITY property can be assigned only to *int* columns. Only one
+    identity column can be created per table. Bound defaults and DEFAULT
+    constraints cannot be used with an identity column. You must specify
+    both the seed and increment, or neither. If neither is specified,
+    the default is (1,1).
+
+/seed /
+
+    The value used for the first row that is loaded into the table.
+
+/increment /
+
+    The incremental value added to the identity value of the previous
+    row that is loaded.
+
+ADD
+
+    Specifies that one or more column definitions or table constraints
+    are added.
+
+DROP { [CONSTRAINT] /constraint_name/| COLUMN /column/}
+
+    Specifies that /constraint_name/ or /column_name/ is to be removed
+    from the table.
+
+ROWGUIDCOL
+
+    Indicates that the new column is a row global unique identifier
+    column. Only one *uniqueidentifier* column per table can be
+    designated as the *ROWGUIDCOL* column. The *ROWGUIDCOL* property can
+    be assigned only to a *uniqueidentifier* column.
+
+    *ROWGUIDCOL* automatically generates values for new rows inserted
+    into the table.
+
+NULL | NOT NULL
+
+    Keywords that specify whether null values are permitted in the
+    column. NULL is not strictly a constraint, but can be specified in
+    the same manner as NOT NULL.
+
+CONSTRAINT
+
+    An optional keyword indicating the beginning of a definition for a
+    PRIMARY KEY, UNIQUE, or FOREIGN KEY constraint. Constraints are
+    special properties that enforce data integrity and create special
+    types of indexes for the table and its columns.
+
+/constraint_name /
+
+    The name of a constraint. The /constraint_name/ is optional and must
+    be unique within a database. If the /constraint_name/ is not
+    specified, SQL Server Compact 3.5 generates a constraint name.
+
+PRIMARY KEY
+
+    A constraint that enforces entity integrity for a particular column
+    or columns by using a unique index. Only one PRIMARY KEY constraint
+    can be created per table.
+
+UNIQUE
+
+    A constraint that provides entity integrity for a particular column
+    or columns using a unique index. Columns in a *UNIQUE* constraint
+    may be* NULL*, but only one NULL value is allowed per column. A
+    table can have multiple UNIQUE constraints.
+
+    ms174123.note(en-us,SQL.100).gifNote:
+    SQL Server Compact 3.5 can use indexes to enforce PRIMARY KEY and
+    UNIQUE constraints. We recommend that you do not rely on this
+    behavior nor try to modify any indexes that are created as part of a
+    constraint.
+
+FOREIGN KEY...REFERENCES
+
+    A constraint that provides referential integrity for the data in the
+    column. FOREIGN KEY constraints require that each value in the
+    column exists in the specified column in the referenced table.
+
+/ref_table /
+
+    The name of the table referenced by the FOREIGN KEY constraint.
+
+( /ref_column /[ ,... /n/] )
+
+    A column or list of columns from the table that is referenced by the
+    FOREIGN KEY constraint.
+
+ON DELETE {CASCADE | NO ACTION |SET DEFAULT | SET NULL}
+
+    Specifies what action happens to a row in the table that is created
+    when that row has a referential relationship and the referenced row
+    is deleted from the parent table. The default is NO ACTION. See the
+    "Remarks" section later in this topic for more information.
+
+ON UPDATE {CASCADE | NO ACTION | SET DEFAULT | SET NULL}
+
+    Specifies what action happens to a row in the table that is created
+    when that row has a referential relationship, and the referenced row
+    is updated in the parent table. The default is NO ACTION. See the
+    "Remarks" section later in this topic for more information.
+
+/column /
+
+    A column or list of columns, in parentheses, used in table
+    constraints to indicate the columns used in the definition of the
+    constraint.
+
+/n /
+
+    A placeholder indicating that the preceding item can be repeated /n/
+    number of times.
+
+ Remarks
+
+For ON DELETE or ON UPDATE, if the CASCADE option is specified, the row
+is updated in the referencing table if the corresponding referenced row
+is updated in the parent table. If NO ACTION is specified, SQL Server
+Compact 3.5 returns an error, and the update action on the referenced
+row in the parent table is rolled back.
+
+For example, you might have two tables, A and B, in a database. Table A
+has a referential relationship with table B: the A.ItemID foreign key
+references the B.ItemID primary key.
+
+If an *UPDATE* statement is executed on a row in table B and an ON
+UPDATE CASCADE action is specified for A.ItemID, SQL Server Compact 3.5
+checks for one or more dependent rows in table A. If any exist, the
+dependent rows in table A are updated, as is the row referenced in table B.
+
+Alternatively, if NO ACTION is specified, SQL Server Compact 3.5 returns
+an error and rolls back the update action on the referenced row in table
+B when there is at least one row in table A that references it.
+
+ Code Examples
+
+
+          A. Changing the seed and increment values on the identity column
+
+The following example changes the seed and increment values on the
+identity column.
+
+CREATE TABLE MyCustomers (CustID INTEGER IDENTITY (100,1) PRIMARY KEY, CompanyName NvarChar (50));
+
+INSERT INTO MyCustomers (CompanyName) VALUES ('A. Datum Corporation');
+
+ALTER TABLE MyCustomers ALTER COLUMN CustId IDENTITY (200, 2);
+
+
+          B. Adding a default value to a column
+
+The following example modifies the CompanyName column so that it has a
+default value.
+
+ALTER TABLE MyCustomers ALTER COLUMN CompanyName SET DEFAULT 'A. Datum Corporation'
+
+
+          C. Dropping a default value from the column
+
+The following example modifies the CompanyName column so that it does
+not have a default value.
+
+ALTER TABLE MyCustomers ALTER COLUMN CompanyName DROP DEFAULT
+
+© 2010 Microsoft Corporation. All rights reserved. Terms of Use
+</cc300389.aspx> | Trademarks
+<http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx> |
+Privacy Statement <http://www.microsoft.com/info/privacy.mspx>
+<http://www.microsoft.com/en/us/default.aspx>
+
+Page view tracker
+

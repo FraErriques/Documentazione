@@ -1,0 +1,291 @@
+
+create procedure usp_settoreCandidatura_LOOKUP_INSERT
+@nomeSettore varchar(150)
+as
+insert into [settoreCandidatura_LOOKUP](
+-- id
+nomeSettore
+	) values(
+@nomeSettore
+)
+GO
+
+--delete from  [dbo].[settoreCandidatura_LOOKUP] where id>4
+
+	select * from [dbo].[settoreCandidatura_LOOKUP]
+
+
+select * from settoreCandidatura_LOOKUP
+
+--use [tempdb]
+--
+--create view [dbo].[20100708_tmp_v_]
+--as
+--	select * from [ProcBBT].[dbo].[job]
+--GO
+
+
+USE [cv_db]
+GO
+/****** Oggetto:  View [dbo].[20100708_tmp_v_]    Data script: 07/08/2010 11:38:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--
+--create view [dbo].[20100708_tmp_v_]
+--as
+--	select * from [ProcBBT].[dbo].[job]
+-----
+--drop view [dbo].[20100708_tmp_v_]
+
+
+select top 3 * from [cv_db].[dbo].[20100708_tmp_v_]
+select min(id) from [cv_db].[dbo].[20100708_tmp_v_]
+select max(id) from [cv_db].[dbo].[20100708_tmp_v_]
+select count(*) from [cv_db].[dbo].[20100708_tmp_v_]
+-- NB. segue il tipo di query da fare sulla temp_view. ----------------
+select 
+	* 
+from [cv_db].[dbo].[20100708_tmp_v_]
+where 
+	id between 900 and 912
+
+
+select (1796-893)
+
+
+
+---------------------
+IF NOT EXISTS 
+ ( SELECT * FROM sys.objects 
+   WHERE object_id = OBJECT_ID(N'[dbo].[areaAziendale_LOOKUP]') 
+   AND type in (N'U')
+ )
+
+
+SELECT  distinct
+ [type], [type_desc] 
+FROM sys.objects 
+
+SELECT 
+ count( *)
+FROM sys.objects 
+
+SELECT 
+   *
+FROM sys.objects 
+where [type_desc] like '%view%'
+
+SELECT 
+   *
+FROM sys.objects 
+where [type_desc] like '%table%'
+
+-- NB. this is the ProxyGenerator's query:
+select 
+	[name] Name
+	,[id] [Id]  
+from 
+	sysobjects  
+where 
+	xtype='P'  
+order by name asc 
+
+
+--------------------------------------------------------------------------------------------------
+------pomeriggio----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+
+
+
+select
+	id_tmp identity(1, 1)
+	,c.*
+	,s.*
+from 
+	candidato c
+	, settoreCandidatura_LOOKUP s
+where 
+	c.id_settore = s.id
+order by s.id asc
+---
+
+/*
+CREATE OR REPLACE VIEW RPT_VW_WMN (
+CARD, EC_D_CODE, EC_M_CODE, START_DATE, PR_NAME, PR_ID, ELIG,
+ANNUALY, MONTHLY, PENDING,
+CONSTRAINT MyView_pk PRIMARY KEY
+(CARD, EC_D_CODE, EC_M_CODE, START_DATE, PR_NAME, PR_ID) DISABLE
+NOVALIDATE
+)
+AS
+SELECT 'DUMMY' CARD, A.EC_D_CODE, A.EC_M_CODE,
+*/
+
+CREATE VIEW RPT_VW_WMN(
+CARD
+, candidato
+, settore
+)
+AS
+SELECT 
+'DUMMY' CARD
+, c.nominativo
+, s.nomeSettore
+from 
+	candidato c
+	, settoreCandidatura_LOOKUP s
+where 
+	c.id_settore = s.id
+
+
+---
+SET ROWCOUNT 0 --NB. clears the ROWCOUNT variable.
+GO
+declare @rowCounter int
+select @rowCounter = 1
+select
+	@rowCounter as id_View
+	, c.nominativo
+	, s.nomeSettore
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id
+GO
+
+print @@ROWCOUNT
+
+select
+	ROW_NUMBER()
+	, * from candidato c
+ORDER BY id
+--
+
+------------------------------------------ NB. --------------------------------
+USE cv_db;
+GO
+WITH nomeResultsetTemporaneo AS
+(
+    SELECT id, nominativo,
+    ROW_NUMBER() OVER (ORDER BY id) AS 'RowNumber'
+    FROM candidato
+) 
+SELECT * 
+FROM nomeResultsetTemporaneo
+WHERE RowNumber BETWEEN 5 AND 7;
+
+---
+
+SELECT 
+ top 2 *
+FROM sys.objects 
+where name like '%nomeResultsetTemporaneo%'
+
+------------------------------------------ NB. --------------------------------
+USE ProcBBT;
+GO
+WITH nomeResultsetTemporaneo AS
+(
+    SELECT *,
+    ROW_NUMBER() OVER (ORDER BY id) AS 'RowNumber'
+    FROM job
+) 
+SELECT * 
+FROM nomeResultsetTemporaneo
+WHERE RowNumber BETWEEN 55 AND 57;
+
+
+------------------------------------------ NB. --------------------------------
+USE cv_db;
+GO
+WITH nomeResultsetTemporaneo AS
+(
+	SELECT
+		c.id as id_candidato
+		,c.nominativo
+		,c.id_settore
+		,c.note
+		,s.nomeSettore
+		,ROW_NUMBER() OVER (ORDER BY id) AS 'RowNumber'
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id
+    -- no order by admitted
+) 
+SELECT * 
+FROM nomeResultsetTemporaneo
+WHERE RowNumber BETWEEN 55 AND 57;
+
+/* ----- NB. ----------*/
+	SELECT
+		c.id as id_candidato
+		,c.nominativo
+		,c.id_settore
+		,c.note
+		,s.nomeSettore
+		,ROW_NUMBER() OVER (ORDER BY c.id_settore) AS 'RowNumber'
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id
+
+/* ----- NB. ----------*/
+	SELECT
+		ROW_NUMBER() OVER (ORDER BY c.id_settore) AS 'RowNumber'
+		,c.id as id_candidato
+		,c.nominativo
+		,c.id_settore
+		,c.note
+		,s.nomeSettore
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id
+
+
+create view tmp_20100708
+as
+	SELECT
+		ROW_NUMBER() OVER (ORDER BY c.id_settore) AS 'RowNumber'
+		,c.id as id_candidato
+		,c.nominativo
+		,c.id_settore
+		,c.note
+		,s.nomeSettore
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id
+GO
+
+select * from tmp_20100708 where RowNumber between 7 and 9
+--
+USE [cv_db]
+GO
+/****** Oggetto:  View [dbo].[tmp_20100708]    Data script: 07/08/2010 16:17:26 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create view [dbo].[tmp_20100708]
+as
+	SELECT
+		ROW_NUMBER() OVER (ORDER BY c.id_settore) AS 'RowNumber'
+		,c.id as id_candidato
+		,c.nominativo
+		,c.id_settore
+		,c.note
+		,s.nomeSettore
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id

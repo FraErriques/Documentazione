@@ -1,0 +1,48 @@
+select * from utente where id=29  -- ex Baumgartner
+select * from utente where id=66  -- Erriques
+select * from utente where id=6   -- admin	
+select * from utente where username like '%eckb%' -- 3 Eckbauer
+
+exec usp_decoder_Scadenziario 3, 6, 7, 1, 2, 1705 
+
+
+USE [ProcBBT]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+alter procedure [dbo].[usp_decoder_Scadenziario]
+	@id_tipoProcedura int,
+	@id_richiedente int,
+	@id_destinatario int,
+	@id_statoLavorazione int,
+	@id_condizione int,
+	@id_analyzed_phase int
+as
+select nomeProcedura		from tipologiaProcedura_LOOKUP	where id=@id_tipoProcedura
+	select username				from utente						where id=@id_richiedente
+	select username				from utente						where id=@id_destinatario
+	select nomeStatoLavorazione from statoLavorazione_LOOKUP	where id=@id_statoLavorazione
+	select condizione			from condizioneDellaFase_LOOKUP	where id=@id_condizione
+    --
+	declare @firstPhaseId int
+	EXEC	@firstPhaseId 	= [dbo].[usp_job_getFirstPhaseId] @id_analyzed_phase
+	select @firstPhaseId
+	--
+--	declare @id_RedattoreOriginario int
+--	EXEC @id_RedattoreOriginario = [dbo].[usp_job_dataMining_RedattoreOriginario] @id_analyzed_phase
+--	select username				from utente						where id=@id_RedattoreOriginario
+--
+	select
+		 username 
+	from utente u,
+		 job j
+	where 
+		j.id=@firstPhaseId
+		and u.id=j.id_richiedente
+--
+   --NB. retrieve degli allegati fuori_doc_multi, i.e. in documento, per eventuali pubblicazioni in scadenziario.
+   select  * from documento
+   where id_job=@id_analyzed_phase
+GO

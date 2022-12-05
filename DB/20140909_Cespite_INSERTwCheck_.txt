@@ -1,0 +1,74 @@
+
+--drop   procedure [dbo].[usp_cespiteNew_INSERT_wCheck]
+create procedure [dbo].[usp_cespiteNew_INSERT_wCheck]
+	-- id   identity pk
+	@id_paese [int]  ,
+	@id_sedeAziendale [int]  ,
+	@id_flagStato [int]  ,
+	@id_categoriaCespite [int]  ,
+	@stanza [int] ,
+	@progressivoInStanza [int]  ,
+	@descrizione [varchar](150),
+	@problemi [text],
+	@indiceSAP [varchar](150),
+	@numeroSerie [varchar](150) ,
+	@marca [varchar](150) ,
+	@assegnatario [varchar](150) ,
+	@codiceABarreTxt [varchar](150) 
+as
+		insert into cespiteNew(
+			-- id   identity pk
+			id_paese,
+			id_sedeAziendale,
+			id_flagStato,
+			id_categoriaCespite,
+			stanza,
+			progressivoInStanza,
+			descrizione,
+			problemi,
+			indiceSAP,
+			numeroSerie,
+			marca,
+			assegnatario,
+			codiceABarreTxt
+		)values(
+			-- id   identity pk
+			@id_paese,
+			@id_sedeAziendale,
+			@id_flagStato,
+			@id_categoriaCespite,
+			@stanza,
+			@progressivoInStanza,
+			@descrizione,
+			@problemi,
+			@indiceSAP,
+			@numeroSerie,
+			@marca,
+			@assegnatario,
+			@codiceABarreTxt
+		)
+GO
+
+
+exec usp_cespiteNew_INSERT_wCheck 
+                    --/   	[id]                        [int]           IDENTITY(1,1)   NOT NULL,       1           int
+                    1,		 --      [id_paese]                  [int]                           NOT NULL,       2           int
+                    1,		--      [id_sedeAziendale]          [int]                           NOT NULL,       3           int
+                    1,		--      [id_flagStato]              [int]                           NOT NULL,       4           int
+                    1,		--      [id_categoriaCespite]       [int]                           NOT NULL,       5           int
+                    2,		--      [stanza]                    [int]                           NOT NULL,       6           int
+                    3,		--      [progressivoInStanza]       [int]                           NOT NULL,       7           int
+                    'descrizione NotNullable',		--      [descrizione]              [varchar](150)                   NOT NULL,       8           string
+                    '',			--      [problemi]               [text]                             NULL,           9           string
+                    '',		--      [indiceSAP]                [varchar](150)                   NULL,          10           string
+                    '',		--      [numeroSerie]               [varchar](150)                  NULL,          11           string
+                    '',		--      [marca]                     [varchar](150)                  NULL,          12           string
+                    '',				--      [assegnatario]              [varchar](150)                  NULL,          13           string
+                    'BarCodeTxt'		--      [codiceABarreTxt]           [varchar](150)                  NULL,          14           string
+                    
+                    
+--@
+truncate table  cespiteNew
+select COUNT(id) from cespiteNew
+select * from cespiteNew
+--@                    

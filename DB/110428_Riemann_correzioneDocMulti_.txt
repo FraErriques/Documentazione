@@ -1,0 +1,57 @@
+select top 2 * from candidato
+select  * from candidato where nominativo like '%zeni%'
+select top 2 * from doc_multi
+
+select
+	id
+	,ref_job_id
+	,ref_candidato_id
+	,abstract
+	,sourceName
+	-- doc NB. skip the blog
+	,insertion_time
+from doc_multi
+where ref_candidato_id=90
+
+select id from doc_multi where sourceName like '%Zeni_Alessandra_segretaria_2_.doc%'
+order by id asc
+
+select 
+	min(id)
+	,max(id)
+from doc_multi where sourceName like '%Zeni_Alessandra_segretaria_2_.doc%'
+
+select id from doc_multi where id between 576 and 594
+--delete from doc_multi where id between 576 and 594
+--delete from doc_multi where id between 1230 and 1248
+
+select  
+	[name] the_object_name,
+	[id] the_object_id
+from sysobjects  
+where xtype='P'  
+order by [name] asc 
+
+
+select  
+	* 
+from sysobjects
+where [name]='doc_multi'
+
+select  
+	* 
+from sysobjects
+where [xtype]='U'
+
+select * from syscolumns
+where id=853578079 -- cv_doc_multi
+
+select  
+	top 2 * 
+from sysobjects
+
+select  
+	xtype  -- NB. table-objects are xtype=='U'
+from sysobjects
+group by xtype  
+order by xtype   asc 

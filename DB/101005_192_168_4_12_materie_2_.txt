@@ -1,0 +1,136 @@
+
+device
+--------------
+id
+serial
+producer
+model
+nature_id
+consignee_id
+
+
+device_nature_LOOKUP
+-----------------------
+id
+description
+purchase_date
+warranty_expiry
+
+
+
+device_consignee_LOOKUP
+---------------------
+id
+[name]
+
+
+
+
+create table [device_nature_LOOKUP](
+id int identity(1,1) not null
+,description varchar(300) null
+,purchase_date datetime null
+,warranty_expiry datetime null
+CONSTRAINT [pk_device_nature_LOOKUP] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+---------------------------------------------------
+
+create table [device_consignee_LOOKUP](
+id int identity(1,1) not null
+,[name] varchar(250) not null
+CONSTRAINT [pk_device_consignee_LOOKUP] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+---------------------
+
+--drop table device
+
+create table device(
+id int identity(1,1) not null
+,serial varchar(100) not null
+,producer varchar(100) null
+,model varchar(60) null
+,[id_nature] int not null
+,[id_consignee] int null
+CONSTRAINT [pk_device] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[device]  WITH CHECK ADD  CONSTRAINT [fk_device_nature] FOREIGN KEY([id_nature])
+REFERENCES [dbo].[device_nature_LOOKUP] ([id])
+GO
+ALTER TABLE [dbo].[device] CHECK CONSTRAINT [fk_device_nature]
+--
+ALTER TABLE [dbo].[device]  WITH CHECK ADD  CONSTRAINT [fk_device_consignee] FOREIGN KEY([id_consignee])
+REFERENCES [dbo].[device_consignee_LOOKUP] ([id])
+GO
+ALTER TABLE [dbo].[device] CHECK CONSTRAINT [fk_device_consignee]
+--
+
+
+--eg.
+
+insert into device_consignee_LOOKUP(
+--
+[name] ) values(
+--
+'Barbari Andrea'
+)
+
+insert into device_nature_LOOKUP(
+--
+description
+,purchase_date
+,warranty_expiry
+) values(
+--
+'monitor desktop'
+,null
+,null
+)
+
+
+insert into device(
+--
+serial
+,producer
+,model
+,id_nature
+,id_consignee ) values(
+--
+'hub552070y'
+,null
+,null
+,1
+,2
+)
+
+
+
+select * from device_consignee_LOOKUP
+select * from device_nature_LOOKUP
+select * from device
+
+select
+d.description
+,c.[name]
+,dev.serial
+from
+	device_nature_LOOKUP d
+	,device_consignee_LOOKUP c
+	,device dev
+where 
+	dev.id_consignee = c.id
+	and dev.id_nature = d.id
+	and c.id = 2 -- TODO customize

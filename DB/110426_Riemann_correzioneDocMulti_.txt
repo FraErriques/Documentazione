@@ -1,0 +1,17 @@
+select 
+	id,ref_job_id,ref_candidato_id,abstract,sourceName,insertion_time 
+from doc_multi 
+where insertion_time>='20110426'
+order by insertion_time desc
+
+select 
+	id,ref_job_id,ref_candidato_id,abstract,sourceName,insertion_time 
+from doc_multi 
+where ref_candidato_id=143
+order by insertion_time desc
+
+--delete from doc_multi where ref_candidato_id=143
+
+select top 2 * from doc_multi order by insertion_time desc
+select top 20 id from doc_multi order by insertion_time desc
+select * from candidato where id=143

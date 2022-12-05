@@ -1,0 +1,16 @@
+
+create view [dbo].[tmp_20100708]
+as
+	SELECT
+		ROW_NUMBER() OVER (ORDER BY c.id_settore) AS 'RowNumber'
+		,c.id as id_candidato
+		,c.nominativo
+		,c.id_settore
+		,c.note
+		,s.nomeSettore
+	from 
+		candidato c
+		, settoreCandidatura_LOOKUP s
+	where 
+		c.id_settore = s.id
+GO

@@ -1,0 +1,17 @@
+select   * from [cv_db].[dbo].[doc_multi]
+where insertion_time >= '20110329'
+order by insertion_time desc
+
+select  id, ref_job_id, abstract, sourceName
+from [cv_db].[dbo].[doc_multi]
+where ref_candidato_id = 124
+--
+--delete
+--from [cv_db].[dbo].[doc_multi]
+--where ref_candidato_id = 124
+
+
+select  id, ref_job_id, abstract, sourceName
+from [cv_db].[dbo].[doc_multi]
+where insertion_time >= '20110329'
+order by insertion_time desc

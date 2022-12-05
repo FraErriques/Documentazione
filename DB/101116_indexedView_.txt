@@ -1,0 +1,14 @@
+create view vProductSold
+with schemabinding
+as
+select
+ p.name,
+ s.orderqty,
+ s.salesorderdetailid
+from production.Product p
+ inner join sales.salesorderdetail s
+ on p.ProductID=s.ProductID
+go
+create unique clustered index vidx_ProductSold
+on vProductSold (salesorderdetailid)
+go

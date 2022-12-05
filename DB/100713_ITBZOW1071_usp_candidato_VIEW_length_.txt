@@ -1,0 +1,113 @@
+
+--NB. fare la stored, che crei la VIEW per ogni tabella da Paginare
+
+--
+--create procedure usp_candidato_VIEW_length
+--@view_signature varchar(500)
+--as
+--declare @cmd varchar(1500)
+--select @cmd =
+--	'select count(*) from ' --NB. [] required around numeric-beginning names.
+--	+ @view_signature
+--exec( @cmd)
+--GO
+
+
+
+
+-- dbg
+create view [1pippo]
+as
+select 
+'aaa' as uno
+,'bbb' as due
+GO
+
+create view [1pippo](
+uno @varchar(3)
+,due @varchar(3)
+)
+
+select 
+'aaa' as uno
+,'bbb' as due
+GO
+
+
+insert into [1pippo](
+uno
+,due
+) values (
+'ccc'
+,'ddd'
+)
+
+
+
+
+
+declare @view_signature varchar(500)
+select @view_signature =  '[1pippo]'
+--as
+declare @cmd varchar(1500)
+select @cmd =
+	'select count(*) from ' --NB. [] required around numeric-beginning names.
+	+ @view_signature
+print @cmd
+--exec( @cmd)
+GO
+
+
+USE [cv_db]
+GO
+/****** Oggetto:  StoredProcedure [dbo].[usp_candidato_PagerVIEW_LOADinterval]    Data script: 07/13/2010 17:39:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_candidato_PagerVIEW_LOADinterval]
+@min int
+,@max int
+,@view_signature varchar(500)
+as
+declare @cmd varchar(5500)--NB. no error check. On wrong name, throws.
+--
+select @cmd = ' select * from '
++ @view_signature
++ ' where RowNumber between  '
++ str( @min)
++ ' and '
++ str( @max)
+--
+exec( @cmd)
+
+
+--
+--NB. fare la stored, che crei la VIEW per ogni tabella da Paginare
+
+
+USE [cv_db]
+GO
+/****** Oggetto:  StoredProcedure [dbo].[usp_doc_multi_getId_at_refCandidatoId]    Data script: 07/13/2010 17:45:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[usp_doc_multi_getId_at_refCandidatoId]
+	@ref_candidato_id int
+as
+select 
+	dm.id 
+	,sett.nomeSettore
+	,dm.abstract
+	,dm.sourceName
+	,dm.insertion_time
+from 
+	doc_multi dm
+	, candidato c
+	, settoreCandidatura_LOOKUP sett
+where 
+	ref_candidato_id = @ref_candidato_id
+	and abstract<>'_##__fake_abstract__##_'
+	and c.id=dm.ref_candidato_id
+	and sett.id = c.id_settore

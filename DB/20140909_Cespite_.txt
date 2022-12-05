@@ -1,0 +1,38 @@
+select top 2 * from mobileIt
+select COUNT(id) from mobileIt
+select COUNT( distinct numero) from mobileIt
+
+select * from mobileIt where numero='3386429225'
+select * from mobileIt where Beneficiario like '%Furgiuele%'
+select * from mobileIt where Beneficiario like '%siracusa%'
+select * from mobileIt where Beneficiario like '%pozzati%'
+select * from mobileIt where numero='3386431235' --  Furgiuele
+select * from mobileIt where numero='3666056923'
+
+
+select
+	distinct numero,
+	Beneficiario
+from mobileIt
+where 
+	 Beneficiario like '%ex%'
+
+select
+	distinct numero,
+	Beneficiario
+from mobileIt
+where 
+	Beneficiario not like '%M2M%'
+	and Beneficiario not like '%determinare%'
+	and Beneficiario not like '%ex%'
+	and Beneficiario not like '%muletto%'
+	and Beneficiario not like '%affolati%'
+	and Beneficiario not like '%cristanelli%'
+order by Beneficiario asc
+
+select
+	distinct numero,
+	Beneficiario
+from mobileIt
+where Beneficiario like '%M2M%'
+order by Beneficiario asc

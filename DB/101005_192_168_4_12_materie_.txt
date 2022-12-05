@@ -1,0 +1,3 @@
+select * from materia_LOOKUP
+select * from tema
+select * from docMulti

@@ -1,0 +1,36 @@
+
+
+DECLARE	@codiceABarreTxt_presence int
+exec @codiceABarreTxt_presence =  [dbo].[usp_FrontOfficeReplicationCheck] 'Zorro'
+--
+
+create procedure usp_cespite_INSERT_wCheck
+	@codiceABarreTxt_presence int
+as
+--
+if( @codiceABarreTxt_presence > 0)
+	begin
+		print @codiceABarreTxt_presence
+		print 'BarCode already burned.' 
+		return -1
+	end
+else
+	begin
+		print 'working...'
+		print 'working...'
+		print 'working...'
+		print @codiceABarreTxt_presence
+		print 'working...'
+		print 'working...'
+		print 'BarCode still available.'  
+		print 'working...'
+		print 'working...'
+	end
+GO
+
+exec usp_cespite_INSERT_wCheck -1
+exec usp_cespite_INSERT_wCheck 0
+exec usp_cespite_INSERT_wCheck 1
+
+--DECLARE	@codiceABarreTxt_presence int
+--set 	@codiceABarreTxt_presence = 0

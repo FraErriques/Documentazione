@@ -1,0 +1,12 @@
+
+select the db to work on
+
+select  
+	* 
+from sysobjects
+where [xtype]='U'     -- select all the objects of table type, in that db
+                         to gain the table-id( i.e. the id, by which the db
+			 locates the table)  
+
+select * from syscolumns       -- select all the column names, in the desired table
+where id=853578079 -- cv_doc_multi  -- substitute here the appropriate id.

@@ -1,0 +1,276 @@
+
+
+GO
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING OFF
+GO
+CREATE TABLE [dbo].[docMulti](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ref_docMulti_id] [int] NOT NULL DEFAULT ((0)),
+	[abstract] [varchar](5500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[sourceName] [varchar](350) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[doc] [image] NULL,
+	[insertion_time] [datetime] NULL DEFAULT (getdate()),
+ CONSTRAINT [pk_docMulti] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+-----------------------------------------------------------------------------------
+
+--------------------
+---END tabelle core
+--------------------
+
+
+--------------------------------
+---START stored core
+--------------------------------
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[usp_docMulti_LOAD_abstract]
+@id int
+as
+select
+	[abstract]
+from
+	[docMulti]
+where id = @id
+------------------------------------------------------
+
+
+
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[usp_docMulti_UPDATE_abstract]
+@id int,
+@_abstract varchar(5500)
+as
+	update
+		[docMulti]
+	set
+		[abstract]=@_abstract
+	where id = @id
+---------------------------------------------------------------------------
+
+
+
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[usp_docMulti_LOAD_dataMining]
+	@id_last_phase int
+as
+	-- returns a datatable of ids, from last_chunk(in first row of resultset) to first_chunk(ref_docMulti_id=0 in last row of resultset).--
+	declare @ref_docMulti_id int
+	set @ref_docMulti_id = @id_last_phase
+	--
+	select @ref_docMulti_id -- NB. don't forget the last chunk, to be retrieved separately.
+	--
+	while( @ref_docMulti_id>0)
+		begin
+			-----------finalizzata a memorizzare la sequenza dei puntatori a chunk.-----------
+			select ref_docMulti_id from docMulti where id=@ref_docMulti_id
+			-----
+			-----------stessa query di prima, con nuovo parametro,----------------------------
+			-----------per far avanzare il ciclo while al chunk successivo--------------------
+			select @ref_docMulti_id = (select ref_docMulti_id from docMulti where id=@ref_docMulti_id)
+			-----
+		end
+	--ready
+-----------------------------------------------------------------------------
+
+
+
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_docMulti_LOAD_sourceName]
+	@id int
+as
+select sourceName from docMulti where id=@id
+------------------------------------------------------------------------------------
+
+
+
+
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_docMulti_LOAD_BlobAtId]
+	@id_required_phase int
+as
+	-- returns a datatable of all columns, at id=@id_required_phase.
+	select * from docMulti where id=@id_required_phase
+	--ready
+-------------------------------------------------------------------------------------
+
+
+
+/*
+-------------------------------------------------------------------------------
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[usp_docMulti_LOAD_idWhereTema]
+	@ref_tema_id int
+as
+select 
+	dm.id 
+	,mat.nomeMateria
+	,dm.abstract
+	,dm.sourceName
+	,dm.insertion_time
+from 
+	docMulti dm
+	, tema t
+	, materia_LOOKUP mat
+where 
+	ref_tema_id = @ref_tema_id
+	and abstract<>'_##__fake_abstract__##_'
+	and t.id = dm.ref_tema_id
+	and mat.id = t.id_materia
+---------------------------------------------------------------------------
+*/
+
+
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[usp_docMulti_INSERT]
+	@ref_docMulti_id int,---------NB. must be specified and !=0, on Append.------------------------
+	@_abstract varchar(5500),
+	@sourceName varchar(350),
+	@doc image,
+	-- out
+	@result int out -- output the generated id_identity.---------
+as
+	begin transaction
+	begin try
+		if @ref_docMulti_id<0--preserve zero, for the first_insert.----
+			begin
+			    -- RAISERROR with severity 11-19 will cause exeuction to jump to the CATCH block.
+				RAISERROR( '---NB. @ref_docMulti_id ----- must be specified and >=0. Zero on first_insert, positive on Append.',
+						   16, -- Severity. -- RAISERROR with severity 11-19 will cause exeuction to jump to the CATCH block.
+						   1 -- State.
+						   );
+			end--end if @ref_docMulti_id<=0 else can continue.
+		insert into docMulti(
+			--id identity
+			ref_docMulti_id,
+			abstract,
+			sourceName,
+			doc
+				) values(
+				--id identity,
+				@ref_docMulti_id,------------NB. must be specified end !=0, on Append.---------
+				@_abstract,-----last chunk will be the only one equipped with. The semantic engine must find last chunk's id.
+				@sourceName,--every chunk.----
+				@doc
+		)
+		-- now retrieve the "id_identity" just created, to use it as ref_docMulti_id in successive chunks.
+		select @result = (select max(id) from docMulti)
+		-- if you get here, you can commit.
+		commit transaction
+	end try
+	begin catch
+		rollback transaction
+		select @result=-1 --error code
+	end catch
+	-- ready
+	return @result
+----------------------------------------------------------------------------------------
+
+
+
+ 
+-------------------------------------------------------------------------------------
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[usp_docMulti_LOAD_CandidateDocuments]
+	@id_set varchar( 6000)
+as
+-- NB. example of how to build this parameter from the application layer:
+--declare @id_set varchar( 6000)
+--select @id_set = ' (1,2,3)'
+
+declare @query_mainPart varchar( 400)
+select @query_mainPart =
+'select 
+		dm.id,
+		dm.abstract
+	from
+		[dbo].[docMulti] dm '
+	+' where 
+		abstract <> ''_##__fake_abstract__##_''
+     '--end string
+	--print @query_mainPart
+-- decide whether to add an ending part
+declare @wholeQuery varchar( 7000)
+if( @id_set is not null )
+	begin
+		select @wholeQuery = @query_mainPart 
+		+ ' and dm.id in ' + @id_set 
+		+ ' order by abstract'
+		--print @wholeQuery
+	end
+else
+	begin
+		select @wholeQuery = @query_mainPart + ' order by abstract'
+		--print @wholeQuery
+	end
+-- ready
+exec (@wholeQuery)
+------------------------------------------------------------------------------------
+
+
+
+--------------
+---end docMulti procs
+--------------
+
+use [materie]
+select 
+		dm.id,
+		dm.abstract
+	from
+		[dbo].[docMulti] dm
+-- ,[dbo].[tema]  t 
+	where 
+		abstract <> '_##__fake_abstract__##_'
+--and dm.ref_tema_id = t.id 
+order by id

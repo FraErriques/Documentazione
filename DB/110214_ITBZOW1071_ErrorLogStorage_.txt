@@ -1,0 +1,77 @@
+
+CREATE DATABASE [ErrorLogStorage] ON PRIMARY(
+	NAME = N'SQLSystemsSupport', 
+	FILENAME = N'Z:\root\dataSql\dat\SQLSystemsSupport.mdf' , 
+	SIZE = 10240KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB 
+		)   LOG ON  ( 
+NAME = N'SQLSystemsSupport_log', 
+FILENAME = N'Z:\root\dataSql\log\SQLSystemsSupport_log.ldf' , 
+SIZE = 64128KB , MAXSIZE = 2048GB , FILEGROWTH = 10%
+)
+GO
+-----------------------------
+
+-- Create a table
+CREATE TABLE [dbo].[ErrLogData](
+ [LogID] [int] IDENTITY(1,1) NOT NULL,
+ [LogDate] [datetime] NULL,
+ [ProcessInfo] [nvarchar](50) NULL,
+ [LogText] [nvarchar](4000) NULL,
+ [SQLServerName] [nvarchar](150) NULL,
+PRIMARY KEY CLUSTERED 
+(
+ [LogID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+-----------------------------
+
+USE [ErrorLogStorage]
+GO
+
+-- Remove older data 
+IF EXISTS (SELECT * FROM [ErrorLogStorage].[dbo].[ErrLogData])
+ BEGIN
+ TRUNCATE TABLE [ErrorLogStorage].[dbo].[ErrLogData] 
+ END
+ DECLARE @SQLCmd VARCHAR(1024)
+ SELECT @SQLCmd = 'Insert Into [ErrorLogStorage].dbo.ErrLogData (LogDate, ProcessInfo, LogText) Exec master..xp_readerrorlog '
+ EXEC (@SQLCmd)
+
+-- Cycle through the ErrLogData table and insert the server's name
+DECLARE SrvName_Cursor CURSOR FOR
+ SELECT [SQLServerName] FROM [ErrorLogStorage].[dbo].[ErrLogData] WHERE [SQLServerName] IS NULL
+ OPEN SrvName_Cursor
+ FETCH NEXT FROM SrvName_Cursor
+ WHILE @@FETCH_STATUS = 0
+ BEGIN
+ UPDATE [ErrorLogStorage].[dbo].[ErrLogData] SET [SQLServerName] = @@servername
+ FETCH NEXT FROM SrvName_Cursor
+ END
+CLOSE SrvName_Cursor
+DEALLOCATE SrvName_Cursor
+GO
+-----------------------------
+
+SELECT [LogID]
+ ,[LogDate]
+ ,[ProcessInfo]
+ ,[LogText]
+ ,[SQLServerName]
+FROM [ErrorLogStorage].[dbo].[ErrLogData]
+WHERE ([LogText] NOT LIKE '% found 0 errors %'
+ AND [LogText] NOT LIKE '%\ERRORLOG%'
+ AND [LogText] NOT LIKE '%Attempting to cycle errorlog%'
+ AND [LogText] NOT LIKE '%Errorlog has been reinitialized.%'
+ AND [LogText] NOT LIKE '%found 0 errors and repaired 0 errors.%'
+ AND [LogText] NOT LIKE '%without errors%'
+ AND [LogText] NOT LIKE '%This is an informational message%'
+ AND [LogText] NOT LIKE '%Setting database option ANSI_WARNINGS%'
+ AND [LogText] NOT LIKE '%Error: 15457, Severity: 0, State: 1%'
+ AND [LogText] NOT LIKE '%finished without errors%')
+ORDER BY [SQLServerName] ,[LogID]
+GO
+-----------------------------
+select count(*) FROM [ErrorLogStorage].[dbo].[ErrLogData]
+select * FROM [ErrorLogStorage].[dbo].[ErrLogData]
+ Exec master..xp_readerrorlog -- NB. extended_stored(i.e. a system one, with filesystem writing rights).

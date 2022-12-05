@@ -1,0 +1,46 @@
+select * from utente
+
+--insert into utente(
+---- id
+--username
+--,password
+--,kkey
+--,mode
+--) values (
+---- id
+--'lettore'
+--,'1234'
+--,'0'
+--,'o'
+--)
+
+
+select * from candidato
+
+declare @id int
+select @id= 13
+select 
+	c.nominativo
+	,s.nomeSettore
+from 
+	candidato c
+	,settoreCandidatura_LOOKUP s
+where
+	c.id = @id
+	and s.id = c.id_settore
+
+create procedure usp_candidatoDescription_LOADSINGLE
+	@id int
+as
+select 
+	c.nominativo
+	,s.nomeSettore
+from 
+	candidato c
+	,settoreCandidatura_LOOKUP s
+where
+	c.id = @id
+	and s.id = c.id_settore
+GO
+
+exec  usp_candidatoDescription_LOADSINGLE  13

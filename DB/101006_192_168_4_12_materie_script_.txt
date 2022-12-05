@@ -1,0 +1,177 @@
+
+
+/*   ?? TODO 
+USE [master]
+GO
+/****** Oggetto:  Database [hardware]    Data script: 10/06/2010 09:02:29 ******/
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'hardware')
+BEGIN
+CREATE DATABASE [hardware] ON  PRIMARY 
+( NAME = 'hardware', FILENAME = 'C:\util\dataSql\data\hardware.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = 'hardware_log', FILENAME = 'C:\util\dataSql\log\hardware_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+END
+GO
+*/
+/* TODO
+EXEC dbo.sp_dbcmptlevel @dbname=N'hardware', @new_cmptlevel=90
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [hardware].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [hardware] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [hardware] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [hardware] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [hardware] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [hardware] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [hardware] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [hardware] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [hardware] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [hardware] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [hardware] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [hardware] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [hardware] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [hardware] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [hardware] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [hardware] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [hardware] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [hardware] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [hardware] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [hardware] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [hardware] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [hardware] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [hardware] SET  READ_WRITE 
+GO
+ALTER DATABASE [hardware] SET RECOVERY FULL 
+GO
+ALTER DATABASE [hardware] SET  MULTI_USER 
+GO
+ALTER DATABASE [hardware] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [hardware] SET DB_CHAINING OFF 
+USE [hardware]
+GO
+---------------------------------------------------------------------------------------------
+*/
+
+
+
+---------------------------------------------------------------------------------------------
+/****** Oggetto:  Table [dbo].[device_consignee_LOOKUP]    Data script: 10/06/2010 09:02:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[device_consignee_LOOKUP]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[device_consignee_LOOKUP](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](250) NOT NULL,
+ CONSTRAINT [pk_device_consignee_LOOKUP] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+/****** Oggetto:  Table [dbo].[device_nature_LOOKUP]    Data script: 10/06/2010 09:02:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[device_nature_LOOKUP]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[device_nature_LOOKUP](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[description] [varchar](300) NULL,
+	[purchase_date] [datetime] NULL,
+	[warranty_expiry] [datetime] NULL,
+ CONSTRAINT [pk_device_nature_LOOKUP] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+/****** Oggetto:  Table [dbo].[device]    Data script: 10/06/2010 09:02:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[device]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[device](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[serial] [varchar](100) NOT NULL,
+	[producer] [varchar](100) NULL,
+	[model] [varchar](60) NULL,
+	[id_nature] [int] NOT NULL,
+	[id_consignee] [int] NULL,
+ CONSTRAINT [pk_device] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[fk_device_consignee]') AND parent_object_id = OBJECT_ID(N'[dbo].[device]'))
+ALTER TABLE [dbo].[device]  WITH CHECK ADD  CONSTRAINT [fk_device_consignee] FOREIGN KEY([id_consignee])
+REFERENCES [dbo].[device_consignee_LOOKUP] ([id])
+GO
+ALTER TABLE [dbo].[device] CHECK CONSTRAINT [fk_device_consignee]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[fk_device_nature]') AND parent_object_id = OBJECT_ID(N'[dbo].[device]'))
+ALTER TABLE [dbo].[device]  WITH CHECK ADD  CONSTRAINT [fk_device_nature] FOREIGN KEY([id_nature])
+REFERENCES [dbo].[device_nature_LOOKUP] ([id])
+GO
+ALTER TABLE [dbo].[device] CHECK CONSTRAINT [fk_device_nature]
+---------------------------------------------------------------------------------------------
+--@@@
+
+
+
+
+/*
+drop table [device]
+drop table [device_nature_LOOKUP]
+drop table [device_consignee_LOOKUP]
+*/
+
+--USE [hardware]

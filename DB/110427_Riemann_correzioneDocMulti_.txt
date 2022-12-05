@@ -1,0 +1,5 @@
+select top 2 * from candidato
+select * from candidato where nominativo like '%tironi%'
+select * from doc_multi where ref_candidato_id=144
+select id from doc_multi where ref_candidato_id=144
+--delete from doc_multi where ref_candidato_id=144

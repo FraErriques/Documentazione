@@ -1,0 +1,48 @@
+
+SELECT
+							ROW_NUMBER() OVER (ORDER BY c.nominativo asc) AS 'RowNumber'
+							,c.id
+							,c.nominativo
+							,s.nomeSettore
+							,c.note
+				from
+					candidato c
+					,settoreCandidatura_LOOKUP s
+				where c.id_settore=s.id
+
+and(--NB. la coda (tail) va collegata obbligatoriamente con un "and", perche' la condizione (where c.id_settore=s.id) serve a evitare il prodotto cartesiano fra candidati e categorie.
+nominativo like '%alli%'
+or note like '%minerario%'
+or nomeSettore like '%periti%'
+or nomeSettore like '%verdura%'
+)
+
+
+select * from candidato c
+where 
+	id>0 -- simulazione cdz. necessaria
+ and(
+  12 = c.id_settore
+ and  c.nominativo like '%%' 
+ and  c.note like '%%'
+)
+
+
+select * from candidato c
+where 
+	id>0 -- simulazione cdz. necessaria
+ and
+  12 = c.id_settore  
+and  c.nominativo like '%%' 
+and  c.note like '%%'
+
+select * from candidato c
+where 
+	c.id>0 -- simulazione cdz. necessaria
+  and  12 = c.id_settore  and  c.nominativo like '%%' and  c.note like '%%'
+
+select * from candidato c
+where 
+	c.id>0 -- simulazione cdz. necessaria
+ and  10 = c.id_settore  and  c.nominativo like '%%' and  c.note like '%%'
+ and  c.nominativo like '%montan%' and  c.note like '%%'

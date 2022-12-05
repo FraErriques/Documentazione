@@ -1,0 +1,92 @@
+USE [cv2011]
+GO
+/****** Oggetto:  Table [dbo].[doc]    Data script: 06/15/2011 10:28:26 ******/
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING OFF
+GO
+CREATE TABLE [dbo].[doc](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ref_candidato_id] [int] NOT NULL,
+	[abstract] [varchar](5500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[sourceName] [varchar](350) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[email] [varchar](5500) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[doc] [image] NULL,
+	[insertion_time] [datetime] NULL DEFAULT (getdate()),
+ CONSTRAINT [pk_doc2011] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[doc]  WITH CHECK ADD  CONSTRAINT [fk_doc2011_candidato] FOREIGN KEY([ref_candidato_id])
+REFERENCES [dbo].[candidato] ([id])
+GO
+ALTER TABLE [dbo].[doc] CHECK CONSTRAINT [fk_doc2011_candidato]
+
+
+--
+USE [cv2011]
+GO
+/****** Oggetto:  StoredProcedure [dbo].[usp_doc_INSERT]    Data script: 06/15/2011 10:13:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[usp_doc_INSERT]
+	--the id is an IDENTITY and is unique for the single-chunk-doc.
+	@ref_candidato_id int,
+	@_abstract varchar(5500),
+	@sourceName varchar(350),
+	@email varchar(350),
+	@doc image,
+	-- out
+	@result int out -- output the generated id_identity.---------
+as
+	begin transaction
+	begin try
+		/*
+		if @ref_job_id<0--preserve zero, for the first_insert.----
+			begin
+			    -- RAISERROR with severity 11-19 will cause exeuction to jump to the CATCH block.
+				RAISERROR( '---NB. @ref_job_id ----- must be specified and >=0. Zero on first_insert, positive on Append.',
+						   16, -- Severity. -- RAISERROR with severity 11-19 will cause exeuction to jump to the CATCH block.
+						   1 -- State.
+						   );
+			end--end if @ref_job_id<=0 else can continue.
+			*/
+		insert into [dbo].[doc](
+			--id identity
+			ref_candidato_id,
+			abstract,
+			sourceName,
+			email,
+			doc
+				) values(
+				--id identity,
+				@ref_candidato_id,--it's a foreign key: cannot be an invalid pointer.------------
+				@_abstract,-----last chunk will be the only one equipped with. The semantic engine must find last chunk's id.
+				@sourceName,--every chunk.----
+				@email,
+				@doc
+		)
+		-- now retrieve the "id_identity" just created, to use it as ref_job_id in successive chunks.
+		select @result = (select max(id) from doc_multi)
+		-- if you get here, you can commit.
+		commit transaction
+	end try
+	begin catch
+		rollback transaction
+		select @result=-1 --error code
+	end catch
+	-- ready
+	return @result
+----
+
+select * from [cv2011].[dbo].[doc]
+select count(*) from [cv2011].[dbo].[doc]

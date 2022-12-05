@@ -1,0 +1,17 @@
+
+--- provvedimenti
+select * from job where id = 1783
+--delete from job where id = 1783
+select * from job where id = 1782
+--delete from job where id = 1782
+select  * from documento where id_job=1782
+--delete from documento where id_job=1782
+select  * from documento where id_job=1783
+--delete from documento where id_job=1783
+
+
+exec usp_job_dataMining_fromFirstPhase  1783
+exec usp_job_dataMining_fromFirstPhase  1773 -- sequenza danneggiata
+exec usp_job_dataMining_fromFirstPhase  1775 -- sequenza danneggiata
+exec usp_job_dataMining_fromFirstPhase  1781
+exec  [dbo].[usp_job_dataMining_ProcPhases] 1786

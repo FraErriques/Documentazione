@@ -1,0 +1,119 @@
+select * from utente
+
+insert into device_consignee_LOOKUP(
+--id
+[name]
+				)values(
+--id
+'Barbari Andrea'
+)
+
+
+insert into device_nature_LOOKUP(
+--id
+description
+				)values(
+--id
+'monitor'
+)
+
+
+
+
+insert into device(
+--id
+serial
+,producer
+,model
+,id_nature
+,purchase_date
+,warranty_expiry
+,id_consignee
+	)values(
+--id
+'etfa800769026'
+,null
+,null
+,1 -- id_nature
+,null
+,null
+,2 -- id_consignee
+)
+
+
+select * from device
+select * from device_nature_LOOKUP
+select * from device_consignee_LOOKUP
+
+
+select
+	dn.description as device_nature
+	,d.serial
+	,d.producer as producer
+	,c.[name] as consegnatario
+from
+	device_nature_LOOKUP dn
+	,device_consignee_LOOKUP c
+	,device d
+where
+	d.id_consignee = c.id
+
+
+
+
+
+ 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[device_nature_LOOKUP](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[description] [varchar](300) COLLATE Latin1_General_CS_AS_WS NULL
+ CONSTRAINT [pk_device_nature_LOOKUP] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[device](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[serial] [varchar](100) COLLATE Latin1_General_CS_AS_WS NOT NULL,
+	[producer] [varchar](100) COLLATE Latin1_General_CS_AS_WS NULL,
+	[model] [varchar](60) COLLATE Latin1_General_CS_AS_WS NULL,
+	[id_nature] [int] NOT NULL,
+	[purchase_date] [datetime] NULL,
+	[warranty_expiry] [datetime] NULL,
+	[id_consignee] [int] NULL,
+ CONSTRAINT [pk_device] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[device]  WITH CHECK ADD  CONSTRAINT [fk_device_consignee] FOREIGN KEY([id_consignee])
+REFERENCES [dbo].[device_consignee_LOOKUP] ([id])
+GO
+ALTER TABLE [dbo].[device] CHECK CONSTRAINT [fk_device_consignee]
+GO
+ALTER TABLE [dbo].[device]  WITH CHECK ADD  CONSTRAINT [fk_device_nature] FOREIGN KEY([id_nature])
+REFERENCES [dbo].[device_nature_LOOKUP] ([id])
+GO
+ALTER TABLE [dbo].[device] CHECK CONSTRAINT [fk_device_nature]
+

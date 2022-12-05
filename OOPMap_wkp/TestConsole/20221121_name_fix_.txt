@@ -1,0 +1,75 @@
+name	number			
+audino	288			
+baldini	289			
+barbari fz	238			
+barnabei	296			
+bellante	282			
+benucci	203			
+bonasso	217			
+bonazza	253			
+cappelletto	279			
+cardola	266			
+cardola 2	275			
+cavolo	247			
+citti	212			
+corradini	255			
+cristalli	234			
+cuel	228			
+di bella	233			
+di maria	707			
+egger	261			
+erriques	273			
+fax ft	252			
+fedele	208			
+floretta	205			
+fodera	259			
+fornari	215			
+framba	271			
+francesconi	277			
+gallo	272			
+gallotto	242			
+gasser	700			
+geat	297			
+gremi	705			
+gruber	283			
+guadagnini	249			
+ianeselli	229			
+iusco	243			
+lanconelli	265			
+loffredo	232			
+lombardi	222			
+maggio	293			
+malerba	267			
+malucelli	299			
+marini	230			
+marottoli	281			
+marrazzo	294			
+marrazzo bz	290			
+masciullo	706			
+miraglia	204			
+mittermann	256			
+palugan	214			
+papa	209			
+pappalardo	286			
+piarulli	701			
+pugliese	285			
+ravera	213			
+renghi	262			
+ristich	216			
+ristich fz	221			
+riunioni fz 2	207			
+serra	254			
+siracusa	298			
+skuk	226			
+spaziani	218			
+squillante_2	201			
+toro	257			
+troncone	703			
+valguarnera	248			
+vecchione	268			
+venditti	258			
+voza a.	263			
+zamolo	295			
+zanforlin	264			
+				
+				

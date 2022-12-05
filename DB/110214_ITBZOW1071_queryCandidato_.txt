@@ -1,0 +1,18 @@
+select * from utente
+
+select count(*) from candidato
+select * from candidato
+select * from settoreCandidatura_LOOKUP s
+select * from areaAziendale_LOOKUP a
+
+select
+	c.id
+	,c.nominativo
+	,s.nomeSettore
+	,c.note
+from
+	candidato c
+	, settoreCandidatura_LOOKUP s
+where
+	s.id = c.id_settore
+	and c.nominativo like '%vald%'

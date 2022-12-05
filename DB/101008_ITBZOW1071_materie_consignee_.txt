@@ -1,0 +1,80 @@
+select * from utente
+
+
+--delete from [dbo].[device_consignee_LOOKUP]
+--truncate table  [dbo].[device_consignee_LOOKUP]
+select * from [dbo].[device_consignee_LOOKUP]
+select * from [dbo].[device]
+--insert into  [dbo].[device_consignee_LOOKUP]
+--	select * from [dbo].[consignee_cognome_nome_] order by [name]
+
+
+insert into utente(
+'pippo'
+)
+
+--update device
+--	set id_consignee = 6
+--where id = 2
+
+
+ select
+	                dn.description as device_nature
+	                ,d.serial
+	                ,d.producer as producer
+	                ,c.[name] as consegnatario
+                from
+	                device_nature_LOOKUP dn
+	                ,device_consignee_LOOKUP c
+	                ,device d
+                where
+	                d.id_consignee = c.id
+
+
+
+create procedure [dbo].[usp_livelloSoggetto_LOADMULTI]
+as
+	select * from livelloFunzionario_LOOKUP
+
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_permesso_GetDirettori]
+as
+select 
+	a.nomeArea,
+	u.username
+from
+		areaAziendale_LOOKUP a,
+		utente u,
+		area_X_responsabile x
+where
+		x.id_area=a.id
+		and x.id_utente=u.id
+
+
+
+
+create procedure [dbo].[usp_SettoreAziendale_LOADMULTI]
+as
+select * from settoreAziendale_LOOKUP
+
+
+CREATE  procedure [dbo].[usp_utente_LOADMULTI]
+as
+select
+		[id],[username]
+	from utente
+
+
+--@@@@@
+
+usp_permesso_GetDirettori_SERVICE
+
+Process.azienda.settore.ElencoSettoriAziendali();
+
+Process.utente.utente_insert.InsertUserDbRow(
+

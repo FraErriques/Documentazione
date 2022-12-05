@@ -1,0 +1,75 @@
+select * from utente
+
+
+--update utente
+--set 
+--	password = 'qwer'
+--	,kkey = '0'
+--	,mode = 'o'
+
+--exec usp_job_dataMining_fromFirstPhase  1783
+exec usp_job_dataMining_fromFirstPhase  1773
+exec usp_job_dataMining_fromFirstPhase  1775
+exec usp_job_dataMining_fromFirstPhase  1781
+exec  [dbo].[usp_job_dataMining_ProcPhases] 1786
+
+
+USE [ProcBBT]
+GO
+/****** Oggetto:  StoredProcedure [dbo].[usp_job_dataMining_ProcPhases]    Data script: 06/22/2010 18:21:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+--create procedure [dbo].[usp_job_dataMining_ProcPhases]
+	@id_last_phase int
+as
+	declare @ref_job_id int
+	set @ref_job_id = @id_last_phase
+	while( @ref_job_id>0)
+		begin
+			select @ref_job_id = (select ref_job_id from job where id=@ref_job_id) --C#
+			-----
+			select * from job-----------stesso proxy di prima, con nuovo parametro. Da mettere in un "while @ref_job_id>0"
+				where id=@ref_job_id 
+			-----
+		end
+
+
+----
+USE [ProcBBT]
+GO
+/****** Oggetto:  StoredProcedure [dbo].[usp_job_dataMining_fromFirstPhase]    Data script: 06/22/2010 18:31:45 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--create procedure [dbo].[usp_job_dataMining_fromFirstPhase]
+	@id_first_phase int
+as
+
+	declare @id_first_phase int
+	select @id_first_phase = 1773
+	declare @ref_job_id int
+	set @ref_job_id = @id_first_phase
+	select * from job where id=@id_first_phase -- get the starter phase; it has ref_job_id==0, so cannot be retrieved in the loop.
+	while( @ref_job_id>0)
+		begin
+			-----
+			select * from job where ref_job_id=@ref_job_id 
+			-----
+			select @ref_job_id = (select top 1 id from job where ref_job_id=@ref_job_id)
+			-----
+		end
+----
+
+--- provvedimenti
+select * from job where id = 1783
+delete from job where id = 1783
+select * from job where id = 1782
+delete from job where id = 1782
+select  * from documento where id_job=1782
+delete from documento where id_job=1782
+select  * from documento where id_job=1783
+delete from documento where id_job=1783

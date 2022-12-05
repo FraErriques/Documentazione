@@ -1,0 +1,8 @@
+select * from candidato where nominativo like '%tesser%'
+select * from candidato where nominativo like '%De%Biasi%'
+select max(id) from candidato
+--delete from candidato where id=147
+
+
+non fare!!!!  ALTER TABLE [dbo].[candidato]  WITH CHECK ADD  CONSTRAINT [uq_candidato_nominativo] UNIQUE([nominativo])
+

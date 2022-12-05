@@ -1,0 +1,14 @@
+select top 10 * from doc_multi
+order by insertion_time desc
+
+select * from doc_multi
+where id in (599,600,601)
+order by id desc
+
+--update doc_multi
+--set sourceName = 'Varotto_geologo_it_.pdf'
+--where id in (599,600,601)
+--
+--update doc_multi
+--set sourceName = 'Varotto_geologo_en_.pdf'
+--where id in (598,597,596)

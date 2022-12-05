@@ -1,0 +1,5 @@
+select * from candidato where nominativo like '%oliva%'
+--delete from candidato where id = 112
+
+select id,ref_candidato_id from doc_multi where ref_candidato_id in (82, 112)
+select * from doc_multi where ref_candidato_id in (82, 112)

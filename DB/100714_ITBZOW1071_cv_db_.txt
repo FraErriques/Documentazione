@@ -1,0 +1,43 @@
+USE [cv_db]
+GO
+/****** Oggetto:  StoredProcedure [dbo].[usp_candidatoDescription_LOADSINGLE]    Data script: 07/14/2010 08:46:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[usp_candidatoDescription_LOADSINGLE]
+	@id int
+as
+select 
+	c.nominativo
+	,s.nomeSettore
+from 
+	candidato c
+	,settoreCandidatura_LOOKUP s
+where
+	c.id = @id
+	and s.id = c.id_settore
+
+
+
+
+
+
+
+usp_ViewCacher_generic_name
+-----------------------------------------
+usp_ViewCacher_generic_LOAD_interval          was   usp_candidato_PagerVIEW_LOADinterval
+usp_ViewCacher_generic_LOAD_length            was   usp_candidato_VIEW_length
+usp_ViewCacher_generic_DROP                   was   usp_candidato_DROPPagerVIEW
+
+usp_ViewCacher_specific_name
+-----------------------------------------
+usp_ViewCacher_specific_CREATE_candidato          was   usp_candidato_LOADinPagerVIEW
+usp_ViewCacher_specific_CREATE_documento          was   usp_doc_multi_getId_at_refCandidatoId_SERVICE
+
+
+inoltre
+usp_candidato_LOAD_Description      	was		usp_candidatoDescription_LOADSINGLE
+
+
