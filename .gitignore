@@ -50,3 +50,6 @@ Rand/obj/
 Rand/bin/
 #
 Rust_guess/guess/target/
+#
+RustLib/bar/target/**
+RustLib/foo/target/**
