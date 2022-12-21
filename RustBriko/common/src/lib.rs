@@ -1,7 +1,9 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub fn common_signature() -> String {
+ let hello = String::from("Common::common_signature() call.");
+ return hello;
 }
 
+/*  multiline comment
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -12,3 +14,4 @@ mod tests {
         assert_eq!(result, 4);
     }
 }
+*/
