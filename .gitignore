@@ -53,3 +53,10 @@ Rust_guess/guess/target/
 #
 RustLib/bar/target/**
 RustLib/foo/target/**
+#
+RustBriko/common/target/**
+RustBriko/entity/target/**
+RustBriko/numerical_analysis/target/**
+RustBriko/process/target/**
+RustBriko/test_console/target/**
+#

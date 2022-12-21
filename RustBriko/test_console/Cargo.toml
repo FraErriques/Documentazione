@@ -1,0 +1,12 @@
+[package]
+name = "test_console"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+common = { path = "../common" } # from a path in the local filesystem
+entity = { path = "../entity" } # from a path in the local filesystem
+numerical_analysis = { path = "../numerical_analysis" } # from a path in the local filesystem
+process = { path = "../process" } # from a path in the local filesystem
