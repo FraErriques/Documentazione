@@ -1,3 +1,5 @@
+pub mod other;
+
 pub fn common_signature() -> String {
  let hello = String::from("Common::common_signature() call.");
  return hello;
