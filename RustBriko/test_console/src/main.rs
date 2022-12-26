@@ -2,6 +2,7 @@ extern crate common;
 // Note this useful idiom: importing names from outer (for mod tests) scope.
 use common::*;
 use entity::proxies;
+use entity::entities::*;
 
 
 fn main() {
@@ -11,4 +12,5 @@ fn main() {
     pippo::timbro_pippo();
     proxies::usp_some_entity_insert_::usp_some_entity_insert_signature();
     proxies::usp_some_entity_load_::usp_some_entity_load_signature();
+    some_entity_layout_::some_entity_layout_signature();
 }// main

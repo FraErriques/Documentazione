@@ -1,4 +1,5 @@
 pub mod proxies;
+pub mod entities;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
