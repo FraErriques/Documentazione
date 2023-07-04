@@ -8,3 +8,4 @@ TODO
 low leel arrays
 file writer for a db-dump of the low level array
 file reader to retrieve from disk the low level array, stored in a text file
+later: file writer for {update}
