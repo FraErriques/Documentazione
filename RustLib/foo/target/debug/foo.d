@@ -1,1 +1,1 @@
-C:\root\projects\GitHubSandBox\Documentazione\RustLib\foo\target\debug\foo.exe: C:\root\projects\GitHubSandBox\Documentazione\RustLib\bar\src\lib.rs C:\root\projects\GitHubSandBox\Documentazione\RustLib\foo\src\main.rs
+C:\root\src\GitHubSandBox\Documentazione\RustLib\foo\target\debug\foo.exe: C:\root\src\GitHubSandBox\Documentazione\RustLib\bar\src\lib.rs C:\root\src\GitHubSandBox\Documentazione\RustLib\foo\src\main.rs
