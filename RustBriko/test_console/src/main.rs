@@ -17,6 +17,7 @@ fn vector_builder(){
     extern crate common;
     use common::*;
     Note this useful idiom: importing names from outer (for mod tests) scope.
+    NB. on Sunday 09.July.2023 vsCode has been updated to version 1.80.0 on WinPlatform on host ITBZOW1069.
  */
 
 
