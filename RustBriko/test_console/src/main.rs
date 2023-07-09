@@ -12,6 +12,14 @@ fn vector_builder(){
     let _xs = vec![1i32, 2, 3];
 }
 
+/* this is the entry point of Documentazione::RustBriko ,i.e. Documentazione::RustBriko::test_console 
+   the syntax for doing that, is: 
+    extern crate common;
+    use common::*;
+    Note this useful idiom: importing names from outer (for mod tests) scope.
+ */
+
+
 fn main() {
     println!("This is an example of a library-caller.");
 	println!("this is a call from test_console to common_signature() {}", common_signature() );
