@@ -19,4 +19,13 @@ fn main() {
     //---------------
     println!("uno: {}\ndue: {}\ntre: {}", row_array[0].one,
         row_array[0].two,row_array[0].three  );
+
+    let mut row_array : [[i32;2];2] = [[1,2],[3,4]];
+    row_array[0][0]=1;
+    row_array[0][1]=2;
+    row_array[1][0]=3;
+    row_array[1][1]=4;
+    let det : i32 = row_array[0][0]*row_array[1][1]-row_array[1][0]*row_array[0][1];
+    println!("{:?}", row_array );
+    println!("determinant = {}", det);
 }
