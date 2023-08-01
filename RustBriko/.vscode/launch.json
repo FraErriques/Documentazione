@@ -10,9 +10,9 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceRoot}/test_console/target/debug/test_console",
+            "program": "RustBriko/test_console/target/debug/test_console",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "RustBriko"
         }
     ]
 }
