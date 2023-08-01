@@ -1,5 +1,8 @@
-fare func che produce dall'ordinale {1} con token {ordinal_prime\n}
+﻿fare func che produce dall'ordinale {1} con token {ordinal_prime\n}
 quindi fare esercizi di seekg() sul file prodotto.
 documentare le capacità di convergenza dei due metodi di bisezione.
 corregere PrimeIntegralFromOrigin su Linux.
 abilitare Settings->Editor->CodeHilight in Code::Blocks
+
+on 2023.June.22 the GitHub connection on BBT firewall was opened again.
+on 2023.June.25 Git,MingW,Rust were moved in C:\root

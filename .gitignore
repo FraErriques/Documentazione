@@ -60,3 +60,4 @@ RustBriko/numerical_analysis/target/**
 RustBriko/process/target/**
 RustBriko/test_console/target/**
 #
+Rust_table/target/**
