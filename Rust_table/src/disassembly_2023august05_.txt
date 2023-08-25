@@ -1,0 +1,61 @@
+; Symbol: core::fmt::Arguments::new_v1, mangled name=_ZN4core3fmt9Arguments6new_v117ha1a10e5378ebcbcbE
+; Source: /rustc/eb26296b556cef10fb713a38f3d16b9886080f26/library/core/src/fmt/mod.rs:307
+55555555CBA0: 48 81 EC B8 00 00 00       subq   $0xb8, %rsp
+55555555CBA7: 4C 89 04 24                movq   %r8, (%rsp)
+55555555CBAB: 48 89 4C 24 08             movq   %rcx, 0x8(%rsp)
+55555555CBB0: 48 89 54 24 10             movq   %rdx, 0x10(%rsp)
+55555555CBB5: 48 89 74 24 18             movq   %rsi, 0x18(%rsp)
+55555555CBBA: 48 89 7C 24 20             movq   %rdi, 0x20(%rsp)
+55555555CBBF: 48 89 7C 24 28             movq   %rdi, 0x28(%rsp)
+55555555CBC4: 48 89 B4 24 88 00 00 00    movq   %rsi, 0x88(%rsp)
+55555555CBCC: 48 89 94 24 90 00 00 00    movq   %rdx, 0x90(%rsp)
+55555555CBD4: 48 89 8C 24 98 00 00 00    movq   %rcx, 0x98(%rsp)
+55555555CBDC: 4C 89 84 24 A0 00 00 00    movq   %r8, 0xa0(%rsp)
+55555555CBE4: 4C 39 C2                   cmpq   %r8, %rdx
+55555555CBE7: 72 1B                      jb     0x55555555cc04  ; <+100> at mod.rs:308:12
+55555555CBE9: 48 8B 44 24 10             movq   0x10(%rsp), %rax
+55555555CBEE: 48 8B 0C 24                movq   (%rsp), %rcx
+55555555CBF2: 48 83 C1 01                addq   $0x1, %rcx
+55555555CBF6: 48 39 C8                   cmpq   %rcx, %rax
+55555555CBF9: 0F 97 C0                   seta   %al
+55555555CBFC: 24 01                      andb   $0x1, %al
+55555555CBFE: 88 44 24 37                movb   %al, 0x37(%rsp)
+55555555CC02: EB 05                      jmp    0x55555555cc09  ; <+105> at mod.rs:308:12
+55555555CC04: C6 44 24 37 01             movb   $0x1, 0x37(%rsp)
+55555555CC09: F6 44 24 37 01             testb  $0x1, 0x37(%rsp)
+55555555CC0E: 75 4F                      jne    0x55555555cc5f  ; <+191> at mod.rs:309:20
+55555555CC10: 48 8B 44 24 28             movq   0x28(%rsp), %rax
+55555555CC15: 48 8B 4C 24 20             movq   0x20(%rsp), %rcx
+55555555CC1A: 48 8B 14 24                movq   (%rsp), %rdx
+55555555CC1E: 48 8B 74 24 08             movq   0x8(%rsp), %rsi
+55555555CC23: 48 8B 7C 24 10             movq   0x10(%rsp), %rdi
+55555555CC28: 4C 8B 44 24 18             movq   0x18(%rsp), %r8
+55555555CC2D: 48 C7 44 24 68 00 00 00 >  movq   $0x0, 0x68(%rsp)
+55555555CC36: 4C 89 01                   movq   %r8, (%rcx)
+55555555CC39: 48 89 79 08                movq   %rdi, 0x8(%rcx)
+55555555CC3D: 4C 8B 44 24 68             movq   0x68(%rsp), %r8
+55555555CC42: 48 8B 7C 24 70             movq   0x70(%rsp), %rdi
+55555555CC47: 4C 89 41 20                movq   %r8, 0x20(%rcx)
+55555555CC4B: 48 89 79 28                movq   %rdi, 0x28(%rcx)
+55555555CC4F: 48 89 71 10                movq   %rsi, 0x10(%rcx)
+55555555CC53: 48 89 51 18                movq   %rdx, 0x18(%rcx)
+55555555CC57: 48 81 C4 B8 00 00 00       addq   $0xb8, %rsp
+55555555CC5E: C3                         retq   
+55555555CC5F: 48 8D 05 D2 CE 04 00       leaq   0x4ced2(%rip), %rax
+55555555CC66: 48 89 84 24 A8 00 00 00    movq   %rax, 0xa8(%rsp)
+55555555CC6E: 48 C7 84 24 B0 00 00 00 >  movq   $0x1, 0xb0(%rsp)
+55555555CC7A: 48 C7 44 24 78 00 00 00 >  movq   $0x0, 0x78(%rsp)
+55555555CC83: 48 89 44 24 38             movq   %rax, 0x38(%rsp)
+55555555CC88: 48 C7 44 24 40 01 00 00 >  movq   $0x1, 0x40(%rsp)
+55555555CC91: 48 8B 4C 24 78             movq   0x78(%rsp), %rcx
+55555555CC96: 48 8B 84 24 80 00 00 00    movq   0x80(%rsp), %rax
+55555555CC9E: 48 89 4C 24 58             movq   %rcx, 0x58(%rsp)
+55555555CCA3: 48 89 44 24 60             movq   %rax, 0x60(%rsp)
+55555555CCA8: 48 8D 05 61 D3 03 00       leaq   0x3d361(%rip), %rax
+55555555CCAF: 48 89 44 24 48             movq   %rax, 0x48(%rsp)
+55555555CCB4: 48 C7 44 24 50 00 00 00 >  movq   $0x0, 0x50(%rsp)
+55555555CCBD: 48 8D 35 84 CE 04 00       leaq   0x4ce84(%rip), %rsi
+55555555CCC4: 48 8D 05 B5 F4 FF FF       leaq   -0xb4b(%rip), %rax  ; core::panicking::panic_fmt at panicking.rs:52
+55555555CCCB: 48 8D 7C 24 38             leaq   0x38(%rsp), %rdi
+55555555CCD0: FF D0                      callq  *%rax
+55555555CCD2: 0F 0B                      ud2    

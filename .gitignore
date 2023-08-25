@@ -61,3 +61,4 @@ RustBriko/process/target/**
 RustBriko/test_console/target/**
 #
 Rust_table/target/**
+Rust_table/.vscode/**

@@ -1,1 +1,1 @@
-C:\root\src\GitHubSandBox\Documentazione\Rust_table\target\debug\table.exe: C:\root\src\GitHubSandBox\Documentazione\Rust_table\src\main.rs
+/home/fra/src/GitHubSandBox/Documentazione/Rust_table/target/debug/table: /home/fra/src/GitHubSandBox/Documentazione/Rust_table/src/main.rs
