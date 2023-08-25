@@ -11,7 +11,7 @@
             "cargo": {
                 "args": [
                     "build",
-                    "--lib"
+                    ""
                 ]
             },
             "args": []
@@ -20,7 +20,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "debug",
-            "program": "target/debug/table",
+            "program": "target/debug/table.exe",
             "args": [],
             "cwd": ""
         }
