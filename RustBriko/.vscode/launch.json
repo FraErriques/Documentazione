@@ -6,11 +6,13 @@
     "configurations": [
         
 
+        
+
         {
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "RustBriko/test_console/target/debug/test_console",
+            "program": "RustBriko/test_console/target/debug/test_console.exe",
             "args": [],
             "cwd": "RustBriko"
         }
