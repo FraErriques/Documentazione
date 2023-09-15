@@ -2,7 +2,7 @@
 
 fn main() {
 
-    // this is a typedef of a row-layout of a  db-table.
+    // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
     struct RowLayout{
         one : i32,
         two : f32,
