@@ -75,6 +75,20 @@ COPY table_name [ ( column_name [, ...] ) ]
                 [ FORCE NOT NULL column_name [, ...] ] ] ]
 
 
+for bulk insertion, one can also use multiple lins at a time, as in:
+
+insert into TableName(
+field_1,
+..
+field_n
+) values(
+row_1_field_1,..,row_1_field_n,
+..
+row_k_field_1,..,row_1_field_n
+)
+
+in which case #k rows get inserted, with all of their{1,..,n} fields.
+
 
 .....
 ...to be continued
