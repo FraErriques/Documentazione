@@ -6,3 +6,4 @@ abilitare Settings->Editor->CodeHilight in Code::Blocks
 
 on 2023.June.22 the GitHub connection on BBT firewall was opened again.
 on 2023.June.25 Git,MingW,Rust were moved in C:\root
+on 2023.September.22 everything works :-)

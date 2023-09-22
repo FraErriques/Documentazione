@@ -85,9 +85,17 @@ field_n
 row_1_field_1,..,row_1_field_n,
 ..
 row_k_field_1,..,row_1_field_n
-)
+);GO
 
 in which case #k rows get inserted, with all of their{1,..,n} fields.
+example:
+INSERT INTO dotazioni.dbo.PC
+(
+--id, 
+beneficiario, oggetto, matricola, note
+)VALUES
+('fake_1', 'fake_1', 'fake_1', 'fake_1'),
+('fake_2', 'fake_2', 'fake_2', 'fake_2');
 
 
 .....
