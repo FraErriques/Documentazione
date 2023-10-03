@@ -9,7 +9,7 @@ fn main() {
         three : char
     }
 
-    // this is an instance of an Array of that row-layout; fixed row cardinality.
+    // this is an instance of an Array of that row-layout; fixed row cardinality. For variable roe-cardinality use "Vector".
     let mut row_array : [RowLayout;3] = [
         RowLayout{one:0i32,two:0.0f32,three:'0',},
         RowLayout{one:1i32,two:1.0f32,three:'1',},
@@ -19,13 +19,23 @@ fn main() {
     //-----this is an initialization loop:
     for c in 0..2{
         row_array[c]=RowLayout{one:c as i32,two:c as f32,three:'z'};
+        /* NB. the syntax construct is: 
+        array_instance[record_index]=StructTypeName{fieldName_1:value [as cast],..,fieldName_n:value [as cast]};
+        */
     }
     
     //---------------
-    println!("uno: {}\ndue: {}\ntre: {}", row_array[0].one,
-        row_array[0].two,row_array[0].three  );
+    // macro : println!(" text {} testo {} ", field, otherField) //NB. each {} is a placeholder for a field.
+    // syntax: array_instance[record_index].fieldName
+    println!(" uno: {}\n due: {}\n tre: {}"
+        , row_array[0].one
+        , row_array[0].two
+        , row_array[0].three  );
 
-    // declaration ind instance of a Matrix:
+    // declaration and instance of a Matrix:
+    // syntax :
+    // let mut matrix_instance_name : [[typedef Row;cardinality of elements in Row,i.e. #columns]; #Rows]=init..;
+    // NB. for variable cardinality use the "Vector" data-type.
     let mut row_array : [[i32;2];2] = [[1,2],[3,4]];
     row_array[0][0]=1;
     row_array[0][1]=2;
@@ -33,6 +43,7 @@ fn main() {
     row_array[1][1]=4;
 
     let det : i32 = row_array[0][0]*row_array[1][1]-row_array[1][0]*row_array[0][1];
+    //NB. this syntax println!("{:?}", row_array ); prints the whole array content.
     println!("{:?}", row_array );
     println!("determinant = {}", det);
 }
