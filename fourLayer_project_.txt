@@ -101,4 +101,4 @@ beneficiario, oggetto, matricola, note
 .....
 ...to be continued
 TODO use BrikoJ solution (i.e. Project-group) to realize this architecture and develop frmCalendar in Java.
-
+TODO enable PostgreSql connection in Eulero
