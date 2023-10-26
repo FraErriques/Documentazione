@@ -21,6 +21,9 @@ fn main() {
         row_array[c]=RowLayout{one:c as i32,two:c as f32,three:'z'};
         /* NB. the syntax construct is: 
         array_instance[record_index]=StructTypeName{fieldName_1:value [as cast],..,fieldName_n:value [as cast]};
+        so the cast is performed via "structFieldName:variableAssigned as typeName(intended to cast to)"
+        outside the Struct context, the general case is:
+        leftValueName:rightValueAssigned_name as typeName(intended to cast to)"
         */
     }
     
