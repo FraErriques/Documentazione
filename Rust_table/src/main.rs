@@ -47,6 +47,7 @@ fn main() {
 
     let det : i32 = row_array[0][0]*row_array[1][1]-row_array[1][0]*row_array[0][1];
     //NB. this syntax println!("{:?}", row_array ); prints the whole array content.
+    // the print-placeholder for a scalar type is {} while for a vector-type it's {:?}
     println!("{:?}", row_array );
     println!("determinant = {}", det);
 }
