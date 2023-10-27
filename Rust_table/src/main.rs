@@ -3,6 +3,13 @@
 fn main() {
 
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
+    /* the syntax is :
+        struct typeName{
+            fieldName : typeName,
+            ..
+            fieldName : typeName
+        } no semicolon at endOfStruct
+     */
     struct RowLayout{
         one : i32,
         two : f32,
