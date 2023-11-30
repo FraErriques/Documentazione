@@ -20,7 +20,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "debug",
-            "program": "target/debug/table.exe",
+            "program": "target/debug/table",
             "args": [],
             "cwd": ""
         }
