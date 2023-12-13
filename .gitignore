@@ -71,3 +71,6 @@ pointerAlgebra/Debug/*
 *.idb
 *.pdb
 #
+ pointerAlgebra_CB/bin/
+ pointerAlgebra_CB/obj/
+#
