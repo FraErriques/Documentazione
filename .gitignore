@@ -62,3 +62,12 @@ RustBriko/test_console/target/**
 #
 Rust_table/target/**
 Rust_table/.vscode/**
+#
+ipch/**
+pointerAlgebra/Debug/
+pointerAlgebra/Debug/*
+*.ipch
+*.tlog
+*.idb
+*.pdb
+#
