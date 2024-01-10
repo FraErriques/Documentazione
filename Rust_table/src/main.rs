@@ -3,6 +3,7 @@
 fn main() {
     /*********************************************************
     last test held on machine ITBZOW1069 on 2023.December.22
+    last test held on machine ITBZOW1069 on 2024.January.10
      ********************************************************/
 
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
