@@ -3,6 +3,11 @@
 fn main() {
     /*********************************************************
     last test held on machine ITBZOW1069 on 2023.December.22
+    last test held on machine ITBZOW1069 on 2024.January.10
+    last test held on machine ITBZOW1069 on 2024.January.19 after vsCode update.
+    last test held on machine ITBZOW1069 on 2024.January.25 
+    last test held on machine ITBZOW1069 on 2024.February.06  on vsCode update to 1.86.0
+    last test held on machine ITBZOW1069 on 2024.February.23  on vsCode update to 1.86.2
      ********************************************************/
 
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
@@ -19,7 +24,10 @@ fn main() {
         three : char
     }
 
-    // this is an instance of an Array of that row-layout; fixed row cardinality. For variable roe-cardinality use "Vector".
+    /*
+     this is an instance of an Array of that "RowLayout" struct, which represents the actual row-layout;
+     fixed row cardinality: three rows; for variable row-cardinality use the library class "Vector".
+     */
     let mut row_array : [RowLayout;3] = [
         RowLayout{one:0i32,two:0.0f32,three:'0',},
         RowLayout{one:1i32,two:1.0f32,three:'1',},
