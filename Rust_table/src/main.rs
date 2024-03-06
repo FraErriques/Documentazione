@@ -8,6 +8,7 @@ fn main() {
     last test held on machine ITBZOW1069 on 2024.January.25 
     last test held on machine ITBZOW1069 on 2024.February.06  on vsCode update to 1.86.0
     last test held on machine ITBZOW1069 on 2024.February.23  on vsCode update to 1.86.2
+    last test held on machine ITBZOW1069 on 2024.March.06  on vsCode update to 1.87.0
      ********************************************************/
 
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
