@@ -17,6 +17,7 @@ fn main() {
     last test held on machine ITBZOW1069 on 2024.March.29  on cargo 1.77.1 (?)
     last test held on machine ITBZOW1069 on 2024.April.05  on cargo 1.77.1 (7cf61ebde 2024-03-27)
     last test held on machine ITFORS1011 on 2024.April.05  on cargo 1.77.1 (7cf61ebde 2024-03-27)
+    last test held on machine ITBZOW1069 on 2024.April.22  on cargo 1.77.2 (e52e36006 2024-03-26)
      ********************************************************/
 
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
