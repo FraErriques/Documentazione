@@ -1,6 +1,7 @@
 
 // downloaded from the Rust-Book
 // built and tested on ITFORS1011
+// compiled in MarinaDiGrosseto 2024.07.17
 fn main() {
     let value = 456;
     let mut x = 1;
