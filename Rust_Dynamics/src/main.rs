@@ -13,14 +13,15 @@ fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f
             std::process::exit(1);
         }
         else {
-            let v_from = velocity(time_to-0.1, time_to,false).2;
-            let v_to = velocity(time_to-0.01, time_to,false).2;
-            let v_numerator = v_from-v_to;
-            let a = v_numerator/(0.1-0.01);
+            let v_from = velocity(time_from, time_to,false).2;
+            let v_to = velocity(time_to-0.0001, time_to,false).2;
+            let v_numerator = v_to-v_from;
+            let a = v_numerator/(time_to-time_from);
             println!("\n\nv_from = {}", v_from);
             println!("v_to = {}", v_to);
+            println!("v_numerator = {}", v_numerator);
             println!("a = {} \n\n", a);
-            return (0.0, 0.0, (velocity(time_to-0.0001, time_to,false).2-velocity(time_to-0.1, time_to,false).2)/(0.1-0.0001) ) ;
+            return (0.0, 0.0, (velocity(time_from, time_to,false).2-velocity(time_to-0.1, time_to,false).2)/(0.1-0.0001) ) ;
         }
     }
 }// acceleration
@@ -39,7 +40,7 @@ fn velocity  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f64,f
             std::process::exit(1);
         }
         else {
-            return (0.0, 0.0, (position(time_to).2-position(time_to-0.001).2)/(0.001) ) ;
+            return (0.0, 0.0, (position(time_to).2-position(time_to-0.0001).2)/(0.0001) ) ;
         }
     }
 }// velocity
