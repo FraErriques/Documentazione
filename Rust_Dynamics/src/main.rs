@@ -1,7 +1,33 @@
 
-fn velocity  (time_from : f32, time_to : f32, want_average : bool) -> (f32,f32,f32) {
-    if( want_average){
-        if(time_to-time_from <=0.0 ){
+fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f64,f64) {
+    if want_average {
+        if time_to-time_from <=0.0 {
+            std::process::exit(1);
+        }
+        else {
+            return (0.0, 0.0, (velocity(time_from, time_to,false).2 -velocity(time_from, time_to,false).2)/(time_to-time_from) );
+        }
+    }
+    else{
+        if time_to-time_from <=0.0 {
+            std::process::exit(1);
+        }
+        else {
+            let v_from = velocity(time_to-0.1, time_to,false).2;
+            let v_to = velocity(time_to-0.01, time_to,false).2;
+            let v_numerator = v_from-v_to;
+            let a = v_numerator/(0.1-0.01);
+            println!("\n\nv_from = {}", v_from);
+            println!("v_to = {}", v_to);
+            println!("a = {} \n\n", a);
+            return (0.0, 0.0, (velocity(time_to-0.0001, time_to,false).2-velocity(time_to-0.1, time_to,false).2)/(0.1-0.0001) ) ;
+        }
+    }
+}// acceleration
+
+fn velocity  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f64,f64) {
+    if want_average {
+        if time_to-time_from <=0.0 {
             std::process::exit(1);
         }
         else {
@@ -9,25 +35,35 @@ fn velocity  (time_from : f32, time_to : f32, want_average : bool) -> (f32,f32,f
         }
     }
     else{
-        if(time_to-time_from <=0.0 ){
+        if time_to-time_from <=0.0 {
             std::process::exit(1);
         }
         else {
-            return (0.0, 0.0, (position(time_to).2-position(time_to-0.01).2)/(0.01) ) ;
+            return (0.0, 0.0, (position(time_to).2-position(time_to-0.001).2)/(0.001) ) ;
         }
     }
+}// velocity
+
+
+
+/// f0==position  f1==velocity   f2==acceleration
+/// f0 =: -9.81/2*t^2 + initial_velocity*t + initial_position
+/// f1 =: -9.81*t + initial_velocity
+/// f2 =: -9.81 m/s^2
+fn position  (elapsed : f64) -> (f64,f64,f64) {
+    let initial_position = 1000.0;
+    return (0.0, 0.0, initial_position-(9.81/2.0)*elapsed*elapsed);// is the motion of a falling object along the z coordinate. They are constant x=y=0.
 }// position
 
-/// .
-fn position  (elapsed : f32) -> (f32,f32,f32) {
-    let height = 100.0;
-    return (0.0, 0.0, height-9.81*elapsed);// is the motion of a falling object along the z coordinate. They are constant x=y=0.
-}// position
 
 fn main() {
-    let elapsed = 6.1;
-    println!("This is the motion of a falling object along the z coordinate. They are constant x=y=0. position is {:?} ",
-      position(elapsed));
-      println!("The AVERAGE velocity is  {:?} ",  velocity(0.0, elapsed, true) );  
-      println!("The POINT velocity is  {:?} "  ,  velocity(0.0, elapsed, false) );  
-}
+    let elapsed = 9.1;
+    println!("\n\nThis is the motion of a falling object along the z coordinate. They are constant x=y=0. 
+      Position at elapsed {} seconds is {:?} meters ", 
+      elapsed,
+      position(elapsed) );
+      println!("The AVERAGE velocity is  {:?} m/s",  velocity(0.0, elapsed, true) );  
+      println!("The POINT velocity is  {:?} m/s"  ,  velocity(0.0, elapsed, false) );  
+      println!("The AVERAGE acceleration is  {:?} m/s^2",  acceleration(0.0, elapsed, true) );  
+      println!("The POINT acceleration is  {:?} m/s^2"  ,  acceleration(0.0, elapsed, false) );        
+}// main
