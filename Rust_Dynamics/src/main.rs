@@ -21,7 +21,9 @@ fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f
             println!("v_to = {}", v_to);
             println!("v_numerator = {}", v_numerator);
             println!("a = {} \n\n", a);
-            return (0.0, 0.0, (velocity(time_from, time_to,false).2-velocity(time_to-0.1, time_to,false).2)/(0.1-0.0001) ) ;
+            return (0.0, 0.0, (velocity(           time_from,                         time_from+(time_to-time_from)/10.0,  false).2 - 
+                               velocity( time_to-(time_to-time_from)/10.0,          time_to ,                            false).2) 
+                               /(time_to-time_from) ) ;
         }
     }
 }// acceleration

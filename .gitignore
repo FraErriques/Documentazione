@@ -65,6 +65,7 @@ Rust_table/.vscode/**
 #
 Rust_Dynamics/target/**
 Rust_Dynamics/target/debug/
+Rust_Dynamics/target/debug/*
 Rust_Dynamics/.vscode/**
 #
 Rust_loop/target/**
