@@ -5,7 +5,7 @@ fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f
             std::process::exit(1);
         }
         else {
-            return (0.0, 0.0, (velocity(time_from, time_to,false).2 -velocity(time_from, time_to,true).2)/(time_to-time_from) );
+            return (0.0, 0.0, (velocity(time_to-0.1, time_to,false).2 -velocity(time_from-0.1, time_from,false).2)/(time_to-time_from) );
         }
     }
     else{
@@ -21,8 +21,8 @@ fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f
             println!("v_to = {}", v_to);
             println!("v_numerator = {}", v_numerator);
             println!("a = {} \n\n", a);
-            return (0.0, 0.0, (velocity(           time_from,                         time_from+(time_to-time_from)/10.0,  false).2 - 
-                               velocity( time_to-(time_to-time_from)/10.0,          time_to ,                            false).2) 
+            return (0.0, 0.0,  ( velocity( time_to-(time_to-time_from)/10.0,          time_to ,                            false).2  -
+                                velocity(            time_from,                         time_from+(time_to-time_from)/10.0,  false).2   )
                                /(time_to-time_from) ) ;
         }
     }
