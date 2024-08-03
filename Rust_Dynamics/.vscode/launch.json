@@ -8,7 +8,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "target/debug/Rust_Dynamics.exe",
+            "program": "target/debug/Rust_Dynamics",
             "args": [],
             "cwd": "${workspaceFolder}"
         }
