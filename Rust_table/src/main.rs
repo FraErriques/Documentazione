@@ -24,6 +24,7 @@ fn main() {
     last test held on machine Weierstrass on 2024.June.17 on cargo 1.79.0 (ffa9cf99a 2024-06-03) and VSCode 1.90.1
     last test held on machine ITFORS1011 on 2024.June.19  on cargo 1.79.0 (ffa9cf99a 2024-06-03) and VSCode 1.90.1
     last test held on machine ITBZOW1069 on 2024.June.21  on cargo 1.79.0 (ffa9cf99a 2024-06-03) and VSCode 1.90.2
+    last test held on machine ITFORS1011 on 2024.October.04  on cargo 1.81.0 (2dbb1af80 2024-08-20) and VSCode 1.94.0
      ********************************************************/
 
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
