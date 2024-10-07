@@ -59,6 +59,7 @@ fn position  (elapsed : f64) -> (f64,f64,f64) {
 }// position
 
 
+// setup on Eulero::Obz 2024.august.12
 fn main() {
     let elapsed = 9.1;
     println!("\n\nThis is the motion of a falling object along the z coordinate. They are constant x=y=0. 
