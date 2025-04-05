@@ -1,0 +1,31 @@
+; Symbol: <core::ops::range::Range<T> as core::iter::range::RangeIteratorImpl>::spec_next, mangled name=_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17hc7521d7df4b1a803E
+; Source: \rustc\7cf61ebde7b22796c69757901dd346d0fe70bd97\library\core\src\iter\range.rs:728
+00401B40: 48 83 EC 68                subq   $0x68, %rsp
+00401B44: 48 89 4C 24 30             movq   %rcx, 0x30(%rsp)
+00401B49: 48 89 4C 24 48             movq   %rcx, 0x48(%rsp)
+00401B4E: 48 89 C8                   movq   %rcx, %rax
+00401B51: 48 83 C0 08                addq   $0x8, %rax
+00401B55: 48 89 4C 24 58             movq   %rcx, 0x58(%rsp)
+00401B5A: 48 89 44 24 60             movq   %rax, 0x60(%rsp)
+00401B5F: 48 8B 01                   movq   (%rcx), %rax
+00401B62: 48 3B 41 08                cmpq   0x8(%rcx), %rax
+00401B66: 72 0B                      jb     0x401b73  ; <+51> at range.rs
+00401B68: 48 C7 44 24 38 00 00 00 >  movq   $0x0, 0x38(%rsp)
+00401B71: EB 3A                      jmp    0x401bad  ; <+109> at range.rs:737:6
+00401B73: 48 8B 44 24 30             movq   0x30(%rsp), %rax
+00401B78: 48 8B 08                   movq   (%rax), %rcx
+00401B7B: 48 89 4C 24 28             movq   %rcx, 0x28(%rsp)
+00401B80: 48 89 4C 24 50             movq   %rcx, 0x50(%rsp)
+00401B85: BA 01 00 00 00             movl   $0x1, %edx
+00401B8A: E8 B1 FE FF FF             callq  0x401a40  ; <usize as core::iter::range::Step>::forward_unchecked at range.rs:191
+00401B8F: 48 8B 4C 24 30             movq   0x30(%rsp), %rcx
+00401B94: 48 89 C2                   movq   %rax, %rdx
+00401B97: 48 8B 44 24 28             movq   0x28(%rsp), %rax
+00401B9C: 48 89 11                   movq   %rdx, (%rcx)
+00401B9F: 48 89 44 24 40             movq   %rax, 0x40(%rsp)
+00401BA4: 48 C7 44 24 38 01 00 00 >  movq   $0x1, 0x38(%rsp)
+00401BAD: 48 8B 44 24 38             movq   0x38(%rsp), %rax
+00401BB2: 48 8B 54 24 40             movq   0x40(%rsp), %rdx
+00401BB7: 48 83 C4 68                addq   $0x68, %rsp
+00401BBB: C3                         retq   
+00401BBC: 0F 1F 40 00                nopl   (%rax)

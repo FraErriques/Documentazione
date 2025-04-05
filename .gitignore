@@ -61,3 +61,24 @@ RustBriko/process/target/**
 RustBriko/test_console/target/**
 #
 Rust_table/target/**
+Rust_table/.vscode/**
+#
+Rust_Dynamics/target/**
+Rust_Dynamics/target/debug/
+Rust_Dynamics/target/debug/*
+Rust_Dynamics/.vscode/**
+#
+Rust_loop/target/**
+Rust_loop/.vscode/**
+#
+ipch/**
+pointerAlgebra/Debug/
+pointerAlgebra/Debug/*
+*.ipch
+*.tlog
+*.idb
+*.pdb
+#
+ pointerAlgebra_CB/bin/
+ pointerAlgebra_CB/obj/
+#

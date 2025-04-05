@@ -75,8 +75,30 @@ COPY table_name [ ( column_name [, ...] ) ]
                 [ FORCE NOT NULL column_name [, ...] ] ] ]
 
 
+for bulk insertion, one can also use multiple lins at a time, as in:
+
+insert into TableName(
+field_1,
+..
+field_n
+) values(
+row_1_field_1,..,row_1_field_n,
+..
+row_k_field_1,..,row_1_field_n
+);GO
+
+in which case #k rows get inserted, with all of their{1,..,n} fields.
+example:
+INSERT INTO dotazioni.dbo.PC
+(
+--id, 
+beneficiario, oggetto, matricola, note
+)VALUES
+('fake_1', 'fake_1', 'fake_1', 'fake_1'),
+('fake_2', 'fake_2', 'fake_2', 'fake_2');
+
 
 .....
 ...to be continued
 TODO use BrikoJ solution (i.e. Project-group) to realize this architecture and develop frmCalendar in Java.
-
+TODO enable PostgreSql connection in Eulero

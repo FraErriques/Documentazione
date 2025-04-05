@@ -7,10 +7,22 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "C:\\root\\src\\GitHubSandBox\\Documentazione\\Rust_table\\target\\debug\\table.exe",
+            "name": "Cargo launch",
+            "cargo": {
+                "args": [
+                    "build",
+                    ""
+                ]
+            },
+            "args": []
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "debug",
+            "program": "target/debug/table",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": ""
         }
     ]
 }
