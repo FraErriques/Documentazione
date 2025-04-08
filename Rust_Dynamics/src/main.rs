@@ -60,6 +60,7 @@ fn position  (elapsed : f64) -> (f64,f64,f64) {
 
 
 // setup on Eulero::Obz 2024.august.12
+// test held on Huygens on 2025.april.08 on cargo  1.86.0 (adf9b6ad1 2025-02-28) and vsCode 1.99.0 
 fn main() {
     let elapsed = 9.1;
     println!("\n\nThis is the motion of a falling object along the z coordinate. They are constant x=y=0. 
