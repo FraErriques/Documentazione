@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+	
+	\section*{From 0-Form to 2-Form via Exterior Derivative in \(\mathbb{R}^2\)}
+	
+	You started with a \textbf{0-form}:
+	\[
+	f(x, y) = x^2 + y^2
+	\]
+	
+	\subsection*{1. Compute the 1-form (gradient as a differential)}
+	The differential of \( f \) is:
+	\[
+	df = \frac{\partial f}{\partial x} dx + \frac{\partial f}{\partial y} dy = 2x\,dx + 2y\,dy
+	\]
+	This is your \textbf{1-form}:
+	\[
+	\omega = 2x\,dx + 2y\,dy
+	\]
+	
+	\subsection*{2. Compute the exterior derivative \( d\omega \) to get the 2-form}
+	Now take the exterior derivative of the 1-form:
+	\[
+	d\omega = d(2x\,dx + 2y\,dy)
+	\]
+	
+	Use the rule that \( d(f\,dx^i) = df \wedge dx^i \), and remember that:
+	\[
+	dx \wedge dx = 0, \quad dy \wedge dy = 0, \quad dx \wedge dy = -dy \wedge dx
+	\]
+	
+	So:
+	\[
+	d(2x\,dx) = d(2x) \wedge dx = 2\,dx \wedge dx = 0
+	\]
+	\[
+	d(2y\,dy) = d(2y) \wedge dy = 2\,dy \wedge dy = 0
+	\]
+	
+	Thus:
+	\[
+	d\omega = 0
+	\]
+	
+	\subsection*{Final Result}
+	The \textbf{2-form} associated with your 1-form \( \omega = 2x\,dx + 2y\,dy \) is:
+	\[
+	d\omega = 0
+	\]
+	
+	This tells us that the 1-form is \textbf{closed} (its exterior derivative vanishes), which makes sense because it came from the differential of a 0-form (a scalar function), and the exterior derivative of an exact form is always zero.
+	
+\end{document}
