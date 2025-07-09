@@ -1,0 +1,23 @@
+
+Quit by pressing CTRL-BREAK
+
+In[1]:= 2+2
+Out[1]= 4
+
+In[2]:= 2+3
+Out[2]= 5
+
+In[3]:= D[ (x-y)/(x^2+y^2) , {x,1} ]
+Out[3]= -2 x (x - y) / (x ^ 2 + y ^ 2) ^ 2 + 1 / (x ^ 2 + y ^ 2)
+
+In[4]:= Integrate[ (x-y)/(x^2+y^2) , x ]
+Out[4]= (1 / 2 - I / 2) Log[x + I y] + (1 / 2 + I / 2) Log[x - I y]
+
+In[5]:= Integrate[ (x-y)/(x^2+y^2) , y ]
+Out[5]= (-1 / 2 - I / 2) Log[-I x + y] + (-1 / 2 + I / 2) Log[I x + y]
+
+In[6]:= D[ ArcTan[(x^2+y^2)] , {x,1} ]
+Out[6]= 2 x / (1 + (x ^ 2 + y ^ 2) ^ 2)
+
+In[7]:= D[ ArcTan[(x^2+y^2)] , {y,1} ]
+Out[7]= 2 y / (1 + (x ^ 2 + y ^ 2) ^ 2)
