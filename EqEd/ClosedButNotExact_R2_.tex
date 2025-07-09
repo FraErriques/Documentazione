@@ -1,0 +1,47 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+	
+	\section*{Example of a Closed but Not Exact 1-Form in \(\mathbb{R}^2 \setminus \{(0,0)\}\)}
+	
+	In \(\mathbb{R}^2\), every closed 1-form is also exact, provided the domain is simply connected. To find a 1-form that is closed but not exact, we consider a domain in \(\mathbb{R}^2\) that is not simply connected—such as \(\mathbb{R}^2 \setminus \{(0,0)\}\).
+	
+	\subsection*{The 1-Form}
+	Consider the 1-form:
+	\[
+	\omega = \frac{-y}{x^2 + y^2} \, dx + \frac{x}{x^2 + y^2} \, dy
+	\]
+	
+	\subsection*{Why is it Closed?}
+	Let:
+	\[
+	M(x, y) = \frac{-y}{x^2 + y^2}, \quad N(x, y) = \frac{x}{x^2 + y^2}
+	\]
+	
+	Compute the partial derivatives:
+	\[
+	\frac{\partial N}{\partial x} = \frac{(x^2 + y^2)(1) - x(2x)}{(x^2 + y^2)^2} = \frac{y^2 - x^2}{(x^2 + y^2)^2}
+	\]
+	\[
+	\frac{\partial M}{\partial y} = \frac{-(x^2 + y^2)(1) + y(2y)}{(x^2 + y^2)^2} = \frac{-x^2 + y^2}{(x^2 + y^2)^2}
+	\]
+	
+	So:
+	\[
+	\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} = 0
+	\]
+	
+	Hence, \( d\omega = 0 \), so \( \omega \) is \textbf{closed}.
+	
+	\subsection*{Why is it Not Exact?}
+	If \( \omega \) were exact, then there would exist a function \( f \) such that \( df = \omega \). But integrating \( \omega \) around a loop enclosing the origin (like the unit circle) gives:
+	\[
+	\int_{S^1} \omega = 2\pi \neq 0
+	\]
+	
+	This violates the condition for exactness (since the integral of an exact form over a closed loop is always zero), so \( \omega \) is \textbf{not exact}.
+	
+\end{document}
