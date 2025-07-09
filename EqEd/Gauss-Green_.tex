@@ -1,0 +1,34 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Sample LaTeX Document}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Question to AI}
+Good morning. Could You please show me the Green Gauss integration formula for a scalar field in the plane (x,y), f:(x,y)->z , f:R2->R, on a square chain [a,b]x[c,d] , f is C1 on R2
+
+
+\section{Answer from AI}
+%Good morning! Certainly, here is the Green-Gauss integration formula for the scalar field \( f(x, y) \) 
+%defined in \( \mathbb{R}^2 \) and \( C^1 \) on \( \mathbb{R}^2 \), applied to the square domain \([a,b] \times [c,d]\):
+
+\[
+\int_{a}^{b}\int_{c}^{d} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) dx \, dy = \int_{\partial R} \big( P \, dx + Q \, dy \big)
+\]
+
+Where:
+- \( R = [a,b] \times [c,d] \) is the square domain.
+- \( \partial R \) is the closed boundary of \( R \), oriented positively (counterclockwise).
+- \( P(x, y) \) and \( Q(x, y) \) are components of a vector field \( \mathbf{F} = (P, Q) \).
+
+This formula essentially relates the integral of the divergence of \( \mathbf{F} \) over \( R \) to the line integral of \( \mathbf{F} \) along the boundary \( \partial R \). In your case, the scalar field \( f(x,y) \) can be substituted appropriately into the formula to analyze its behavior on the given domain.
+
+Let me know if you’d like further clarification or examples!
+
+\end{document}

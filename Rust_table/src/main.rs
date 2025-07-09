@@ -1,6 +1,4 @@
 
-
-fn main() {
     /*********************************************************
     last test held on machine ITBZOW1069 on 2023.December.22
     last test held on machine ITBZOW1069 on 2024.January.10
@@ -28,8 +26,14 @@ fn main() {
     last test held on machine ITBZOW1069 on 2024.October.07  on cargo 1.81.0 (2dbb1af80 2024-08-20) and VSCode 1.94.0
     last test held on machine ITBZOW1069 on 2024.October.11  on cargo 1.81.0 (2dbb1af80 2024-08-20) and VSCode 1.94.2
     last test held on machine ITBZOW1069 on 2025.January.22  on cargo 1.84.0 (66221abde 2024-11-19) and VSCode 1.96.4
+    last test held on machine ITFORS1011 on 2025.February.07  on cargo 1.84.1 (66221abde 2024-11-19) and VSCode 1.97.0
+    last test held on machine Huygens    on 2025.March.04 on     cargo 1.85.0 (d73d2caf9 2024-12-31) and VSCode 1.96.4
+    last test held on macine  Weierstrass on 2025.April.05 on cargo  1.86.0 (adf9b6ad1 2025-02-28) and VSCode 1.99.0
+    last test held on macine  Hamilton::Obz on 2025.April.15 on cargo  1.86.0 (adf9b6ad1 2025-02-28) and VSCode 1.98.2
+    last test held on machine ITFORS1011 on 2025.Juli.02  on cargo 1.88.0 (873a06493 2025-05-10) and VSCode 1.99.0
      ********************************************************/
 
+fn main() {
     // this is a typedef of a row-layout of a  db-table. First wrote on July2023 in Marina di Grosseto.
     /* the syntax is :
         struct typeName{
