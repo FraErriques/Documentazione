@@ -1,0 +1,271 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{The Minkowski Metric in Special Relativity}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{What Is Minkowski Space?}
+	
+	Minkowski space is a four-dimensional spacetime combining three spatial dimensions $(x, y, z)$ and one time dimension $(t)$. It is named after Hermann Minkowski, who reformulated Einstein’s special relativity using geometric principles.
+	
+	Unlike Euclidean space, Minkowski space uses a pseudo-Euclidean metric that treats time differently from space.
+	
+	\section*{The Minkowski Metric}
+	
+	The metric defines how distances (or intervals) are measured between two events in spacetime. In Minkowski space, the spacetime interval $s^2$ between two events is given by:
+	
+	\[
+	s^2 = -c^2 t^2 + x^2 + y^2 + z^2
+	\]
+	
+	Or, in compact form using the metric tensor $\eta_{\mu\nu}$:
+	
+	\[
+	s^2 = \eta_{\mu\nu} x^\mu x^\nu
+	\]
+	
+	Where:
+	\begin{itemize}
+		\item $x^\mu$ are the coordinates, with $x^0 = ct$, $x^1 = x$, $x^2 = y$, $x^3 = z$
+		\item $\eta_{\mu\nu}$ is the Minkowski metric tensor, typically written as:
+	\end{itemize}
+	
+	\[
+	\eta_{\mu\nu} = \begin{pmatrix}
+		-1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+	\]
+	
+	This signature $(-+++)$ is common, though some conventions use $(+---)$ instead.
+	
+	\section*{Why Is This Important?}
+	
+	\begin{itemize}
+		\item \textbf{Invariant Interval}: The spacetime interval $s^2$ is invariant under Lorentz transformations. All observers, regardless of their motion, agree on this quantity.
+		\item \textbf{Causal Structure}: Depending on the sign of $s^2$, events can be:
+		\begin{itemize}
+			\item \textbf{Timelike} ($s^2 < 0$): One event can causally influence the other.
+			\item \textbf{Spacelike} ($s^2 > 0$): No causal connection is possible.
+			\item \textbf{Lightlike} ($s^2 = 0$): Events are connected by a light signal.
+		\end{itemize}
+	\end{itemize}
+	
+	\section*{A Quick Example}
+	
+	Consider two events:
+	\begin{itemize}
+		\item Event A: $(t = 0, x = 0, y = 0, z = 0)$
+		\item Event B: $(t = 1\,\text{s}, x = 3 \times 10^8\,\text{m}, y = 0, z = 0)$
+	\end{itemize}
+	
+	Then:
+	
+	\[
+	s^2 = -c^2(1)^2 + (3 \times 10^8)^2 = 0
+	\]
+	
+	This is a \textbf{lightlike interval}—a photon could travel from A to B.\\
+	
+Follows an example of Lorentz invariance:\\
+\\
+\\
+\title{ Invariance of the Spacetime Interval under Lorentz Transformations}
+
+	\maketitle
+	
+	\section*{Goal}
+	
+	We aim to show that the spacetime interval between two events,
+	\[
+	s^2 = -c^2 t^2 + x^2 + y^2 + z^2,
+	\]
+	remains unchanged under a Lorentz transformation.
+	
+	\section*{Step-by-Step Sketch}
+	
+	\subsection*{1. Define the Interval in 4D Spacetime}
+	
+	Let the coordinates of an event be represented by a four-vector:
+	\[
+	x^\mu = (ct, x, y, z).
+	\]
+	
+	The spacetime interval is given by:
+	\[
+	s^2 = \eta_{\mu\nu} x^\mu x^\nu,
+	\]
+	where \( \eta_{\mu\nu} \) is the Minkowski metric tensor:
+	\[
+	\eta_{\mu\nu} = \begin{pmatrix}
+		-1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}.
+	\]
+	
+	\subsection*{2. Apply a Lorentz Transformation}
+	
+	A Lorentz transformation relates coordinates in one inertial frame to another:
+	\[
+	x'^\mu = \Lambda^\mu_{\ \nu} x^\nu,
+	\]
+	where \( \Lambda^\mu_{\ \nu} \) is the Lorentz transformation matrix.
+	
+	\subsection*{3. Compute the Interval in the New Frame}
+	
+	The interval in the primed frame is:
+	\[
+	s'^2 = \eta_{\mu\nu} x'^\mu x'^\nu = \eta_{\mu\nu} \Lambda^\mu_{\ \alpha} x^\alpha \Lambda^\nu_{\ \beta} x^\beta.
+	\]
+	
+	Rewriting:
+	\[
+	s'^2 = x^\alpha x^\beta \left( \Lambda^\mu_{\ \alpha} \eta_{\mu\nu} \Lambda^\nu_{\ \beta} \right).
+	\]
+	
+	\subsection*{4. Use Lorentz Invariance Condition}
+	
+	Lorentz transformations preserve the Minkowski metric:
+	\[
+	\Lambda^\mu_{\ \alpha} \eta_{\mu\nu} \Lambda^\nu_{\ \beta} = \eta_{\alpha\beta}.
+	\]
+	
+	Therefore:
+	\[
+	s'^2 = x^\alpha x^\beta \eta_{\alpha\beta} = s^2.
+	\]
+	
+	\section*{Conclusion}
+	
+	Since \( s'^2 = s^2 \), the spacetime interval is invariant under Lorentz transformations. This means all inertial observers agree on the value of \( s^2 \), regardless of their relative motion.\\
+\\
+\\
+	
+Follows a worked out example of a Lorentz-boost along the x-axis\\
+\\
+\\
+ 
+\title{Lorentz Boost and Invariance of the Spacetime Interval}
+\author{}
+\date{}
+
+
+	
+	\maketitle
+	
+	\section*{Setup}
+	
+	Consider two events in spacetime:
+	\begin{itemize}
+		\item Event A: $(t_1, x_1)$
+		\item Event B: $(t_2, x_2)$
+	\end{itemize}
+	
+	We ignore the $y$ and $z$ coordinates since the boost is along the $x$-axis.
+	
+	The spacetime interval between these two events is:
+	\[
+	s^2 = -c^2(t_2 - t_1)^2 + (x_2 - x_1)^2
+	\]
+	
+	Define:
+	\[
+	\Delta t = t_2 - t_1, \quad \Delta x = x_2 - x_1
+	\]
+	
+	So:
+	\[
+	s^2 = -c^2 \Delta t^2 + \Delta x^2
+	\]
+	
+	\section*{Lorentz Transformation Along the x-axis}
+	
+	A Lorentz boost along the $x$-axis with velocity $v$ transforms coordinates as:
+	\[
+	\begin{aligned}
+		x' &= \gamma(x - vt) \\
+		t' &= \gamma\left(t - \frac{v}{c^2}x\right)
+	\end{aligned}
+	\]
+	where:
+	\[
+	\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+	\]
+	
+	Apply the transformation to the differences:
+	\[
+	\begin{aligned}
+		\Delta x' &= \gamma(\Delta x - v \Delta t) \\
+		\Delta t' &= \gamma\left(\Delta t - \frac{v}{c^2} \Delta x\right)
+	\end{aligned}
+	\]
+	
+	\section*{Compute the Interval in the Primed Frame}
+	
+	\[
+	\begin{aligned}
+		s'^2 &= -c^2 (\Delta t')^2 + (\Delta x')^2 \\
+		&= -c^2 \gamma^2 \left(\Delta t - \frac{v}{c^2} \Delta x\right)^2 + \gamma^2 (\Delta x - v \Delta t)^2
+	\end{aligned}
+	\]
+	
+	Expand both terms:
+	
+	\textbf{Time term:}
+	\[
+	-c^2 \gamma^2 \left(\Delta t^2 - 2\frac{v}{c^2} \Delta t \Delta x + \frac{v^2}{c^4} \Delta x^2\right)
+	= -\gamma^2 \left(c^2 \Delta t^2 - 2v \Delta t \Delta x + \frac{v^2}{c^2} \Delta x^2\right)
+	\]
+	
+	\textbf{Space term:}
+	\[
+	\gamma^2 \left(\Delta x^2 - 2v \Delta x \Delta t + v^2 \Delta t^2\right)
+	\]
+	
+	Add both:
+	\[
+	s'^2 = \gamma^2 \left[ -c^2 \Delta t^2 + \Delta x^2 + v^2 \Delta t^2 - \frac{v^2}{c^2} \Delta x^2 \right]
+	\]
+	
+	Group terms:
+	\[
+	s'^2 = \gamma^2 \left[ \Delta x^2 \left(1 - \frac{v^2}{c^2}\right) - \Delta t^2 \left(c^2 - v^2\right) \right]
+	\]
+	
+	Factor out:
+	\[
+	s'^2 = \gamma^2 \left(1 - \frac{v^2}{c^2}\right) \left[ \Delta x^2 - c^2 \Delta t^2 \right]
+	\]
+	
+	But:
+	\[
+	\gamma^2 \left(1 - \frac{v^2}{c^2}\right) = 1
+	\]
+	
+	So:
+	\[
+	s'^2 = \Delta x^2 - c^2 \Delta t^2 = s^2
+	\]
+	
+	\section*{Conclusion}
+	
+	We have shown that:
+	\[
+	s'^2 = s^2
+	\]
+	Therefore, the spacetime interval is invariant under a Lorentz boost along the $x$-axis.
+	
+ 	
+\end{document}

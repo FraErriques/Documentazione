@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+	
+	\section*{Grassmann Formula in \(\mathbb{R}^4\) with Two Planes}
+	
+	Let \( U \) and \( V \) be two planes (i.e., 2-dimensional subspaces) in \( \mathbb{R}^4 \), both passing through the origin and not parallel. We apply the Grassmann formula:
+	
+	\[
+	\dim(U + V) = \dim(U) + \dim(V) - \dim(U \cap V)
+	\]
+	
+	Since both \( U \) and \( V \) are planes:
+	\[
+	\dim(U) = \dim(V) = 2
+	\]
+	
+	Then:
+	\[
+	\dim(U + V) = 2 + 2 - \dim(U \cap V) = 4 - \dim(U \cap V)
+	\]
+	
+	\subsection*{Possible Cases}
+	
+	\begin{itemize}
+		\item \(\dim(U \cap V) = 0\): The planes intersect only at the origin. Then \(\dim(U + V) = 4\), and their span fills all of \(\mathbb{R}^4\).
+		\item \(\dim(U \cap V) = 1\): The planes intersect along a line. Then \(\dim(U + V) = 3\), and their span is a 3D subspace of \(\mathbb{R}^4\).
+		\item \(\dim(U \cap V) = 2\): The planes coincide. Then \(\dim(U + V) = 2\), which means they are the same plane.
+	\end{itemize}
+	
+	Since the planes are not parallel, we exclude the third case.
+	
+	\subsection*{Example}
+	
+	Let:
+	\[
+	U = \text{span}\left\{ (1, 0, 0, 0),\ (0, 1, 0, 0) \right\}
+	\]
+	\[
+	V = \text{span}\left\{ (0, 0, 1, 0),\ (0, 0, 0, 1) \right\}
+	\]
+	
+	Then:
+	\[
+	U \cap V = \{0\}
+	\]
+	\[
+	\dim(U + V) = 4
+	\]
+	
+	These two planes intersect only at the origin and together span all of \(\mathbb{R}^4\).
+	
+\end{document}
