@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\begin{document}
+	
+	\section*{Why the 1-Form \(\omega = -y\,dx + x\,dy\) Is Not Exact at the Origin}
+	
+	The 1-form
+	\[
+	\omega = -y\,dx + x\,dy
+	\]
+	is perfectly well-defined and smooth at the origin \((0,0)\). However, the subtlety arises when we ask whether this 1-form is \textbf{exact}, i.e., whether there exists a scalar function \( f(x, y) \) such that \( df = \omega \).
+	
+	\subsection*{Topology and Exactness}
+	
+	In differential geometry, a key result is:
+	
+	\textbf{Every closed 1-form on a simply connected domain is exact.}
+	
+	Let us unpack this:
+	
+	\begin{itemize}
+		\item A 1-form \( \omega \) is \textbf{closed} if \( d\omega = 0 \).
+		\item A 1-form is \textbf{exact} if \( \omega = df \) for some scalar function \( f \).
+		\item A domain is \textbf{simply connected} if every loop can be continuously contracted to a point (i.e., the domain has no holes).
+	\end{itemize}
+	
+	Now, for our 1-form:
+	\[
+	\omega = -y\,dx + x\,dy
+	\]
+	we computed:
+	\[
+	d\omega = 2\,dx \wedge dy \neq 0
+	\]
+	So \(\omega\) is not even closed, and therefore not exact.
+	
+	\subsection*{A More Subtle Example: The Normalized 1-Form}
+	
+	Consider the normalized version:
+	\[
+	\tilde{\omega} = \frac{-y\,dx + x\,dy}{x^2 + y^2}
+	\]
+	
+	This 1-form is \textbf{closed} (you can verify that \( d\tilde{\omega} = 0 \)), but it is \textbf{not exact} on all of \( \mathbb{R}^2 \setminus \{(0,0)\} \). Why?
+	
+	Because the domain \( \mathbb{R}^2 \setminus \{(0,0)\} \) is \textbf{not simply connected}—it has a ``hole'' at the origin. This hole prevents us from defining a global potential function \( f \) such that \( df = \tilde{\omega} \).
+	
+	\subsection*{Summary}
+	
+	\begin{itemize}
+		\item The original 1-form \( \omega = -y\,dx + x\,dy \) is defined everywhere, including the origin.
+		\item But when we talk about \textbf{exactness}, the topology of the domain matters.
+		\item The normalized version \( \tilde{\omega} = \frac{-y\,dx + x\,dy}{x^2 + y^2} \) is closed but not exact on \( \mathbb{R}^2 \setminus \{(0,0)\} \) because the domain is not simply connected.
+		\item This is a classic example in differential geometry illustrating how \textbf{topology controls the behavior of differential forms}.
+	\end{itemize}
+	
+\end{document}

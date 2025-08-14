@@ -1,0 +1,53 @@
+ \documentclass{article}
+ \usepackage{amsmath}
+ \usepackage{amsfonts}
+ \usepackage{amssymb}
+ 
+ \begin{document}
+ 	
+ 	\section*{Exterior Derivative of a Non-Exact 1-Form in \(\mathbb{R}^2\)}
+ 	
+ 	Let us consider the 1-form:
+ 	\[
+ 	\omega = -y\,dx + x\,dy
+ 	\]
+ 	
+ 	This 1-form is \textbf{not exact} on all of \(\mathbb{R}^2\), though it is closed on \(\mathbb{R}^2 \setminus \{(0,0)\}\). We now compute its exterior derivative.
+ 	
+ 	\subsection*{Compute the Exterior Derivative}
+ 	
+ 	Apply the exterior derivative:
+ 	\[
+ 	d\omega = d(-y\,dx + x\,dy)
+ 	\]
+ 	
+ 	Break it into parts:
+ 	\[
+ 	d(-y\,dx) = -dy \wedge dx, \quad d(x\,dy) = dx \wedge dy
+ 	\]
+ 	
+ 	So:
+ 	\[
+ 	d\omega = -dy \wedge dx + dx \wedge dy
+ 	\]
+ 	
+ 	Using the antisymmetry of the wedge product:
+ 	\[
+ 	dy \wedge dx = -dx \wedge dy
+ 	\]
+ 	
+ 	Therefore:
+ 	\[
+ 	d\omega = -(-dx \wedge dy) + dx \wedge dy = dx \wedge dy + dx \wedge dy = 2\,dx \wedge dy
+ 	\]
+ 	
+ 	\subsection*{Final Result}
+ 	
+ 	The exterior derivative of the 1-form \( \omega = -y\,dx + x\,dy \) is:
+ 	\[
+ 	d\omega = 2\,dx \wedge dy
+ 	\]
+ 	
+ 	This is a \textbf{nonzero 2-form}, indicating that \( \omega \) is not closed and hence not exact on all of \(\mathbb{R}^2\).
+ 	
+ \end{document}

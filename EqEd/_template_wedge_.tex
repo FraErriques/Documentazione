@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+	
+	The parameterized manifold is defined as:
+	
+	\[
+	r(t, f) = \{ \cos(t)\cos(f), \sin(t)\cos(f), \sin(f) \}
+	\]
+	
+	over the domain \( t \in [0, \pi/2], f \in [0, \pi/2] \).
+	
+	The vector field is given by:
+	
+	\[
+	v(t, f) = \{\cos(t + \pi/9)\cos(f), \sin(t + \pi/9)\cos(f), \sin(f) \}.
+	\]
+	
+	We aim to integrate this vector field as a two-form \( dx \wedge dy \).
+	
+	\section*{1. Compute the Pullback of \( dx \wedge dy \)}
+	The pullback of \( dx \wedge dy \) is determined by the Jacobian matrix of \( r(t, f) \):
+	
+	\[
+	J = 
+	\begin{bmatrix}
+		\partial r_1 / \partial t & \partial r_1 / \partial f \\
+		\partial r_2 / \partial t & \partial r_2 / \partial f \\
+		\partial r_3 / \partial t & \partial r_3 / \partial f
+	\end{bmatrix}
+	\]
+	
+	where \( r_1, r_2, r_3 \) are the components \( \cos(t)\cos(f), \sin(t)\cos(f), \sin(f) \), respectively.
+	
+	The partial derivatives are:
+	
+	\[
+	\begin{aligned}
+		&\partial r_1 / \partial t = -\sin(t)\cos(f), \quad \partial r_1 / \partial f = -\cos(t)\sin(f), \\
+		&\partial r_2 / \partial t = \cos(t)\cos(f), \quad \partial r_2 / \partial f = -\sin(t)\sin(f), \\
+		&\partial r_3 / \partial t = 0, \quad \partial r_3 / \partial f = \cos(f).
+	\end{aligned}
+	\]
+	
+	The \( 2 \times 2 \) Jacobian submatrix for \( dx \wedge dy \) is:
+	
+	\[
+	J_{2\times2} = 
+	\begin{bmatrix}
+		-\sin(t)\cos(f) & -\cos(t)\sin(f) \\
+		\cos(t)\cos(f) & -\sin(t)\sin(f)
+	\end{bmatrix}
+	\]
+	
+	The determinant of \( J_{2\times2} \) is:
+	
+	\[
+	\begin{aligned}
+		\text{det}(J_{2\times2}) &= (-\sin(t)\cos(f))(-\sin(t)\sin(f)) - (\cos(t)\cos(f))(-\cos(t)\sin(f)) \\
+		&= \sin^2(t)\cos(f)\sin(f) + \cos^2(t)\cos(f)\sin(f) \\
+		&= (\sin^2(t) + \cos^2(t))\cos(f)\sin(f) \\
+		&= \cos(f)\sin(f).
+	\end{aligned}
+	\]
+	
+	Thus, the pullback of \( dx \wedge dy \) to \( t \) and \( f \) is:
+	
+	\[
+	\cos(f)\sin(f) \, dt \wedge df.
+	\]
+	
+	\section*{2. Evaluate the Integral of the Vector Field}
+	The vector field is projected onto \( dx \wedge dy \), and the integral over the domain \( t \in [0, \pi/2], f \in [0, \pi/2] \) is:
+	
+	\[
+	\int_{0}^{\pi/2} \int_{0}^{\pi/2} \cos(t + \pi/9)\cos(f) \cdot \cos(f)\sin(f) \, dt \, df.
+	\]
+	
+	Simplify the integrand:
+	
+	\[
+	\int_{0}^{\pi/2} \int_{0}^{\pi/2} \cos(t + \pi/9) \cos^2(f)\sin(f) \, dt \, df.
+	\]
+	
+	Separate the integrals:
+	
+	\[
+	\left( \int_{0}^{\pi/2} \cos(t + \pi/9) \, dt \right) \left( \int_{0}^{\pi/2} \cos^2(f)\sin(f) \, df \right).
+	\]
+	
+	**First Integral:**
+	
+	\[
+	\int_{0}^{\pi/2} \cos(t + \pi/9) \, dt = \sin(t + \pi/9) \big|_{0}^{\pi/2} = \sin(\pi/2 + \pi/9) - \sin(\pi/9).
+	\]
+	
+	**Second Integral:**
+	
+	Substitute \( u = \cos(f) \), \( du = -\sin(f) \, df \):
+	
+	\[
+	\int_{0}^{\pi/2} \cos^2(f)\sin(f) \, df = \int_{1}^{0} u^2 (-du) = \int_{0}^{1} u^2 \, du = \frac{u^3}{3} \big|_{0}^{1} = \frac{1}{3}.
+	\]
+	
+	**Final Result:**
+	
+	\[
+	\left( \sin(\pi/2 + \pi/9) - \sin(\pi/9) \right) \cdot \frac{1}{3}.
+	\]
+	
+\end{document}
