@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+
+\section*{Expansion of \((-z)^{s-1}\)}
+
+We begin with the definition of complex exponentiation:
+
+\[
+(-z)^{s-1} = e^{(s-1) \log(-z)}
+\]
+
+Using the principal branch of the complex logarithm:
+
+\[
+\log(-z) = \log z + i\pi
+\]
+
+Substitute into the exponent:
+
+\[
+(-z)^{s-1} = e^{(s-1)(\log z + i\pi)} = e^{(s-1)\log z} \cdot e^{i\pi(s-1)}
+\]
+
+Since \( e^{(s-1)\log z} = z^{s-1} \), we obtain:
+
+\[
+(-z)^{s-1} = z^{s-1} \cdot e^{i\pi(s-1)}
+\]
+
+This identity shows that raising a negative complex number to a power introduces a phase shift of \( \pi(s-1) \), which connects to trigonometric functions via Euler's formula:
+
+\[
+e^{i\pi(s-1)} = \cos(\pi(s-1)) + i \sin(\pi(s-1))
+\]
+
+\end{document}
+
