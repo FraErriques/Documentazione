@@ -5,12 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
+            "name": "Debug Rust (GNU + GDB)",
+            "type": "cppdbg",
             "request": "launch",
-            "name": "Debug",
-            "program": "target/debug/Rust_Dynamics",
+            "program": "C:/root/src/GitHubSandBox/Documentazione/Rust_Dynamics/target/debug/Rust_Dynamics.exe",
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Users/itfraerr/program/msys64/mingw64/bin/gdb.exe",
+            "stopAtEntry": false,
+            "setupCommands": [
+                { "text": "-enable-pretty-printing", "description": "Enable GDB pretty printing", "ignoreFailures": true }
+            ]
         }
     ]
 }
