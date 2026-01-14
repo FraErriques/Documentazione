@@ -1,4 +1,5 @@
 
+
 fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f64,f64) {
     if want_average {
         if time_to-time_from <=0.0 {
@@ -64,9 +65,10 @@ fn position  (elapsed : f64) -> (f64,f64,f64) {
 // test on Riemann::Mendel cargo 1.85.0 (d73d2caf9 2024-12-31) vsCode 1.101.2
 // test on Riemann::Mendel cargo 1.88.0 (873a06493 2025-05-10) vsCode 1.101.2
 // test on Huygens::Mendel cargo 1.89.0 (c24e10642 2025-06-23) vsCode 1.103.2
+// test on ITFORS1011::BZ  cargo 1.92.0 (344c4567c 2025-10-21) vsCode 1.99.0
 fn main() {
     let elapsed = 9.1;
-    println!("\n\nThis is the motion of a falling object along the z coordinate. They are constant x=y=0. 
+    println!("\n\nThis is the motion of a falling object along the z coordinate. The coordinates are x,y,z==0,0,z
       Position at elapsed {} seconds is {:?} meters ", 
       elapsed,
       position(elapsed) );
@@ -75,3 +77,4 @@ fn main() {
       println!("The AVERAGE acceleration is  {:?} m/s^2",  acceleration(0.0, elapsed, true) );  
       println!("The POINT acceleration is  {:?} m/s^2"  ,  acceleration(0.0, elapsed, false) );        
 }// main
+
