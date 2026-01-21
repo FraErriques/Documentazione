@@ -4,8 +4,8 @@
   "configurations": [
 
     {
-      "name": "Debug Rust (GNU + GDB)",
-      "type": "cppdbg",
+      "name": "Cargo launch",
+      "type": "lldb",
       "request": "launch",
 
       // ✅ Use the project’s debug binary automatically (optional)
@@ -15,8 +15,8 @@
       "args": [],
       "cwd": "${workspaceFolder}",
 
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:/Users/itfraerr/program/msys64/mingw64/bin/gdb.exe",
+      "MIMode": "lldb",
+      //"miDebuggerPath": "C:/Users/itfraerr/program/msys64/mingw64/bin/gdb.exe",
 
       // 🔽 Key settings to see and step in disassembly
        "showDisassembly": "auto",       // "auto" to switch only when source missing
