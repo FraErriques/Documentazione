@@ -1,0 +1,179 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}   % defines \mathbb
+% or, more commonly:
+\usepackage{amssymb}    % loads amsfonts and more symbols
+% and for good measure (recommended in math docs):
+\usepackage{amsmath}    % better math environments
+
+\title{Riemann Zeta Functional Equation}
+\author{Francesco}
+\date{\today}
+
+\begin{document}
+ 
+ \section*{Analytic Continuation of the Zeta Function via the Hankel Contour}
+ 
+ \subsection*{1. The Bose--Einstein Integral Representation}
+ 
+ For $\Re(s)>1$, the Riemann zeta function satisfies the well-known integral identity
+ \[
+ \Gamma(s)\,\zeta(s)
+ =
+ \int_{0}^{\infty} \frac{x^{\,s-1}}{e^{x}-1}\, dx.
+ \]
+ This follows from expanding the denominator as a geometric series
+ \[
+ \frac{1}{e^{x}-1}
+ =
+ \sum_{n=1}^{\infty} e^{-nx},
+ \]
+ and integrating term-by-term:
+ \[
+ \Gamma(s)\zeta(s)
+ =
+ \sum_{n=1}^{\infty}
+ \int_{0}^{\infty} x^{s-1} e^{-nx}\, dx
+ =
+ \sum_{n=1}^{\infty} n^{-s}
+ \int_{0}^{\infty} u^{s-1} e^{-u}\, du.
+ \]
+ 
+ \subsection*{2. Preparing for Analytic Continuation}
+ 
+ To extend $\zeta(s)$ beyond $\Re(s)>1$, rewrite the Bose integral as
+ \[
+ \Gamma(s)\zeta(s)
+ =
+ \int_{0}^{\infty}
+ \frac{x^{s-1}}{e^{x}-1}\, dx
+ =
+ \int_{0}^{\infty} x^{s-1} e^{-x}
+ \left( \frac{1}{1-e^{-x}} \right)\, dx.
+ \]
+ Introduce the substitution $z=x$ and consider deforming the path of integration
+ into a contour $\mathcal{H}$ around the negative real axis (the Hankel contour).
+ 
+ The integrand can be analytically continued as
+ \[
+ \frac{z^{\,s-1}}{e^{z}-1},
+ \]
+ which is single-valued on $\mathbb{C}\setminus (-\infty,0]$.
+ 
+ \subsection*{3. The Hankel Contour}
+ 
+ Let $\mathcal{H}$ be the classical Hankel contour:
+ \begin{itemize}
+ 	\item it starts at $+\infty$ just above the negative real axis,
+ 	\item encircles the origin counterclockwise,
+ 	\item and returns to $+\infty$ just below the negative real axis.
+ \end{itemize}
+ 
+ On this contour, take the principal branch of $z^{s-1}$:
+ \[
+ z^{s-1} = e^{(s-1)(\log|z| + i\arg z)}, \qquad -\pi < \arg z < \pi.
+ \]
+ 
+ \subsection*{4. Deforming the Real Integral into a Hankel Integral}
+ 
+ The key identity is
+ \[
+ \int_{0}^{\infty} \frac{x^{s-1}}{e^{x}-1}\, dx
+ =
+ \frac{1}{2\pi i}
+ \int_{\mathcal{H}}
+ \frac{(-z)^{s-1}}{e^{z}-1}\, dz.
+ \]
+ The factor $(-z)^{s-1}$ comes from crossing the branch cut along $(-\infty,0]$.
+ 
+ Using
+ \[
+ (-z)^{s-1} = e^{\pi i(s-1)} z^{s-1} \quad \text{(upper side)},
+ \]
+ \[
+ (-z)^{s-1} = e^{-\pi i(s-1)} z^{s-1} \quad \text{(lower side)},
+ \]
+ the two sides of the cut contribute a difference
+ \[
+ e^{\pi i(s-1)} - e^{-\pi i(s-1)}
+ = 2i \sin(\pi(s-1)).
+ \]
+ 
+ Thus,
+ \[
+ \Gamma(s)\zeta(s)
+ =
+ \frac{1}{2\pi i}
+ \int_{\mathcal{H}}
+ \frac{(-z)^{s-1}}{e^{z}-1}\, dz.
+ \]
+ 
+ \subsection*{5. Hankel Representation of the Gamma Function}
+ 
+ Recall the classical Hankel representation:
+ \[
+ \Gamma(s)
+ =
+ \frac{1}{2\pi i}
+ \int_{\mathcal{H}} (-z)^{s-1} e^{-z}\, dz.
+ \]
+ 
+ Now write
+ \[
+ \frac{1}{e^{z}-1}
+ =
+ \frac{e^{-z}}{1-e^{-z}}
+ =
+ e^{-z}\sum_{n=0}^{\infty} e^{-nz},
+ \]
+ which is valid along the Hankel contour.
+ 
+ Hence,
+ \[
+ \Gamma(s)\zeta(s)
+ =
+ \frac{1}{2\pi i}
+ \sum_{n=0}^\infty
+ \int_{\mathcal{H}}
+ (-z)^{s-1} e^{-(n+1)z}\, dz.
+ \]
+ 
+ Factor the $(n+1)^{-s}$:
+ \[
+ \int_{\mathcal{H}} (-z)^{s-1} e^{-(n+1)z}\, dz
+ =
+ (n+1)^{-s}
+ \int_{\mathcal{H}} (-u)^{s-1} e^{-u}\, du.
+ \]
+ 
+ Thus,
+ \[
+ \Gamma(s)\zeta(s)
+ =
+ \left(
+ \frac{1}{2\pi i}
+ \int_{\mathcal{H}} (-u)^{s-1} e^{-u}\, du
+ \right)
+ \sum_{n=1}^\infty n^{-s}.
+ \]
+ 
+ The term in parentheses is exactly $\Gamma(s)$, so the identity is consistent and
+ holds for all $s$ except at the poles of $\Gamma(s)$ and $\zeta(s)$.
+ 
+ \subsection*{6. Final Analytic Continuation Formula}
+ 
+ We obtain the Hankel contour representation:
+ \[
+ \boxed{
+ 	\Gamma(s)\,\zeta(s)
+ 	=
+ 	\frac{1}{2\pi i}
+ 	\int_{\mathcal{H}}
+ 	\frac{(-z)^{\,s-1}}{e^{z}-1}\, dz
+ }.
+ \]
+ 
+ Since the right-hand side is analytic for all $s\in\mathbb{C}$ except $s=1$, this formula provides the analytic continuation of $\zeta(s)$ to the entire complex plane.
+ 	
+ \end{document}

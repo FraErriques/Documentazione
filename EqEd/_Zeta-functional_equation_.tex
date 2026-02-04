@@ -1,0 +1,118 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Riemann Zeta Functional Equation}
+\author{Francesco}
+\date{\today}
+
+\begin{document}
+	
+	\section*{How Analytic Continuation Enters the Functional Equation of the Riemann Zeta Function}
+	
+	The Riemann zeta function is originally defined by the Dirichlet series
+	\[
+	\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s},
+	\qquad \Re(s) > 1.
+	\]
+	The functional equation relates $\zeta(s)$ to $\zeta(1-s)$, but since
+	\[
+	\Re(s) > 1 \quad \Rightarrow \quad \Re(1-s) < 0,
+	\]
+	the Dirichlet series cannot be used to evaluate $\zeta(1-s)$.
+	Therefore \emph{analytic continuation is needed before the functional equation can even make sense}.
+	
+	\subsection*{1. Mellin transform representation (valid only for $\Re(s)>1$)}
+	
+	A classical identity gives
+	\[
+	\zeta(s)\Gamma(s)
+	= \int_0^\infty \frac{x^{s-1}}{e^{x} - 1}\, dx,
+	\qquad \Re(s) > 1.
+	\]
+	This integral representation still has the same limitation: it converges only in the half-plane $\Re(s)>1$.
+	
+	\subsection*{2. Splitting the integral: beginning analytic continuation}
+	
+	We split the integral:
+	\[
+	\int_0^\infty = \int_0^1 + \int_1^\infty.
+	\]
+	The second part,
+	\[
+	\int_1^\infty \frac{x^{s-1}}{e^x - 1}\, dx,
+	\]
+	converges for all $s$ and defines an \emph{entire function}.
+	
+	The behaviour near $x=0$ is responsible for divergence. The expansion
+	\[
+	\frac{1}{e^x-1}
+	= \frac{1}{x} - \frac{1}{2} + \frac{x}{12} - \frac{x^3}{720} + \cdots
+	\]
+	allows us to subtract finitely many terms:
+	\[
+	\frac{1}{e^x-1} - \left(
+	\frac{1}{x} - \frac{1}{2}
+	\right),
+	\]
+	which removes the singularity at $x=0$.
+	
+	The modified integrand is regular at $x=0$, so
+	\[
+	\int_0^1 \left[\frac{x^{s-1}}{e^x-1} - x^{s-2} + \frac{1}{2}x^{s-1} \right] dx
+	\]
+	converges for all complex $s$.
+	This produces an analytic continuation of $\zeta(s)\Gamma(s)$ to the whole complex plane.
+	
+	\subsection*{3. Introducing the theta function}
+	
+	Now consider the theta function
+	\[
+	\theta(t) = 1 + 2 \sum_{n=1}^\infty e^{-\pi n^2 t},
+	\]
+	which satisfies the modular identity
+	\[
+	\theta(t) = t^{-1/2}\,\theta(1/t).
+	\]
+	
+	Using the identity
+	\[
+	\int_0^\infty x^{s/2 - 1} \bigl(\theta(x) - 1\bigr)\, dx
+	= \pi^{-s/2}\Gamma\!\left(\frac{s}{2}\right)\zeta(s),
+	\]
+	and applying the modular transformation, one obtains a relation between $\zeta(s)$ and $\zeta(1-s)$.
+	
+	The key point: these theta-function integrals are valid for \emph{all} $s$.
+	This is why analytic continuation was needed—so that the $\zeta(s)$ which appears in this identity is well-defined outside $\Re(s)>1$.
+	
+	\subsection*{4. The functional equation emerges}
+	
+	One finally obtains the identity
+	\[
+	\pi^{-s/2}\Gamma\!\left(\frac{s}{2}\right)\zeta(s)
+	=
+	\pi^{-(1-s)/2}\Gamma\!\left(\frac{1-s}{2}\right)\zeta(1-s).
+	\]
+	
+	Equivalently,
+	\[
+	\boxed{
+		\zeta(s)
+		= 2^s \pi^{s-1}\sin\!\left(\frac{\pi s}{2}\right)
+		\Gamma(1-s)\, \zeta(1-s)
+	}.
+	\]
+	
+	\subsection*{Summary: where analytic continuation appears}
+	
+	\begin{itemize}
+		\item The Dirichlet series only defines $\zeta(s)$ for $\Re(s)>1$.
+		\item To write $\zeta(1-s)$ in the functional equation, we need values outside this region.
+		\item Analytic continuation is achieved by rewriting the integral representation so that the $x=0$ singularity is removed.
+		\item Once $\zeta(s)$ is defined for all $s$, the modular transformation of the theta function produces a natural symmetry between $s$ and $1-s$.
+	\end{itemize}
+	
+	Thus \emph{analytic continuation is a necessary prerequisite} for the functional equation to hold.
+	
+	
+ \end{document}
