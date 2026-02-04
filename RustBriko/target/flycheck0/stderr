@@ -1,2 +1,54 @@
-    Blocking waiting for file lock on package cache
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+   0.029897300s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint: fingerprint error for RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)/Check { test: false }/TargetInner { name: "RustBriko", doc: true, ..: with_path("C:\\root\\src\\GitHubSandBox\\Documentazione\\RustBriko\\src\\main.rs", Edition2021) }
+   0.029999500s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\root\src\GitHubSandBox\Documentazione\RustBriko\target\debug\.fingerprint\RustBriko-ccdc8d9a69b5f71a\bin-RustBriko`
+
+Caused by:
+    Impossibile trovare il file specificato. (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+   0.042993000s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint: fingerprint error for RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)/Check { test: true }/TargetInner { name: "RustBriko", doc: true, ..: with_path("C:\\root\\src\\GitHubSandBox\\Documentazione\\RustBriko\\src\\main.rs", Edition2021) }
+   0.043056500s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\root\src\GitHubSandBox\Documentazione\RustBriko\target\debug\.fingerprint\RustBriko-ecc8f6de941b2c54\test-bin-RustBriko`
+
+Caused by:
+    Impossibile trovare il file specificato. (os error 2)
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+  16: <unknown>
+  17: <unknown>
+  18: <unknown>
+    Checking RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.59s
