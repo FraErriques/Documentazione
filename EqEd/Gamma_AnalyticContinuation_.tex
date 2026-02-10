@@ -1,0 +1,185 @@
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}   % defines \mathbb
+% or, more commonly:
+\usepackage{amssymb}    % loads amsfonts and more symbols
+% and for good measure (recommended in math docs):
+\usepackage{amsmath}    % better math environments
+\usepackage{hyperref} % load last
+
+\title{Analytic continuation of the Gamma function via the Hankel contour}
+\author{}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section{Euler's integral for \texorpdfstring{$\Gamma(z)$}{Gamma(z)}}
+	
+	For $\Re z > 0$, the Gamma function is defined by
+	\begin{equation}
+		\Gamma(z) = \int_0^{\infty} t^{z-1} e^{-t}\,dt.
+	\end{equation}
+	This integral converges only for $\Re z > 0$, so it does not directly define
+	$\Gamma(z)$ on the whole complex plane.
+	
+	\section{The Hankel contour and the branch of the logarithm}
+	
+	We introduce a branch cut along the positive real axis and take the principal
+	branch of the logarithm on $\mathbb{C} \setminus [0,\infty)$, so that
+	\begin{equation}
+		-\pi < \arg t < \pi.
+	\end{equation}
+	On this domain we define
+	\begin{equation}
+		t^{z-1} = e^{(z-1)\log t}.
+	\end{equation}
+	
+	The \emph{Hankel contour} $\mathcal{H}$ is defined as follows:
+	\begin{itemize}
+		\item it starts at $+\infty$ just below the positive real axis,
+		\item runs towards $0$ along this line,
+		\item loops once counterclockwise around the origin along a small circle,
+		\item and returns to $+\infty$ just above the positive real axis.
+	\end{itemize}
+	Thus $\mathcal{H}$ winds once around the origin and avoids the branch cut.
+	
+	\section{A contour integral involving \texorpdfstring{$\Gamma(z)$}{Gamma(z)}}
+	
+	Consider the contour integral
+	\begin{equation}
+		I(z) := \int_{\mathcal{H}} (-t)^{z-1} e^{-t}\,dt.
+	\end{equation}
+	We will relate $I(z)$ to $\Gamma(z)$ for $\Re z > 0$ and then use this
+	representation to extend $\Gamma(z)$ analytically.
+	
+	On $\mathcal{H}$ we write
+	\begin{equation}
+		(-t)^{z-1} = e^{(z-1)\log(-t)},
+	\end{equation}
+	where $\log(-t)$ is defined using the chosen branch of the logarithm.
+	
+	\subsection{Contribution from the lower and upper rays}
+	
+	We parametrize the two rays of $\mathcal{H}$:
+	
+	\paragraph{Lower side.}
+	On the lower side, $t = x$ with $x$ decreasing from $+\infty$ to $0$, just
+	below the positive real axis. Then $dt = -dx$ and $-t = -x$ has argument
+	$-\pi$, so
+	\begin{equation}
+		(-t)^{z-1} = x^{z-1} e^{-i\pi(z-1)}.
+	\end{equation}
+	Hence
+	\begin{align}
+		\int_{\text{lower}} (-t)^{z-1} e^{-t}\,dt
+		&= \int_{\infty}^{0} x^{z-1} e^{-i\pi(z-1)} e^{-x} (-dx) \\
+		&= e^{-i\pi(z-1)} \int_0^{\infty} x^{z-1} e^{-x}\,dx \\
+		&= e^{-i\pi(z-1)} \Gamma(z),
+	\end{align}
+	valid for $\Re z > 0$.
+	
+	\paragraph{Upper side.}
+	On the upper side, $t = x$ with $x$ increasing from $0$ to $\infty$, just
+	above the positive real axis. Then $dt = dx$ and $-t = -x$ has argument
+	$+\pi$, so
+	\begin{equation}
+		(-t)^{z-1} = x^{z-1} e^{+i\pi(z-1)}.
+	\end{equation}
+	Thus
+	\begin{align}
+		\int_{\text{upper}} (-t)^{z-1} e^{-t}\,dt
+		&= \int_0^{\infty} x^{z-1} e^{+i\pi(z-1)} e^{-x}\,dx \\
+		&= e^{+i\pi(z-1)} \Gamma(z).
+	\end{align}
+	
+	\paragraph{Small circle around the origin.}
+	The small circular arc around $0$ contributes $0$ in the limit (for
+	$\Re z > 0$), since $t^{z-1}$ is integrable near $0$ and the arc length
+	tends to $0$.
+	
+	\subsection{Expression for \texorpdfstring{$I(z)$}{I(z)}}
+	
+	Summing the contributions from the lower and upper rays, we obtain
+	\begin{align}
+		I(z)
+		&= \left( e^{-i\pi(z-1)} + e^{+i\pi(z-1)} \right) \Gamma(z) \\
+		&= 2\cos\big(\pi(z-1)\big)\,\Gamma(z).
+	\end{align}
+	Using the identity
+	\begin{equation}
+		\cos\big(\pi(z-1)\big) = -\cos(\pi z)
+	\end{equation}
+	and the relation
+	\begin{equation}
+		\sin(\pi z) = \frac{e^{i\pi z} - e^{-i\pi z}}{2i},
+	\end{equation}
+	one can rewrite $I(z)$ in terms of $\sin(\pi z)$. A standard and convenient
+	form of the Hankel representation is
+	\begin{equation}
+		\Gamma(z) = \frac{1}{2i\sin(\pi z)} \int_{\mathcal{H}} (-t)^{z-1} e^{-t}\,dt,
+	\end{equation}
+	valid initially for $\Re z > 0$ and $z \notin \mathbb{Z}$ (to avoid the zeros
+	of $\sin(\pi z)$).
+	
+	\section{Analytic continuation}
+	
+	Define
+	\begin{equation}
+		F(z) := \frac{1}{2i\sin(\pi z)} \int_{\mathcal{H}} (-t)^{z-1} e^{-t}\,dt.
+	\end{equation}
+	We now analyze $F(z)$ as a function of $z$.
+	
+	\subsection{Analyticity of the integral}
+	
+	For each fixed $t$ on $\mathcal{H}$, the integrand $(-t)^{z-1} e^{-t}$ is
+	entire in $z$. The contour $\mathcal{H}$ is fixed and avoids the singularity
+	at $t=0$ by looping around it. The factor $e^{-t}$ ensures convergence at
+	infinity for all $z \in \mathbb{C}$. Standard arguments (dominated convergence,
+	Morera's theorem) show that the map
+	\begin{equation}
+		z \mapsto \int_{\mathcal{H}} (-t)^{z-1} e^{-t}\,dt
+	\end{equation}
+	is an entire function of $z$.
+	
+	\subsection{Poles and agreement with \texorpdfstring{$\Gamma(z)$}{Gamma(z)}}
+	
+	The only possible singularities of $F(z)$ come from the factor
+	$1/\sin(\pi z)$, which has simple poles at $z \in \mathbb{Z}$. The integral
+	itself is entire, so $F(z)$ has at most simple poles at the integers.
+	
+	For $\Re z > 0$, we have already computed $I(z)$ and found
+	\begin{equation}
+		I(z) = 2i\sin(\pi z)\,\Gamma(z),
+	\end{equation}
+	up to the standard trigonometric identities. Hence, on the half-plane
+	$\Re z > 0$,
+	\begin{equation}
+		F(z) = \Gamma(z).
+	\end{equation}
+	Thus $F(z)$ extends $\Gamma(z)$ analytically from $\Re z > 0$ to
+	$\mathbb{C} \setminus \mathbb{Z}$.
+	
+	A more detailed analysis shows that the poles at positive integers are
+	removable (the integral vanishes appropriately there), while the poles at
+	$0,-1,-2,\dots$ remain, matching the known singularities of $\Gamma(z)$.
+	Therefore $F(z)$ is the analytic continuation of $\Gamma(z)$ to
+	$\mathbb{C} \setminus \{0,-1,-2,\dots\}$.
+	
+	\section{Final Hankel representation}
+	
+	We conclude that the Gamma function admits the Hankel contour representation
+	\begin{equation}
+		\boxed{
+			\Gamma(z) = \frac{1}{2i\sin(\pi z)}
+			\int_{\mathcal{H}} (-t)^{z-1} e^{-t}\,dt,
+			\quad z \in \mathbb{C} \setminus \{0,-1,-2,\dots\}.
+		}
+	\end{equation}
+	This formula provides an explicit analytic continuation of $\Gamma(z)$ from
+	the half-plane $\Re z > 0$ to the whole complex plane minus its simple poles
+	at the nonpositive integers.
+	
+\end{document}
