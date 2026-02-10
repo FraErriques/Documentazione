@@ -32,6 +32,7 @@
     last test held on macine  Hamilton::Obz on 2025.April.15 on cargo  1.86.0 (adf9b6ad1 2025-02-28) and VSCode 1.98.2
     last test held on machine ITFORS1011 on 2025.Juli.02  on cargo 1.88.0 (873a06493 2025-05-10) and VSCode 1.99.0
     last test held on machine ITBZOW1069 on 2026.January.21 on cargo 1.92.0 (344c4567c 2025-10-21) (Rev1, Built by MSYS2 project)
+         test held on machine ITBZOW1069 on 2026.February.10 on cargo 1.93.0 (083ac5135 2025-12-15) (Rev1, Built by MSYS2 project)
      ********************************************************/
 
 fn main() {
