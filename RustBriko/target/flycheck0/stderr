@@ -1,5 +1,5 @@
-   0.029897300s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint: fingerprint error for RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)/Check { test: false }/TargetInner { name: "RustBriko", doc: true, ..: with_path("C:\\root\\src\\GitHubSandBox\\Documentazione\\RustBriko\\src\\main.rs", Edition2021) }
-   0.029999500s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\root\src\GitHubSandBox\Documentazione\RustBriko\target\debug\.fingerprint\RustBriko-ccdc8d9a69b5f71a\bin-RustBriko`
+   0.028220300s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint: fingerprint error for RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)/Check { test: false }/TargetInner { name: "RustBriko", doc: true, ..: with_path("C:\\root\\src\\GitHubSandBox\\Documentazione\\RustBriko\\src\\main.rs", Edition2021) }
+   0.028366000s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\root\src\GitHubSandBox\Documentazione\RustBriko\target\debug\.fingerprint\RustBriko-e5e3b86e1e82928f\bin-RustBriko`
 
 Caused by:
     Impossibile trovare il file specificato. (os error 2)
@@ -24,8 +24,8 @@ Stack backtrace:
   16: <unknown>
   17: <unknown>
   18: <unknown>
-   0.042993000s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint: fingerprint error for RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)/Check { test: true }/TargetInner { name: "RustBriko", doc: true, ..: with_path("C:\\root\\src\\GitHubSandBox\\Documentazione\\RustBriko\\src\\main.rs", Edition2021) }
-   0.043056500s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\root\src\GitHubSandBox\Documentazione\RustBriko\target\debug\.fingerprint\RustBriko-ecc8f6de941b2c54\test-bin-RustBriko`
+   0.049981900s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint: fingerprint error for RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)/Check { test: true }/TargetInner { name: "RustBriko", doc: true, ..: with_path("C:\\root\\src\\GitHubSandBox\\Documentazione\\RustBriko\\src\\main.rs", Edition2021) }
+   0.050043500s  INFO prepare_target{force=false package_id=RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko) target="RustBriko"}: cargo::core::compiler::fingerprint:     err: failed to read `C:\root\src\GitHubSandBox\Documentazione\RustBriko\target\debug\.fingerprint\RustBriko-40f7fb0b8197f5c1\test-bin-RustBriko`
 
 Caused by:
     Impossibile trovare il file specificato. (os error 2)
@@ -51,4 +51,4 @@ Stack backtrace:
   17: <unknown>
   18: <unknown>
     Checking RustBriko v0.1.0 (C:\root\src\GitHubSandBox\Documentazione\RustBriko)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.59s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.46s
