@@ -1,12 +1,11 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
+            "name": "Debug Rust with GDB (MSYS2)",
+            "type": "cppdbg",
             "request": "launch",
+<<<<<<< HEAD
             "cargo": {
                 "args": [
                     "build",
@@ -20,8 +19,27 @@
             "request": "launch",
             "name": "debug",
             "program": "target/debug/Rust_table.exe",
+=======
+            "program": "${workspaceFolder}/target/debug/Rust_table.exe",
+>>>>>>> refs/remotes/origin/main
             "args": [],
-            "cwd": ""
+    "description": "Show disassembly if source is missing",
+    "text": "set disassembly-flavor intel", 
+    "ignoreFailures": true            
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Users\\fra\\root\\program\\msys64\\mingw64\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "cargo build" 
         }
     ]
 }
