@@ -30,7 +30,6 @@
                 }
             ],
 
-            "preLaunchTask": "cargo build"
         }
     ]
 }
