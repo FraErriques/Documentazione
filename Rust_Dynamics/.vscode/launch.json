@@ -16,7 +16,7 @@
       "cwd": "${workspaceFolder}",
 
       "MIMode": "gdb",
-      "miDebuggerPath": "C:\\Users\\fra\\root\\program\\msys64\\mingw64\\bin\\gdb.exe",
+      "miDebuggerPath": "C:\\Users\\itfraerr\\program\\msys64\\mingw64\\bin\\gdb.exe",
 
       // 🔽 Key settings to see and step in disassembly
        "showDisassembly": "auto",       // "auto" to switch only when source missing
