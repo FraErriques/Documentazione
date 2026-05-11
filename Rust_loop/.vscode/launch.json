@@ -5,12 +5,34 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "gdb",
+            "name": "Debug Rust with GDB (MSYS2)",
+            "type": "cppdbg",
             "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/target/debug/rloop.exe",
+
+            "program": "${workspaceFolder}/target/debug/${workspaceFolderBasename}.exe",
             "args": [],
-            "cwd": "${workspaceFolder}"
+
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Users\\itfraerr\\program\\msys64\\mingw64\\bin\\gdb.exe",
+
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Use Intel disassembly syntax",
+                    "text": "set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+
         }
     ]
 }
