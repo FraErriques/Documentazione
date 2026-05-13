@@ -33,6 +33,7 @@
     last test held on machine ITFORS1011 on 2025.Juli.02  on cargo 1.88.0 (873a06493 2025-05-10) and VSCode 1.99.0
     last test held on machine ITBZOW1069 on 2026.January.21 on cargo 1.92.0 (344c4567c 2025-10-21) (Rev1, Built by MSYS2 project)
          test held on machine ITBZOW1069 on 2026.February.10 on cargo 1.93.0 (083ac5135 2025-12-15) (Rev1, Built by MSYS2 project)
+         test held on machine IT-CLIENT-wRrVu in InTune 2026.May.13 on cargo 1.95.0 (f2d3ce0bd 2026-03-21) (Rev5, Built by MSYS2 project)
      ********************************************************/
 
 fn main() {
