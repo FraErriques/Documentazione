@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Curvature Equivalences on the Elliptic Paraboloid: \\ Extrinsic vs. Intrinsic Geometry}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+For any 2-dimensional Riemannian manifold, the intrinsic Ricci scalar $R$ and the extrinsic Gaussian curvature $K$ are explicitly linked by the identity:
+\begin{equation}
+    R = 2K
+\end{equation}
+Let us map out both paths step-by-step using the coordinate parameterization for the elliptic paraboloid:
+\begin{equation}
+    \mathbf{x}(t,v) = \begin{pmatrix} t \\ v \\ t^2+v^2 \end{pmatrix}
+\end{equation}
+
+\subsection*{Preliminary: The First Fundamental Form (Metric Tensor)}
+First, we find the basis tangent vectors by differentiating $\mathbf{x}$ with respect to our coordinate parameters $t$ and $v$:
+\begin{equation}
+    \mathbf{x}_t = \begin{pmatrix} 1 \\ 0 \\ 2t \end{pmatrix}, \quad \mathbf{x}_v = \begin{pmatrix} 0 \\ 1 \\ 2v \end{pmatrix}
+\end{equation}
+
+The components of our metric tensor $g_{ij}$ are the dot products of these tangent vectors:
+\begin{itemize}
+    \item $g_{tt} = \mathbf{x}_t \cdot \mathbf{x}_t = 1 + 4t^2$
+    \item $g_{tv} = g_{vt} = \mathbf{x}_t \cdot \mathbf{x}_v = 4tv$
+    \item $g_{vv} = \mathbf{x}_v \cdot \mathbf{x}_v = 1 + 4v^2$
+\end{itemize}
+
+The determinant of the metric, which we will call $W$, is:
+\begin{equation}
+    \det(g) = W = (1+4t^2)(1+4v^2) - (4tv)^2 = 1 + 4t^2 + 4v^2
+\end{equation}
+
+Inverting the matrix $g_{ij}$ yields the components of the inverse metric $g^{ij}$:
+\begin{equation}
+    g^{tt} = \frac{1+4v^2}{W}, \quad g^{tv} = g^{vt} = \frac{-4tv}{W}, \quad g^{vv} = \frac{1+4t^2}{W}
+\end{equation}
+
+\pagebreak
+
+\section{Christoffel Symbols}
+To calculate curvature intrinsically, we must first determine how our coordinate basis twists across the surface using the Christoffel symbols of the second kind, given by the formula:
+\begin{equation}
+    \Gamma^k_{ij} = \frac{1}{2} g^{kl} \left( \partial_i g_{jl} + \partial_j g_{il} - \partial_l g_{ij} \right)
+\end{equation}
+
+Evaluating the metric derivatives (e.g., $\partial_t g_{tt} = 8t$, $\partial_t g_{tv} = 4v$, etc.) and contracting them with the inverse metric simplifies to a remarkably clean set of non-vanishing symbols:
+
+\subsection*{For the $t$-coordinate ($k=t$):}
+\begin{equation}
+    \Gamma^t_{tt} = \frac{4t}{W}, \quad \Gamma^t_{tv} = \Gamma^t_{vt} = 0, \quad \Gamma^t_{vv} = \frac{4t}{W}
+\end{equation}
+
+\subsection*{For the $v$-coordinate ($k=v$):}
+\begin{equation}
+    \Gamma^v_{tt} = \frac{4v}{W}, \quad \Gamma^v_{tv} = \Gamma^v_{vt} = 0, \quad \Gamma^v_{vv} = \frac{4v}{W}
+\end{equation}
+
+\section{The Extrinsic Way: Gaussian Curvature ($K$)}
+The extrinsic path uses the \textbf{unit normal vector field} $\mathbf{N}$ to measure how the surface bends into $\mathbb{R}^3$.
+
+\begin{enumerate}
+    \item \textbf{Find the Unit Normal Vector:}
+    \begin{equation}
+        \mathbf{x}_t \times \mathbf{x}_v = \begin{pmatrix} -2t \\ -2v \\ 1 \end{pmatrix} \implies \mathbf{N} = \frac{1}{\sqrt{W}}\begin{pmatrix} -2t \\ -2v \\ 1 \end{pmatrix}
+    \end{equation}
+    
+    \item \textbf{Compute Second Derivatives of $\mathbf{x}$:}
+    \begin{equation}
+        \mathbf{x}_{tt} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}, \quad \mathbf{x}_{tv} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}, \quad \mathbf{x}_{vv} = \begin{pmatrix} 0 \\ 0 \\ 2 \end{pmatrix}
+    \end{equation}
+    
+    \item \textbf{Construct the Second Fundamental Form ($b_{ij}$):} \\
+    Projecting these second derivatives onto our normal anchor $\mathbf{N}$ via the dot product ($b_{ij} = \mathbf{x}_{ij} \cdot \mathbf{N}$):
+    \begin{itemize}
+        \item $b_{tt} = \frac{2}{\sqrt{W}}$
+        \item $b_{tv} = b_{vt} = 0$
+        \item $b_{vv} = \frac{2}{\sqrt{W}}$
+    \end{itemize}
+    
+    \item \textbf{Calculate Gaussian Curvature:} \\
+    Gauss defined $K$ as the ratio of the determinants of the second and first fundamental forms:
+    \begin{equation}
+        K = \frac{\det(b)}{\det(g)} = \frac{\left(\frac{2}{\sqrt{W}}\right)\left(\frac{2}{\sqrt{W}}\right) - 0}{W} = \frac{4}{W^2} = \frac{4}{(1 + 4t^2 + 4v^2)^2}
+    \end{equation}
+\end{enumerate}
+
+\pagebreak
+
+\section{The Intrinsic Way: Ricci Tensor and Ricci Scalar ($R$)}
+The intrinsic path ignores $\mathbf{N}$ entirely. It feeds the Christoffel symbols calculated in Section 1 straight into the Riemann Curvature Tensor:
+\begin{equation}
+    R^l_{\phantom{l}ijk} = \partial_j \Gamma^l_{ik} - \partial_k \Gamma^l_{ij} + \Gamma^l_{jm}\Gamma^m_{ik} - \Gamma^l_{km}\Gamma^m_{ij}
+\end{equation}
+
+\subsection*{Step 1: Contract to the Ricci Tensor}
+We contract the Riemann tensor to obtain the Ricci tensor components via $\text{Ric}_{ij} = R^l_{\phantom{l}ilj}$. 
+Evaluating this contraction using our known fields yields:
+\begin{equation}
+    \text{Ric}_{tt} = \frac{4(1+4t^2)}{W^2}, \quad \text{Ric}_{tv} = \text{Ric}_{vt} = \frac{16tv}{W^2}, \quad \text{Ric}_{vv} = \frac{4(1+4v^2)}{W^2}
+\end{equation}
+
+\subsection*{Step 2: Trace to the Ricci Scalar}
+To get the scalar value, we contract the Ricci tensor with our inverse metric components ($R = g^{ij}\text{Ric}_{ij}$):
+\begin{equation}
+    R = g^{tt}\text{Ric}_{tt} + g^{tv}\text{Ric}_{vt} + g^{vt}\text{Ric}_{tv} + g^{vv}\text{Ric}_{vv}
+\end{equation}
+
+Plugging our inverse metric formulas into this equation:
+\begin{equation}
+    R = \left(\frac{1+4v^2}{W}\right)\left(\frac{4(1+4t^2)}{W^2}\right) + 2\left(\frac{-4tv}{W}\right)\left(\frac{16tv}{W^2}\right) + \left(\frac{1+4t^2}{W}\right)\left(\frac{4(1+4v^2)}{W^2}\right)
+\end{equation}
+
+Factoring out the shared denominator $W^3$:
+\begin{align}
+    R &= \frac{4(1+4t^2+4v^2+16t^2v^2) - 128t^2v^2 + 4(1+4t^2+4v^2+16t^2v^2)}{W^3} \\
+      &= \frac{8 + 32t^2 + 32v^2 + 128t^2v^2 - 128t^2v^2}{W^3} \\
+      &= \frac{8(1+4t^2+4v^2)}{W^3} = \frac{8W}{W^3} = \frac{8}{W^2}
+\end{align}
+
+\section{Conclusion}
+Comparing our final values from both methods:
+\begin{center}
+    \begin{tabular}{ll}
+        \toprule
+        Method & Mathematical Expression \\
+        \midrule
+        \textbf{Extrinsic (Gauss)} & $K = \dfrac{4}{W^2}$ \\
+        \textbf{Intrinsic (Ricci)} & $R = \dfrac{8}{W^2}$ \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+The intrinsic Ricci scalar evaluates to exactly $\dfrac{8}{(1+4t^2+4v^2)^2}$, confirming perfectly that $R = 2K$.
+
+\end{document}
