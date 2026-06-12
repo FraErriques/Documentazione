@@ -1,0 +1,242 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Christoffel Symbols and Example on an Elliptic Paraboloid}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Introduction}
+	
+	We proceed step by step: first the logic of Christoffel symbols, then a concrete computation on the elliptic paraboloid
+	\[
+	(t,v,t^2+v^2).
+	\]
+	
+	\section{What Christoffel Symbols Represent}
+	
+	We consider
+	\[
+	\Gamma^k_{ij},
+	\]
+	the Christoffel symbols of the second kind.
+	
+	\subsection*{Intuition}
+	
+	They encode how the \textbf{basis vectors change from point to point} on a curved manifold.
+	
+	In Euclidean space with Cartesian coordinates, basis vectors are constant, so
+	\[
+	\Gamma^k_{ij} = 0.
+	\]
+	
+	On a curved surface (or curvilinear coordinates), the basis vectors vary, hence
+	\[
+	\Gamma^k_{ij} \neq 0.
+	\]
+	
+	\section{Formal Definition}
+	
+	Given a metric $g_{ij}$, the Christoffel symbols are defined by
+	\[
+	\Gamma^k_{ij}
+	=
+	\frac{1}{2} g^{k\ell}
+	\left(
+	\partial_i g_{j\ell}
+	+
+	\partial_j g_{i\ell}
+	-
+	\partial_\ell g_{ij}
+	\right),
+	\]
+	where:
+	\begin{itemize}
+		\item $g_{ij}$ is the metric tensor,
+		\item $g^{ij}$ is the inverse metric,
+		\item $\partial_i = \frac{\partial}{\partial x^i}$.
+	\end{itemize}
+	
+	\section{Geometric Viewpoint}
+	
+	They describe covariant differentiation:
+	\[
+	\nabla_{\partial_i} \partial_j = \Gamma^k_{ij} \partial_k.
+	\]
+	
+	They:
+	\begin{itemize}
+		\item define a connection,
+		\item describe parallel transport,
+		\item appear in geodesic equations:
+	\end{itemize}
+	
+	\[
+	\frac{d^2 x^k}{ds^2}
+	+
+	\Gamma^k_{ij}
+	\frac{dx^i}{ds}
+	\frac{dx^j}{ds}
+	= 0.
+	\]
+	
+	\section{Elliptic Paraboloid}
+	
+	Consider the parametrization
+	\[
+	\mathbf{X}(t,v) = (t, v, t^2 + v^2).
+	\]
+	
+	\subsection{Step 1: Tangent Vectors}
+	
+	\[
+	\mathbf{X}_t = (1, 0, 2t),
+	\qquad
+	\mathbf{X}_v = (0, 1, 2v).
+	\]
+	
+	\subsection{Step 2: Metric Tensor}
+	
+	\[
+	g_{ij} = \langle \mathbf{X}_i, \mathbf{X}_j \rangle.
+	\]
+	
+	Compute:
+	\[
+	g_{tt} = 1 + 4t^2, \quad
+	g_{tv} = 4tv, \quad
+	g_{vv} = 1 + 4v^2.
+	\]
+	
+	Thus:
+	\[
+	g =
+	\begin{pmatrix}
+		1 + 4t^2 & 4tv \\
+		4tv & 1 + 4v^2
+	\end{pmatrix}.
+	\]
+	
+	\subsection{Step 3: Inverse Metric}
+	
+	\[
+	\det g = (1+4t^2)(1+4v^2) - (4tv)^2 = 1 + 4t^2 + 4v^2.
+	\]
+	
+	Let
+	\[
+	D = 1 + 4t^2 + 4v^2.
+	\]
+	
+	Then:
+	\[
+	g^{-1} =
+	\frac{1}{D}
+	\begin{pmatrix}
+		1 + 4v^2 & -4tv \\
+		-4tv & 1 + 4t^2
+	\end{pmatrix}.
+	\]
+	
+	\subsection{Step 4: Derivatives of the Metric}
+	
+	\[
+	\partial_t g_{tt} = 8t, \quad \partial_v g_{tt} = 0,
+	\]
+	\[
+	\partial_t g_{tv} = 4v, \quad \partial_v g_{tv} = 4t,
+	\]
+	\[
+	\partial_t g_{vv} = 0, \quad \partial_v g_{vv} = 8v.
+	\]
+	
+	\section{Computation of Christoffel Symbols}
+	
+	\subsection{Examples}
+	
+	\subsubsection*{$\Gamma^t_{tt}$}
+	
+	\[
+	\Gamma^t_{tt}
+	=
+	\frac{4t}{D}.
+	\]
+	
+	\subsubsection*{$\Gamma^t_{tv} = \Gamma^t_{vt}$}
+	
+	\[
+	\Gamma^t_{tv}
+	=
+	\frac{4v}{D}.
+	\]
+	
+	\subsubsection*{$\Gamma^t_{vv}$}
+	
+	\[
+	\Gamma^t_{vv}
+	=
+	-\frac{4t}{D}.
+	\]
+	
+	\subsection{Second Coordinate}
+	
+	\[
+	\Gamma^v_{tt}
+	=
+	-\frac{4v}{D},
+	\]
+	\[
+	\Gamma^v_{tv}
+	=
+	\frac{4t}{D},
+	\]
+	\[
+	\Gamma^v_{vv}
+	=
+	\frac{4v}{D}.
+	\]
+	
+	\section{Final Result}
+	
+	With
+	\[
+	D = 1 + 4t^2 + 4v^2,
+	\]
+	we obtain:
+	\[
+	\begin{aligned}
+		\Gamma^t_{tt} &= \frac{4t}{D}, &
+		\Gamma^t_{tv} &= \frac{4v}{D}, &
+		\Gamma^t_{vv} &= -\frac{4t}{D} \\
+		\\
+		\Gamma^v_{tt} &= -\frac{4v}{D}, &
+		\Gamma^v_{tv} &= \frac{4t}{D}, &
+		\Gamma^v_{vv} &= \frac{4v}{D}.
+	\end{aligned}
+	\]
+	
+	\section{Interpretation}
+	
+	\begin{itemize}
+		\item The Christoffel symbols are nonzero because the surface is curved.
+		\item They vanish at $(0,0)$, reflecting local flatness.
+		\item Their structure reflects the symmetry of the paraboloid.
+	\end{itemize}
+	
+	\section{Big-Picture Intuition}
+	
+	Christoffel symbols can be understood as:
+	\begin{itemize}
+		\item correction terms to ordinary derivatives,
+		\item objects encoding curvature indirectly,
+		\item arising from non-straight coordinate systems.
+	\end{itemize}
+	
+\end{document}
