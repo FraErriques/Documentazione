@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+
+\begin{document}
+	
+	\section*{Christoffel Symbols: Unified View (Polar Coordinates)}
+	
+	\subsection*{1. Coordinate System}
+	
+	\[
+	(r,\theta)
+	\]
+	
+	Metric:
+	\[
+	g_{ij} =
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & r^2
+	\end{pmatrix}
+	\quad
+	g^{ij} =
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & \frac{1}{r^2}
+	\end{pmatrix}
+	\]
+	
+	\subsection*{2. Summary of Nonzero Christoffel Symbols}
+	
+	\[
+	\Gamma^r_{\theta\theta} = -r
+	\quad
+	\Gamma^\theta_{r\theta} = \Gamma^\theta_{\theta r} = \frac{1}{r}
+	\]
+	
+	\subsection*{3. Comparison of the Three Approaches}
+	
+	\renewcommand{\arraystretch}{1.5}
+	
+	\begin{tabular}{| m{3.8cm} | m{5.5cm} | m{5.5cm} |}
+		\hline
+		\textbf{Method} & \textbf{Key Formula} & \textbf{Interpretation} \\
+		\hline
+		
+		Metric (algebraic) &
+		\[
+		\Gamma^k_{ij} =
+		\frac{1}{2} g^{kl}
+		(\partial_i g_{jl} + \partial_j g_{il} - \partial_l g_{ij})
+		\]
+		&
+		Derived purely from the metric. Measures how the inner product changes across space. \\
+		
+		\hline
+		
+		Basis derivatives (geometric) &
+		\[
+		\frac{\partial \mathbf{e}_i}{\partial x^j}
+		=
+		\Gamma^k_{ij} \mathbf{e}_k
+		\]
+		&
+		Christoffel symbols describe how the coordinate basis vectors change from point to point. \\
+		
+		\hline
+		
+		Covariant derivative / projection &
+		\[
+		\Gamma^k_{ij}
+		=
+		\mathbf{e}^k \cdot \frac{\partial \mathbf{e}_i}{\partial x^j}
+		\]
+		&
+		Christoffel symbols are components of the derivative of a basis vector projected onto the dual basis. \\
+		
+		\hline
+		
+	\end{tabular}
+	
+	\subsection*{4. Equivalence of the Methods}
+	
+	All three approaches give identical results because:
+	
+	\[
+	g_{ij} = \mathbf{e}_i \cdot \mathbf{e}_j
+	\]
+	
+	Taking derivatives:
+	
+	\[
+	\partial_k g_{ij}
+	=
+	\left(\frac{\partial \mathbf{e}_i}{\partial x^k}\right)\cdot \mathbf{e}_j
+	+
+	\mathbf{e}_i \cdot \left(\frac{\partial \mathbf{e}_j}{\partial x^k}\right)
+	\]
+	
+	Substituting:
+	\[
+	\frac{\partial \mathbf{e}_i}{\partial x^k} = \Gamma^m_{ik}\mathbf{e}_m
+	\]
+	
+	yields the metric formula.
+	
+	\subsection*{5. Geodesic Equations}
+	
+	A geodesic is defined by:
+	\[
+	\frac{d^2 x^k}{d\lambda^2}
+	+
+	\Gamma^k_{ij}
+	\frac{dx^i}{d\lambda}
+	\frac{dx^j}{d\lambda}
+	=0
+	\]
+	
+	\subsection*{6. Explicit Equations in Polar Coordinates}
+	
+	\subsubsection*{Radial equation ($k=r$)}
+	
+	\[
+	\frac{d^2 r}{d\lambda^2}
+	+
+	\Gamma^r_{\theta\theta}
+	\left(\frac{d\theta}{d\lambda}\right)^2
+	=0
+	\]
+	
+	\[
+	\frac{d^2 r}{d\lambda^2}
+	- r \left(\frac{d\theta}{d\lambda}\right)^2
+	=0
+	\]
+	
+	\subsubsection*{Angular equation ($k=\theta$)}
+	
+	\[
+	\frac{d^2 \theta}{d\lambda^2}
+	+
+	2 \Gamma^\theta_{r\theta}
+	\frac{dr}{d\lambda}
+	\frac{d\theta}{d\lambda}
+	=0
+	\]
+	
+	\[
+	\frac{d^2 \theta}{d\lambda^2}
+	+
+	\frac{2}{r}
+	\frac{dr}{d\lambda}
+	\frac{d\theta}{d\lambda}
+	=0
+	\]
+	
+	\subsection*{7. Interpretation}
+	
+	\begin{itemize}
+		\item The radial equation:
+		\[
+		\frac{d^2 r}{d\lambda^2} - r\dot{\theta}^2 = 0
+		\]
+		represents the familiar ``centrifugal'' term.
+		
+		\item The angular equation:
+		\[
+		\frac{d^2 \theta}{d\lambda^2}
+		+ \frac{2}{r}\dot{r}\dot{\theta} = 0
+		\]
+		encodes conservation of angular momentum.
+		
+	\end{itemize}
+	
+	\subsection*{8. Final Insight}
+	
+	Geodesics are curves whose tangent vector is parallely transported:
+	\[
+	\nabla_{\dot{\gamma}} \dot{\gamma} = 0
+	\]
+	
+	Christoffel symbols act as the correction terms that compensate for the curvature of the coordinate system.
+	
+\end{document}
