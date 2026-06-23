@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+	
+	\section*{Christoffel Symbols in Planar Polar Coordinates}
+	
+	Coordinates:
+	\[
+	(r,\theta)
+	\]
+	
+	Metric:
+	\[
+	g_{ij} =
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & r^2
+	\end{pmatrix}
+	\]
+	
+	Inverse metric:
+	\[
+	g^{ij} =
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & \frac{1}{r^2}
+	\end{pmatrix}
+	\]
+	
+	Only nonzero derivative:
+	\[
+	\frac{\partial}{\partial r}(r^2)=2r
+	\]
+	
+	The Christoffel symbols are given by:
+	\[
+	\Gamma^k_{ij}
+	=
+	\frac{1}{2}\Bigg[
+	g^{k1}\Big(
+	\frac{\partial g_{j1}}{\partial x^i}
+	+
+	\frac{\partial g_{i1}}{\partial x^j}
+	-
+	\frac{\partial g_{ij}}{\partial r}
+	\Big)
+	+
+	g^{k2}\Big(
+	\frac{\partial g_{j2}}{\partial x^i}
+	+
+	\frac{\partial g_{i2}}{\partial x^j}
+	-
+	\frac{\partial g_{ij}}{\partial \theta}
+	\Big)
+	\Bigg]
+	\]
+	
+	\section*{Explicit Calculations}
+	
+	\subsection*{1. $\Gamma^r_{rr}$}
+	
+	\[
+	\Gamma^r_{rr}
+	=
+	\frac{1}{2}\Big[
+	1(0+0-0) + 0(0+0-0)
+	\Big]
+	=0
+	\]
+	
+	\subsection*{2. $\Gamma^r_{r\theta}$}
+	
+	\[
+	\Gamma^r_{r\theta}
+	=
+	\frac{1}{2}\Big[
+	1(0+0-0) + 0(0+0-0)
+	\Big]
+	=0
+	\]
+	
+	\subsection*{3. $\Gamma^r_{\theta r}$}
+	
+	\[
+	\Gamma^r_{\theta r}
+	=
+	\frac{1}{2}\Big[
+	1(0+0-0) + 0(0+0-0)
+	\Big]
+	=0
+	\]
+	
+	\subsection*{4. $\Gamma^r_{\theta\theta}$}
+	
+	\[
+	\Gamma^r_{\theta\theta}
+	=
+	\frac{1}{2}\Big[
+	1\Big(0+0-\frac{\partial}{\partial r}(r^2)\Big)
+	+0(0+0-0)
+	\Big]
+	\]
+	
+	\[
+	=
+	\frac{1}{2}(-2r) = -r
+	\]
+	
+	\subsection*{5. $\Gamma^\theta_{rr}$}
+	
+	\[
+	\Gamma^\theta_{rr}
+	=
+	\frac{1}{2}\Big[
+	0(0+0-0) + \frac{1}{r^2}(0+0-0)
+	\Big]
+	=0
+	\]
+	
+	\subsection*{6. $\Gamma^\theta_{r\theta}$}
+	
+	\[
+	\Gamma^\theta_{r\theta}
+	=
+	\frac{1}{2}\Big[
+	0(0+0-0) +
+	\frac{1}{r^2}\Big(\frac{\partial}{\partial r}(r^2)+0-0\Big)
+	\Big]
+	\]
+	
+	\[
+	=
+	\frac{1}{2}\cdot \frac{2r}{r^2}
+	= \frac{1}{r}
+	\]
+	
+	\subsection*{7. $\Gamma^\theta_{\theta r}$}
+	
+	\[
+	\Gamma^\theta_{\theta r}
+	=
+	\frac{1}{2}\Big[
+	0(0+0-0) +
+	\frac{1}{r^2}\Big(\frac{\partial}{\partial r}(r^2)+0-0\Big)
+	\Big]
+	\]
+	
+	\[
+	=
+	\frac{1}{r}
+	\]
+	
+	\subsection*{8. $\Gamma^\theta_{\theta\theta}$}
+	
+	\[
+	\Gamma^\theta_{\theta\theta}
+	=
+	\frac{1}{2}\Big[
+	0(0+0-0) +
+	\frac{1}{r^2}(0+0-0)
+	\Big]
+	=0
+	\]
+	
+	\section*{Final Result}
+	
+	The only nonzero Christoffel symbols are:
+	\[
+	\Gamma^r_{\theta\theta} = -r
+	\]
+	\[
+	\Gamma^\theta_{r\theta} = \Gamma^\theta_{\theta r} = \frac{1}{r}
+	\]
+	
+\end{document}
