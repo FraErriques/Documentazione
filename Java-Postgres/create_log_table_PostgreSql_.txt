@@ -1,0 +1,29 @@
+CREATE OR REPLACE FUNCTION create_log_table(logname text)
+RETURNS void AS $$
+DECLARE
+    cmd text;
+    table_exists text;
+BEGIN
+    -- Check if the table already exists in the current schema
+    -- (equivalent to checking OBJECT_ID(@logname) IS NULL)
+    SELECT TO_REGCLASS(logname) INTO table_exists;
+
+    IF table_exists IS NULL THEN
+        -- Construct the dynamic SQL statement to create the table
+        cmd := format(
+            'CREATE TABLE %I ('
+            '    id SERIAL PRIMARY KEY, '
+            '    when_time VARCHAR(50) NOT NULL, '
+            '    row_nature CHAR(3) NOT NULL, '
+            '    stack_depth VARCHAR(5) NOT NULL, '
+            '    function_name VARCHAR(50) NOT NULL, '
+            '    content VARCHAR(7919) NOT NULL'
+            ')',
+            logname
+        );
+
+        -- Execute the dynamic command
+        EXECUTE cmd;
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
