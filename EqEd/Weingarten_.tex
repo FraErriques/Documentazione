@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+	
+	\section*{Equivalence of the Definitions of the Second Fundamental Form}
+	
+	Let $X(u,v)$ be a regular parametrization of a surface $S \subset \mathbb{R}^3$.
+	Denote:
+	\[
+	X_u = \frac{\partial X}{\partial u}, \quad
+	X_v = \frac{\partial X}{\partial v}
+	\]
+	and define the unit normal field
+	\[
+	N = \frac{X_u \times X_v}{\|X_u \times X_v\|}.
+	\]
+	
+	\subsection*{Definition via Second Derivatives}
+	
+	The coefficients of the second fundamental form are defined as
+	\[
+	L = \langle X_{uu}, N \rangle, \quad
+	M = \langle X_{uv}, N \rangle, \quad
+	N = \langle X_{vv}, N \rangle.
+	\]
+	
+	\subsection*{Definition via the Weingarten Map}
+	
+	The Weingarten map (shape operator) is defined by
+	\[
+	dN_p : T_p S \to T_p S.
+	\]
+	
+	Its coefficients are defined via:
+	\[
+	L = -\langle N_u, X_u \rangle, \quad
+	M = -\langle N_u, X_v \rangle = -\langle N_v, X_u \rangle, \quad
+	N = -\langle N_v, X_v \rangle.
+	\]
+	
+	\subsection*{Goal}
+	
+	Show that:
+	\[
+	\langle X_{ij}, N \rangle = -\langle N_i, X_j \rangle, 
+	\quad i,j \in \{u,v\}.
+	\]
+	
+	\subsection*{Proof}
+	
+	We use the fundamental orthogonality relation:
+	\[
+	\langle N, X_u \rangle = 0, \quad
+	\langle N, X_v \rangle = 0.
+	\]
+	
+	Differentiate $\langle N, X_u \rangle = 0$ with respect to $u$:
+	\[
+	\frac{\partial}{\partial u} \langle N, X_u \rangle
+	= \langle N_u, X_u \rangle + \langle N, X_{uu} \rangle = 0.
+	\]
+	
+	Hence:
+	\[
+	\langle N, X_{uu} \rangle = - \langle N_u, X_u \rangle,
+	\]
+	which proves:
+	\[
+	L = \langle X_{uu}, N \rangle = -\langle N_u, X_u \rangle.
+	\]
+	
+	Similarly, differentiate $\langle N, X_u \rangle = 0$ with respect to $v$:
+	\[
+	\frac{\partial}{\partial v} \langle N, X_u \rangle
+	= \langle N_v, X_u \rangle + \langle N, X_{uv} \rangle = 0,
+	\]
+	thus:
+	\[
+	M = \langle X_{uv}, N \rangle = -\langle N_v, X_u \rangle.
+	\]
+	
+	Likewise, differentiating $\langle N, X_v \rangle = 0$ with respect to $u$:
+	\[
+	\langle N_u, X_v \rangle + \langle N, X_{uv} \rangle = 0,
+	\]
+	so:
+	\[
+	M = -\langle N_u, X_v \rangle.
+	\]
+	
+	Finally, differentiate $\langle N, X_v \rangle = 0$ with respect to $v$:
+	\[
+	\langle N_v, X_v \rangle + \langle N, X_{vv} \rangle = 0,
+	\]
+	giving:
+	\[
+	N = \langle X_{vv}, N \rangle = -\langle N_v, X_v \rangle.
+	\]
+	
+	\subsection*{Conclusion}
+	
+	We have shown:
+	\[
+	\langle X_{ij}, N \rangle = -\langle N_i, X_j \rangle,
+	\]
+	thus the two definitions of the second fundamental form coincide.
+	
+	\hfill $\square$
+	
+\end{document}

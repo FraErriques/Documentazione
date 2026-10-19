@@ -1,16 +1,37 @@
+
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug",
-            "program": "target/debug/Rust_Dynamics",
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "LLVM",
+      "type": "cppdbg",
+      "request": "launch",
+
+      // ✅ Use the project’s debug binary automatically (optional)
+      // If you prefer your absolute path, keep it. This just avoids edits per project.
+      "program": "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
+
+      "args": [],
+      "cwd": "${workspaceFolder}",
+
+      
+
+      // Optional but handy: keep MSYS2 tools on PATH when starting under GUI
+      // (Safe to remove if you always launch VS Code from MINGW64 terminal.)
+      "environment": [
+        { "name": "PATH", "value": "C:/Users/itfraerr/program/msys64/mingw64/bin;${env:PATH}" }
+      ],
+
+      // If you want a separate console for stdin/stdout:
+      // "externalConsole": true,
+      
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "description": "Enable GDB pretty printing", "ignoreFailures": true },
+
+        // Show the next line’s assembly while stepping
+        { "text": "set disassemble-next-line on", "description": "Show asm for next line", "ignoreFailures": true }
+      ]
+    }
+  ]
 }

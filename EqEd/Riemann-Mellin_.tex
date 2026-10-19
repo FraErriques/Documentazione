@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\usepackage{microtype}
+
+% Theorem and Remark environments
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+\newtheorem{lemma}{Lemma}
+
+\title{\textbf{Riemann's Integration by Parts and the Explicit Formula for $J(x)$}}
+\author{Notes on Edwards' \textit{Riemann's Zeta Function}}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		A concise note on Bernhard Riemann's 1859 derivation of the explicit formula for $J(x)$. We detail the Mellin inversion of $\ln \zeta(s)$, contrast the divergent choice of integration by parts with Riemann's successful choice, prove the vanishing of the boundary terms along the vertical contour, and link the resulting logarithmic derivative to the zeros of $\zeta(s)$.
+	\end{abstract}
+	
+	\section{The Mellin Inversion Setup}
+	
+	Riemann relates the prime step-function $J(x)$ to the logarithmic Riemann zeta function via the integral transform:
+	\begin{equation}
+		\frac{\ln \zeta(s)}{s} = \int_{0}^{\infty} J(x) x^{-s-1} \, dx \quad \text{for } \Re(s) > 1.
+	\end{equation}
+	
+	By Mellin inversion, $J(x)$ can be recovered as a contour integral along the vertical line $\Re(s) = a > 1$:
+	\begin{equation}
+		J(x) = \frac{1}{2\pi i} \int_{a - i\infty}^{a + i\infty} \frac{\ln \zeta(s)}{s} x^s \, ds.
+	\end{equation}
+	
+	\section{The Integration by Parts Strategy}
+	
+	Directly attempting to evaluate integral (2) by integrating $\frac{x^s}{s}$ produces non-convergent expressions involving $\mathrm{Li}(x^s)$. To circumvent this, Riemann performs integration by parts on the segment $[a - iT, a + iT]$ by setting:
+	\begin{align*}
+		u(s) &= \frac{\ln \zeta(s)}{s}, & dv &= x^s \, ds, \\[1ex]
+		du &= \left( \frac{\zeta'(s)}{s \zeta(s)} - \frac{\ln \zeta(s)}{s^2} \right) ds, & v &= \frac{x^s}{\ln x}.
+	\end{align*}
+	
+	Applying integration by parts yields:
+	\begin{equation}
+		\int_{a - iT}^{a + iT} \frac{\ln \zeta(s)}{s} x^s \, ds = \left[ \frac{\ln \zeta(s)}{s} \frac{x^s}{\ln x} \right]_{a - iT}^{a + iT} - \frac{1}{\ln x} \int_{a - iT}^{a + iT} \frac{x^s}{\ln x} \, d\left( \frac{\ln \zeta(s)}{s} \right).
+	\end{equation}
+	
+	Expanding $d\left( \frac{\ln \zeta(s)}{s} \right)$, the primary convergent term becomes:
+	\begin{equation}
+		-\frac{1}{\ln x} \int_{a - iT}^{a + iT} \frac{\zeta'(s)}{\zeta(s)} \frac{x^s}{s} \, ds.
+	\end{equation}
+	
+	\section{Vanishing of the Boundary Term}
+	
+	To take $T \to \infty$, we evaluate the boundary increment:
+	\begin{equation}
+		I_B(T) = \left[ \frac{\ln \zeta(s)}{s} \frac{x^s}{\ln x} \right]_{s = a - iT}^{s = a + iT}.
+	\end{equation}
+	
+	\begin{lemma}
+		For $a > 1$, $\lim_{T \to \infty} I_B(T) = 0$.
+	\end{lemma}
+	
+	\begin{proof}
+		On the line $\Re(s) = a > 1$, the function $\ln \zeta(a + iT)$ is bounded because:
+		\[
+		|\ln \zeta(a + iT)| = \left| \sum_{p} \sum_{m=1}^{\infty} \frac{1}{m p^{m(a + iT)}} \right| \le \sum_{p} \sum_{m=1}^{\infty} \frac{1}{m p^{ma}} = \ln \zeta(a) < \infty.
+		\]
+		Furthermore, $|x^{a + iT}| = x^a$ is constant with respect to $T$. However, the denominator contains $|s| = \sqrt{a^2 + T^2}$. Therefore:
+		\[
+		|I_B(T)| \le \frac{2 x^a}{\ln x} \cdot \frac{\ln \zeta(a)}{\sqrt{a^2 + T^2}} \xrightarrow{T \to \infty} 0.
+		\]
+	\end{proof}
+	
+	\section{From $\frac{\zeta'(s)}{\zeta(s)}$ to the Explicit Formula}
+	
+	By removing the boundary term, the identity simplifies to:
+	\begin{equation}
+		J(x) = -\frac{1}{2\pi i \ln x} \int_{a - i\infty}^{a + i\infty} \frac{\zeta'(s)}{\zeta(s)} \frac{x^s}{s} \, ds + \text{(minor terms)}.
+	\end{equation}
+	
+	Substituting the Hadamard product expansion for $\frac{\zeta'(s)}{\zeta(s)}$ over the non-trivial zeros $\rho$:
+	\begin{equation}
+		\frac{\zeta'(s)}{\zeta(s)} = \ln(2\pi) - 1 - \frac{\gamma}{2} - \frac{1}{s-1} - \frac{1}{2}\frac{\psi(s/2 + 1)}{\dots} + \sum_{\rho} \left( \frac{1}{s - \rho} + \frac{1}{\rho} \right),
+	\end{equation}
+	and integrating term-by-term via Cauchy's Residue Theorem yields Riemann's celebrated explicit formula:
+	\begin{equation}
+		J(x) = \mathrm{Li}(x) - \sum_{\rho} \mathrm{Li}(x^\rho) - \ln 2 + \int_{x}^{\infty} \frac{dt}{t(t^2 - 1) \ln t}.
+	\end{equation}
+	
+\end{document}

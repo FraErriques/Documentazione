@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{General Relativity Notes: Tensors \& Galilean Limit}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Part 1: The Einstein Field Equations \& Galileo's Falling Stone}
+	
+	The core equation of General Relativity—the \textbf{Einstein Field Equation (EFE)}—is an equality between symmetric rank-2 tensors in 4-dimensional spacetime:
+	\begin{equation}
+		G_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu}
+	\end{equation}
+	where $G_{\mu\nu}$ (the Einstein tensor) encodes spacetime curvature, and $T_{\mu\nu}$ (the stress-energy-momentum tensor) encodes matter and energy.
+	
+	The metric tensor $g_{\mu\nu}$ lives implicitly inside $G_{\mu\nu}$, built from its derivatives:
+	\begin{equation}
+		G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} R \, g_{\mu\nu}
+	\end{equation}
+	
+	\subsection*{1. The Background Spacetime (The Earth)}
+	Outside the Earth, where the stone falls, local space is effectively empty of ambient mass. Thus, $T_{\mu\nu} \approx 0$. The field equation simplifies to $G_{\mu\nu} = 0$, yielding the \textbf{Weak-Field Schwarzschild Metric} in $(c\,dt, dr, d\theta, d\phi)$ coordinates:
+	\begin{equation}
+		g_{\mu\nu} \approx \begin{pmatrix} 
+			-\left(1 - \frac{2GM}{c^2 r}\right) & 0 & 0 & 0 \\
+			0 & \left(1 - \frac{2GM}{c^2 r}\right)^{-1} & 0 & 0 \\
+			0 & 0 & r^2 & 0 \\
+			0 & 0 & 0 & r^2 \sin^2\theta
+		\end{pmatrix}
+	\end{equation}
+	The $g_{00}$ component contains the Newtonian gravitational potential $\Phi(r) = -GM/r$, providing the uniform downward acceleration $g \approx 9.81 \text{ m/s}^2$.
+	
+	\subsection*{2. The Stress-Energy Tensor of the Falling Stone}
+	Treating the falling stone of mass $m$ as a localized dust particle with 4-velocity $u^\mu = \frac{dx^\mu}{d\tau}$, its stress-energy tensor is:
+	\begin{equation}
+		T^{\mu\nu}_{\text{stone}}(x) = m \, u^\mu u^\nu \, \frac{\delta^{(3)}(\vec{x} - \vec{x}_{\text{stone}}(\tau))}{\gamma}
+	\end{equation}
+	For non-relativistic velocities $v \ll c$, where $u^\mu \approx (c, v_r, 0, 0)$:
+	\begin{equation}
+		T^{\mu\nu}_{\text{stone}} \approx \begin{pmatrix}
+			\rho c^2 & \rho c \, v_r & 0 & 0 \\
+			\rho c \, v_r & \rho v_r^2 & 0 & 0 \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0
+		\end{pmatrix}
+	\end{equation}
+	\begin{itemize}
+		\item $\rho c^2$ ($T^{00}$): Rest-mass energy density of the stone.
+		\item $\rho c \, v_r$ ($T^{01}$): Radial momentum density as it falls.
+		\item $\rho v_r^2$ ($T^{11}$): Radial momentum flux (negligible compared to $\rho c^2$).
+	\end{itemize}
+	
+	\subsection*{3. Connecting the Motion}
+	Since $m \ll M$, the stone acts as a test particle following a \textbf{geodesic} in Earth's metric:
+	\begin{equation}
+		\frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0
+	\end{equation}
+	Taking the spatial radial component $\mu = r$ in the weak-field limit:
+	\begin{equation}
+		\frac{d^2 r}{dt^2} \approx -\frac{1}{2} c^2 \partial_r g_{00} = -\frac{GM}{r^2} = -g
+	\end{equation}
+	
+	\newpage
+	
+	\section*{Part 2: Step-by-Step Derivation of $d^2r/dt^2 = -g$}
+	
+	\subsection*{1. The Weak-Field Static Metric}
+	In the weak-field limit ($GM / c^2 r \ll 1$), using coordinates $(x^0, x^1, x^2, x^3) = (ct, r, \theta, \phi)$ and potential $\Phi(r) = -\frac{GM}{r}$:
+	\begin{equation}
+		g_{\mu\nu} \approx \begin{pmatrix} 
+			-\left(1 + \frac{2\Phi}{c^2}\right) & 0 & 0 & 0 \\
+			0 & 1 - \frac{2\Phi}{c^2} & 0 & 0 \\
+			0 & 0 & r^2 & 0 \\
+			0 & 0 & 0 & r^2 \sin^2\theta
+		\end{pmatrix}
+	\end{equation}
+	The relevant metric components and their inverses are:
+	\begin{align}
+		g_{00} &\approx -\left(1 + \frac{2\Phi}{c^2}\right), & g_{rr} &\approx 1 - \frac{2\Phi}{c^2} \\
+		g^{00} &\approx -\left(1 - \frac{2\Phi}{c^2}\right), & g^{rr} &\approx 1 + \frac{2\Phi}{c^2}
+	\end{align}
+	
+	\subsection*{2. Deriving the Christoffel Symbol $\Gamma^r_{00}$}
+	The Christoffel symbols of the second kind are defined as:
+	\begin{equation}
+		\Gamma^\lambda_{\alpha\beta} = \frac{1}{2} g^{\lambda\sigma} \left( \partial_\alpha g_{\beta\sigma} + \partial_\beta g_{\alpha\sigma} - \partial_\sigma g_{\alpha\beta} \right)
+	\end{equation}
+	For purely radial motion with $v \ll c$, the temporal coordinate derivative $dx^0/d\tau = c \, dt/d\tau$ dominates. The required radial symbol is:
+	\begin{equation}
+		\Gamma^r_{00} = \frac{1}{2} g^{rr} \left( \partial_0 g_{0r} + \partial_0 g_{r0} - \partial_r g_{00} \right)
+	\end{equation}
+	Since the metric is static ($\partial_0 g_{\alpha\beta} = 0$):
+	\begin{equation}
+		\Gamma^r_{00} = -\frac{1}{2} g^{rr} \partial_r g_{00}
+	\end{equation}
+	Substituting $g^{rr} \approx 1$ and $g_{00} = -\left(1 + \frac{2\Phi}{c^2}\right)$:
+	\begin{equation}
+		\Gamma^r_{00} \approx -\frac{1}{2} (1) \frac{\partial}{\partial r} \left( -1 - \frac{2\Phi}{c^2} \right) = \frac{1}{c^2} \frac{d\Phi}{dr}
+	\end{equation}
+	With $\frac{d\Phi}{dr} = \frac{GM}{r^2}$:
+	\begin{equation}
+		\Gamma^r_{00} \approx \frac{GM}{c^2 r^2}
+	\end{equation}
+	
+	\subsection*{3. The Geodesic Equation}
+	The radial component ($\mu = r$) of the geodesic equation is:
+	\begin{equation}
+		\frac{d^2 r}{d\tau^2} + \Gamma^r_{00} \left(\frac{dx^0}{d\tau}\right)^2 + 2\Gamma^r_{0r} \left(\frac{dx^0}{d\tau}\right)\left(\frac{dr}{d\tau}\right) + \Gamma^r_{rr}\left(\frac{dr}{d\tau}\right)^2 = 0
+	\end{equation}
+	In the non-relativistic limit ($v \ll c$):
+	\begin{itemize}
+		\item $\frac{dx^0}{d\tau} = c \frac{dt}{d\tau} \approx c$ (since $dt/d\tau \approx 1$).
+		\item Terms containing $\frac{dr}{d\tau}$ are suppressed by factors of $v/c$ and $v^2/c^2$.
+	\end{itemize}
+	Retaining leading order terms:
+	\begin{equation}
+		\frac{d^2 r}{d\tau^2} + \Gamma^r_{00} \left(c \frac{dt}{d\tau}\right)^2 \approx 0 \implies \frac{d^2 r}{dt^2} + c^2 \Gamma^r_{00} \approx 0
+	\end{equation}
+	
+	\subsection*{4. Final Result}
+	Substituting $\Gamma^r_{00}$:
+	\begin{equation}
+		\frac{d^2 r}{dt^2} + c^2 \left( \frac{GM}{c^2 r^2} \right) = 0 \implies \frac{d^2 r}{dt^2} = -\frac{GM}{r^2}
+	\end{equation}
+	Evaluating at Earth's surface ($r \approx R_\oplus$), where $g \equiv \frac{GM}{R_\oplus^2} \approx 9.81 \text{ m/s}^2$:
+	\begin{equation}
+		\frac{d^2 r}{dt^2} = -g
+	\end{equation}
+	
+\end{document}

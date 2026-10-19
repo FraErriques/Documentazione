@@ -10,13 +10,37 @@
 
 \maketitle
 
-\section{Introduction}
-This is a sample document to demonstrate LaTeX. Below is an example of a mathematical equation.
+\section*{Derivation of Hankel's Loop Integral for $1/\Gamma(z)$}
 
-\section{Mathematical Equation}
-Here is the quadratic formula:
-\begin{equation}
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-\end{equation}
+\subsection*{1. The Integral Definition}
+We define the contour integral $I(z)$ along the Hankel contour $C$ (starting at $-\infty$, circling the origin, and returning to $-\infty$):
+$$I(z) = \int_C e^t t^{-z} dt$$
+Assuming $Re(z) < 1$, the contribution from the small circle around the origin vanishes as the radius $\epsilon \to 0$.
+
+\subsection*{2. Parameterizing the Paths}
+We split $C$ into two linear branches along the negative real axis:
+\begin{itemize}
+	\item \textbf{Upper Branch:} $t = r e^{i\pi}$, where $r$ goes from $\infty$ to $0$. 
+	Thus, $dt = -dr$ and $t^{-z} = r^{-z} e^{-i\pi z}$.
+	$$\int_{\infty}^0 e^{-r} (r^{-z} e^{-i\pi z}) (-dr) = e^{-i\pi z} \int_0^\infty e^{-r} r^{-z} dr$$
+	
+	\item \textbf{Lower Branch:} $t = r e^{-i\pi}$, where $r$ goes from $0$ to $\infty$. 
+	Thus, $dt = dr$ and $t^{-z} = r^{-z} e^{i\pi z}$. (Note: the direction is $0$ to $-\infty$, so we adjust the sign).
+	$$\int_0^{\infty} e^{-r} (r^{-z} e^{i\pi z}) (-dr) = -e^{i\pi z} \int_0^\infty e^{-r} r^{-z} dr$$
+\end{itemize}
+
+\subsection*{3. Combining and Simplifying}
+Recognizing the definition $\Gamma(1-z) = \int_0^\infty e^{-r} r^{(1-z)-1} dr = \int_0^\infty e^{-r} r^{-z} dr$:
+$$I(z) = (e^{-i\pi z} - e^{i\pi z}) \Gamma(1-z)$$
+Using the identity $\sin(\pi z) = \frac{e^{i\pi z} - e^{-i\pi z}}{2i}$, we have:
+$$I(z) = -2i \sin(\pi z) \Gamma(1-z)$$
+
+\subsection*{4. The Final Step: Euler's Reflection Formula}
+Using $\Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin(\pi z)}$, we substitute for the sine term:
+$$\sin(\pi z)\Gamma(1-z) = \frac{\pi}{\Gamma(z)}$$
+Plugging this into our $I(z)$ equation:
+$$I(z) = -2i \left( \frac{\pi}{\Gamma(z)} \right)$$
+Rearranging gives the final identity:
+$$\frac{1}{\Gamma(z)} = \frac{1}{2\pi i} \int_C e^t t^{-z} dt$$
 
 \end{document}

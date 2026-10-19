@@ -1,0 +1,171 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\geometry{
+	a4paper,
+	left=22mm,
+	right=22mm,
+	top=25mm,
+	bottom=25mm
+}
+
+\definecolor{primary}{RGB}{30, 58, 138}
+\definecolor{accent}{RGB}{194, 65, 12}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=primary,
+	citecolor=primary,
+	urlcolor=accent
+}
+
+\title{\textbf{\Large Theorema Egregium, Christoffel Symbols, and Non-Commutativity in Differential Geometry}}
+\author{\textbf{Theoretical Geometry Study Notes}}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This document provides a rigorous mathematical bridge between Gauss's \emph{Theorema Egregium}, the Christoffel symbols of the second kind, and the Riemann curvature tensor. It details how intrinsic derivatives lead directly to curvature via the non-commutativity of covariant derivatives, demonstrating how normal vector components cancel out in surface geometry.
+	\end{abstract}
+	
+	\hrule
+	\vspace{1.5em}
+	
+	\section{Part 1: Theorema Egregium and Christoffel Symbols}
+	
+	The Christoffel symbols are the operational mechanics that make the \emph{Theorema Egregium} possible. While the Christoffel symbols do not directly measure curvature themselves, they capture how coordinate basis vectors change intrinsic to the surface. Gauss's insight was showing that when taking derivatives of these symbols, the extrinsic components (the normal vector terms) cancel out, leaving the Gaussian curvature $K$ purely in terms of the metric $g_{ij}$ and its partial derivatives.
+	
+	\subsection{Conceptual Alignment}
+	
+	\begin{itemize}
+		\item \textbf{Christoffel Symbols ($\Gamma_{ij}^k$):} Quantify how basis vectors twist and stretch \emph{tangent to the surface} as one moves along coordinates. They are completely intrinsic and depend only on the first fundamental form $g_{ij}$ and its partial derivatives:
+		\begin{equation}
+			\Gamma_{ij}^k = \frac{1}{2} g^{kl} \left( \frac{\partial g_{jl}}{\partial x^i} + \frac{\partial g_{ik}}{\partial x^j} - \frac{\partial g_{ij}}{\partial x^l} \right)
+		\end{equation}
+		
+		\item \textbf{Gaussian Curvature ($K$):} Measures two-dimensional intrinsic curvature. Gauss originally defined it extrinsically via the principal curvatures:
+		\begin{equation}
+			K = \kappa_1 \kappa_2 = \frac{eg - f^2}{EG - F^2} = \frac{\det(L_{ij})}{\det(g_{ij})}
+		\end{equation}
+		
+		\item \textbf{Theorema Egregium:} Proves that despite being defined via the normal vector $\mathbf{n}$ (via the second fundamental form $L_{ij}$), $K$ can be calculated strictly using $\Gamma_{ij}^k$ and their first partial derivatives.
+	\end{itemize}
+	
+	\subsection{Step-by-Step Calculation Pathway}
+	
+	\subsubsection{1. Decomposition of Second Derivatives (Gauss Formula)}
+	For a surface patch $\mathbf{r}(u^1, u^2)$ with tangent vectors $\mathbf{r}_i = \frac{\partial \mathbf{r}}{\partial u^i}$ and unit normal vector $\mathbf{n}$, the second derivatives split into tangential and normal components:
+	\begin{equation}
+		\mathbf{r}_{ij} = \Gamma_{ij}^k \mathbf{r}_k + L_{ij} \mathbf{n}
+	\end{equation}
+	where $\Gamma_{ij}^k \mathbf{r}_k$ represents the intrinsic derivative along the tangent space, and $L_{ij} \mathbf{n}$ represents the extrinsic bending into the ambient embedding space.
+	
+	\subsubsection{2. Equality of Mixed Partial Derivatives (Clairaut's Theorem)}
+	To compute curvature, evaluate the compatibility condition by taking third derivatives in different orders:
+	\begin{equation}
+		\frac{\partial}{\partial u^l}(\mathbf{r}_{ij}) = \frac{\partial}{\partial u^j}(\mathbf{r}_{il})
+	\end{equation}
+	
+	Differentiating $\mathbf{r}_{ij} = \Gamma_{ij}^k \mathbf{r}_k + L_{ij} \mathbf{n}$ with respect to $u^l$ yields both tangent and normal terms. Substituting the Weingarten equations ($\mathbf{n}_l = -L_{lm} g^{mk} \mathbf{r}_k$) converts normal derivatives back into tangent vectors.
+	
+	\subsubsection{3. Isolating the Tangential Components (Gauss Equation)}
+	Equating the tangential coefficients from $\partial_l \mathbf{r}_{ij}$ and $\partial_j \mathbf{r}_{il}$ eliminates $\mathbf{n}$ derivatives entirely:
+	\begin{equation}
+		R^\mu_{\phantom{\mu}\nu \alpha \beta} \mathbf{r}_\mu = \left( \frac{\partial \Gamma_{\nu\beta}^\mu}{\partial u^\alpha} - \frac{\partial \Gamma_{\nu\alpha}^\mu}{\partial u^\beta} + \Gamma_{\sigma\alpha}^\mu \Gamma_{\nu\beta}^\sigma - \Gamma_{\sigma\beta}^\mu \Gamma_{\nu\alpha}^\sigma \right) \mathbf{r}_\mu = \left( L_{\nu\beta} L_{\alpha}^\mu - L_{\nu\alpha} L_{\beta}^\mu \right) \mathbf{r}_\mu
+	\end{equation}
+	The term in parentheses on the left is the \textbf{Riemann Curvature Tensor} $R^\mu_{\phantom{\mu}\nu \alpha \beta}$, constructed exclusively from Christoffel symbols and their first partial derivatives.
+	
+	\subsubsection{4. The Extrinsic-to-Intrinsic Bridge}
+	In two dimensions, contracting the Riemann tensor indices yields:
+	\begin{equation}
+		R_{1212} = L_{11}L_{22} - L_{12}^2 = \det(L_{ij})
+	\end{equation}
+	Dividing by the determinant of the metric $g = \det(g_{ij})$ relates the expression back to Gauss's original definition:
+	\begin{equation}
+		K = \frac{\det(L_{ij})}{\det(g_{ij})} = \frac{R_{1212}}{g}
+	\end{equation}
+	
+	\vspace{1.5em}
+	\hrule
+	\vspace{1.5em}
+	
+	\section{Part 2: What ``Non-Commutativity'' Measures in the Riemann Tensor}
+	
+	When discussing non-commutativity in differential geometry, it refers specifically to the **non-commutativity of covariant derivatives**:
+	\begin{equation}
+		[\nabla_\alpha, \nabla_\beta] V^\mu = \nabla_\alpha \nabla_\beta V^\mu - \nabla_\beta \nabla_\alpha V^\mu \neq 0
+	\end{equation}
+	
+	In ordinary multivariate calculus on flat Euclidean space $\mathbb{R}^n$, partial derivatives commute ($\partial_x \partial_y f = \partial_y \partial_x f$). However, on a curved manifold, differentiating vector fields sequentially along two directions yields a difference that depends directly on curvature.
+	
+	\subsection{1. The Geometric Intuition: Parallel Transport around a Closed Loop}
+	
+	Imagine carrying a vector $\mathbf{v}$ along a small closed quadrilateral loop spanned by two coordinate vectors $\mathbf{x}$ and $\mathbf{y}$ of length $\epsilon$:
+	\begin{enumerate}
+		\item Transport $\mathbf{v}$ along $\mathbf{x}$ by step $\epsilon$, then along $\mathbf{y}$ by step $\epsilon$.
+		\item Transport $\mathbf{v}$ along $\mathbf{y}$ by step $\epsilon$, then along $\mathbf{x}$ by step $\epsilon$.
+	\end{enumerate}
+	
+	\noindent On a \textbf{flat plane}, the resulting vector points in the exact same direction regardless of path order.
+	
+	\noindent On a \textbf{curved surface} (e.g., a sphere):
+	\begin{itemize}
+		\item Start at the equator, vector pointing North.
+		\item Move East $90^\circ$, then North to the Pole: vector points South relative to your local direction.
+		\item Move North to the Pole first, then East $90^\circ$: vector points West.
+	\end{itemize}
+	
+	The failure of the vector to return to its original orientation after traversing the loop is \textbf{holonomy}. The commutator $[\nabla_\alpha, \nabla_\beta] V^\mu$ is the infinitesimal generator of this rotation.
+	
+	\subsection{2. The Algebraic Derivation of the Commutator}
+	
+	The covariant derivative of a vector field $V^\mu$ along coordinate direction $\partial_\beta$ is:
+	\begin{equation}
+		\nabla_\beta V^\mu = \partial_\beta V^\mu + \Gamma_{\sigma\beta}^\mu V^\sigma
+	\end{equation}
+	
+	Applying a second covariant derivative $\nabla_\alpha$ to this vector quantity:
+	\begin{equation}
+		\nabla_\alpha (\nabla_\beta V^\mu) = \partial_\alpha(\nabla_\beta V^\mu) + \Gamma_{\rho\alpha}^\mu (\nabla_\beta V^\rho) - \Gamma_{\beta\alpha}^\sigma (\nabla_\sigma V^\mu)
+	\end{equation}
+	
+	Expanding all terms yields partial derivatives of both $V^\mu$ and the Christoffel symbols:
+	\begin{equation}
+		\nabla_\alpha \nabla_\beta V^\mu = \partial_\alpha \partial_\beta V^\mu + (\partial_\alpha \Gamma_{\sigma\beta}^\mu) V^\sigma + \Gamma_{\sigma\beta}^\mu (\partial_\alpha V^\sigma) + \Gamma_{\rho\alpha}^\mu \partial_\beta V^\rho + \Gamma_{\rho\alpha}^\mu \Gamma_{\sigma\beta}^\rho V^\sigma - \Gamma_{\beta\alpha}^\sigma \nabla_\sigma V^\mu
+	\end{equation}
+	
+	Now compute the reverse order $\nabla_\beta \nabla_\alpha V^\mu$ and subtract:
+	\begin{equation}
+		\nabla_\alpha \nabla_\beta V^\mu - \nabla_\beta \nabla_\alpha V^\mu = \left( \partial_\alpha \Gamma_{\sigma\beta}^\mu - \partial_\beta \Gamma_{\sigma\alpha}^\mu + \Gamma_{\rho\alpha}^\mu \Gamma_{\sigma\beta}^\rho - \Gamma_{\rho\beta}^\mu \Gamma_{\sigma\alpha}^\rho \right) V^\sigma
+	\end{equation}
+	
+	Notice how:
+	\begin{itemize}
+		\item The second partial derivatives $\partial_\alpha \partial_\beta V^\mu$ cancel out completely because ordinary derivatives commute ($\partial_\alpha \partial_\beta = \partial_\beta \partial_\alpha$).
+		\item The linear derivative terms $\partial V$ cancel out due to symmetry of the connection ($\Gamma_{\alpha\beta}^\sigma = \Gamma_{\beta\alpha}^\sigma$ in torsion-free Levi-Civita geometry).
+	\end{itemize}
+	
+	The surviving factor multiplying $V^\sigma$ is precisely the \textbf{Riemann Curvature Tensor}:
+	\begin{equation}
+		[\nabla_\alpha, \nabla_\beta] V^\mu = R^\mu_{\phantom{\mu}\sigma \alpha \beta} V^\sigma
+	\end{equation}
+	
+	\subsection{3. Summary of Meaning}
+	
+	\begin{itemize}
+		\item \textbf{Flat space:} $\Gamma = 0$ (in Cartesian coordinates) or $\partial \Gamma + \Gamma \Gamma = 0$ (in curvilinear coordinates). Thus, covariant derivatives commute: $\nabla_\alpha \nabla_\beta = \nabla_\beta \nabla_\alpha$, and $R^\mu_{\phantom{\mu}\sigma \alpha \beta} = 0$.
+		\item \textbf{Curved space:} The coordinate grid cannot be flattened without distortion. Carrying vectors along different axes produces an intrinsic rotation proportional to the area enclosed by the path, measured directly by $R^\mu_{\phantom{\mu}\sigma \alpha \beta}$.
+	\end{itemize}
+	
+\end{document}

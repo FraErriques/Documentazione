@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+	
+	\section*{Christoffel Symbols from Basis Vector Derivatives (Polar Coordinates)}
+	
+	\subsection*{1. Coordinate System}
+	
+	We work in planar polar coordinates:
+	\[
+	(r,\theta)
+	\]
+	
+	Position vector:
+	\[
+	\mathbf{r}(r,\theta) = r \cos\theta \, \hat{\mathbf{x}} + r \sin\theta \, \hat{\mathbf{y}}
+	\]
+	
+	\subsection*{2. Coordinate Basis Vectors}
+	
+	The basis vectors are:
+	\[
+	\mathbf{e}_r = \frac{\partial \mathbf{r}}{\partial r}
+	= \cos\theta \, \hat{\mathbf{x}} + \sin\theta \, \hat{\mathbf{y}}
+	\]
+	
+	\[
+	\mathbf{e}_\theta = \frac{\partial \mathbf{r}}{\partial \theta}
+	= -r\sin\theta \, \hat{\mathbf{x}} + r\cos\theta \, \hat{\mathbf{y}}
+	\]
+	
+	\subsection*{3. Metric Check}
+	
+	\[
+	\mathbf{e}_r \cdot \mathbf{e}_r = 1
+	\]
+	\[
+	\mathbf{e}_\theta \cdot \mathbf{e}_\theta = r^2
+	\]
+	\[
+	\mathbf{e}_r \cdot \mathbf{e}_\theta = 0
+	\]
+	
+	\subsection*{4. Key Relation}
+	
+	Christoffel symbols are defined by:
+	\[
+	\frac{\partial \mathbf{e}_i}{\partial x^j}
+	=
+	\Gamma^k_{ij} \mathbf{e}_k
+	\]
+	
+	We compute each derivative explicitly.
+	
+	\subsection*{5. Derivatives of Basis Vectors}
+	
+	\subsubsection*{(a) $\frac{\partial \mathbf{e}_r}{\partial r}$}
+	
+	\[
+	\frac{\partial \mathbf{e}_r}{\partial r} = 0
+	\]
+	
+	Thus:
+	\[
+	\Gamma^r_{rr} = 0, \quad \Gamma^\theta_{rr} = 0
+	\]
+	
+	\subsubsection*{(b) $\frac{\partial \mathbf{e}_r}{\partial \theta}$}
+	
+	\[
+	\frac{\partial \mathbf{e}_r}{\partial \theta}
+	= -\sin\theta \, \hat{\mathbf{x}} + \cos\theta \, \hat{\mathbf{y}}
+	\]
+	
+	We rewrite in terms of $\mathbf{e}_\theta$:
+	
+	\[
+	\mathbf{e}_\theta = r(-\sin\theta \, \hat{\mathbf{x}} + \cos\theta \, \hat{\mathbf{y}})
+	\]
+	
+	So:
+	\[
+	\frac{\partial \mathbf{e}_r}{\partial \theta}
+	= \frac{1}{r} \mathbf{e}_\theta
+	\]
+	
+	Thus:
+	\[
+	\Gamma^r_{r\theta} = 0, \quad \Gamma^\theta_{r\theta} = \frac{1}{r}
+	\]
+	
+	\subsubsection*{(c) $\frac{\partial \mathbf{e}_\theta}{\partial r}$}
+	
+	\[
+	\frac{\partial \mathbf{e}_\theta}{\partial r}
+	= -\sin\theta \, \hat{\mathbf{x}} + \cos\theta \, \hat{\mathbf{y}}
+	\]
+	
+	Again:
+	\[
+	\frac{\partial \mathbf{e}_\theta}{\partial r}
+	= \frac{1}{r} \mathbf{e}_\theta
+	\]
+	
+	Thus:
+	\[
+	\Gamma^r_{\theta r} = 0, \quad \Gamma^\theta_{\theta r} = \frac{1}{r}
+	\]
+	
+	\subsubsection*{(d) $\frac{\partial \mathbf{e}_\theta}{\partial \theta}$}
+	
+	\[
+	\frac{\partial \mathbf{e}_\theta}{\partial \theta}
+	=
+	-r\cos\theta \, \hat{\mathbf{x}} - r\sin\theta \, \hat{\mathbf{y}}
+	\]
+	
+	Factor:
+	\[
+	= -r(\cos\theta \, \hat{\mathbf{x}} + \sin\theta \, \hat{\mathbf{y}})
+	= -r \mathbf{e}_r
+	\]
+	
+	Thus:
+	\[
+	\Gamma^r_{\theta\theta} = -r, \quad \Gamma^\theta_{\theta\theta} = 0
+	\]
+	
+	\subsection*{6. Final Result}
+	
+	The nonzero Christoffel symbols are:
+	
+	\[
+	\Gamma^r_{\theta\theta} = -r
+	\]
+	
+	\[
+	\Gamma^\theta_{r\theta} = \Gamma^\theta_{\theta r} = \frac{1}{r}
+	\]
+	
+	All others vanish.
+	
+\end{document}

@@ -1,4 +1,5 @@
 
+
 fn acceleration  (time_from : f64, time_to : f64, want_average : bool) -> (f64,f64,f64) {
     if want_average {
         if time_to-time_from <=0.0 {
@@ -76,3 +77,4 @@ fn main() {
       println!("The AVERAGE acceleration is  {:?} m/s^2",  acceleration(0.0, elapsed, true) );  
       println!("The POINT acceleration is  {:?} m/s^2"  ,  acceleration(0.0, elapsed, false) );        
 }// main
+
