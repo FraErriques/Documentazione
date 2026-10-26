@@ -4,24 +4,18 @@
   "configurations": [
 
     {
-      "name": "Debug Rust with GDB (MSYS2)",
+      "name": "LLVM",
       "type": "cppdbg",
       "request": "launch",
 
       // ✅ Use the project’s debug binary automatically (optional)
       // If you prefer your absolute path, keep it. This just avoids edits per project.
-      "program": "${workspaceFolder}/target/debug/${workspaceFolderBasename}.exe",
+      "program": "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
 
       "args": [],
       "cwd": "${workspaceFolder}",
 
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:\\Users\\itfraerr\\program\\msys64\\mingw64\\bin\\gdb.exe",
-
-      // 🔽 Key settings to see and step in disassembly
-       "showDisassembly": "auto",       // "auto" to switch only when source missing
-       "disassemblyFlavor": "intel",      // Optional: if you prefer Intel syntax
-       "stopAtEntry": false,
+      
 
       // Optional but handy: keep MSYS2 tools on PATH when starting under GUI
       // (Safe to remove if you always launch VS Code from MINGW64 terminal.)
