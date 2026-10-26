@@ -1,3 +1,6 @@
+/target/
+target/
+
 *.layout
 20220703_Map_/bin/
 20220703_Map_/obj/
